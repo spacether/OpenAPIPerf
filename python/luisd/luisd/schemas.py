@@ -66,8 +66,12 @@ def update(d: dict, u: dict):
     Adds u to d
     Where each dict is defaultdict(set)
     """
+    if not u:
+        return d
     for k, v in u.items():
-        d[k] = d[k].union(v)
+        if not v:
+            continue
+        d[k] = d[k] | v
     return d
 
 
@@ -1443,21 +1447,10 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
     int, float -> Decimal
     StrSchema will convert that to bytes and remember the encoding when we pass in str input
     """
-    if isinstance(arg, (date, datetime)):
-        if not from_server:
-            return arg.isoformat()
-        # ApiTypeError will be thrown later by _validate_type
+    if isinstance(arg, str):
         return arg
-    elif isinstance(arg, bool):
-        """
-        this check must come before isinstance(arg, (int, float))
-        because isinstance(True, int) is True
-        """
-        return arg
-    elif isinstance(arg, decimal.Decimal):
-        return arg
-    elif isinstance(arg, int):
-        return decimal.Decimal(arg)
+    elif type(arg) is dict or type(arg) is frozendict:
+        return frozendict({key: cast_to_allowed_types(val) for key, val in arg.items()})
     elif isinstance(arg, float):
         decimal_from_float = decimal.Decimal(arg)
         if decimal_from_float.as_integer_ratio()[1] == 1:
@@ -1465,19 +1458,30 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
             # 3.4028234663852886e+38 -> Decimal('340282346638528859811704183484516925440.0')
             return decimal.Decimal(str(decimal_from_float)+'.0')
         return decimal_from_float
-    elif isinstance(arg, str):
+    elif type(arg) is list or type(arg) is tuple:
+        return tuple([cast_to_allowed_types(item) for item in arg])
+    elif isinstance(arg, int):
+        return decimal.Decimal(arg)
+    elif isinstance(arg, bool):
+        """
+        this check must come before isinstance(arg, (int, float))
+        because isinstance(True, int) is True
+        """
+        return arg
+    elif arg is None:
+        return arg
+    elif isinstance(arg, (date, datetime)):
+        if not from_server:
+            return arg.isoformat()
+        # ApiTypeError will be thrown later by _validate_type
+        return arg
+    elif isinstance(arg, decimal.Decimal):
         return arg
     elif isinstance(arg, bytes):
         return arg
     elif isinstance(arg, (io.FileIO, io.BufferedReader)):
         if arg.closed:
             raise ApiValueError('Invalid file state; file is closed and must be open')
-        return arg
-    elif type(arg) is list or type(arg) is tuple:
-        return tuple([cast_to_allowed_types(item) for item in arg])
-    elif type(arg) is dict or type(arg) is frozendict:
-        return frozendict({key: cast_to_allowed_types(val) for key, val in arg.items() if val is not unset})
-    elif arg is None:
         return arg
     elif isinstance(arg, Schema):
         return arg
