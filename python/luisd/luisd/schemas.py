@@ -1336,12 +1336,12 @@ class Schema:
     @classmethod
     def _get_new_instance_without_conversion(cls, arg, _instantiation_metadata):
         # PATH 2 - we have a Dynamic class and we are making an instance of it
-        if issubclass(cls, tuple):
-            items = cls._get_items(arg, _instantiation_metadata=_instantiation_metadata)
-            return super(Schema, cls).__new__(cls, items)
-        elif issubclass(cls, frozendict):
+        if issubclass(cls, frozendict):
             properties = cls._get_properties(arg, _instantiation_metadata=_instantiation_metadata)
             return super(Schema, cls).__new__(cls, properties)
+        elif issubclass(cls, tuple):
+            items = cls._get_items(arg, _instantiation_metadata=_instantiation_metadata)
+            return super(Schema, cls).__new__(cls, items)
         """
         str = openapi str, date, and datetime
         decimal.Decimal = openapi int and float
@@ -1451,6 +1451,12 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
         return arg
     elif type(arg) is dict or type(arg) is frozendict:
         return frozendict({key: cast_to_allowed_types(val) for key, val in arg.items()})
+    elif isinstance(arg, bool):
+        """
+        this check must come before isinstance(arg, (int, float))
+        because isinstance(True, int) is True
+        """
+        return arg
     elif isinstance(arg, float):
         decimal_from_float = decimal.Decimal(arg)
         if decimal_from_float.as_integer_ratio()[1] == 1:
@@ -1462,12 +1468,6 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
         return tuple([cast_to_allowed_types(item) for item in arg])
     elif isinstance(arg, int):
         return decimal.Decimal(arg)
-    elif isinstance(arg, bool):
-        """
-        this check must come before isinstance(arg, (int, float))
-        because isinstance(True, int) is True
-        """
-        return arg
     elif arg is None:
         return arg
     elif isinstance(arg, (date, datetime)):
