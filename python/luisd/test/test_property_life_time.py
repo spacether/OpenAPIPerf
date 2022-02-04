@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.property_life_time import PropertyLifeTime
+import luisd
+from luisd.model.property_life_time import PropertyLifeTime
 
 
 class TestPropertyLifeTime(unittest.TestCase):

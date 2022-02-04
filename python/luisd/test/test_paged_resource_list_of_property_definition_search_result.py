@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_property_definition_search_result import PagedResourceListOfPropertyDefinitionSearchResult
+import luisd
+from luisd.model.paged_resource_list_of_property_definition_search_result import PagedResourceListOfPropertyDefinitionSearchResult
 
 
 class TestPagedResourceListOfPropertyDefinitionSearchResult(unittest.TestCase):

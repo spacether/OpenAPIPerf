@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.stream import Stream
+import luisd
+from luisd.model.stream import Stream
 
 
 class TestStream(unittest.TestCase):

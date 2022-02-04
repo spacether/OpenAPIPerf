@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_forward import FxForward
+import luisd
+from luisd.model.fx_forward import FxForward
 
 
 class TestFxForward(unittest.TestCase):

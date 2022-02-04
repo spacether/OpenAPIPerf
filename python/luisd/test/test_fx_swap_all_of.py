@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_swap_all_of import FxSwapAllOf
+import luisd
+from luisd.model.fx_swap_all_of import FxSwapAllOf
 
 
 class TestFxSwapAllOf(unittest.TestCase):

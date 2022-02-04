@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.expanded_group import ExpandedGroup
+import luisd
+from luisd.model.expanded_group import ExpandedGroup
 
 
 class TestExpandedGroup(unittest.TestCase):

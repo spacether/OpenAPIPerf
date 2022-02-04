@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.delete_instrument_response import DeleteInstrumentResponse
+import luisd
+from luisd.model.delete_instrument_response import DeleteInstrumentResponse
 
 
 class TestDeleteInstrumentResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_order_instruction import ResourceListOfOrderInstruction
+import luisd
+from luisd.model.resource_list_of_order_instruction import ResourceListOfOrderInstruction
 
 
 class TestResourceListOfOrderInstruction(unittest.TestCase):

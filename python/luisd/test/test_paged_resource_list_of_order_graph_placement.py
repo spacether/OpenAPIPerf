@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_order_graph_placement import PagedResourceListOfOrderGraphPlacement
+import luisd
+from luisd.model.paged_resource_list_of_order_graph_placement import PagedResourceListOfOrderGraphPlacement
 
 
 class TestPagedResourceListOfOrderGraphPlacement(unittest.TestCase):

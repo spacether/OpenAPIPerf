@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.forward_rate_agreement_all_of import ForwardRateAgreementAllOf
+import luisd
+from luisd.model.forward_rate_agreement_all_of import ForwardRateAgreementAllOf
 
 
 class TestForwardRateAgreementAllOf(unittest.TestCase):

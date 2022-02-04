@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.numeric_comparison_type import NumericComparisonType
+import luisd
+from luisd.model.numeric_comparison_type import NumericComparisonType
 
 
 class TestNumericComparisonType(unittest.TestCase):

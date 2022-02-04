@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconcile_string_rule import ReconcileStringRule
+import luisd
+from luisd.model.reconcile_string_rule import ReconcileStringRule
 
 
 class TestReconcileStringRule(unittest.TestCase):

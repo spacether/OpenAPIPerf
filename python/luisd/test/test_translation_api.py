@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.translation_api import TranslationApi  # noqa: E501
+import luisd
+from luisd.api.translation_api import TranslationApi  # noqa: E501
 
 
 class TestTranslationApi(unittest.TestCase):

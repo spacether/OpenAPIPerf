@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_person_request import UpsertPersonRequest
+import luisd
+from luisd.model.upsert_person_request import UpsertPersonRequest
 
 
 class TestUpsertPersonRequest(unittest.TestCase):

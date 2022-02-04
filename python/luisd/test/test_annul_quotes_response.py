@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.annul_quotes_response import AnnulQuotesResponse
+import luisd
+from luisd.model.annul_quotes_response import AnnulQuotesResponse
 
 
 class TestAnnulQuotesResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_get_recipe_response import ResourceListOfGetRecipeResponse
+import luisd
+from luisd.model.resource_list_of_get_recipe_response import ResourceListOfGetRecipeResponse
 
 
 class TestResourceListOfGetRecipeResponse(unittest.TestCase):

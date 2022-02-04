@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_flow_conventions_request import UpsertFlowConventionsRequest
+import luisd
+from luisd.model.upsert_flow_conventions_request import UpsertFlowConventionsRequest
 
 
 class TestUpsertFlowConventionsRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.atom_value0_d_all_of import AtomValue0DAllOf
+import luisd
+from luisd.model.atom_value0_d_all_of import AtomValue0DAllOf
 
 
 class TestAtomValue0DAllOf(unittest.TestCase):

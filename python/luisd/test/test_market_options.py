@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_options import MarketOptions
+import luisd
+from luisd.model.market_options import MarketOptions
 
 
 class TestMarketOptions(unittest.TestCase):

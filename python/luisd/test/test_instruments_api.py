@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.instruments_api import InstrumentsApi  # noqa: E501
+import luisd
+from luisd.api.instruments_api import InstrumentsApi  # noqa: E501
 
 
 class TestInstrumentsApi(unittest.TestCase):

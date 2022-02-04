@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.structured_result_data_id import StructuredResultDataId
+import luisd
+from luisd.model.structured_result_data_id import StructuredResultDataId
 
 
 class TestStructuredResultDataId(unittest.TestCase):

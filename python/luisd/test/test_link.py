@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.link import Link
+import luisd
+from luisd.model.link import Link
 
 
 class TestLink(unittest.TestCase):

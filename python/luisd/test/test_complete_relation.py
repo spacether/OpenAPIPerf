@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.complete_relation import CompleteRelation
+import luisd
+from luisd.model.complete_relation import CompleteRelation
 
 
 class TestCompleteRelation(unittest.TestCase):

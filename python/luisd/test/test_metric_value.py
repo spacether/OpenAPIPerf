@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.metric_value import MetricValue
+import luisd
+from luisd.model.metric_value import MetricValue
 
 
 class TestMetricValue(unittest.TestCase):

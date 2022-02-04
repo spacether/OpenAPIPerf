@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.a2_b_movement_record import A2BMovementRecord
+import luisd
+from luisd.model.a2_b_movement_record import A2BMovementRecord
 
 
 class TestA2BMovementRecord(unittest.TestCase):

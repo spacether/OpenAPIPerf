@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_instrument_property_request import UpsertInstrumentPropertyRequest
+import luisd
+from luisd.model.upsert_instrument_property_request import UpsertInstrumentPropertyRequest
 
 
 class TestUpsertInstrumentPropertyRequest(unittest.TestCase):

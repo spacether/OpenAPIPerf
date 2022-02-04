@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.portfolio_groups_api import PortfolioGroupsApi  # noqa: E501
+import luisd
+from luisd.api.portfolio_groups_api import PortfolioGroupsApi  # noqa: E501
 
 
 class TestPortfolioGroupsApi(unittest.TestCase):

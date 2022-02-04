@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_data_type import ResourceListOfDataType
+import luisd
+from luisd.model.resource_list_of_data_type import ResourceListOfDataType
 
 
 class TestResourceListOfDataType(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cap_floor import CapFloor
+import luisd
+from luisd.model.cap_floor import CapFloor
 
 
 class TestCapFloor(unittest.TestCase):

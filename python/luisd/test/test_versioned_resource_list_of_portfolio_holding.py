@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
+import luisd
+from luisd.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
 
 
 class TestVersionedResourceListOfPortfolioHolding(unittest.TestCase):

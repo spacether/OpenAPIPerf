@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.property_schema import PropertySchema
+import luisd
+from luisd.model.property_schema import PropertySchema
 
 
 class TestPropertySchema(unittest.TestCase):

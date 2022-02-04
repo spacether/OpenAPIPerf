@@ -1,4 +1,4 @@
-# openapi_client.StructuredResultDataApi
+# luisd.StructuredResultDataApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -22,16 +22,16 @@ Create or update one or more structured result store address definition data map
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.create_data_map_request import CreateDataMapRequest
-from openapi_client.model.upsert_structured_data_response import UpsertStructuredDataResponse
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.upsert_structured_data_response import UpsertStructuredDataResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_data_map_request import CreateDataMapRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -41,12 +41,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -79,7 +79,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->create_data_map: %s\n" % e)
 ```
 ### Parameters
@@ -239,16 +239,16 @@ Delete one or more structured result data items from a particular scope. Each it
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.structured_result_data_id import StructuredResultDataId
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_structured_data_response import AnnulStructuredDataResponse
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.annul_structured_data_response import AnnulStructuredDataResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.structured_result_data_id import StructuredResultDataId
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -258,12 +258,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -286,7 +286,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->delete_structured_result_data: %s\n" % e)
 ```
 ### Parameters
@@ -446,16 +446,16 @@ Retrieve one or more structured result store address definition data maps from a
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.get_data_map_response import GetDataMapResponse
-from openapi_client.model.data_map_key import DataMapKey
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.get_data_map_response import GetDataMapResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.data_map_key import DataMapKey
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -465,12 +465,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -491,7 +491,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->get_data_map: %s\n" % e)
 ```
 ### Parameters
@@ -651,16 +651,16 @@ Retrieve one or more structured result data items from a particular scope.      
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.structured_result_data_id import StructuredResultDataId
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.get_structured_result_data_response import GetStructuredResultDataResponse
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.structured_result_data_id import StructuredResultDataId
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_structured_result_data_response import GetStructuredResultDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -670,12 +670,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -701,7 +701,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
 
     # example passing only optional values
@@ -728,7 +728,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->get_structured_result_data: %s\n" % e)
 ```
 ### Parameters
@@ -914,16 +914,16 @@ Retrieve one or more virtual documents from a particular scope.                E
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.structured_result_data_id import StructuredResultDataId
-from openapi_client.model.get_virtual_document_response import GetVirtualDocumentResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.structured_result_data_id import StructuredResultDataId
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_virtual_document_response import GetVirtualDocumentResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -933,12 +933,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -964,7 +964,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->get_virtual_document: %s\n" % e)
 
     # example passing only optional values
@@ -990,7 +990,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->get_virtual_document: %s\n" % e)
 ```
 ### Parameters
@@ -1167,16 +1167,16 @@ Create or update one or more structured result data items in a particular scope.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import structured_result_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_structured_result_data_request import UpsertStructuredResultDataRequest
-from openapi_client.model.upsert_structured_data_response import UpsertStructuredDataResponse
+import luisd
+from luisd.api import structured_result_data_api
+from luisd.model.upsert_structured_data_response import UpsertStructuredDataResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_structured_result_data_request import UpsertStructuredResultDataRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1186,12 +1186,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = structured_result_data_api.StructuredResultDataApi(api_client)
 
@@ -1226,7 +1226,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling StructuredResultDataApi->upsert_structured_result_data: %s\n" % e)
 ```
 ### Parameters

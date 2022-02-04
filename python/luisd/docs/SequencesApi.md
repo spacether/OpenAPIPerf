@@ -1,4 +1,4 @@
-# openapi_client.SequencesApi
+# luisd.SequencesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -20,16 +20,16 @@ Create a new sequence
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import sequences_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.create_sequence_request import CreateSequenceRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.sequence_definition import SequenceDefinition
+import luisd
+from luisd.api import sequences_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.sequence_definition import SequenceDefinition
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_sequence_request import CreateSequenceRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -39,12 +39,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sequences_api.SequencesApi(api_client)
 
@@ -68,7 +68,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SequencesApi->create_sequence: %s\n" % e)
 ```
 ### Parameters
@@ -216,15 +216,15 @@ Return the details of a specified sequence
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import sequences_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.sequence_definition import SequenceDefinition
+import luisd
+from luisd.api import sequences_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.sequence_definition import SequenceDefinition
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -234,12 +234,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sequences_api.SequencesApi(api_client)
 
@@ -254,7 +254,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SequencesApi->get_sequence: %s\n" % e)
 ```
 ### Parameters
@@ -383,15 +383,15 @@ List sequences which satisfies filtering criteria.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import sequences_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.paged_resource_list_of_sequence_definition import PagedResourceListOfSequenceDefinition
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import sequences_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.paged_resource_list_of_sequence_definition import PagedResourceListOfSequenceDefinition
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -401,12 +401,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sequences_api.SequencesApi(api_client)
 
@@ -422,7 +422,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SequencesApi->list_sequences: %s\n" % e)
 ```
 ### Parameters
@@ -561,15 +561,15 @@ Get the next set of values from a specified sequence
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import sequences_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.next_value_in_sequence_response import NextValueInSequenceResponse
+import luisd
+from luisd.api import sequences_api
+from luisd.model.next_value_in_sequence_response import NextValueInSequenceResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -579,12 +579,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = sequences_api.SequencesApi(api_client)
 
@@ -602,7 +602,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SequencesApi->next: %s\n" % e)
 
     # example passing only optional values
@@ -620,7 +620,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SequencesApi->next: %s\n" % e)
 ```
 ### Parameters

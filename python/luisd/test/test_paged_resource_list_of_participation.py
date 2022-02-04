@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_participation import PagedResourceListOfParticipation
+import luisd
+from luisd.model.paged_resource_list_of_participation import PagedResourceListOfParticipation
 
 
 class TestPagedResourceListOfParticipation(unittest.TestCase):

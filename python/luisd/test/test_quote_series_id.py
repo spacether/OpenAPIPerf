@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.quote_series_id import QuoteSeriesId
+import luisd
+from luisd.model.quote_series_id import QuoteSeriesId
 
 
 class TestQuoteSeriesId(unittest.TestCase):

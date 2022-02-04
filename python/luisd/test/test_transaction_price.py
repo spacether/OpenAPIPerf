@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_price import TransactionPrice
+import luisd
+from luisd.model.transaction_price import TransactionPrice
 
 
 class TestTransactionPrice(unittest.TestCase):

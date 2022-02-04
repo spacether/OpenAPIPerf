@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_counterparty_agreement_request import UpsertCounterpartyAgreementRequest
+import luisd
+from luisd.model.upsert_counterparty_agreement_request import UpsertCounterpartyAgreementRequest
 
 
 class TestUpsertCounterpartyAgreementRequest(unittest.TestCase):

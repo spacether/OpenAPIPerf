@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_holdings_adjustment_header import ResourceListOfHoldingsAdjustmentHeader
+import luisd
+from luisd.model.resource_list_of_holdings_adjustment_header import ResourceListOfHoldingsAdjustmentHeader
 
 
 class TestResourceListOfHoldingsAdjustmentHeader(unittest.TestCase):

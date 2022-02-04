@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
+import luisd
+from luisd.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
 
 
 class TestResourceListOfReconciliationBreak(unittest.TestCase):

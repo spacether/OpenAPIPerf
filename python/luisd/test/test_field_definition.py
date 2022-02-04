@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.field_definition import FieldDefinition
+import luisd
+from luisd.model.field_definition import FieldDefinition
 
 
 class TestFieldDefinition(unittest.TestCase):

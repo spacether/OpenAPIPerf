@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.calculation_method import CalculationMethod
+import luisd
+from luisd.model.calculation_method import CalculationMethod
 
 
 class TestCalculationMethod(unittest.TestCase):

@@ -1,4 +1,4 @@
-# openapi_client.SearchApi
+# luisd.SearchApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -20,16 +20,16 @@ Search across all instruments that have been mastered in LUSID. Optionally augme
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import search_api
-from openapi_client.model.instrument_match import InstrumentMatch
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.instrument_search_property import InstrumentSearchProperty
+import luisd
+from luisd.api import search_api
+from luisd.model.instrument_search_property import InstrumentSearchProperty
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.instrument_match import InstrumentMatch
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -39,12 +39,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
 
@@ -59,7 +59,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SearchApi->instruments_search: %s\n" % e)
 
     # example passing only optional values
@@ -76,7 +76,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SearchApi->instruments_search: %s\n" % e)
 ```
 ### Parameters
@@ -251,15 +251,15 @@ Search through all portfolio groups
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import search_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_portfolio_group_search_result import PagedResourceListOfPortfolioGroupSearchResult
+import luisd
+from luisd.api import search_api
+from luisd.model.paged_resource_list_of_portfolio_group_search_result import PagedResourceListOfPortfolioGroupSearchResult
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -269,12 +269,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
 
@@ -292,7 +292,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SearchApi->search_portfolio_groups: %s\n" % e)
 ```
 ### Parameters
@@ -449,15 +449,15 @@ Search through all portfolios
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import search_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_portfolio_search_result import PagedResourceListOfPortfolioSearchResult
+import luisd
+from luisd.api import search_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.paged_resource_list_of_portfolio_search_result import PagedResourceListOfPortfolioSearchResult
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -467,12 +467,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
 
@@ -490,7 +490,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SearchApi->search_portfolios: %s\n" % e)
 ```
 ### Parameters
@@ -647,15 +647,15 @@ Search through all Property Definitions
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import search_api
-from openapi_client.model.paged_resource_list_of_property_definition_search_result import PagedResourceListOfPropertyDefinitionSearchResult
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import search_api
+from luisd.model.paged_resource_list_of_property_definition_search_result import PagedResourceListOfPropertyDefinitionSearchResult
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -665,12 +665,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.SearchApi(api_client)
 
@@ -688,7 +688,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SearchApi->search_properties: %s\n" % e)
 ```
 ### Parameters

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_vol_surface_data import FxVolSurfaceData
+import luisd
+from luisd.model.fx_vol_surface_data import FxVolSurfaceData
 
 
 class TestFxVolSurfaceData(unittest.TestCase):

@@ -1,4 +1,4 @@
-# openapi_client.ComplexMarketDataApi
+# luisd.ComplexMarketDataApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -20,16 +20,16 @@ Delete one or more specified complex market data items from a single scope. Each
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import complex_market_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.complex_market_data_id import ComplexMarketDataId
-from openapi_client.model.annul_structured_data_response import AnnulStructuredDataResponse
+import luisd
+from luisd.api import complex_market_data_api
+from luisd.model.annul_structured_data_response import AnnulStructuredDataResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.complex_market_data_id import ComplexMarketDataId
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -39,12 +39,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = complex_market_data_api.ComplexMarketDataApi(api_client)
 
@@ -68,7 +68,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ComplexMarketDataApi->delete_complex_market_data: %s\n" % e)
 ```
 ### Parameters
@@ -228,16 +228,16 @@ Get one or more items of complex market data from a single scope.               
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import complex_market_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.complex_market_data_id import ComplexMarketDataId
-from openapi_client.model.get_complex_market_data_response import GetComplexMarketDataResponse
+import luisd
+from luisd.api import complex_market_data_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.complex_market_data_id import ComplexMarketDataId
+from luisd.model.get_complex_market_data_response import GetComplexMarketDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -247,12 +247,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = complex_market_data_api.ComplexMarketDataApi(api_client)
 
@@ -279,7 +279,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ComplexMarketDataApi->get_complex_market_data: %s\n" % e)
 
     # example passing only optional values
@@ -308,7 +308,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ComplexMarketDataApi->get_complex_market_data: %s\n" % e)
 ```
 ### Parameters
@@ -503,15 +503,15 @@ List the set of ComplexMarketData at the specified date/time,  along with the sc
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import complex_market_data_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_list_complex_market_data_with_meta_data_response import ResourceListOfListComplexMarketDataWithMetaDataResponse
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import complex_market_data_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_list_complex_market_data_with_meta_data_response import ResourceListOfListComplexMarketDataWithMetaDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -521,12 +521,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = complex_market_data_api.ComplexMarketDataApi(api_client)
 
@@ -540,7 +540,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ComplexMarketDataApi->list_complex_market_data: %s\n" % e)
 ```
 ### Parameters
@@ -661,16 +661,16 @@ Update or insert one or more complex market data items in a single scope. An ite
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import complex_market_data_api
-from openapi_client.model.upsert_complex_market_data_request import UpsertComplexMarketDataRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_structured_data_response import UpsertStructuredDataResponse
+import luisd
+from luisd.api import complex_market_data_api
+from luisd.model.upsert_structured_data_response import UpsertStructuredDataResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_complex_market_data_request import UpsertComplexMarketDataRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -680,12 +680,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = complex_market_data_api.ComplexMarketDataApi(api_client)
 
@@ -712,7 +712,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ComplexMarketDataApi->upsert_complex_market_data: %s\n" % e)
 ```
 ### Parameters

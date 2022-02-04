@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.model_options_type import ModelOptionsType
+import luisd
+from luisd.model.model_options_type import ModelOptionsType
 
 
 class TestModelOptionsType(unittest.TestCase):

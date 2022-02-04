@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.equity_option_all_of import EquityOptionAllOf
+import luisd
+from luisd.model.equity_option_all_of import EquityOptionAllOf
 
 
 class TestEquityOptionAllOf(unittest.TestCase):

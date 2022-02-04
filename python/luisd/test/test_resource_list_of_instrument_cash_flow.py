@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_instrument_cash_flow import ResourceListOfInstrumentCashFlow
+import luisd
+from luisd.model.resource_list_of_instrument_cash_flow import ResourceListOfInstrumentCashFlow
 
 
 class TestResourceListOfInstrumentCashFlow(unittest.TestCase):

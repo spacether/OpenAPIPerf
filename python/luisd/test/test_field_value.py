@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.field_value import FieldValue
+import luisd
+from luisd.model.field_value import FieldValue
 
 
 class TestFieldValue(unittest.TestCase):

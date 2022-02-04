@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.custom_entities_api import CustomEntitiesApi  # noqa: E501
+import luisd
+from luisd.api.custom_entities_api import CustomEntitiesApi  # noqa: E501
 
 
 class TestCustomEntitiesApi(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.property_definition_search_result import PropertyDefinitionSearchResult
+import luisd
+from luisd.model.property_definition_search_result import PropertyDefinitionSearchResult
 
 
 class TestPropertyDefinitionSearchResult(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_match import InstrumentMatch
+import luisd
+from luisd.model.instrument_match import InstrumentMatch
 
 
 class TestInstrumentMatch(unittest.TestCase):

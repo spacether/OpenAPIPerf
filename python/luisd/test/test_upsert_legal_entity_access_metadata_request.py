@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_legal_entity_access_metadata_request import UpsertLegalEntityAccessMetadataRequest
+import luisd
+from luisd.model.upsert_legal_entity_access_metadata_request import UpsertLegalEntityAccessMetadataRequest
 
 
 class TestUpsertLegalEntityAccessMetadataRequest(unittest.TestCase):

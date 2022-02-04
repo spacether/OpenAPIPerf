@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.sequences_api import SequencesApi  # noqa: E501
+import luisd
+from luisd.api.sequences_api import SequencesApi  # noqa: E501
 
 
 class TestSequencesApi(unittest.TestCase):

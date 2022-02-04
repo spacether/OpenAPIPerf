@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.model.lusid_problem_details import LusidProblemDetails
 
 
 class TestLusidProblemDetails(unittest.TestCase):

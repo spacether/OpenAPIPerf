@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_change import ResourceListOfChange
+import luisd
+from luisd.model.resource_list_of_change import ResourceListOfChange
 
 
 class TestResourceListOfChange(unittest.TestCase):

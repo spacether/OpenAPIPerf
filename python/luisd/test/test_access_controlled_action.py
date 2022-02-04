@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.access_controlled_action import AccessControlledAction
+import luisd
+from luisd.model.access_controlled_action import AccessControlledAction
 
 
 class TestAccessControlledAction(unittest.TestCase):

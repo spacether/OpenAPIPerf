@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.movement_type import MovementType
+import luisd
+from luisd.model.movement_type import MovementType
 
 
 class TestMovementType(unittest.TestCase):

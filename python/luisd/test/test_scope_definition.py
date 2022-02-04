@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.scope_definition import ScopeDefinition
+import luisd
+from luisd.model.scope_definition import ScopeDefinition
 
 
 class TestScopeDefinition(unittest.TestCase):

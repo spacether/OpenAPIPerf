@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_sequence_definition import PagedResourceListOfSequenceDefinition
+import luisd
+from luisd.model.paged_resource_list_of_sequence_definition import PagedResourceListOfSequenceDefinition
 
 
 class TestPagedResourceListOfSequenceDefinition(unittest.TestCase):

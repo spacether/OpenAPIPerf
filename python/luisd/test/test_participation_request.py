@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.participation_request import ParticipationRequest
+import luisd
+from luisd.model.participation_request import ParticipationRequest
 
 
 class TestParticipationRequest(unittest.TestCase):

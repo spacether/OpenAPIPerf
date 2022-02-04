@@ -1,4 +1,4 @@
-# openapi_client.DerivedTransactionPortfoliosApi
+# luisd.DerivedTransactionPortfoliosApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -18,16 +18,16 @@ Create a derived transaction portfolio from a parent transaction portfolio (whic
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import derived_transaction_portfolios_api
-from openapi_client.model.create_derived_transaction_portfolio_request import CreateDerivedTransactionPortfolioRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.portfolio import Portfolio
+import luisd
+from luisd.api import derived_transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_derived_transaction_portfolio_request import CreateDerivedTransactionPortfolioRequest
+from luisd.model.portfolio import Portfolio
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -37,12 +37,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = derived_transaction_portfolios_api.DerivedTransactionPortfoliosApi(api_client)
 
@@ -56,7 +56,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling DerivedTransactionPortfoliosApi->create_derived_portfolio: %s\n" % e)
 
     # example passing only optional values
@@ -91,7 +91,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling DerivedTransactionPortfoliosApi->create_derived_portfolio: %s\n" % e)
 ```
 ### Parameters
@@ -239,15 +239,15 @@ Delete all the portfolio details for a derived transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import derived_transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import derived_transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -257,12 +257,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = derived_transaction_portfolios_api.DerivedTransactionPortfoliosApi(api_client)
 
@@ -280,7 +280,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling DerivedTransactionPortfoliosApi->delete_derived_portfolio_details: %s\n" % e)
 
     # example passing only optional values
@@ -298,7 +298,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling DerivedTransactionPortfoliosApi->delete_derived_portfolio_details: %s\n" % e)
 ```
 ### Parameters

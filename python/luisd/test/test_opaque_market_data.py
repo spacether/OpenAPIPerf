@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.opaque_market_data import OpaqueMarketData
+import luisd
+from luisd.model.opaque_market_data import OpaqueMarketData
 
 
 class TestOpaqueMarketData(unittest.TestCase):

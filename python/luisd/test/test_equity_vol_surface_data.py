@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.equity_vol_surface_data import EquityVolSurfaceData
+import luisd
+from luisd.model.equity_vol_surface_data import EquityVolSurfaceData
 
 
 class TestEquityVolSurfaceData(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_definition import DataDefinition
+import luisd
+from luisd.model.data_definition import DataDefinition
 
 
 class TestDataDefinition(unittest.TestCase):

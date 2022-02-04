@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.processed_command import ProcessedCommand
+import luisd
+from luisd.model.processed_command import ProcessedCommand
 
 
 class TestProcessedCommand(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_forward_pips_curve_data import FxForwardPipsCurveData
+import luisd
+from luisd.model.fx_forward_pips_curve_data import FxForwardPipsCurveData
 
 
 class TestFxForwardPipsCurveData(unittest.TestCase):

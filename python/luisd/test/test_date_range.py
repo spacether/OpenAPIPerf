@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.date_range import DateRange
+import luisd
+from luisd.model.date_range import DateRange
 
 
 class TestDateRange(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.basket_all_of import BasketAllOf
+import luisd
+from luisd.model.basket_all_of import BasketAllOf
 
 
 class TestBasketAllOf(unittest.TestCase):

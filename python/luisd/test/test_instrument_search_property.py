@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_search_property import InstrumentSearchProperty
+import luisd
+from luisd.model.instrument_search_property import InstrumentSearchProperty
 
 
 class TestInstrumentSearchProperty(unittest.TestCase):

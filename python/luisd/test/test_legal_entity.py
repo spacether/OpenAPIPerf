@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.legal_entity import LegalEntity
+import luisd
+from luisd.model.legal_entity import LegalEntity
 
 
 class TestLegalEntity(unittest.TestCase):

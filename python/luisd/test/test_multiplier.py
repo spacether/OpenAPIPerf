@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.multiplier import Multiplier
+import luisd
+from luisd.model.multiplier import Multiplier
 
 
 class TestMultiplier(unittest.TestCase):

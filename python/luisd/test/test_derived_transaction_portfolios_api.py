@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.derived_transaction_portfolios_api import DerivedTransactionPortfoliosApi  # noqa: E501
+import luisd
+from luisd.api.derived_transaction_portfolios_api import DerivedTransactionPortfoliosApi  # noqa: E501
 
 
 class TestDerivedTransactionPortfoliosApi(unittest.TestCase):

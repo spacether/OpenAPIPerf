@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.virtual_document_row import VirtualDocumentRow
+import luisd
+from luisd.model.virtual_document_row import VirtualDocumentRow
 
 
 class TestVirtualDocumentRow(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.placement_request import PlacementRequest
+import luisd
+from luisd.model.placement_request import PlacementRequest
 
 
 class TestPlacementRequest(unittest.TestCase):

@@ -1,4 +1,4 @@
-# openapi-client
+# luisd
 # Introduction
 
 This page documents the [LUSID APIs](https://www.lusid.com/api/swagger), which allows authorised clients to query and update their data within the LUSID platform.
@@ -296,7 +296,7 @@ pip install git+https://github.com/GIT_USER_ID/GIT_REPO_ID.git
 
 Then import the package:
 ```python
-import openapi_client
+import luisd
 ```
 
 ### Setuptools
@@ -310,7 +310,7 @@ python setup.py install --user
 
 Then import the package:
 ```python
-import openapi_client
+import luisd
 ```
 
 ## Getting Started
@@ -320,20 +320,20 @@ Please follow the [installation procedure](#installation--usage) and then run th
 ```python
 
 import time
-import openapi_client
+import luisd
 from pprint import pprint
-from openapi_client.api import aggregation_api
-from openapi_client.model.configuration_recipe import ConfigurationRecipe
-from openapi_client.model.create_recipe_request import CreateRecipeRequest
-from openapi_client.model.inline_valuation_request import InlineValuationRequest
-from openapi_client.model.list_aggregation_response import ListAggregationResponse
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_aggregation_query import ResourceListOfAggregationQuery
-from openapi_client.model.valuation_request import ValuationRequest
+from luisd.api import aggregation_api
+from luisd.model.configuration_recipe import ConfigurationRecipe
+from luisd.model.create_recipe_request import CreateRecipeRequest
+from luisd.model.inline_valuation_request import InlineValuationRequest
+from luisd.model.list_aggregation_response import ListAggregationResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_aggregation_query import ResourceListOfAggregationQuery
+from luisd.model.valuation_request import ValuationRequest
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -343,13 +343,13 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = aggregation_api.AggregationApi(api_client)
     scope = "z" # str, none_type | The scope of the portfolio
@@ -463,7 +463,7 @@ create_recipe_request = CreateRecipeRequest(
         # [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
         api_response = api_instance.generate_configuration_recipe(scopecodecreate_recipe_request=create_recipe_request)
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling AggregationApi->generate_configuration_recipe: %s\n" % e)
 ```
 
@@ -1384,20 +1384,20 @@ info@finbourne.com
 info@finbourne.com
 
 ## Notes for Large OpenAPI documents
-If the OpenAPI document is large, imports in openapi_client.apis and openapi_client.models may fail with a
+If the OpenAPI document is large, imports in luisd.apis and luisd.models may fail with a
 RecursionError indicating the maximum recursion limit has been exceeded. In that case, there are a couple of solutions:
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from openapi_client.api.default_api import DefaultApi`
-- `from openapi_client.model.pet import Pet`
+- `from luisd.api.default_api import DefaultApi`
+- `from luisd.model.pet import Pet`
 
 Solution 1:
 Before importing the package, adjust the maximum recursion limit as shown below:
 ```
 import sys
 sys.setrecursionlimit(1500)
-import openapi_client
-from openapi_client.apis import *
-from openapi_client.models import *
+import luisd
+from luisd.apis import *
+from luisd.models import *
 ```

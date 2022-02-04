@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_corporate_action_request import UpsertCorporateActionRequest
+import luisd
+from luisd.model.upsert_corporate_action_request import UpsertCorporateActionRequest
 
 
 class TestUpsertCorporateActionRequest(unittest.TestCase):

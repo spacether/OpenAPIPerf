@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
+import luisd
+from luisd.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
 
 
 class TestResourceListOfPropertyInterval(unittest.TestCase):

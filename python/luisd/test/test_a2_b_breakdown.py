@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.a2_b_breakdown import A2BBreakdown
+import luisd
+from luisd.model.a2_b_breakdown import A2BBreakdown
 
 
 class TestA2BBreakdown(unittest.TestCase):

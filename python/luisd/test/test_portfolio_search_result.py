@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_search_result import PortfolioSearchResult
+import luisd
+from luisd.model.portfolio_search_result import PortfolioSearchResult
 
 
 class TestPortfolioSearchResult(unittest.TestCase):

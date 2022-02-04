@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_type import InstrumentType
+import luisd
+from luisd.model.instrument_type import InstrumentType
 
 
 class TestInstrumentType(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.grouped_result_of_address_key import GroupedResultOfAddressKey
+import luisd
+from luisd.model.grouped_result_of_address_key import GroupedResultOfAddressKey
 
 
 class TestGroupedResultOfAddressKey(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.identifier_part_schema import IdentifierPartSchema
+import luisd
+from luisd.model.identifier_part_schema import IdentifierPartSchema
 
 
 class TestIdentifierPartSchema(unittest.TestCase):

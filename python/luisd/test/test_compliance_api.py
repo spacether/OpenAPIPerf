@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.compliance_api import ComplianceApi  # noqa: E501
+import luisd
+from luisd.api.compliance_api import ComplianceApi  # noqa: E501
 
 
 class TestComplianceApi(unittest.TestCase):

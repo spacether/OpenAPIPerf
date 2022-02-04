@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.placements_api import PlacementsApi  # noqa: E501
+import luisd
+from luisd.api.placements_api import PlacementsApi  # noqa: E501
 
 
 class TestPlacementsApi(unittest.TestCase):

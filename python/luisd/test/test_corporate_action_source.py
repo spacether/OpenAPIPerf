@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.corporate_action_source import CorporateActionSource
+import luisd
+from luisd.model.corporate_action_source import CorporateActionSource
 
 
 class TestCorporateActionSource(unittest.TestCase):

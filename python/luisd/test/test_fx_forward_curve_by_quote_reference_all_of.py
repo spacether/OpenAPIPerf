@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_forward_curve_by_quote_reference_all_of import FxForwardCurveByQuoteReferenceAllOf
+import luisd
+from luisd.model.fx_forward_curve_by_quote_reference_all_of import FxForwardCurveByQuoteReferenceAllOf
 
 
 class TestFxForwardCurveByQuoteReferenceAllOf(unittest.TestCase):

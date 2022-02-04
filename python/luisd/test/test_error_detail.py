@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.error_detail import ErrorDetail
+import luisd
+from luisd.model.error_detail import ErrorDetail
 
 
 class TestErrorDetail(unittest.TestCase):

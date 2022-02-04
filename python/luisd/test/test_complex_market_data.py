@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.complex_market_data import ComplexMarketData
+import luisd
+from luisd.model.complex_market_data import ComplexMarketData
 
 
 class TestComplexMarketData(unittest.TestCase):

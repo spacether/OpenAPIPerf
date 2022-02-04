@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.discounting_method import DiscountingMethod
+import luisd
+from luisd.model.discounting_method import DiscountingMethod
 
 
 class TestDiscountingMethod(unittest.TestCase):

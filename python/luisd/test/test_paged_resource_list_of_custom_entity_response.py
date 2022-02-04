@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_custom_entity_response import PagedResourceListOfCustomEntityResponse
+import luisd
+from luisd.model.paged_resource_list_of_custom_entity_response import PagedResourceListOfCustomEntityResponse
 
 
 class TestPagedResourceListOfCustomEntityResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.bond_all_of import BondAllOf
+import luisd
+from luisd.model.bond_all_of import BondAllOf
 
 
 class TestBondAllOf(unittest.TestCase):

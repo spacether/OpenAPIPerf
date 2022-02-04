@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.exchange_traded_option_contract_details import ExchangeTradedOptionContractDetails
+import luisd
+from luisd.model.exchange_traded_option_contract_details import ExchangeTradedOptionContractDetails
 
 
 class TestExchangeTradedOptionContractDetails(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_entity_id import PortfolioEntityId
+import luisd
+from luisd.model.portfolio_entity_id import PortfolioEntityId
 
 
 class TestPortfolioEntityId(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reference_portfolio_constituent_request import ReferencePortfolioConstituentRequest
+import luisd
+from luisd.model.reference_portfolio_constituent_request import ReferencePortfolioConstituentRequest
 
 
 class TestReferencePortfolioConstituentRequest(unittest.TestCase):

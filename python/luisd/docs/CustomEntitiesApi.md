@@ -1,4 +1,4 @@
-# openapi_client.CustomEntitiesApi
+# luisd.CustomEntitiesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -20,15 +20,15 @@ Retrieve a CustomEntity by a specific Id at a point in AsAt time.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import custom_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.custom_entity_response import CustomEntityResponse
+import luisd
+from luisd.api import custom_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.custom_entity_response import CustomEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -38,12 +38,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_entities_api.CustomEntitiesApi(api_client)
 
@@ -63,7 +63,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity: %s\n" % e)
 
     # example passing only optional values
@@ -83,7 +83,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity: %s\n" % e)
 ```
 ### Parameters
@@ -247,15 +247,15 @@ Get relationships for the specified Custom Entity.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import custom_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_relationship import ResourceListOfRelationship
+import luisd
+from luisd.api import custom_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_relationship import ResourceListOfRelationship
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -265,12 +265,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_entities_api.CustomEntitiesApi(api_client)
 
@@ -290,7 +290,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity_relationships: %s\n" % e)
 
     # example passing only optional values
@@ -315,7 +315,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->get_custom_entity_relationships: %s\n" % e)
 ```
 ### Parameters
@@ -506,15 +506,15 @@ List all the Custom Entities matching particular criteria.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import custom_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_custom_entity_response import PagedResourceListOfCustomEntityResponse
+import luisd
+from luisd.api import custom_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.paged_resource_list_of_custom_entity_response import PagedResourceListOfCustomEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -524,12 +524,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_entities_api.CustomEntitiesApi(api_client)
 
@@ -546,7 +546,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->list_custom_entities: %s\n" % e)
 
     # example passing only optional values
@@ -567,7 +567,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->list_custom_entities: %s\n" % e)
 ```
 ### Parameters
@@ -740,16 +740,16 @@ Insert the custom entity if it does not exist or update the custom entity with t
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import custom_entities_api
-from openapi_client.model.custom_entity_request import CustomEntityRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.custom_entity_response import CustomEntityResponse
+import luisd
+from luisd.api import custom_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.custom_entity_request import CustomEntityRequest
+from luisd.model.custom_entity_response import CustomEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -759,12 +759,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = custom_entities_api.CustomEntitiesApi(api_client)
 
@@ -797,7 +797,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CustomEntitiesApi->upsert_custom_entity: %s\n" % e)
 ```
 ### Parameters

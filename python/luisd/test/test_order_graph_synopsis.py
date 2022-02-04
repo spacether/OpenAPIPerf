@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.order_graph_synopsis import OrderGraphSynopsis
+import luisd
+from luisd.model.order_graph_synopsis import OrderGraphSynopsis
 
 
 class TestOrderGraphSynopsis(unittest.TestCase):

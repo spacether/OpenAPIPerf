@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.funding_leg import FundingLeg
+import luisd
+from luisd.model.funding_leg import FundingLeg
 
 
 class TestFundingLeg(unittest.TestCase):

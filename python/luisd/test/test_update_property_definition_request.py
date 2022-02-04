@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_property_definition_request import UpdatePropertyDefinitionRequest
+import luisd
+from luisd.model.update_property_definition_request import UpdatePropertyDefinitionRequest
 
 
 class TestUpdatePropertyDefinitionRequest(unittest.TestCase):

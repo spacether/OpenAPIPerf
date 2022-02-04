@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.contract_for_difference_all_of import ContractForDifferenceAllOf
+import luisd
+from luisd.model.contract_for_difference_all_of import ContractForDifferenceAllOf
 
 
 class TestContractForDifferenceAllOf(unittest.TestCase):

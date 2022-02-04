@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.floating_leg_all_of import FloatingLegAllOf
+import luisd
+from luisd.model.floating_leg_all_of import FloatingLegAllOf
 
 
 class TestFloatingLegAllOf(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.operand_type import OperandType
+import luisd
+from luisd.model.operand_type import OperandType
 
 
 class TestOperandType(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_status import TransactionStatus
+import luisd
+from luisd.model.transaction_status import TransactionStatus
 
 
 class TestTransactionStatus(unittest.TestCase):

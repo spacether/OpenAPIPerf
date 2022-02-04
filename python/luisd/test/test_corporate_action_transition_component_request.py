@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.corporate_action_transition_component_request import CorporateActionTransitionComponentRequest
+import luisd
+from luisd.model.corporate_action_transition_component_request import CorporateActionTransitionComponentRequest
 
 
 class TestCorporateActionTransitionComponentRequest(unittest.TestCase):

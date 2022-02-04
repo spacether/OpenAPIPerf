@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.scaling_methodology import ScalingMethodology
+import luisd
+from luisd.model.scaling_methodology import ScalingMethodology
 
 
 class TestScalingMethodology(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.credit_spread_curve_data_all_of import CreditSpreadCurveDataAllOf
+import luisd
+from luisd.model.credit_spread_curve_data_all_of import CreditSpreadCurveDataAllOf
 
 
 class TestCreditSpreadCurveDataAllOf(unittest.TestCase):

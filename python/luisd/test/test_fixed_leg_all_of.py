@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fixed_leg_all_of import FixedLegAllOf
+import luisd
+from luisd.model.fixed_leg_all_of import FixedLegAllOf
 
 
 class TestFixedLegAllOf(unittest.TestCase):

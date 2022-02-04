@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.list_aggregation_reconciliation import ListAggregationReconciliation
+import luisd
+from luisd.model.list_aggregation_reconciliation import ListAggregationReconciliation
 
 
 class TestListAggregationReconciliation(unittest.TestCase):

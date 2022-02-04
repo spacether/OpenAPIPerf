@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_type_summary import DataTypeSummary
+import luisd
+from luisd.model.data_type_summary import DataTypeSummary
 
 
 class TestDataTypeSummary(unittest.TestCase):

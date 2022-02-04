@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.set_person_identifiers_request import SetPersonIdentifiersRequest
+import luisd
+from luisd.model.set_person_identifiers_request import SetPersonIdentifiersRequest
 
 
 class TestSetPersonIdentifiersRequest(unittest.TestCase):

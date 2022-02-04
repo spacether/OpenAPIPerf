@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.asset_class import AssetClass
+import luisd
+from luisd.model.asset_class import AssetClass
 
 
 class TestAssetClass(unittest.TestCase):

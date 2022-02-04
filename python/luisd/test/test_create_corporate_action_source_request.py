@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_corporate_action_source_request import CreateCorporateActionSourceRequest
+import luisd
+from luisd.model.create_corporate_action_source_request import CreateCorporateActionSourceRequest
 
 
 class TestCreateCorporateActionSourceRequest(unittest.TestCase):

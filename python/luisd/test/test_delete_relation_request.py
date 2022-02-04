@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.delete_relation_request import DeleteRelationRequest
+import luisd
+from luisd.model.delete_relation_request import DeleteRelationRequest
 
 
 class TestDeleteRelationRequest(unittest.TestCase):

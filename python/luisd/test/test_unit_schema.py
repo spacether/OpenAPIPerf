@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.unit_schema import UnitSchema
+import luisd
+from luisd.model.unit_schema import UnitSchema
 
 
 class TestUnitSchema(unittest.TestCase):

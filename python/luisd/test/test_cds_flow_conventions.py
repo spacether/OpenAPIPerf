@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_flow_conventions import CdsFlowConventions
+import luisd
+from luisd.model.cds_flow_conventions import CdsFlowConventions
 
 
 class TestCdsFlowConventions(unittest.TestCase):

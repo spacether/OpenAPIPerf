@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.funding_leg_all_of import FundingLegAllOf
+import luisd
+from luisd.model.funding_leg_all_of import FundingLegAllOf
 
 
 class TestFundingLegAllOf(unittest.TestCase):

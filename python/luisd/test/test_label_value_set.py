@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.label_value_set import LabelValueSet
+import luisd
+from luisd.model.label_value_set import LabelValueSet
 
 
 class TestLabelValueSet(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.quote_instrument_id_type import QuoteInstrumentIdType
+import luisd
+from luisd.model.quote_instrument_id_type import QuoteInstrumentIdType
 
 
 class TestQuoteInstrumentIdType(unittest.TestCase):

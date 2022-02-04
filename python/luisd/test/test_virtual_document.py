@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.virtual_document import VirtualDocument
+import luisd
+from luisd.model.virtual_document import VirtualDocument
 
 
 class TestVirtualDocument(unittest.TestCase):

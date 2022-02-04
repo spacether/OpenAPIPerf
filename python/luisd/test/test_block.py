@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.block import Block
+import luisd
+from luisd.model.block import Block
 
 
 class TestBlock(unittest.TestCase):

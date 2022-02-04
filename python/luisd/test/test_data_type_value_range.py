@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_type_value_range import DataTypeValueRange
+import luisd
+from luisd.model.data_type_value_range import DataTypeValueRange
 
 
 class TestDataTypeValueRange(unittest.TestCase):

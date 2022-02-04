@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.vendor_library import VendorLibrary
+import luisd
+from luisd.model.vendor_library import VendorLibrary
 
 
 class TestVendorLibrary(unittest.TestCase):

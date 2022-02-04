@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.quote_type import QuoteType
+import luisd
+from luisd.model.quote_type import QuoteType
 
 
 class TestQuoteType(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.compliance_rule_result import ComplianceRuleResult
+import luisd
+from luisd.model.compliance_rule_result import ComplianceRuleResult
 
 
 class TestComplianceRuleResult(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.equity_swap import EquitySwap
+import luisd
+from luisd.model.equity_swap import EquitySwap
 
 
 class TestEquitySwap(unittest.TestCase):

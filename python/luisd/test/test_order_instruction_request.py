@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.order_instruction_request import OrderInstructionRequest
+import luisd
+from luisd.model.order_instruction_request import OrderInstructionRequest
 
 
 class TestOrderInstructionRequest(unittest.TestCase):

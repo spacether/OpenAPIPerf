@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconciliation_rule import ReconciliationRule
+import luisd
+from luisd.model.reconciliation_rule import ReconciliationRule
 
 
 class TestReconciliationRule(unittest.TestCase):

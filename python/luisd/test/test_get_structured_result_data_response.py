@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_structured_result_data_response import GetStructuredResultDataResponse
+import luisd
+from luisd.model.get_structured_result_data_response import GetStructuredResultDataResponse
 
 
 class TestGetStructuredResultDataResponse(unittest.TestCase):

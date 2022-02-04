@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.placement import Placement
+import luisd
+from luisd.model.placement import Placement
 
 
 class TestPlacement(unittest.TestCase):

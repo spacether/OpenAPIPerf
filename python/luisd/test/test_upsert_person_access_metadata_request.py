@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_person_access_metadata_request import UpsertPersonAccessMetadataRequest
+import luisd
+from luisd.model.upsert_person_access_metadata_request import UpsertPersonAccessMetadataRequest
 
 
 class TestUpsertPersonAccessMetadataRequest(unittest.TestCase):

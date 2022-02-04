@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.access_metadata_value import AccessMetadataValue
+import luisd
+from luisd.model.access_metadata_value import AccessMetadataValue
 
 
 class TestAccessMetadataValue(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_constituents_adjustment_header import ResourceListOfConstituentsAdjustmentHeader
+import luisd
+from luisd.model.resource_list_of_constituents_adjustment_header import ResourceListOfConstituentsAdjustmentHeader
 
 
 class TestResourceListOfConstituentsAdjustmentHeader(unittest.TestCase):

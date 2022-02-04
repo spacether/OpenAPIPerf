@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.delivery_type import DeliveryType
+import luisd
+from luisd.model.delivery_type import DeliveryType
 
 
 class TestDeliveryType(unittest.TestCase):

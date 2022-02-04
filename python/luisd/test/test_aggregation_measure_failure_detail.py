@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.aggregation_measure_failure_detail import AggregationMeasureFailureDetail
+import luisd
+from luisd.model.aggregation_measure_failure_detail import AggregationMeasureFailureDetail
 
 
 class TestAggregationMeasureFailureDetail(unittest.TestCase):

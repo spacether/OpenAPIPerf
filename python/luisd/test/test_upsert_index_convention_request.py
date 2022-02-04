@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_index_convention_request import UpsertIndexConventionRequest
+import luisd
+from luisd.model.upsert_index_convention_request import UpsertIndexConventionRequest
 
 
 class TestUpsertIndexConventionRequest(unittest.TestCase):

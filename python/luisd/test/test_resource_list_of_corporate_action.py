@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_corporate_action import ResourceListOfCorporateAction
+import luisd
+from luisd.model.resource_list_of_corporate_action import ResourceListOfCorporateAction
 
 
 class TestResourceListOfCorporateAction(unittest.TestCase):

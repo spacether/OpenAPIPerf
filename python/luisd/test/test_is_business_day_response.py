@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.is_business_day_response import IsBusinessDayResponse
+import luisd
+from luisd.model.is_business_day_response import IsBusinessDayResponse
 
 
 class TestIsBusinessDayResponse(unittest.TestCase):

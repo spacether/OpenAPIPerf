@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_portfolio_cash_ladder import ResourceListOfPortfolioCashLadder
+import luisd
+from luisd.model.resource_list_of_portfolio_cash_ladder import ResourceListOfPortfolioCashLadder
 
 
 class TestResourceListOfPortfolioCashLadder(unittest.TestCase):

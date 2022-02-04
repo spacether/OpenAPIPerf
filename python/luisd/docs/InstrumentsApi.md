@@ -1,4 +1,4 @@
-# openapi_client.InstrumentsApi
+# luisd.InstrumentsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -28,15 +28,15 @@ Delete a particular instrument, as identified by a particular instrument identif
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.delete_instrument_response import DeleteInstrumentResponse
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.delete_instrument_response import DeleteInstrumentResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -46,12 +46,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -69,7 +69,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->delete_instrument: %s\n" % e)
 
     # example passing only optional values
@@ -87,7 +87,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->delete_instrument: %s\n" % e)
 ```
 ### Parameters
@@ -233,15 +233,15 @@ Delete one or more properties from a particular instrument. If the properties ar
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.delete_instrument_properties_response import DeleteInstrumentPropertiesResponse
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.delete_instrument_properties_response import DeleteInstrumentPropertiesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -251,12 +251,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -276,7 +276,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->delete_instrument_properties: %s\n" % e)
 
     # example passing only optional values
@@ -297,7 +297,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->delete_instrument_properties: %s\n" % e)
 ```
 ### Parameters
@@ -488,15 +488,15 @@ Retrieve the definition of a particular instrument, as identified by a particula
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.instrument import Instrument
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import instruments_api
+from luisd.model.instrument import Instrument
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -506,12 +506,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -529,7 +529,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument: %s\n" % e)
 
     # example passing only optional values
@@ -552,7 +552,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument: %s\n" % e)
 ```
 ### Parameters
@@ -725,14 +725,14 @@ Retrieve a list of all valid instrument identifier types and whether they are un
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.resource_list_of_instrument_id_type_descriptor import ResourceListOfInstrumentIdTypeDescriptor
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.resource_list_of_instrument_id_type_descriptor import ResourceListOfInstrumentIdTypeDescriptor
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -742,12 +742,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -756,7 +756,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # [EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
         api_response = api_instance.get_instrument_identifier_types()
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_identifier_types: %s\n" % e)
 ```
 ### Parameters
@@ -828,15 +828,15 @@ List all the properties of a particular instrument, as identified by a particula
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.instrument_properties import InstrumentProperties
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.instrument_properties import InstrumentProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -846,12 +846,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -869,7 +869,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_properties: %s\n" % e)
 
     # example passing only optional values
@@ -889,7 +889,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_properties: %s\n" % e)
 ```
 ### Parameters
@@ -1053,15 +1053,15 @@ Retrieve the complete time series (history) for a particular property of an inst
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1071,12 +1071,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -1095,7 +1095,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_property_time_series: %s\n" % e)
 
     # example passing only optional values
@@ -1119,7 +1119,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instrument_property_time_series: %s\n" % e)
 ```
 ### Parameters
@@ -1319,15 +1319,15 @@ Retrieve the definition of one or more instruments, as identified by a collectio
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.get_instruments_response import GetInstrumentsResponse
+import luisd
+from luisd.api import instruments_api
+from luisd.model.get_instruments_response import GetInstrumentsResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1337,12 +1337,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -1358,7 +1358,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instruments: %s\n" % e)
 
     # example passing only optional values
@@ -1379,7 +1379,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->get_instruments: %s\n" % e)
 ```
 ### Parameters
@@ -1572,15 +1572,15 @@ List all the properties of a particular instrument, as identified by a particula
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_property import ResourceListOfProperty
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_property import ResourceListOfProperty
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1590,12 +1590,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -1613,7 +1613,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->list_instrument_properties: %s\n" % e)
 
     # example passing only optional values
@@ -1635,7 +1635,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->list_instrument_properties: %s\n" % e)
 ```
 ### Parameters
@@ -1817,15 +1817,15 @@ List all the instruments in the instrument master.                To retrieve a 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_instrument import PagedResourceListOfInstrument
+import luisd
+from luisd.api import instruments_api
+from luisd.model.paged_resource_list_of_instrument import PagedResourceListOfInstrument
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1835,12 +1835,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -1866,7 +1866,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->list_instruments: %s\n" % e)
 ```
 ### Parameters
@@ -2059,16 +2059,16 @@ Create, update or delete a particular instrument identifier for an instrument.  
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.instrument import Instrument
-from openapi_client.model.update_instrument_identifier_request import UpdateInstrumentIdentifierRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import instruments_api
+from luisd.model.instrument import Instrument
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.update_instrument_identifier_request import UpdateInstrumentIdentifierRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2078,12 +2078,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -2107,7 +2107,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->update_instrument_identifier: %s\n" % e)
 
     # example passing only optional values
@@ -2131,7 +2131,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->update_instrument_identifier: %s\n" % e)
 ```
 ### Parameters
@@ -2305,16 +2305,16 @@ Create or update one or more instruments in the instrument master. An instrument
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_instruments_response import UpsertInstrumentsResponse
-from openapi_client.model.instrument_definition import InstrumentDefinition
+import luisd
+from luisd.api import instruments_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.instrument_definition import InstrumentDefinition
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_instruments_response import UpsertInstrumentsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2324,12 +2324,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -2378,7 +2378,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->upsert_instruments: %s\n" % e)
 
     # example passing only optional values
@@ -2427,7 +2427,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->upsert_instruments: %s\n" % e)
 ```
 ### Parameters
@@ -2588,16 +2588,16 @@ Create or update one or more properties for particular instruments.             
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import instruments_api
-from openapi_client.model.upsert_instrument_property_request import UpsertInstrumentPropertyRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_instrument_properties_response import UpsertInstrumentPropertiesResponse
+import luisd
+from luisd.api import instruments_api
+from luisd.model.upsert_instrument_properties_response import UpsertInstrumentPropertiesResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_instrument_property_request import UpsertInstrumentPropertyRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2607,12 +2607,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = instruments_api.InstrumentsApi(api_client)
 
@@ -2627,7 +2627,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->upsert_instruments_properties: %s\n" % e)
 
     # example passing only optional values
@@ -2642,7 +2642,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling InstrumentsApi->upsert_instruments_properties: %s\n" % e)
 ```
 ### Parameters

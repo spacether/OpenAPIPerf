@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_order import PagedResourceListOfOrder
+import luisd
+from luisd.model.paged_resource_list_of_order import PagedResourceListOfOrder
 
 
 class TestPagedResourceListOfOrder(unittest.TestCase):

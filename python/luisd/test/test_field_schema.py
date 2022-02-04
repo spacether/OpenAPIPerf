@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.field_schema import FieldSchema
+import luisd
+from luisd.model.field_schema import FieldSchema
 
 
 class TestFieldSchema(unittest.TestCase):

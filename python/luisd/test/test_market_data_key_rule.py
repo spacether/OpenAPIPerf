@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_data_key_rule import MarketDataKeyRule
+import luisd
+from luisd.model.market_data_key_rule import MarketDataKeyRule
 
 
 class TestMarketDataKeyRule(unittest.TestCase):

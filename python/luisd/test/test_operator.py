@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.operator import Operator
+import luisd
+from luisd.model.operator import Operator
 
 
 class TestOperator(unittest.TestCase):

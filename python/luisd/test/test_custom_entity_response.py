@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.custom_entity_response import CustomEntityResponse
+import luisd
+from luisd.model.custom_entity_response import CustomEntityResponse
 
 
 class TestCustomEntityResponse(unittest.TestCase):

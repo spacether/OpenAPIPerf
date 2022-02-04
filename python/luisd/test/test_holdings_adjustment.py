@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.holdings_adjustment import HoldingsAdjustment
+import luisd
+from luisd.model.holdings_adjustment import HoldingsAdjustment
 
 
 class TestHoldingsAdjustment(unittest.TestCase):

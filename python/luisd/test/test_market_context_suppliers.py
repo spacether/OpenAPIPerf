@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_context_suppliers import MarketContextSuppliers
+import luisd
+from luisd.model.market_context_suppliers import MarketContextSuppliers
 
 
 class TestMarketContextSuppliers(unittest.TestCase):

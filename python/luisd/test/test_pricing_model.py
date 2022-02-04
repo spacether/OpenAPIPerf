@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.pricing_model import PricingModel
+import luisd
+from luisd.model.pricing_model import PricingModel
 
 
 class TestPricingModel(unittest.TestCase):

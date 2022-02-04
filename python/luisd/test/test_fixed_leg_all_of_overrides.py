@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fixed_leg_all_of_overrides import FixedLegAllOfOverrides
+import luisd
+from luisd.model.fixed_leg_all_of_overrides import FixedLegAllOfOverrides
 
 
 class TestFixedLegAllOfOverrides(unittest.TestCase):

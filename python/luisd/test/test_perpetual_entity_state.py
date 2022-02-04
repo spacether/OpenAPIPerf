@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.perpetual_entity_state import PerpetualEntityState
+import luisd
+from luisd.model.perpetual_entity_state import PerpetualEntityState
 
 
 class TestPerpetualEntityState(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_reconciliation_request import PortfolioReconciliationRequest
+import luisd
+from luisd.model.portfolio_reconciliation_request import PortfolioReconciliationRequest
 
 
 class TestPortfolioReconciliationRequest(unittest.TestCase):

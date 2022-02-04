@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.future_all_of import FutureAllOf
+import luisd
+from luisd.model.future_all_of import FutureAllOf
 
 
 class TestFutureAllOf(unittest.TestCase):

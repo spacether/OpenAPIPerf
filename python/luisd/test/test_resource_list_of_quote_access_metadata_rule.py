@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_quote_access_metadata_rule import ResourceListOfQuoteAccessMetadataRule
+import luisd
+from luisd.model.resource_list_of_quote_access_metadata_rule import ResourceListOfQuoteAccessMetadataRule
 
 
 class TestResourceListOfQuoteAccessMetadataRule(unittest.TestCase):

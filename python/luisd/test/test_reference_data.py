@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reference_data import ReferenceData
+import luisd
+from luisd.model.reference_data import ReferenceData
 
 
 class TestReferenceData(unittest.TestCase):

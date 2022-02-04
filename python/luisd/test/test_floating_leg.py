@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.floating_leg import FloatingLeg
+import luisd
+from luisd.model.floating_leg import FloatingLeg
 
 
 class TestFloatingLeg(unittest.TestCase):

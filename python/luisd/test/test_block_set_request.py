@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.block_set_request import BlockSetRequest
+import luisd
+from luisd.model.block_set_request import BlockSetRequest
 
 
 class TestBlockSetRequest(unittest.TestCase):

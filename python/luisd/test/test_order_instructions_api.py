@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.order_instructions_api import OrderInstructionsApi  # noqa: E501
+import luisd
+from luisd.api.order_instructions_api import OrderInstructionsApi  # noqa: E501
 
 
 class TestOrderInstructionsApi(unittest.TestCase):

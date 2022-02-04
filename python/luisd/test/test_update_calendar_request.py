@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_calendar_request import UpdateCalendarRequest
+import luisd
+from luisd.model.update_calendar_request import UpdateCalendarRequest
 
 
 class TestUpdateCalendarRequest(unittest.TestCase):

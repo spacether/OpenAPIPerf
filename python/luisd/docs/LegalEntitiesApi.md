@@ -1,4 +1,4 @@
-# openapi_client.LegalEntitiesApi
+# luisd.LegalEntitiesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -30,15 +30,15 @@ Delete a legal entity. Deletion will be valid from the legal entity's creation d
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -48,12 +48,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -69,7 +69,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity: %s\n" % e)
 ```
 ### Parameters
@@ -207,15 +207,15 @@ Deletes the Legal Entity Access Metadata entry that exactly matches the provided
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -225,12 +225,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -250,7 +250,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_access_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -270,7 +270,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_access_metadata: %s\n" % e)
 ```
 ### Parameters
@@ -434,15 +434,15 @@ Delete identifiers that belong to the given property keys of the legal entity.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -452,12 +452,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -479,7 +479,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_identifiers: %s\n" % e)
 
     # example passing only optional values
@@ -501,7 +501,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_identifiers: %s\n" % e)
 ```
 ### Parameters
@@ -665,15 +665,15 @@ Delete all properties that belong to the given property keys of the legal entity
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -683,12 +683,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -710,7 +710,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_properties: %s\n" % e)
 
     # example passing only optional values
@@ -732,7 +732,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->delete_legal_entity_properties: %s\n" % e)
 ```
 ### Parameters
@@ -896,15 +896,15 @@ Pass the Scope and Code of the Legal Entity identifier along with the Legal Enti
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.access_metadata_value import AccessMetadataValue
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.access_metadata_value import AccessMetadataValue
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -914,12 +914,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -938,7 +938,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_all_legal_entity_access_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -958,7 +958,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_all_legal_entity_access_metadata: %s\n" % e)
 ```
 ### Parameters
@@ -1125,15 +1125,15 @@ Retrieve the definition of a legal entity.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.legal_entity import LegalEntity
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.legal_entity import LegalEntity
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1143,12 +1143,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -1167,7 +1167,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity: %s\n" % e)
 
     # example passing only optional values
@@ -1190,7 +1190,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity: %s\n" % e)
 ```
 ### Parameters
@@ -1363,15 +1363,15 @@ Get a specific Legal Entity Access Metadata by specifying the corresponding iden
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.access_metadata_value import AccessMetadataValue
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.access_metadata_value import AccessMetadataValue
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1381,12 +1381,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -1406,7 +1406,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_access_metadata_by_key: %s\n" % e)
 
     # example passing only optional values
@@ -1427,7 +1427,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_access_metadata_by_key: %s\n" % e)
 ```
 ### Parameters
@@ -1600,15 +1600,15 @@ List the complete time series of a legal entity property.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1618,12 +1618,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -1643,7 +1643,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_property_time_series: %s\n" % e)
 
     # example passing only optional values
@@ -1666,7 +1666,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_property_time_series: %s\n" % e)
 ```
 ### Parameters
@@ -1857,15 +1857,15 @@ Get relations for the specified Legal Entity
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_relation import ResourceListOfRelation
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_relation import ResourceListOfRelation
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1875,12 +1875,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -1899,7 +1899,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_relations: %s\n" % e)
 
     # example passing only optional values
@@ -1923,7 +1923,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_relations: %s\n" % e)
 ```
 ### Parameters
@@ -2105,15 +2105,15 @@ Get Relationships for the specified Legal Entity
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_relationship import ResourceListOfRelationship
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_relationship import ResourceListOfRelationship
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2123,12 +2123,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -2147,7 +2147,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_relationships: %s\n" % e)
 
     # example passing only optional values
@@ -2171,7 +2171,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->get_legal_entity_relationships: %s\n" % e)
 ```
 ### Parameters
@@ -2353,15 +2353,15 @@ List legal entities which has identifier of specific identifier type's scope and
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.paged_resource_list_of_legal_entity import PagedResourceListOfLegalEntity
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.paged_resource_list_of_legal_entity import PagedResourceListOfLegalEntity
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2371,12 +2371,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -2394,7 +2394,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->list_legal_entities: %s\n" % e)
 
     # example passing only optional values
@@ -2419,7 +2419,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->list_legal_entities: %s\n" % e)
 ```
 ### Parameters
@@ -2610,16 +2610,16 @@ Set identifiers of the Legal Entity.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.set_legal_entity_identifiers_request import SetLegalEntityIdentifiersRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.legal_entity import LegalEntity
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.legal_entity import LegalEntity
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.set_legal_entity_identifiers_request import SetLegalEntityIdentifiersRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2629,12 +2629,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -2672,7 +2672,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->set_legal_entity_identifiers: %s\n" % e)
 ```
 ### Parameters
@@ -2838,16 +2838,16 @@ Create or update a legal entity
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.legal_entity import LegalEntity
-from openapi_client.model.upsert_legal_entity_request import UpsertLegalEntityRequest
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.legal_entity import LegalEntity
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_legal_entity_request import UpsertLegalEntityRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2857,12 +2857,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -2930,7 +2930,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->upsert_legal_entity: %s\n" % e)
 ```
 ### Parameters
@@ -3062,16 +3062,16 @@ Update or insert one Legal Entity Access Metadata entry in a single scope. An it
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import legal_entities_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_legal_entity_access_metadata_request import UpsertLegalEntityAccessMetadataRequest
-from openapi_client.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
+import luisd
+from luisd.api import legal_entities_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_legal_entity_access_metadata_request import UpsertLegalEntityAccessMetadataRequest
+from luisd.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3081,12 +3081,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = legal_entities_api.LegalEntitiesApi(api_client)
 
@@ -3115,7 +3115,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->upsert_legal_entity_access_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -3144,7 +3144,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling LegalEntitiesApi->upsert_legal_entity_access_metadata: %s\n" % e)
 ```
 ### Parameters

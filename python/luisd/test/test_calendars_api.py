@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.calendars_api import CalendarsApi  # noqa: E501
+import luisd
+from luisd.api.calendars_api import CalendarsApi  # noqa: E501
 
 
 class TestCalendarsApi(unittest.TestCase):

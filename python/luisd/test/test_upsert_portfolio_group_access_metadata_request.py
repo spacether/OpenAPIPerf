@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_portfolio_group_access_metadata_request import UpsertPortfolioGroupAccessMetadataRequest
+import luisd
+from luisd.model.upsert_portfolio_group_access_metadata_request import UpsertPortfolioGroupAccessMetadataRequest
 
 
 class TestUpsertPortfolioGroupAccessMetadataRequest(unittest.TestCase):

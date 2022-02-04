@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.tolerance_enum import ToleranceEnum
+import luisd
+from luisd.model.tolerance_enum import ToleranceEnum
 
 
 class TestToleranceEnum(unittest.TestCase):

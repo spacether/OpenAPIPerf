@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_cut_label_definition import PagedResourceListOfCutLabelDefinition
+import luisd
+from luisd.model.paged_resource_list_of_cut_label_definition import PagedResourceListOfCutLabelDefinition
 
 
 class TestPagedResourceListOfCutLabelDefinition(unittest.TestCase):

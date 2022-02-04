@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_data_type import MarketDataType
+import luisd
+from luisd.model.market_data_type import MarketDataType
 
 
 class TestMarketDataType(unittest.TestCase):

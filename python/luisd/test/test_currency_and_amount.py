@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.currency_and_amount import CurrencyAndAmount
+import luisd
+from luisd.model.currency_and_amount import CurrencyAndAmount
 
 
 class TestCurrencyAndAmount(unittest.TestCase):

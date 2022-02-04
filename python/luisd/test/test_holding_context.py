@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.holding_context import HoldingContext
+import luisd
+from luisd.model.holding_context import HoldingContext
 
 
 class TestHoldingContext(unittest.TestCase):

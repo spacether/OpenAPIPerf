@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.corporate_action_sources_api import CorporateActionSourcesApi  # noqa: E501
+import luisd
+from luisd.api.corporate_action_sources_api import CorporateActionSourcesApi  # noqa: E501
 
 
 class TestCorporateActionSourcesApi(unittest.TestCase):

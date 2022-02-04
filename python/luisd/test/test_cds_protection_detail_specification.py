@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_protection_detail_specification import CdsProtectionDetailSpecification
+import luisd
+from luisd.model.cds_protection_detail_specification import CdsProtectionDetailSpecification
 
 
 class TestCdsProtectionDetailSpecification(unittest.TestCase):

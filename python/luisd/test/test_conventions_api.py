@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.conventions_api import ConventionsApi  # noqa: E501
+import luisd
+from luisd.api.conventions_api import ConventionsApi  # noqa: E501
 
 
 class TestConventionsApi(unittest.TestCase):

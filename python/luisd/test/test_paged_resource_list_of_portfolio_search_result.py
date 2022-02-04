@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_portfolio_search_result import PagedResourceListOfPortfolioSearchResult
+import luisd
+from luisd.model.paged_resource_list_of_portfolio_search_result import PagedResourceListOfPortfolioSearchResult
 
 
 class TestPagedResourceListOfPortfolioSearchResult(unittest.TestCase):

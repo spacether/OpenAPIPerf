@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_portfolio_access_metadata_request import UpsertPortfolioAccessMetadataRequest
+import luisd
+from luisd.model.upsert_portfolio_access_metadata_request import UpsertPortfolioAccessMetadataRequest
 
 
 class TestUpsertPortfolioAccessMetadataRequest(unittest.TestCase):

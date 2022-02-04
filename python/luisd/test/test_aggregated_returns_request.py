@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.aggregated_returns_request import AggregatedReturnsRequest
+import luisd
+from luisd.model.aggregated_returns_request import AggregatedReturnsRequest
 
 
 class TestAggregatedReturnsRequest(unittest.TestCase):

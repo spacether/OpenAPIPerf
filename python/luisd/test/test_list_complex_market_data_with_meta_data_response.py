@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.list_complex_market_data_with_meta_data_response import ListComplexMarketDataWithMetaDataResponse
+import luisd
+from luisd.model.list_complex_market_data_with_meta_data_response import ListComplexMarketDataWithMetaDataResponse
 
 
 class TestListComplexMarketDataWithMetaDataResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.version import Version
+import luisd
+from luisd.model.version import Version
 
 
 class TestVersion(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.tolerance import Tolerance
+import luisd
+from luisd.model.tolerance import Tolerance
 
 
 class TestTolerance(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.flow_convention_name import FlowConventionName
+import luisd
+from luisd.model.flow_convention_name import FlowConventionName
 
 
 class TestFlowConventionName(unittest.TestCase):

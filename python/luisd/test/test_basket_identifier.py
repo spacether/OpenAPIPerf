@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.basket_identifier import BasketIdentifier
+import luisd
+from luisd.model.basket_identifier import BasketIdentifier
 
 
 class TestBasketIdentifier(unittest.TestCase):

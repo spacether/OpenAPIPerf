@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_query_parameters import TransactionQueryParameters
+import luisd
+from luisd.model.transaction_query_parameters import TransactionQueryParameters
 
 
 class TestTransactionQueryParameters(unittest.TestCase):

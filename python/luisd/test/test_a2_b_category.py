@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.a2_b_category import A2BCategory
+import luisd
+from luisd.model.a2_b_category import A2BCategory
 
 
 class TestA2BCategory(unittest.TestCase):

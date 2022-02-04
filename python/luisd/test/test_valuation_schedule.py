@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.valuation_schedule import ValuationSchedule
+import luisd
+from luisd.model.valuation_schedule import ValuationSchedule
 
 
 class TestValuationSchedule(unittest.TestCase):

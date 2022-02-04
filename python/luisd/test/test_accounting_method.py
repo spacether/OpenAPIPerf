@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.accounting_method import AccountingMethod
+import luisd
+from luisd.model.accounting_method import AccountingMethod
 
 
 class TestAccountingMethod(unittest.TestCase):

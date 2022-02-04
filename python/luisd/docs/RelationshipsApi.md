@@ -1,4 +1,4 @@
-# openapi_client.RelationshipsApi
+# luisd.RelationshipsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -18,16 +18,16 @@ Create a relationship between two entity objects by their identifiers
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import relationships_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.create_relationship_request import CreateRelationshipRequest
-from openapi_client.model.complete_relationship import CompleteRelationship
+import luisd
+from luisd.api import relationships_api
+from luisd.model.create_relationship_request import CreateRelationshipRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.complete_relationship import CompleteRelationship
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -37,12 +37,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = relationships_api.RelationshipsApi(api_client)
 
@@ -67,7 +67,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling RelationshipsApi->create_relationship: %s\n" % e)
 ```
 ### Parameters
@@ -224,16 +224,16 @@ Delete a relationship between two entity objects represented by their identifier
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import relationships_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
-from openapi_client.model.delete_relationship_request import DeleteRelationshipRequest
+import luisd
+from luisd.api import relationships_api
+from luisd.model.delete_relationship_request import DeleteRelationshipRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -243,12 +243,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = relationships_api.RelationshipsApi(api_client)
 
@@ -273,7 +273,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling RelationshipsApi->delete_relationship: %s\n" % e)
 ```
 ### Parameters

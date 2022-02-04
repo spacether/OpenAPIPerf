@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_instruments_response import GetInstrumentsResponse
+import luisd
+from luisd.model.get_instruments_response import GetInstrumentsResponse
 
 
 class TestGetInstrumentsResponse(unittest.TestCase):

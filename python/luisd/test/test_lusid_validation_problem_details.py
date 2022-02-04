@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
+import luisd
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 
 
 class TestLusidValidationProblemDetails(unittest.TestCase):

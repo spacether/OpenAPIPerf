@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.allocation_request import AllocationRequest
+import luisd
+from luisd.model.allocation_request import AllocationRequest
 
 
 class TestAllocationRequest(unittest.TestCase):

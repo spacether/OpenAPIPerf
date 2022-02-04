@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.index_model_options import IndexModelOptions
+import luisd
+from luisd.model.index_model_options import IndexModelOptions
 
 
 class TestIndexModelOptions(unittest.TestCase):

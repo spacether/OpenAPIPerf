@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.leg_definition import LegDefinition
+import luisd
+from luisd.model.leg_definition import LegDefinition
 
 
 class TestLegDefinition(unittest.TestCase):

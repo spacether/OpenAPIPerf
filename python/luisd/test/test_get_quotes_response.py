@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_quotes_response import GetQuotesResponse
+import luisd
+from luisd.model.get_quotes_response import GetQuotesResponse
 
 
 class TestGetQuotesResponse(unittest.TestCase):

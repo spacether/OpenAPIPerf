@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.legal_entities_api import LegalEntitiesApi  # noqa: E501
+import luisd
+from luisd.api.legal_entities_api import LegalEntitiesApi  # noqa: E501
 
 
 class TestLegalEntitiesApi(unittest.TestCase):

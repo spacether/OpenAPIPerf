@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.industry_classifier import IndustryClassifier
+import luisd
+from luisd.model.industry_classifier import IndustryClassifier
 
 
 class TestIndustryClassifier(unittest.TestCase):

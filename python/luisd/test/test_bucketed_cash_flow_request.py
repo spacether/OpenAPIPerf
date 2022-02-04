@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.bucketed_cash_flow_request import BucketedCashFlowRequest
+import luisd
+from luisd.model.bucketed_cash_flow_request import BucketedCashFlowRequest
 
 
 class TestBucketedCashFlowRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.valuation_request import ValuationRequest
+import luisd
+from luisd.model.valuation_request import ValuationRequest
 
 
 class TestValuationRequest(unittest.TestCase):

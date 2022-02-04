@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.target_tax_lot_request import TargetTaxLotRequest
+import luisd
+from luisd.model.target_tax_lot_request import TargetTaxLotRequest
 
 
 class TestTargetTaxLotRequest(unittest.TestCase):

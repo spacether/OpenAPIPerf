@@ -1,4 +1,4 @@
-# openapi_client.PortfolioGroupsApi
+# luisd.PortfolioGroupsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -41,16 +41,16 @@ Add a single portfolio to a portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_id import ResourceId
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_id import ResourceId
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -60,12 +60,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -83,7 +83,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->add_portfolio_to_group: %s\n" % e)
 
     # example passing only optional values
@@ -106,7 +106,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->add_portfolio_to_group: %s\n" % e)
 ```
 ### Parameters
@@ -280,16 +280,16 @@ Add a portfolio group to a portfolio group as a sub group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_id import ResourceId
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_id import ResourceId
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -299,12 +299,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -322,7 +322,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->add_sub_group_to_group: %s\n" % e)
 
     # example passing only optional values
@@ -345,7 +345,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->add_sub_group_to_group: %s\n" % e)
 ```
 ### Parameters
@@ -519,16 +519,16 @@ Build transactions for transaction portfolios in a portfolio group over a given 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_query_parameters import TransactionQueryParameters
-from openapi_client.model.versioned_resource_list_of_output_transaction import VersionedResourceListOfOutputTransaction
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.versioned_resource_list_of_output_transaction import VersionedResourceListOfOutputTransaction
+from luisd.model.transaction_query_parameters import TransactionQueryParameters
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -538,12 +538,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -568,7 +568,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->build_transactions_for_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -599,7 +599,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->build_transactions_for_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -809,16 +809,16 @@ Create a portfolio group in a specific scope.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.create_portfolio_group_request import CreatePortfolioGroupRequest
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_portfolio_group_request import CreatePortfolioGroupRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -828,12 +828,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -847,7 +847,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->create_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -898,7 +898,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->create_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -1046,15 +1046,15 @@ Delete one or more properties from a single portfolio group. If the properties a
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1064,12 +1064,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -1089,7 +1089,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_group_properties: %s\n" % e)
 
     # example passing only optional values
@@ -1109,7 +1109,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_group_properties: %s\n" % e)
 ```
 ### Parameters
@@ -1291,15 +1291,15 @@ Deletes the Portfolio Group Access Metadata entry that exactly matches the provi
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1309,12 +1309,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -1333,7 +1333,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_key_from_portfolio_group_access_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -1352,7 +1352,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_key_from_portfolio_group_access_metadata: %s\n" % e)
 ```
 ### Parameters
@@ -1507,15 +1507,15 @@ Remove a single portfolio from a portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1525,12 +1525,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -1550,7 +1550,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_portfolio_from_group: %s\n" % e)
 
     # example passing only optional values
@@ -1570,7 +1570,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_portfolio_from_group: %s\n" % e)
 ```
 ### Parameters
@@ -1734,15 +1734,15 @@ Delete a single portfolio group. A portfolio group can be deleted while it still
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1752,12 +1752,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -1772,7 +1772,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -1901,15 +1901,15 @@ Remove a single portfolio group (sub group) from a portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1919,12 +1919,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -1944,7 +1944,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_sub_group_from_group: %s\n" % e)
 
     # example passing only optional values
@@ -1964,7 +1964,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->delete_sub_group_from_group: %s\n" % e)
 ```
 ### Parameters
@@ -2128,15 +2128,15 @@ Get an A2B report for all Transaction Portfolios within the given portfolio grou
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2146,12 +2146,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -2171,7 +2171,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_a2_b_data_for_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -2197,7 +2197,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_a2_b_data_for_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -2397,15 +2397,15 @@ List all the properties of a single portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group_properties import PortfolioGroupProperties
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.portfolio_group_properties import PortfolioGroupProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2415,12 +2415,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -2438,7 +2438,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_group_properties: %s\n" % e)
 
     # example passing only optional values
@@ -2457,7 +2457,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_group_properties: %s\n" % e)
 ```
 ### Parameters
@@ -2612,15 +2612,15 @@ Get the holdings of transaction portfolios in specified portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2630,12 +2630,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -2653,7 +2653,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_holdings_for_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -2677,7 +2677,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_holdings_for_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -2859,15 +2859,15 @@ Retrieve the definition of a single portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2877,12 +2877,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -2900,7 +2900,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -2919,7 +2919,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -3074,15 +3074,15 @@ Get a specific Portfolio Group access metadata by specifying the corresponding i
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.access_metadata_value import AccessMetadataValue
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.access_metadata_value import AccessMetadataValue
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3092,12 +3092,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -3116,7 +3116,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_access_metadata_by_key: %s\n" % e)
 
     # example passing only optional values
@@ -3136,7 +3136,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_access_metadata_by_key: %s\n" % e)
 ```
 ### Parameters
@@ -3300,15 +3300,15 @@ Gets all the commands that modified a single portfolio group.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_processed_command import ResourceListOfProcessedCommand
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.resource_list_of_processed_command import ResourceListOfProcessedCommand
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3318,12 +3318,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -3341,7 +3341,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_commands: %s\n" % e)
 
     # example passing only optional values
@@ -3361,7 +3361,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_commands: %s\n" % e)
 ```
 ### Parameters
@@ -3525,15 +3525,15 @@ List all the portfolios in a group, including all portfolios within sub groups i
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.expanded_group import ExpandedGroup
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.expanded_group import ExpandedGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3543,12 +3543,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -3566,7 +3566,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_expansion: %s\n" % e)
 
     # example passing only optional values
@@ -3588,7 +3588,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_expansion: %s\n" % e)
 ```
 ### Parameters
@@ -3752,15 +3752,15 @@ Pass the scope and Portfolio Group code parameters to retrieve the associated Ac
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.access_metadata_value import AccessMetadataValue
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.access_metadata_value import AccessMetadataValue
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3770,12 +3770,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -3793,7 +3793,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -3812,7 +3812,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_metadata: %s\n" % e)
 ```
 ### Parameters
@@ -3970,15 +3970,15 @@ List the complete time series of a portfolio group property.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_property_interval import ResourceListOfPropertyInterval
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3988,12 +3988,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -4012,7 +4012,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_property_time_series: %s\n" % e)
 
     # example passing only optional values
@@ -4035,7 +4035,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_property_time_series: %s\n" % e)
 ```
 ### Parameters
@@ -4226,15 +4226,15 @@ Get relations for the specified Portfolio Group
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_relation import ResourceListOfRelation
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_relation import ResourceListOfRelation
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4244,12 +4244,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -4267,7 +4267,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_relations: %s\n" % e)
 
     # example passing only optional values
@@ -4290,7 +4290,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_relations: %s\n" % e)
 ```
 ### Parameters
@@ -4463,15 +4463,15 @@ Get relationships for the specified Portfolio Group
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_relationship import ResourceListOfRelationship
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_relationship import ResourceListOfRelationship
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4481,12 +4481,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -4504,7 +4504,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_relationships: %s\n" % e)
 
     # example passing only optional values
@@ -4527,7 +4527,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_portfolio_group_relationships: %s\n" % e)
 ```
 ### Parameters
@@ -4700,15 +4700,15 @@ Get transactions for transaction portfolios in a portfolio group over a given in
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.versioned_resource_list_of_transaction import VersionedResourceListOfTransaction
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.versioned_resource_list_of_transaction import VersionedResourceListOfTransaction
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4718,12 +4718,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -4741,7 +4741,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_transactions_for_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -4767,7 +4767,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->get_transactions_for_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -4967,15 +4967,15 @@ List all the portfolio groups in a single scope.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_portfolio_group import ResourceListOfPortfolioGroup
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_portfolio_group import ResourceListOfPortfolioGroup
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4985,12 +4985,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -5007,7 +5007,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->list_portfolio_groups: %s\n" % e)
 
     # example passing only optional values
@@ -5026,7 +5026,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->list_portfolio_groups: %s\n" % e)
 ```
 ### Parameters
@@ -5181,16 +5181,16 @@ Update the definition of a single portfolio group. Not all elements within a por
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group import PortfolioGroup
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.update_portfolio_group_request import UpdatePortfolioGroupRequest
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.portfolio_group import PortfolioGroup
+from luisd.model.update_portfolio_group_request import UpdatePortfolioGroupRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5200,12 +5200,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -5223,7 +5223,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->update_portfolio_group: %s\n" % e)
 
     # example passing only optional values
@@ -5246,7 +5246,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->update_portfolio_group: %s\n" % e)
 ```
 ### Parameters
@@ -5420,16 +5420,16 @@ Update or insert one or more properties onto a single group. A property will be 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.portfolio_group_properties import PortfolioGroupProperties
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.model_property import ModelProperty
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.model_property import ModelProperty
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.portfolio_group_properties import PortfolioGroupProperties
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5439,12 +5439,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -5459,7 +5459,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->upsert_group_properties: %s\n" % e)
 
     # example passing only optional values
@@ -5493,7 +5493,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->upsert_group_properties: %s\n" % e)
 ```
 ### Parameters
@@ -5662,16 +5662,16 @@ Update or insert one Portfolio Group Access Metadata Entry in a single scope. An
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import portfolio_groups_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.upsert_portfolio_group_access_metadata_request import UpsertPortfolioGroupAccessMetadataRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
+import luisd
+from luisd.api import portfolio_groups_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
+from luisd.model.upsert_portfolio_group_access_metadata_request import UpsertPortfolioGroupAccessMetadataRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5681,12 +5681,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = portfolio_groups_api.PortfolioGroupsApi(api_client)
 
@@ -5714,7 +5714,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->upsert_portfolio_group_access_metadata: %s\n" % e)
 
     # example passing only optional values
@@ -5742,7 +5742,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling PortfolioGroupsApi->upsert_portfolio_group_access_metadata: %s\n" % e)
 ```
 ### Parameters

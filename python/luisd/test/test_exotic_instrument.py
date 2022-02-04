@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.exotic_instrument import ExoticInstrument
+import luisd
+from luisd.model.exotic_instrument import ExoticInstrument
 
 
 class TestExoticInstrument(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.aggregation_op import AggregationOp
+import luisd
+from luisd.model.aggregation_op import AggregationOp
 
 
 class TestAggregationOp(unittest.TestCase):

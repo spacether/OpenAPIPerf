@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.blocks_api import BlocksApi  # noqa: E501
+import luisd
+from luisd.api.blocks_api import BlocksApi  # noqa: E501
 
 
 class TestBlocksApi(unittest.TestCase):

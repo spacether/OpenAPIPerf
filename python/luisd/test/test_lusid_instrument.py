@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.lusid_instrument import LusidInstrument
+import luisd
+from luisd.model.lusid_instrument import LusidInstrument
 
 
 class TestLusidInstrument(unittest.TestCase):

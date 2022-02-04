@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_derived_property_definition_request import CreateDerivedPropertyDefinitionRequest
+import luisd
+from luisd.model.create_derived_property_definition_request import CreateDerivedPropertyDefinitionRequest
 
 
 class TestCreateDerivedPropertyDefinitionRequest(unittest.TestCase):

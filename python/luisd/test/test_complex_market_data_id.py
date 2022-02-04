@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.complex_market_data_id import ComplexMarketDataId
+import luisd
+from luisd.model.complex_market_data_id import ComplexMarketDataId
 
 
 class TestComplexMarketDataId(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_type import DataType
+import luisd
+from luisd.model.data_type import DataType
 
 
 class TestDataType(unittest.TestCase):

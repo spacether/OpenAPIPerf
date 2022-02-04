@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.relationships_api import RelationshipsApi  # noqa: E501
+import luisd
+from luisd.api.relationships_api import RelationshipsApi  # noqa: E501
 
 
 class TestRelationshipsApi(unittest.TestCase):

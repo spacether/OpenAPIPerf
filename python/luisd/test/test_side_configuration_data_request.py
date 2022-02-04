@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.side_configuration_data_request import SideConfigurationDataRequest
+import luisd
+from luisd.model.side_configuration_data_request import SideConfigurationDataRequest
 
 
 class TestSideConfigurationDataRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.atom_value_int import AtomValueInt
+import luisd
+from luisd.model.atom_value_int import AtomValueInt
 
 
 class TestAtomValueInt(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_portfolio_request import UpdatePortfolioRequest
+import luisd
+from luisd.model.update_portfolio_request import UpdatePortfolioRequest
 
 
 class TestUpdatePortfolioRequest(unittest.TestCase):

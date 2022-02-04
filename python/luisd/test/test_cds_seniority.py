@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_seniority import CdsSeniority
+import luisd
+from luisd.model.cds_seniority import CdsSeniority
 
 
 class TestCdsSeniority(unittest.TestCase):

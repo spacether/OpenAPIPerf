@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.equity_all_of import EquityAllOf
+import luisd
+from luisd.model.equity_all_of import EquityAllOf
 
 
 class TestEquityAllOf(unittest.TestCase):

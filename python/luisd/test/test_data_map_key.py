@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_map_key import DataMapKey
+import luisd
+from luisd.model.data_map_key import DataMapKey
 
 
 class TestDataMapKey(unittest.TestCase):

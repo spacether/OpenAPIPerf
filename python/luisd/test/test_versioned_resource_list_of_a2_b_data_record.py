@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
+import luisd
+from luisd.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
 
 
 class TestVersionedResourceListOfA2BDataRecord(unittest.TestCase):

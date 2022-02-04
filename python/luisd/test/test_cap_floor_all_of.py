@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cap_floor_all_of import CapFloorAllOf
+import luisd
+from luisd.model.cap_floor_all_of import CapFloorAllOf
 
 
 class TestCapFloorAllOf(unittest.TestCase):

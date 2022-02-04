@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.package_request import PackageRequest
+import luisd
+from luisd.model.package_request import PackageRequest
 
 
 class TestPackageRequest(unittest.TestCase):

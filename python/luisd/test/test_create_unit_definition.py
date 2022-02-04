@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_unit_definition import CreateUnitDefinition
+import luisd
+from luisd.model.create_unit_definition import CreateUnitDefinition
 
 
 class TestCreateUnitDefinition(unittest.TestCase):

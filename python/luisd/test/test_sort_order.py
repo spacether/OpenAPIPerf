@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.sort_order import SortOrder
+import luisd
+from luisd.model.sort_order import SortOrder
 
 
 class TestSortOrder(unittest.TestCase):

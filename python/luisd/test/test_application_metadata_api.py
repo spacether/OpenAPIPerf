@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.application_metadata_api import ApplicationMetadataApi  # noqa: E501
+import luisd
+from luisd.api.application_metadata_api import ApplicationMetadataApi  # noqa: E501
 
 
 class TestApplicationMetadataApi(unittest.TestCase):

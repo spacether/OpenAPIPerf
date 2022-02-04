@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reference_portfolio_weight_type import ReferencePortfolioWeightType
+import luisd
+from luisd.model.reference_portfolio_weight_type import ReferencePortfolioWeightType
 
 
 class TestReferencePortfolioWeightType(unittest.TestCase):

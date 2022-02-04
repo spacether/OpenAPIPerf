@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.value_type import ValueType
+import luisd
+from luisd.model.value_type import ValueType
 
 
 class TestValueType(unittest.TestCase):

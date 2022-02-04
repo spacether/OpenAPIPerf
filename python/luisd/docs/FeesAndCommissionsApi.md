@@ -1,4 +1,4 @@
-# openapi_client.FeesAndCommissionsApi
+# luisd.FeesAndCommissionsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -18,15 +18,15 @@ Additionally, matching can be based on the instrument's properties, its portfoli
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import fees_and_commissions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import fees_and_commissions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -36,12 +36,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fees_and_commissions_api.FeesAndCommissionsApi(api_client)
 
@@ -62,7 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling FeesAndCommissionsApi->get_applicable_fees: %s\n" % e)
 ```
 ### Parameters
@@ -228,15 +228,15 @@ By default, will list ALL rules available. Additional keys and be specified to l
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import fees_and_commissions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import fees_and_commissions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -246,12 +246,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = fees_and_commissions_api.FeesAndCommissionsApi(api_client)
 
@@ -268,7 +268,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling FeesAndCommissionsApi->list_all_fees: %s\n" % e)
 ```
 ### Parameters

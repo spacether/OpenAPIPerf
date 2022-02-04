@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_restructuring_type import CdsRestructuringType
+import luisd
+from luisd.model.cds_restructuring_type import CdsRestructuringType
 
 
 class TestCdsRestructuringType(unittest.TestCase):

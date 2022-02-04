@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.counterparty_agreement import CounterpartyAgreement
+import luisd
+from luisd.model.counterparty_agreement import CounterpartyAgreement
 
 
 class TestCounterpartyAgreement(unittest.TestCase):

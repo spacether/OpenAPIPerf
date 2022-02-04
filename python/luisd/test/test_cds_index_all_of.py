@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_index_all_of import CdsIndexAllOf
+import luisd
+from luisd.model.cds_index_all_of import CdsIndexAllOf
 
 
 class TestCdsIndexAllOf(unittest.TestCase):

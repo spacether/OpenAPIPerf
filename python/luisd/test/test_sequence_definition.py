@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.sequence_definition import SequenceDefinition
+import luisd
+from luisd.model.sequence_definition import SequenceDefinition
 
 
 class TestSequenceDefinition(unittest.TestCase):

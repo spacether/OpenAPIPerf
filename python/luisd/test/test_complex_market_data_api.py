@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.complex_market_data_api import ComplexMarketDataApi  # noqa: E501
+import luisd
+from luisd.api.complex_market_data_api import ComplexMarketDataApi  # noqa: E501
 
 
 class TestComplexMarketDataApi(unittest.TestCase):

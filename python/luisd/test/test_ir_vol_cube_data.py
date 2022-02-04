@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.ir_vol_cube_data import IrVolCubeData
+import luisd
+from luisd.model.ir_vol_cube_data import IrVolCubeData
 
 
 class TestIrVolCubeData(unittest.TestCase):

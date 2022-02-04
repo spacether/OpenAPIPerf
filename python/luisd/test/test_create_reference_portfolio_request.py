@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_reference_portfolio_request import CreateReferencePortfolioRequest
+import luisd
+from luisd.model.create_reference_portfolio_request import CreateReferencePortfolioRequest
 
 
 class TestCreateReferencePortfolioRequest(unittest.TestCase):

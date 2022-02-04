@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_relationship_definition import PagedResourceListOfRelationshipDefinition
+import luisd
+from luisd.model.paged_resource_list_of_relationship_definition import PagedResourceListOfRelationshipDefinition
 
 
 class TestPagedResourceListOfRelationshipDefinition(unittest.TestCase):

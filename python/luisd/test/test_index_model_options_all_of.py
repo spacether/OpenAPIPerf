@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.index_model_options_all_of import IndexModelOptionsAllOf
+import luisd
+from luisd.model.index_model_options_all_of import IndexModelOptionsAllOf
 
 
 class TestIndexModelOptionsAllOf(unittest.TestCase):

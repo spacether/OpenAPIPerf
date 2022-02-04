@@ -1,4 +1,4 @@
-# openapi_client.CalendarsApi
+# luisd.CalendarsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -28,16 +28,16 @@ A Business day is defined as a point in time that:      * Does not represent a d
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.add_business_days_to_date_response import AddBusinessDaysToDateResponse
-from openapi_client.model.add_business_days_to_date_request import AddBusinessDaysToDateRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.add_business_days_to_date_response import AddBusinessDaysToDateResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.add_business_days_to_date_request import AddBusinessDaysToDateRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -47,12 +47,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -75,7 +75,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->add_business_days_to_date: %s\n" % e)
 ```
 ### Parameters
@@ -223,16 +223,16 @@ Add an event to the calendar. These Events can be a maximum of 24 hours and must
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar_date import CalendarDate
-from openapi_client.model.create_date_request import CreateDateRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.create_date_request import CreateDateRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.calendar_date import CalendarDate
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -242,12 +242,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -284,7 +284,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->add_date_to_calendar: %s\n" % e)
 ```
 ### Parameters
@@ -441,16 +441,16 @@ Create a calendar in a generic form which can be used to store date events.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.create_calendar_request import CreateCalendarRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar import Calendar
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_calendar_request import CreateCalendarRequest
+from luisd.model.calendar import Calendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -460,12 +460,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -509,7 +509,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->create_calendar: %s\n" % e)
 ```
 ### Parameters
@@ -641,15 +641,15 @@ Delete a calendar and all of its respective dates
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar import Calendar
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.calendar import Calendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -659,12 +659,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -679,7 +679,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->delete_calendar: %s\n" % e)
 ```
 ### Parameters
@@ -808,15 +808,15 @@ Remove a date from a calendar.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar_date import CalendarDate
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.calendar_date import CalendarDate
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -826,12 +826,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -847,7 +847,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->delete_date_from_calendar: %s\n" % e)
 ```
 ### Parameters
@@ -985,15 +985,15 @@ Returns an ordered array of dates. The dates will only fall on business  days as
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.valuation_schedule import ValuationSchedule
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.valuation_schedule import ValuationSchedule
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1003,12 +1003,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -1038,7 +1038,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->generate_schedule: %s\n" % e)
 
     # example passing only optional values
@@ -1068,7 +1068,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->generate_schedule: %s\n" % e)
 ```
 ### Parameters
@@ -1233,15 +1233,15 @@ Retrieve a generic calendar by a specific ID at a point in AsAt time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar import Calendar
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.calendar import Calendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1251,12 +1251,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -1274,7 +1274,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->get_calendar: %s\n" % e)
 
     # example passing only optional values
@@ -1292,7 +1292,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->get_calendar: %s\n" % e)
 ```
 ### Parameters
@@ -1438,15 +1438,15 @@ Get dates from a specific calendar within a specific window of effective time, a
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_calendar_date import ResourceListOfCalendarDate
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_calendar_date import ResourceListOfCalendarDate
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1456,12 +1456,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -1479,7 +1479,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->get_dates: %s\n" % e)
 
     # example passing only optional values
@@ -1502,7 +1502,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->get_dates: %s\n" % e)
 ```
 ### Parameters
@@ -1675,15 +1675,15 @@ A Business DateTime is defined as a point in time that:      * Does not represen
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.is_business_day_response import IsBusinessDayResponse
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.is_business_day_response import IsBusinessDayResponse
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1693,12 +1693,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -1717,7 +1717,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->is_business_date_time: %s\n" % e)
 
     # example passing only optional values
@@ -1736,7 +1736,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->is_business_date_time: %s\n" % e)
 ```
 ### Parameters
@@ -1891,15 +1891,15 @@ List calendars at a point in AsAt time.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_calendar import PagedResourceListOfCalendar
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.paged_resource_list_of_calendar import PagedResourceListOfCalendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1909,12 +1909,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -1931,7 +1931,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->list_calendars: %s\n" % e)
 ```
 ### Parameters
@@ -2079,15 +2079,15 @@ List calendars at a point in AsAt time.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_calendar import PagedResourceListOfCalendar
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.paged_resource_list_of_calendar import PagedResourceListOfCalendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2097,12 +2097,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -2119,7 +2119,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->list_calendars_in_scope: %s\n" % e)
 
     # example passing only optional values
@@ -2140,7 +2140,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->list_calendars_in_scope: %s\n" % e)
 ```
 ### Parameters
@@ -2313,16 +2313,16 @@ Update the calendars WeekendMask, SourceProvider or Properties
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import calendars_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.calendar import Calendar
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.update_calendar_request import UpdateCalendarRequest
+import luisd
+from luisd.api import calendars_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.update_calendar_request import UpdateCalendarRequest
+from luisd.model.calendar import Calendar
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2332,12 +2332,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = calendars_api.CalendarsApi(api_client)
 
@@ -2381,7 +2381,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CalendarsApi->update_calendar: %s\n" % e)
 ```
 ### Parameters

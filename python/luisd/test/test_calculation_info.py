@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.calculation_info import CalculationInfo
+import luisd
+from luisd.model.calculation_info import CalculationInfo
 
 
 class TestCalculationInfo(unittest.TestCase):

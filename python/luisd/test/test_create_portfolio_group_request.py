@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_portfolio_group_request import CreatePortfolioGroupRequest
+import luisd
+from luisd.model.create_portfolio_group_request import CreatePortfolioGroupRequest
 
 
 class TestCreatePortfolioGroupRequest(unittest.TestCase):

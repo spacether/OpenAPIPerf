@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.atom_value_decimal import AtomValueDecimal
+import luisd
+from luisd.model.atom_value_decimal import AtomValueDecimal
 
 
 class TestAtomValueDecimal(unittest.TestCase):

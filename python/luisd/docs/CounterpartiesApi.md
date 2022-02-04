@@ -1,4 +1,4 @@
-# openapi_client.CounterpartiesApi
+# luisd.CounterpartiesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -24,15 +24,15 @@ Delete the specified Counterparty Agreement from a single scope.  The response w
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -42,12 +42,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -62,7 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->delete_counterparty_agreement: %s\n" % e)
 ```
 ### Parameters
@@ -191,15 +191,15 @@ Delete the specified Credit Support Annex from a single scope.  The response wil
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -209,12 +209,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -229,7 +229,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->delete_credit_support_annex: %s\n" % e)
 ```
 ### Parameters
@@ -358,15 +358,15 @@ Get a Counterparty Agreement from a single scope.  The response will return eith
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.get_counterparty_agreement_response import GetCounterpartyAgreementResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_counterparty_agreement_response import GetCounterpartyAgreementResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -376,12 +376,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -399,7 +399,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->get_counterparty_agreement: %s\n" % e)
 
     # example passing only optional values
@@ -417,7 +417,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->get_counterparty_agreement: %s\n" % e)
 ```
 ### Parameters
@@ -563,15 +563,15 @@ Get a Credit Support Annex from a single scope.  The response will return either
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.get_credit_support_annex_response import GetCreditSupportAnnexResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_credit_support_annex_response import GetCreditSupportAnnexResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -581,12 +581,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -604,7 +604,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->get_credit_support_annex: %s\n" % e)
 
     # example passing only optional values
@@ -622,7 +622,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->get_credit_support_annex: %s\n" % e)
 ```
 ### Parameters
@@ -768,15 +768,15 @@ List the set of Counterparty Agreements at the specified AsAt date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_get_counterparty_agreement_response import ResourceListOfGetCounterpartyAgreementResponse
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.resource_list_of_get_counterparty_agreement_response import ResourceListOfGetCounterpartyAgreementResponse
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -786,12 +786,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -805,7 +805,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->list_counterparty_agreements: %s\n" % e)
 ```
 ### Parameters
@@ -926,15 +926,15 @@ List the set of Credit Support Annexes at the specified AsAt date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_get_credit_support_annex_response import ResourceListOfGetCreditSupportAnnexResponse
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.resource_list_of_get_credit_support_annex_response import ResourceListOfGetCreditSupportAnnexResponse
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -944,12 +944,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -963,7 +963,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->list_credit_support_annexes: %s\n" % e)
 ```
 ### Parameters
@@ -1084,16 +1084,16 @@ Update or insert Counterparty Agreement in a single scope. An item will be updat
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.upsert_counterparty_agreement_request import UpsertCounterpartyAgreementRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_counterparty_agreement_request import UpsertCounterpartyAgreementRequest
+from luisd.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1103,12 +1103,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -1142,7 +1142,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->upsert_counterparty_agreement: %s\n" % e)
 ```
 ### Parameters
@@ -1274,16 +1274,16 @@ Update or insert Credit Support Annex in a single scope. An item will be updated
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import counterparties_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_credit_support_annex_request import UpsertCreditSupportAnnexRequest
-from openapi_client.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+import luisd
+from luisd.api import counterparties_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+from luisd.model.upsert_credit_support_annex_request import UpsertCreditSupportAnnexRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1293,12 +1293,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = counterparties_api.CounterpartiesApi(api_client)
 
@@ -1328,7 +1328,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CounterpartiesApi->upsert_credit_support_annex: %s\n" % e)
 ```
 ### Parameters

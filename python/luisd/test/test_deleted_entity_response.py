@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 
 
 class TestDeletedEntityResponse(unittest.TestCase):

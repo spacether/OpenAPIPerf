@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_data_type_request import UpdateDataTypeRequest
+import luisd
+from luisd.model.update_data_type_request import UpdateDataTypeRequest
 
 
 class TestUpdateDataTypeRequest(unittest.TestCase):

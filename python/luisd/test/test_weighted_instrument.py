@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.weighted_instrument import WeightedInstrument
+import luisd
+from luisd.model.weighted_instrument import WeightedInstrument
 
 
 class TestWeightedInstrument(unittest.TestCase):

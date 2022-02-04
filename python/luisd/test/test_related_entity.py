@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.related_entity import RelatedEntity
+import luisd
+from luisd.model.related_entity import RelatedEntity
 
 
 class TestRelatedEntity(unittest.TestCase):

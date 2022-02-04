@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.term_deposit_all_of import TermDepositAllOf
+import luisd
+from luisd.model.term_deposit_all_of import TermDepositAllOf
 
 
 class TestTermDepositAllOf(unittest.TestCase):

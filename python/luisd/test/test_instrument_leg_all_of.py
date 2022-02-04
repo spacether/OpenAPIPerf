@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_leg_all_of import InstrumentLegAllOf
+import luisd
+from luisd.model.instrument_leg_all_of import InstrumentLegAllOf
 
 
 class TestInstrumentLegAllOf(unittest.TestCase):

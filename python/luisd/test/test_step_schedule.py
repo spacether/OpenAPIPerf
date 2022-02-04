@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.step_schedule import StepSchedule
+import luisd
+from luisd.model.step_schedule import StepSchedule
 
 
 class TestStepSchedule(unittest.TestCase):

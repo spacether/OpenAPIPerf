@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.perpetual_property import PerpetualProperty
+import luisd
+from luisd.model.perpetual_property import PerpetualProperty
 
 
 class TestPerpetualProperty(unittest.TestCase):

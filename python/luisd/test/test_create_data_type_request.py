@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_data_type_request import CreateDataTypeRequest
+import luisd
+from luisd.model.create_data_type_request import CreateDataTypeRequest
 
 
 class TestCreateDataTypeRequest(unittest.TestCase):

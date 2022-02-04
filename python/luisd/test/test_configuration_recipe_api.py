@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.configuration_recipe_api import ConfigurationRecipeApi  # noqa: E501
+import luisd
+from luisd.api.configuration_recipe_api import ConfigurationRecipeApi  # noqa: E501
 
 
 class TestConfigurationRecipeApi(unittest.TestCase):

@@ -1,4 +1,4 @@
-# openapi_client.SchemasApi
+# luisd.SchemasApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -20,15 +20,15 @@ Gets the schema and meta-data for a given entity
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import schemas_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.schema import Schema
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import schemas_api
+from luisd.model.schema import Schema
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -38,12 +38,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
@@ -57,7 +57,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SchemasApi->get_entity_schema: %s\n" % e)
 ```
 ### Parameters
@@ -177,15 +177,15 @@ Get the schemas for the provided list of property keys.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import schemas_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.property_schema import PropertySchema
+import luisd
+from luisd.api import schemas_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.property_schema import PropertySchema
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -195,12 +195,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
@@ -217,7 +217,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SchemasApi->get_property_schema: %s\n" % e)
 ```
 ### Parameters
@@ -347,15 +347,15 @@ Gets the available value types for which a schema is available.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import schemas_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_value_type import ResourceListOfValueType
+import luisd
+from luisd.api import schemas_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.resource_list_of_value_type import ResourceListOfValueType
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -365,12 +365,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
@@ -388,7 +388,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SchemasApi->get_value_types: %s\n" % e)
 ```
 ### Parameters
@@ -527,14 +527,14 @@ List all available entities for which schema information is available.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import schemas_api
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_string import ResourceListOfString
+import luisd
+from luisd.api import schemas_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.resource_list_of_string import ResourceListOfString
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -544,12 +544,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = schemas_api.SchemasApi(api_client)
 
@@ -558,7 +558,7 @@ with openapi_client.ApiClient(configuration) as api_client:
         # [BETA] ListEntities: List entities
         api_response = api_instance.list_entities()
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SchemasApi->list_entities: %s\n" % e)
 ```
 ### Parameters

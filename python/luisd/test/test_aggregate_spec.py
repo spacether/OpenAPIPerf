@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.aggregate_spec import AggregateSpec
+import luisd
+from luisd.model.aggregate_spec import AggregateSpec
 
 
 class TestAggregateSpec(unittest.TestCase):

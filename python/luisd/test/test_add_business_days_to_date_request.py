@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.add_business_days_to_date_request import AddBusinessDaysToDateRequest
+import luisd
+from luisd.model.add_business_days_to_date_request import AddBusinessDaysToDateRequest
 
 
 class TestAddBusinessDaysToDateRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconcile_string_rule_all_of import ReconcileStringRuleAllOf
+import luisd
+from luisd.model.reconcile_string_rule_all_of import ReconcileStringRuleAllOf
 
 
 class TestReconcileStringRuleAllOf(unittest.TestCase):

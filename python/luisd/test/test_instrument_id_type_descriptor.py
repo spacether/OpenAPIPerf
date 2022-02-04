@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_id_type_descriptor import InstrumentIdTypeDescriptor
+import luisd
+from luisd.model.instrument_id_type_descriptor import InstrumentIdTypeDescriptor
 
 
 class TestInstrumentIdTypeDescriptor(unittest.TestCase):

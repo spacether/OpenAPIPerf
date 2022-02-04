@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.empty_model_options import EmptyModelOptions
+import luisd
+from luisd.model.empty_model_options import EmptyModelOptions
 
 
 class TestEmptyModelOptions(unittest.TestCase):

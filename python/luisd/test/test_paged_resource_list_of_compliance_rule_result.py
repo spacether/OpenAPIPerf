@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_compliance_rule_result import PagedResourceListOfComplianceRuleResult
+import luisd
+from luisd.model.paged_resource_list_of_compliance_rule_result import PagedResourceListOfComplianceRuleResult
 
 
 class TestPagedResourceListOfComplianceRuleResult(unittest.TestCase):

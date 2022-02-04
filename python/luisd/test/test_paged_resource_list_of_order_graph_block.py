@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_order_graph_block import PagedResourceListOfOrderGraphBlock
+import luisd
+from luisd.model.paged_resource_list_of_order_graph_block import PagedResourceListOfOrderGraphBlock
 
 
 class TestPagedResourceListOfOrderGraphBlock(unittest.TestCase):

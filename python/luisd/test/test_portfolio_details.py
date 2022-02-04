@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_details import PortfolioDetails
+import luisd
+from luisd.model.portfolio_details import PortfolioDetails
 
 
 class TestPortfolioDetails(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
+import luisd
+from luisd.model.resource_list_of_access_metadata_value_of import ResourceListOfAccessMetadataValueOf
 
 
 class TestResourceListOfAccessMetadataValueOf(unittest.TestCase):

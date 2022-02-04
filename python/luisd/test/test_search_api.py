@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.search_api import SearchApi  # noqa: E501
+import luisd
+from luisd.api.search_api import SearchApi  # noqa: E501
 
 
 class TestSearchApi(unittest.TestCase):

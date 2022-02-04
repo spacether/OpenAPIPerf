@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.credit_support_annex import CreditSupportAnnex
+import luisd
+from luisd.model.credit_support_annex import CreditSupportAnnex
 
 
 class TestCreditSupportAnnex(unittest.TestCase):

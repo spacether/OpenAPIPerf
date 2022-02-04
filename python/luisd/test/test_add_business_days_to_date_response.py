@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.add_business_days_to_date_response import AddBusinessDaysToDateResponse
+import luisd
+from luisd.model.add_business_days_to_date_response import AddBusinessDaysToDateResponse
 
 
 class TestAddBusinessDaysToDateResponse(unittest.TestCase):

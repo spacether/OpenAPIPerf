@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.execution_request import ExecutionRequest
+import luisd
+from luisd.model.execution_request import ExecutionRequest
 
 
 class TestExecutionRequest(unittest.TestCase):

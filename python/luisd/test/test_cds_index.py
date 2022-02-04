@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cds_index import CdsIndex
+import luisd
+from luisd.model.cds_index import CdsIndex
 
 
 class TestCdsIndex(unittest.TestCase):

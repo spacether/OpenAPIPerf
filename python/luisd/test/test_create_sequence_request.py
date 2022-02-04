@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_sequence_request import CreateSequenceRequest
+import luisd
+from luisd.model.create_sequence_request import CreateSequenceRequest
 
 
 class TestCreateSequenceRequest(unittest.TestCase):

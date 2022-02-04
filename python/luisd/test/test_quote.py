@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.quote import Quote
+import luisd
+from luisd.model.quote import Quote
 
 
 class TestQuote(unittest.TestCase):

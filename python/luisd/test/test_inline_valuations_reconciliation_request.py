@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.inline_valuations_reconciliation_request import InlineValuationsReconciliationRequest
+import luisd
+from luisd.model.inline_valuations_reconciliation_request import InlineValuationsReconciliationRequest
 
 
 class TestInlineValuationsReconciliationRequest(unittest.TestCase):

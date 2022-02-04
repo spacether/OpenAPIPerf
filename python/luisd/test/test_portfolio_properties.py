@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_properties import PortfolioProperties
+import luisd
+from luisd.model.portfolio_properties import PortfolioProperties
 
 
 class TestPortfolioProperties(unittest.TestCase):

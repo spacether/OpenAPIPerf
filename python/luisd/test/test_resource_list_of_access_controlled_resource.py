@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_access_controlled_resource import ResourceListOfAccessControlledResource
+import luisd
+from luisd.model.resource_list_of_access_controlled_resource import ResourceListOfAccessControlledResource
 
 
 class TestResourceListOfAccessControlledResource(unittest.TestCase):

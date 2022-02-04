@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.discount_factor_curve_data import DiscountFactorCurveData
+import luisd
+from luisd.model.discount_factor_curve_data import DiscountFactorCurveData
 
 
 class TestDiscountFactorCurveData(unittest.TestCase):

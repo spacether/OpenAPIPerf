@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.atom_value_string_all_of import AtomValueStringAllOf
+import luisd
+from luisd.model.atom_value_string_all_of import AtomValueStringAllOf
 
 
 class TestAtomValueStringAllOf(unittest.TestCase):

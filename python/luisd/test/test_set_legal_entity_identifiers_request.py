@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.set_legal_entity_identifiers_request import SetLegalEntityIdentifiersRequest
+import luisd
+from luisd.model.set_legal_entity_identifiers_request import SetLegalEntityIdentifiersRequest
 
 
 class TestSetLegalEntityIdentifiersRequest(unittest.TestCase):

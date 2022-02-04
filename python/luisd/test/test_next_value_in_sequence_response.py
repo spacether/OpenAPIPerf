@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.next_value_in_sequence_response import NextValueInSequenceResponse
+import luisd
+from luisd.model.next_value_in_sequence_response import NextValueInSequenceResponse
 
 
 class TestNextValueInSequenceResponse(unittest.TestCase):

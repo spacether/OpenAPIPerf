@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.performance_returns_metric import PerformanceReturnsMetric
+import luisd
+from luisd.model.performance_returns_metric import PerformanceReturnsMetric
 
 
 class TestPerformanceReturnsMetric(unittest.TestCase):

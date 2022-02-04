@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.participations_api import ParticipationsApi  # noqa: E501
+import luisd
+from luisd.api.participations_api import ParticipationsApi  # noqa: E501
 
 
 class TestParticipationsApi(unittest.TestCase):

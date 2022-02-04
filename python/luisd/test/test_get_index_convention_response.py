@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_index_convention_response import GetIndexConventionResponse
+import luisd
+from luisd.model.get_index_convention_response import GetIndexConventionResponse
 
 
 class TestGetIndexConventionResponse(unittest.TestCase):

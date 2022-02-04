@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.persons_api import PersonsApi  # noqa: E501
+import luisd
+from luisd.api.persons_api import PersonsApi  # noqa: E501
 
 
 class TestPersonsApi(unittest.TestCase):

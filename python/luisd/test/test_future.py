@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.future import Future
+import luisd
+from luisd.model.future import Future
 
 
 class TestFuture(unittest.TestCase):

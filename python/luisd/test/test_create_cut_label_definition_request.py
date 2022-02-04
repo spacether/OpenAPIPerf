@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_cut_label_definition_request import CreateCutLabelDefinitionRequest
+import luisd
+from luisd.model.create_cut_label_definition_request import CreateCutLabelDefinitionRequest
 
 
 class TestCreateCutLabelDefinitionRequest(unittest.TestCase):

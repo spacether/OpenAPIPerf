@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.order_graph_api import OrderGraphApi  # noqa: E501
+import luisd
+from luisd.api.order_graph_api import OrderGraphApi  # noqa: E501
 
 
 class TestOrderGraphApi(unittest.TestCase):

@@ -1,4 +1,4 @@
-# openapi_client.SystemConfigurationApi
+# luisd.SystemConfigurationApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -23,16 +23,16 @@ Create a new transaction type by specifying a definition and mappings to movemen
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_configuration_data_request import TransactionConfigurationDataRequest
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.transaction_configuration_data_request import TransactionConfigurationDataRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -42,12 +42,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -120,7 +120,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->create_configuration_transaction_type: %s\n" % e)
 ```
 ### Parameters
@@ -252,16 +252,16 @@ Create a new side definition for use in a transaction type. For more information
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.side_configuration_data_request import SideConfigurationDataRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.side_configuration_data_request import SideConfigurationDataRequest
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -271,12 +271,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -295,7 +295,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->create_side_definition: %s\n" % e)
 ```
 ### Parameters
@@ -427,15 +427,15 @@ Type | Description  | Notes
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -445,12 +445,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -464,7 +464,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->delete_transaction_configuration_source: %s\n" % e)
 ```
 ### Parameters
@@ -584,15 +584,15 @@ Returns failure if requested source is not found
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -602,12 +602,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -624,7 +624,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->get_transaction_configuration_source: %s\n" % e)
 
     # example passing only optional values
@@ -641,7 +641,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->get_transaction_configuration_source: %s\n" % e)
 ```
 ### Parameters
@@ -778,15 +778,15 @@ Get the list of current transaction types. For information on the default transa
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -796,12 +796,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -815,7 +815,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->list_configuration_transaction_types: %s\n" % e)
 ```
 ### Parameters
@@ -936,16 +936,16 @@ Configure all existing transaction types. Note it is not possible to configure a
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_set_configuration_data_request import TransactionSetConfigurationDataRequest
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.transaction_set_configuration_data_request import TransactionSetConfigurationDataRequest
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -955,12 +955,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -1047,7 +1047,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->set_configuration_transaction_types: %s\n" % e)
 ```
 ### Parameters
@@ -1179,16 +1179,16 @@ This will replace all the existing transaction configurations for the given sour
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import system_configuration_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.set_transaction_configuration_source_request import SetTransactionConfigurationSourceRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_set_configuration_data import TransactionSetConfigurationData
+import luisd
+from luisd.api import system_configuration_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.set_transaction_configuration_source_request import SetTransactionConfigurationSourceRequest
+from luisd.model.transaction_set_configuration_data import TransactionSetConfigurationData
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1198,12 +1198,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = system_configuration_api.SystemConfigurationApi(api_client)
 
@@ -1219,7 +1219,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling SystemConfigurationApi->set_transaction_configuration_source: %s\n" % e)
 ```
 ### Parameters

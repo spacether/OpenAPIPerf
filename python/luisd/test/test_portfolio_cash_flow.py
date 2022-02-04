@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_cash_flow import PortfolioCashFlow
+import luisd
+from luisd.model.portfolio_cash_flow import PortfolioCashFlow
 
 
 class TestPortfolioCashFlow(unittest.TestCase):

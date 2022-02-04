@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_quotes_response import UpsertQuotesResponse
+import luisd
+from luisd.model.upsert_quotes_response import UpsertQuotesResponse
 
 
 class TestUpsertQuotesResponse(unittest.TestCase):

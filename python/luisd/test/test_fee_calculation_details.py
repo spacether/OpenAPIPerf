@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fee_calculation_details import FeeCalculationDetails
+import luisd
+from luisd.model.fee_calculation_details import FeeCalculationDetails
 
 
 class TestFeeCalculationDetails(unittest.TestCase):

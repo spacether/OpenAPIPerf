@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.weekend_mask import WeekendMask
+import luisd
+from luisd.model.weekend_mask import WeekendMask
 
 
 class TestWeekendMask(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.quotes_api import QuotesApi  # noqa: E501
+import luisd
+from luisd.api.quotes_api import QuotesApi  # noqa: E501
 
 
 class TestQuotesApi(unittest.TestCase):

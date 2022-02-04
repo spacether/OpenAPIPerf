@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.id_selector_definition import IdSelectorDefinition
+import luisd
+from luisd.model.id_selector_definition import IdSelectorDefinition
 
 
 class TestIdSelectorDefinition(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_relationship_request import CreateRelationshipRequest
+import luisd
+from luisd.model.create_relationship_request import CreateRelationshipRequest
 
 
 class TestCreateRelationshipRequest(unittest.TestCase):

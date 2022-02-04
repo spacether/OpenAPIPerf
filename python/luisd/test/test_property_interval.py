@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.property_interval import PropertyInterval
+import luisd
+from luisd.model.property_interval import PropertyInterval
 
 
 class TestPropertyInterval(unittest.TestCase):

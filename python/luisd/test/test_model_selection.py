@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.model_selection import ModelSelection
+import luisd
+from luisd.model.model_selection import ModelSelection
 
 
 class TestModelSelection(unittest.TestCase):

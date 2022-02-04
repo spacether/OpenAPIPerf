@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.paged_resource_list_of_corporate_action_source import PagedResourceListOfCorporateActionSource
+import luisd
+from luisd.model.paged_resource_list_of_corporate_action_source import PagedResourceListOfCorporateActionSource
 
 
 class TestPagedResourceListOfCorporateActionSource(unittest.TestCase):

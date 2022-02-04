@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.executions_api import ExecutionsApi  # noqa: E501
+import luisd
+from luisd.api.executions_api import ExecutionsApi  # noqa: E501
 
 
 class TestExecutionsApi(unittest.TestCase):

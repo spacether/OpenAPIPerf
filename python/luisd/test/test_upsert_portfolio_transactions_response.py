@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
+import luisd
+from luisd.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
 
 
 class TestUpsertPortfolioTransactionsResponse(unittest.TestCase):

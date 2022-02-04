@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_transaction_properties_response import UpsertTransactionPropertiesResponse
+import luisd
+from luisd.model.upsert_transaction_properties_response import UpsertTransactionPropertiesResponse
 
 
 class TestUpsertTransactionPropertiesResponse(unittest.TestCase):

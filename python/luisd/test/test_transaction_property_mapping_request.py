@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_property_mapping_request import TransactionPropertyMappingRequest
+import luisd
+from luisd.model.transaction_property_mapping_request import TransactionPropertyMappingRequest
 
 
 class TestTransactionPropertyMappingRequest(unittest.TestCase):

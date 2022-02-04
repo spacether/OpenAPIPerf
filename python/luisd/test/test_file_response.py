@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.file_response import FileResponse
+import luisd
+from luisd.model.file_response import FileResponse
 
 
 class TestFileResponse(unittest.TestCase):

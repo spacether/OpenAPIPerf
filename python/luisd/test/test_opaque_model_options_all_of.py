@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.opaque_model_options_all_of import OpaqueModelOptionsAllOf
+import luisd
+from luisd.model.opaque_model_options_all_of import OpaqueModelOptionsAllOf
 
 
 class TestOpaqueModelOptionsAllOf(unittest.TestCase):

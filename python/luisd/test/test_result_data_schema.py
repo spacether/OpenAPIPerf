@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.result_data_schema import ResultDataSchema
+import luisd
+from luisd.model.result_data_schema import ResultDataSchema
 
 
 class TestResultDataSchema(unittest.TestCase):

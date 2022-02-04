@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_virtual_document_response import GetVirtualDocumentResponse
+import luisd
+from luisd.model.get_virtual_document_response import GetVirtualDocumentResponse
 
 
 class TestGetVirtualDocumentResponse(unittest.TestCase):

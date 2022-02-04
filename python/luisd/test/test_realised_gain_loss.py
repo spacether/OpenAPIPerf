@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.realised_gain_loss import RealisedGainLoss
+import luisd
+from luisd.model.realised_gain_loss import RealisedGainLoss
 
 
 class TestRealisedGainLoss(unittest.TestCase):

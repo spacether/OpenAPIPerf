@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.futures_contract_details import FuturesContractDetails
+import luisd
+from luisd.model.futures_contract_details import FuturesContractDetails
 
 
 class TestFuturesContractDetails(unittest.TestCase):

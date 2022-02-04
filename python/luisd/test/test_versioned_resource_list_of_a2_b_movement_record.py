@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.versioned_resource_list_of_a2_b_movement_record import VersionedResourceListOfA2BMovementRecord
+import luisd
+from luisd.model.versioned_resource_list_of_a2_b_movement_record import VersionedResourceListOfA2BMovementRecord
 
 
 class TestVersionedResourceListOfA2BMovementRecord(unittest.TestCase):

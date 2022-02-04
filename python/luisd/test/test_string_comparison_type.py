@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.string_comparison_type import StringComparisonType
+import luisd
+from luisd.model.string_comparison_type import StringComparisonType
 
 
 class TestStringComparisonType(unittest.TestCase):

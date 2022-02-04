@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
+import luisd
+from luisd.model.resource_list_of_fee_calculation_details import ResourceListOfFeeCalculationDetails
 
 
 class TestResourceListOfFeeCalculationDetails(unittest.TestCase):

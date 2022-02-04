@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.counterparty_signatory import CounterpartySignatory
+import luisd
+from luisd.model.counterparty_signatory import CounterpartySignatory
 
 
 class TestCounterpartySignatory(unittest.TestCase):

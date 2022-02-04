@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.instrument_cash_flow import InstrumentCashFlow
+import luisd
+from luisd.model.instrument_cash_flow import InstrumentCashFlow
 
 
 class TestInstrumentCashFlow(unittest.TestCase):

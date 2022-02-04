@@ -1,4 +1,4 @@
-# openapi_client.ReconciliationsApi
+# luisd.ReconciliationsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -21,16 +21,16 @@ Perform evaluation of one or two set of holdings (a portfolio of instruments) us
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import reconciliations_api
-from openapi_client.model.reconciliation_request import ReconciliationRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.reconciliation_response import ReconciliationResponse
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import reconciliations_api
+from luisd.model.reconciliation_response import ReconciliationResponse
+from luisd.model.reconciliation_request import ReconciliationRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -40,12 +40,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reconciliations_api.ReconciliationsApi(api_client)
 
@@ -172,7 +172,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ReconciliationsApi->reconcile_generic: %s\n" % e)
 ```
 ### Parameters
@@ -304,16 +304,16 @@ Reconcile the holdings of two portfolios.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import reconciliations_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.portfolios_reconciliation_request import PortfoliosReconciliationRequest
-from openapi_client.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
+import luisd
+from luisd.api import reconciliations_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
+from luisd.model.portfolios_reconciliation_request import PortfoliosReconciliationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -323,12 +323,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reconciliations_api.ReconciliationsApi(api_client)
 
@@ -369,7 +369,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ReconciliationsApi->reconcile_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -545,16 +545,16 @@ Reconcile the holdings of two portfolios.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import reconciliations_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.portfolios_reconciliation_request_preview import PortfoliosReconciliationRequestPreview
-from openapi_client.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
+import luisd
+from luisd.api import reconciliations_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.portfolios_reconciliation_request_preview import PortfoliosReconciliationRequestPreview
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_reconciliation_break import ResourceListOfReconciliationBreak
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -564,12 +564,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reconciliations_api.ReconciliationsApi(api_client)
 
@@ -616,7 +616,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ReconciliationsApi->reconcile_holdings_preview: %s\n" % e)
 ```
 ### Parameters
@@ -792,16 +792,16 @@ Perform valuation of one or two set of inline instruments using different one or
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import reconciliations_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.list_aggregation_reconciliation import ListAggregationReconciliation
-from openapi_client.model.inline_valuations_reconciliation_request import InlineValuationsReconciliationRequest
+import luisd
+from luisd.api import reconciliations_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.inline_valuations_reconciliation_request import InlineValuationsReconciliationRequest
+from luisd.model.list_aggregation_reconciliation import ListAggregationReconciliation
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -811,12 +811,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reconciliations_api.ReconciliationsApi(api_client)
 
@@ -940,7 +940,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ReconciliationsApi->reconcile_inline: %s\n" % e)
 ```
 ### Parameters
@@ -1072,16 +1072,16 @@ Perform valuation of one or two set of holdings using different one or two confi
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import reconciliations_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.valuations_reconciliation_request import ValuationsReconciliationRequest
-from openapi_client.model.list_aggregation_reconciliation import ListAggregationReconciliation
+import luisd
+from luisd.api import reconciliations_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.list_aggregation_reconciliation import ListAggregationReconciliation
+from luisd.model.valuations_reconciliation_request import ValuationsReconciliationRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1091,12 +1091,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = reconciliations_api.ReconciliationsApi(api_client)
 
@@ -1220,7 +1220,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ReconciliationsApi->reconcile_valuation: %s\n" % e)
 ```
 ### Parameters

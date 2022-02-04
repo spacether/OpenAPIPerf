@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.transaction_portfolios_api import TransactionPortfoliosApi  # noqa: E501
+import luisd
+from luisd.api.transaction_portfolios_api import TransactionPortfoliosApi  # noqa: E501
 
 
 class TestTransactionPortfoliosApi(unittest.TestCase):

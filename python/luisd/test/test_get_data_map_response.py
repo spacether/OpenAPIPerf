@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_data_map_response import GetDataMapResponse
+import luisd
+from luisd.model.get_data_map_response import GetDataMapResponse
 
 
 class TestGetDataMapResponse(unittest.TestCase):

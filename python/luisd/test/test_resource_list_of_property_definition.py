@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_property_definition import ResourceListOfPropertyDefinition
+import luisd
+from luisd.model.resource_list_of_property_definition import ResourceListOfPropertyDefinition
 
 
 class TestResourceListOfPropertyDefinition(unittest.TestCase):

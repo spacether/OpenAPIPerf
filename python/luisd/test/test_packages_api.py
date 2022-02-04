@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.packages_api import PackagesApi  # noqa: E501
+import luisd
+from luisd.api.packages_api import PackagesApi  # noqa: E501
 
 
 class TestPackagesApi(unittest.TestCase):

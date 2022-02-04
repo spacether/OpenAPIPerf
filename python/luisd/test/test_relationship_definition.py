@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.relationship_definition import RelationshipDefinition
+import luisd
+from luisd.model.relationship_definition import RelationshipDefinition
 
 
 class TestRelationshipDefinition(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.counterparty_risk_information import CounterpartyRiskInformation
+import luisd
+from luisd.model.counterparty_risk_information import CounterpartyRiskInformation
 
 
 class TestCounterpartyRiskInformation(unittest.TestCase):

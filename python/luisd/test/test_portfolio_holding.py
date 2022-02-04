@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_holding import PortfolioHolding
+import luisd
+from luisd.model.portfolio_holding import PortfolioHolding
 
 
 class TestPortfolioHolding(unittest.TestCase):

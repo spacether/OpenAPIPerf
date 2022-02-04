@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.cut_label_definitions_api import CutLabelDefinitionsApi  # noqa: E501
+import luisd
+from luisd.api.cut_label_definitions_api import CutLabelDefinitionsApi  # noqa: E501
 
 
 class TestCutLabelDefinitionsApi(unittest.TestCase):

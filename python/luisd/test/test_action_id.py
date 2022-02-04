@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.action_id import ActionId
+import luisd
+from luisd.model.action_id import ActionId
 
 
 class TestActionId(unittest.TestCase):

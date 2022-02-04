@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.bond import Bond
+import luisd
+from luisd.model.bond import Bond
 
 
 class TestBond(unittest.TestCase):

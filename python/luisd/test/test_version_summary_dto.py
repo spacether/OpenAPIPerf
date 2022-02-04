@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.version_summary_dto import VersionSummaryDto
+import luisd
+from luisd.model.version_summary_dto import VersionSummaryDto
 
 
 class TestVersionSummaryDto(unittest.TestCase):

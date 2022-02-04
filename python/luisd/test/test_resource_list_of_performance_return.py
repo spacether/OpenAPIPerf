@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_performance_return import ResourceListOfPerformanceReturn
+import luisd
+from luisd.model.resource_list_of_performance_return import ResourceListOfPerformanceReturn
 
 
 class TestResourceListOfPerformanceReturn(unittest.TestCase):

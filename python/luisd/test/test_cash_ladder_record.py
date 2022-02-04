@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cash_ladder_record import CashLadderRecord
+import luisd
+from luisd.model.cash_ladder_record import CashLadderRecord
 
 
 class TestCashLadderRecord(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_cut_label_definition_request import UpdateCutLabelDefinitionRequest
+import luisd
+from luisd.model.update_cut_label_definition_request import UpdateCutLabelDefinitionRequest
 
 
 class TestUpdateCutLabelDefinitionRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_derived_transaction_portfolio_request import CreateDerivedTransactionPortfolioRequest
+import luisd
+from luisd.model.create_derived_transaction_portfolio_request import CreateDerivedTransactionPortfolioRequest
 
 
 class TestCreateDerivedTransactionPortfolioRequest(unittest.TestCase):

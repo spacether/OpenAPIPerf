@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.repo import Repo
+import luisd
+from luisd.model.repo import Repo
 
 
 class TestRepo(unittest.TestCase):

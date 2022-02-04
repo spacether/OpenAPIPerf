@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.fees_and_commissions_api import FeesAndCommissionsApi  # noqa: E501
+import luisd
+from luisd.api.fees_and_commissions_api import FeesAndCommissionsApi  # noqa: E501
 
 
 class TestFeesAndCommissionsApi(unittest.TestCase):

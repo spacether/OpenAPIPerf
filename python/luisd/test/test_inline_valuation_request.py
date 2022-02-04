@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.inline_valuation_request import InlineValuationRequest
+import luisd
+from luisd.model.inline_valuation_request import InlineValuationRequest
 
 
 class TestInlineValuationRequest(unittest.TestCase):

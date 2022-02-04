@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_legal_entity_request import UpsertLegalEntityRequest
+import luisd
+from luisd.model.upsert_legal_entity_request import UpsertLegalEntityRequest
 
 
 class TestUpsertLegalEntityRequest(unittest.TestCase):

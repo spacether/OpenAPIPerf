@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.order_by_spec import OrderBySpec
+import luisd
+from luisd.model.order_by_spec import OrderBySpec
 
 
 class TestOrderBySpec(unittest.TestCase):

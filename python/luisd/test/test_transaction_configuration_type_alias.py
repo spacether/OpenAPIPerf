@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_configuration_type_alias import TransactionConfigurationTypeAlias
+import luisd
+from luisd.model.transaction_configuration_type_alias import TransactionConfigurationTypeAlias
 
 
 class TestTransactionConfigurationTypeAlias(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.otc_confirmation import OtcConfirmation
+import luisd
+from luisd.model.otc_confirmation import OtcConfirmation
 
 
 class TestOtcConfirmation(unittest.TestCase):

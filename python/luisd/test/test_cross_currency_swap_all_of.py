@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cross_currency_swap_all_of import CrossCurrencySwapAllOf
+import luisd
+from luisd.model.cross_currency_swap_all_of import CrossCurrencySwapAllOf
 
 
 class TestCrossCurrencySwapAllOf(unittest.TestCase):

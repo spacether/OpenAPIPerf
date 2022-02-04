@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.counterparties_api import CounterpartiesApi  # noqa: E501
+import luisd
+from luisd.api.counterparties_api import CounterpartiesApi  # noqa: E501
 
 
 class TestCounterpartiesApi(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.reconciliations_api import ReconciliationsApi  # noqa: E501
+import luisd
+from luisd.api.reconciliations_api import ReconciliationsApi  # noqa: E501
 
 
 class TestReconciliationsApi(unittest.TestCase):

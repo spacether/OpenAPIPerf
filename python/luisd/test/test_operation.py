@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.operation import Operation
+import luisd
+from luisd.model.operation import Operation
 
 
 class TestOperation(unittest.TestCase):

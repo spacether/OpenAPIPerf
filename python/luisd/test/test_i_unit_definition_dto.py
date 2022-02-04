@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.i_unit_definition_dto import IUnitDefinitionDto
+import luisd
+from luisd.model.i_unit_definition_dto import IUnitDefinitionDto
 
 
 class TestIUnitDefinitionDto(unittest.TestCase):

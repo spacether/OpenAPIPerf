@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.order_graph_placement import OrderGraphPlacement
+import luisd
+from luisd.model.order_graph_placement import OrderGraphPlacement
 
 
 class TestOrderGraphPlacement(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_relation_definition_request import CreateRelationDefinitionRequest
+import luisd
+from luisd.model.create_relation_definition_request import CreateRelationDefinitionRequest
 
 
 class TestCreateRelationDefinitionRequest(unittest.TestCase):

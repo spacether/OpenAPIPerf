@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.allocations_api import AllocationsApi  # noqa: E501
+import luisd
+from luisd.api.allocations_api import AllocationsApi  # noqa: E501
 
 
 class TestAllocationsApi(unittest.TestCase):

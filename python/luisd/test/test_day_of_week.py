@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.day_of_week import DayOfWeek
+import luisd
+from luisd.model.day_of_week import DayOfWeek
 
 
 class TestDayOfWeek(unittest.TestCase):

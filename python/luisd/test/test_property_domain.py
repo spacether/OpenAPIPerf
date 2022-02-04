@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.property_domain import PropertyDomain
+import luisd
+from luisd.model.property_domain import PropertyDomain
 
 
 class TestPropertyDomain(unittest.TestCase):

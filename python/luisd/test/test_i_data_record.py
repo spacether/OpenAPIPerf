@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.i_data_record import IDataRecord
+import luisd
+from luisd.model.i_data_record import IDataRecord
 
 
 class TestIDataRecord(unittest.TestCase):

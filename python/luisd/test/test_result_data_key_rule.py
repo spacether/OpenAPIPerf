@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.result_data_key_rule import ResultDataKeyRule
+import luisd
+from luisd.model.result_data_key_rule import ResultDataKeyRule
 
 
 class TestResultDataKeyRule(unittest.TestCase):

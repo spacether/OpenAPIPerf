@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_calendar_date import ResourceListOfCalendarDate
+import luisd
+from luisd.model.resource_list_of_calendar_date import ResourceListOfCalendarDate
 
 
 class TestResourceListOfCalendarDate(unittest.TestCase):

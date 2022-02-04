@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.person import Person
+import luisd
+from luisd.model.person import Person
 
 
 class TestPerson(unittest.TestCase):

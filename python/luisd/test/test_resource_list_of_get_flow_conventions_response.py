@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_get_flow_conventions_response import ResourceListOfGetFlowConventionsResponse
+import luisd
+from luisd.model.resource_list_of_get_flow_conventions_response import ResourceListOfGetFlowConventionsResponse
 
 
 class TestResourceListOfGetFlowConventionsResponse(unittest.TestCase):

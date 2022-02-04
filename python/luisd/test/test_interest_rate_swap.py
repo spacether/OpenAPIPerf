@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.interest_rate_swap import InterestRateSwap
+import luisd
+from luisd.model.interest_rate_swap import InterestRateSwap
 
 
 class TestInterestRateSwap(unittest.TestCase):

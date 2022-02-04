@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.reference_portfolio_api import ReferencePortfolioApi  # noqa: E501
+import luisd
+from luisd.api.reference_portfolio_api import ReferencePortfolioApi  # noqa: E501
 
 
 class TestReferencePortfolioApi(unittest.TestCase):

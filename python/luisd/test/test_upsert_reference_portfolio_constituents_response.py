@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_reference_portfolio_constituents_response import UpsertReferencePortfolioConstituentsResponse
+import luisd
+from luisd.model.upsert_reference_portfolio_constituents_response import UpsertReferencePortfolioConstituentsResponse
 
 
 class TestUpsertReferencePortfolioConstituentsResponse(unittest.TestCase):

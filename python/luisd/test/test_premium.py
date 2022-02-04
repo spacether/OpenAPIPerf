@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.premium import Premium
+import luisd
+from luisd.model.premium import Premium
 
 
 class TestPremium(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconciliation_break import ReconciliationBreak
+import luisd
+from luisd.model.reconciliation_break import ReconciliationBreak
 
 
 class TestReconciliationBreak(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.date_time_comparison_type import DateTimeComparisonType
+import luisd
+from luisd.model.date_time_comparison_type import DateTimeComparisonType
 
 
 class TestDateTimeComparisonType(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_forward_tenor_pips_curve_data import FxForwardTenorPipsCurveData
+import luisd
+from luisd.model.fx_forward_tenor_pips_curve_data import FxForwardTenorPipsCurveData
 
 
 class TestFxForwardTenorPipsCurveData(unittest.TestCase):

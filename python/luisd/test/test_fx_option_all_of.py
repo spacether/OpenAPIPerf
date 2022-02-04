@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_option_all_of import FxOptionAllOf
+import luisd
+from luisd.model.fx_option_all_of import FxOptionAllOf
 
 
 class TestFxOptionAllOf(unittest.TestCase):

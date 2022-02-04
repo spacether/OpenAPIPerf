@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconcile_date_time_rule import ReconcileDateTimeRule
+import luisd
+from luisd.model.reconcile_date_time_rule import ReconcileDateTimeRule
 
 
 class TestReconcileDateTimeRule(unittest.TestCase):

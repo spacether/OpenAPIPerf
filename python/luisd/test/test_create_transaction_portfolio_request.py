@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_transaction_portfolio_request import CreateTransactionPortfolioRequest
+import luisd
+from luisd.model.create_transaction_portfolio_request import CreateTransactionPortfolioRequest
 
 
 class TestCreateTransactionPortfolioRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_forward_model_options_all_of import FxForwardModelOptionsAllOf
+import luisd
+from luisd.model.fx_forward_model_options_all_of import FxForwardModelOptionsAllOf
 
 
 class TestFxForwardModelOptionsAllOf(unittest.TestCase):

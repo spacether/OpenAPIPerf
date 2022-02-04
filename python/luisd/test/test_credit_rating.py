@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.credit_rating import CreditRating
+import luisd
+from luisd.model.credit_rating import CreditRating
 
 
 class TestCreditRating(unittest.TestCase):

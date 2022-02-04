@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_instrument_identifier_request import UpdateInstrumentIdentifierRequest
+import luisd
+from luisd.model.update_instrument_identifier_request import UpdateInstrumentIdentifierRequest
 
 
 class TestUpdateInstrumentIdentifierRequest(unittest.TestCase):

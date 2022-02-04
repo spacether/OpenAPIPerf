@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_identifier import MarketIdentifier
+import luisd
+from luisd.model.market_identifier import MarketIdentifier
 
 
 class TestMarketIdentifier(unittest.TestCase):

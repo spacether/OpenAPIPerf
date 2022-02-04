@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_query_mode import TransactionQueryMode
+import luisd
+from luisd.model.transaction_query_mode import TransactionQueryMode
 
 
 class TestTransactionQueryMode(unittest.TestCase):

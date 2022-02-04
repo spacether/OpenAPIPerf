@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.simple_instrument_all_of import SimpleInstrumentAllOf
+import luisd
+from luisd.model.simple_instrument_all_of import SimpleInstrumentAllOf
 
 
 class TestSimpleInstrumentAllOf(unittest.TestCase):

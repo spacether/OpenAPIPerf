@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.index_convention import IndexConvention
+import luisd
+from luisd.model.index_convention import IndexConvention
 
 
 class TestIndexConvention(unittest.TestCase):

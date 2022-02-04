@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_date_request import CreateDateRequest
+import luisd
+from luisd.model.create_date_request import CreateDateRequest
 
 
 class TestCreateDateRequest(unittest.TestCase):

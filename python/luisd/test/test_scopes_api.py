@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.scopes_api import ScopesApi  # noqa: E501
+import luisd
+from luisd.api.scopes_api import ScopesApi  # noqa: E501
 
 
 class TestScopesApi(unittest.TestCase):

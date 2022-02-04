@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.compounding import Compounding
+import luisd
+from luisd.model.compounding import Compounding
 
 
 class TestCompounding(unittest.TestCase):

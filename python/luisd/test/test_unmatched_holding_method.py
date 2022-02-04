@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.unmatched_holding_method import UnmatchedHoldingMethod
+import luisd
+from luisd.model.unmatched_holding_method import UnmatchedHoldingMethod
 
 
 class TestUnmatchedHoldingMethod(unittest.TestCase):

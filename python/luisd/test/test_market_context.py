@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_context import MarketContext
+import luisd
+from luisd.model.market_context import MarketContext
 
 
 class TestMarketContext(unittest.TestCase):

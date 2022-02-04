@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.get_reference_portfolio_constituents_response import GetReferencePortfolioConstituentsResponse
+import luisd
+from luisd.model.get_reference_portfolio_constituents_response import GetReferencePortfolioConstituentsResponse
 
 
 class TestGetReferencePortfolioConstituentsResponse(unittest.TestCase):

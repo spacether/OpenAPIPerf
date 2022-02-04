@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_data_map_request import CreateDataMapRequest
+import luisd
+from luisd.model.create_data_map_request import CreateDataMapRequest
 
 
 class TestCreateDataMapRequest(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconciliation_left_right_address_key_pair import ReconciliationLeftRightAddressKeyPair
+import luisd
+from luisd.model.reconciliation_left_right_address_key_pair import ReconciliationLeftRightAddressKeyPair
 
 
 class TestReconciliationLeftRightAddressKeyPair(unittest.TestCase):

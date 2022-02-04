@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cut_local_time import CutLocalTime
+import luisd
+from luisd.model.cut_local_time import CutLocalTime
 
 
 class TestCutLocalTime(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fx_swap import FxSwap
+import luisd
+from luisd.model.fx_swap import FxSwap
 
 
 class TestFxSwap(unittest.TestCase):

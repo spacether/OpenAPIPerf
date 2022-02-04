@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.custom_entity_field_definition import CustomEntityFieldDefinition
+import luisd
+from luisd.model.custom_entity_field_definition import CustomEntityFieldDefinition
 
 
 class TestCustomEntityFieldDefinition(unittest.TestCase):

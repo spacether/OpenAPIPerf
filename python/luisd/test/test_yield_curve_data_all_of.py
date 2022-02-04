@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.yield_curve_data_all_of import YieldCurveDataAllOf
+import luisd
+from luisd.model.yield_curve_data_all_of import YieldCurveDataAllOf
 
 
 class TestYieldCurveDataAllOf(unittest.TestCase):

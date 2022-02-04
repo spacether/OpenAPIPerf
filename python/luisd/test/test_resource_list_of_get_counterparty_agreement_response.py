@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.resource_list_of_get_counterparty_agreement_response import ResourceListOfGetCounterpartyAgreementResponse
+import luisd
+from luisd.model.resource_list_of_get_counterparty_agreement_response import ResourceListOfGetCounterpartyAgreementResponse
 
 
 class TestResourceListOfGetCounterpartyAgreementResponse(unittest.TestCase):

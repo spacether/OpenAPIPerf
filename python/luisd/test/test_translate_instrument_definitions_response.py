@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.translate_instrument_definitions_response import TranslateInstrumentDefinitionsResponse
+import luisd
+from luisd.model.translate_instrument_definitions_response import TranslateInstrumentDefinitionsResponse
 
 
 class TestTranslateInstrumentDefinitionsResponse(unittest.TestCase):

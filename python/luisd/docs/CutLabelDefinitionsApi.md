@@ -1,4 +1,4 @@
-# openapi_client.CutLabelDefinitionsApi
+# luisd.CutLabelDefinitionsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -21,16 +21,16 @@ Create a Cut Label valid in all scopes
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import cut_label_definitions_api
-from openapi_client.model.create_cut_label_definition_request import CreateCutLabelDefinitionRequest
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.cut_label_definition import CutLabelDefinition
+import luisd
+from luisd.api import cut_label_definitions_api
+from luisd.model.create_cut_label_definition_request import CreateCutLabelDefinitionRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.cut_label_definition import CutLabelDefinition
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -40,12 +40,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cut_label_definitions_api.CutLabelDefinitionsApi(api_client)
 
@@ -66,7 +66,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->create_cut_label_definition: %s\n" % e)
 ```
 ### Parameters
@@ -198,14 +198,14 @@ Delete a specified cut label
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import cut_label_definitions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import cut_label_definitions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -215,12 +215,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cut_label_definitions_api.CutLabelDefinitionsApi(api_client)
 
@@ -234,7 +234,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->delete_cut_label_definition: %s\n" % e)
 ```
 ### Parameters
@@ -354,15 +354,15 @@ Get a specified cut label at a given time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import cut_label_definitions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.cut_label_definition import CutLabelDefinition
+import luisd
+from luisd.api import cut_label_definitions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.cut_label_definition import CutLabelDefinition
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -372,12 +372,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cut_label_definitions_api.CutLabelDefinitionsApi(api_client)
 
@@ -394,7 +394,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->get_cut_label_definition: %s\n" % e)
 
     # example passing only optional values
@@ -411,7 +411,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->get_cut_label_definition: %s\n" % e)
 ```
 ### Parameters
@@ -548,15 +548,15 @@ List all the Cut Label Definitions that are valid at the given AsAt time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import cut_label_definitions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.paged_resource_list_of_cut_label_definition import PagedResourceListOfCutLabelDefinition
+import luisd
+from luisd.api import cut_label_definitions_api
+from luisd.model.paged_resource_list_of_cut_label_definition import PagedResourceListOfCutLabelDefinition
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -566,12 +566,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cut_label_definitions_api.CutLabelDefinitionsApi(api_client)
 
@@ -592,7 +592,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->list_cut_label_definitions: %s\n" % e)
 ```
 ### Parameters
@@ -758,16 +758,16 @@ Update a specified cut label
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import cut_label_definitions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.update_cut_label_definition_request import UpdateCutLabelDefinitionRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.cut_label_definition import CutLabelDefinition
+import luisd
+from luisd.api import cut_label_definitions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.cut_label_definition import CutLabelDefinition
+from luisd.model.update_cut_label_definition_request import UpdateCutLabelDefinitionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -777,12 +777,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = cut_label_definitions_api.CutLabelDefinitionsApi(api_client)
 
@@ -796,7 +796,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->update_cut_label_definition: %s\n" % e)
 
     # example passing only optional values
@@ -819,7 +819,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling CutLabelDefinitionsApi->update_cut_label_definition: %s\n" % e)
 ```
 ### Parameters

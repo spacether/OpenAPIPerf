@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_configuration_data_request import TransactionConfigurationDataRequest
+import luisd
+from luisd.model.transaction_configuration_data_request import TransactionConfigurationDataRequest
 
 
 class TestTransactionConfigurationDataRequest(unittest.TestCase):

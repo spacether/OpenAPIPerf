@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.equity_all_of_identifiers import EquityAllOfIdentifiers
+import luisd
+from luisd.model.equity_all_of_identifiers import EquityAllOfIdentifiers
 
 
 class TestEquityAllOfIdentifiers(unittest.TestCase):

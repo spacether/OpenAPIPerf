@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.typed_resource_id import TypedResourceId
+import luisd
+from luisd.model.typed_resource_id import TypedResourceId
 
 
 class TestTypedResourceId(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.api.data_types_api import DataTypesApi  # noqa: E501
+import luisd
+from luisd.api.data_types_api import DataTypesApi  # noqa: E501
 
 
 class TestDataTypesApi(unittest.TestCase):

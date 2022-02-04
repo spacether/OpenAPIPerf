@@ -1,4 +1,4 @@
-# openapi_client.TransactionPortfoliosApi
+# luisd.TransactionPortfoliosApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -41,16 +41,16 @@ Adjust one or more holdings of the specified transaction portfolio to the provid
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.adjust_holding import AdjustHolding
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.adjust_holding_request import AdjustHoldingRequest
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.adjust_holding_request import AdjustHoldingRequest
+from luisd.model.adjust_holding import AdjustHolding
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -60,12 +60,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -86,7 +86,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->adjust_holdings: %s\n" % e)
 
     # example passing only optional values
@@ -109,7 +109,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->adjust_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -300,16 +300,16 @@ Builds and returns all transactions that affect the holdings of a portfolio over
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_query_parameters import TransactionQueryParameters
-from openapi_client.model.versioned_resource_list_of_output_transaction import VersionedResourceListOfOutputTransaction
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.versioned_resource_list_of_output_transaction import VersionedResourceListOfOutputTransaction
+from luisd.model.transaction_query_parameters import TransactionQueryParameters
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -319,12 +319,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -349,7 +349,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->build_transactions: %s\n" % e)
 
     # example passing only optional values
@@ -380,7 +380,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->build_transactions: %s\n" % e)
 ```
 ### Parameters
@@ -590,15 +590,15 @@ Cancel all previous holding adjustments made on the specified transaction portfo
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -608,12 +608,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -632,7 +632,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->cancel_adjust_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -778,15 +778,15 @@ Cancel one or more transactions from the transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -796,12 +796,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -822,7 +822,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->cancel_transactions: %s\n" % e)
 ```
 ### Parameters
@@ -968,16 +968,16 @@ Create a transaction portfolio in a particular scope.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.portfolio import Portfolio
-from openapi_client.model.create_transaction_portfolio_request import CreateTransactionPortfolioRequest
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.create_transaction_portfolio_request import CreateTransactionPortfolioRequest
+from luisd.model.portfolio import Portfolio
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -987,12 +987,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -1044,7 +1044,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->create_portfolio: %s\n" % e)
 ```
 ### Parameters
@@ -1192,15 +1192,15 @@ Delete one or more properties from a single transaction in a transaction portfol
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.deleted_entity_response import DeletedEntityResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.deleted_entity_response import DeletedEntityResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1210,12 +1210,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -1237,7 +1237,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->delete_properties_from_transaction: %s\n" % e)
 ```
 ### Parameters
@@ -1392,15 +1392,15 @@ Get an A2B report for the given portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.versioned_resource_list_of_a2_b_data_record import VersionedResourceListOfA2BDataRecord
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1410,12 +1410,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -1435,7 +1435,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_a2_b_data: %s\n" % e)
 
     # example passing only optional values
@@ -1461,7 +1461,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_a2_b_data: %s\n" % e)
 ```
 ### Parameters
@@ -1661,15 +1661,15 @@ Get an A2B report at the movement level for the given portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.versioned_resource_list_of_a2_b_movement_record import VersionedResourceListOfA2BMovementRecord
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.versioned_resource_list_of_a2_b_movement_record import VersionedResourceListOfA2BMovementRecord
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1679,12 +1679,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -1704,7 +1704,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_a2_b_movements: %s\n" % e)
 
     # example passing only optional values
@@ -1730,7 +1730,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_a2_b_movements: %s\n" % e)
 ```
 ### Parameters
@@ -1930,16 +1930,16 @@ We bucket/aggregate a transaction portfolio's instruments by date or tenor speci
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.bucketed_cash_flow_response import BucketedCashFlowResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.bucketed_cash_flow_request import BucketedCashFlowRequest
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.bucketed_cash_flow_request import BucketedCashFlowRequest
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.bucketed_cash_flow_response import BucketedCashFlowResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1949,12 +1949,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -1969,7 +1969,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_bucketed_cash_flows: %s\n" % e)
 
     # example passing only optional values
@@ -2002,7 +2002,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_bucketed_cash_flows: %s\n" % e)
 ```
 ### Parameters
@@ -2159,15 +2159,15 @@ Get certain details associated with a transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.portfolio_details import PortfolioDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.portfolio_details import PortfolioDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2177,12 +2177,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -2200,7 +2200,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_details: %s\n" % e)
 
     # example passing only optional values
@@ -2219,7 +2219,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_details: %s\n" % e)
 ```
 ### Parameters
@@ -2374,15 +2374,15 @@ Calculate holdings for a transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.versioned_resource_list_of_portfolio_holding import VersionedResourceListOfPortfolioHolding
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2392,12 +2392,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -2415,7 +2415,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings: %s\n" % e)
 
     # example passing only optional values
@@ -2439,7 +2439,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -2621,15 +2621,15 @@ Get a holdings adjustment made to a transaction portfolio at a specific effectiv
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.holdings_adjustment import HoldingsAdjustment
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.holdings_adjustment import HoldingsAdjustment
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2639,12 +2639,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -2663,7 +2663,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings_adjustment: %s\n" % e)
 
     # example passing only optional values
@@ -2682,7 +2682,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings_adjustment: %s\n" % e)
 ```
 ### Parameters
@@ -2837,15 +2837,15 @@ Get the holdings of a transaction portfolio. Create virtual holdings for any out
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.versioned_resource_list_with_warnings_of_portfolio_holding import VersionedResourceListWithWarningsOfPortfolioHolding
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.versioned_resource_list_with_warnings_of_portfolio_holding import VersionedResourceListWithWarningsOfPortfolioHolding
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2855,12 +2855,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -2878,7 +2878,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings_with_orders: %s\n" % e)
 
     # example passing only optional values
@@ -2904,7 +2904,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_holdings_with_orders: %s\n" % e)
 ```
 ### Parameters
@@ -3104,15 +3104,15 @@ Get the set of cash flows that occur in a window for the transaction portfolio's
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_instrument_cash_flow import ResourceListOfInstrumentCashFlow
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.resource_list_of_instrument_cash_flow import ResourceListOfInstrumentCashFlow
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3122,12 +3122,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -3145,7 +3145,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_flows: %s\n" % e)
 
     # example passing only optional values
@@ -3169,7 +3169,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_flows: %s\n" % e)
 ```
 ### Parameters
@@ -3369,15 +3369,15 @@ Get a cash ladder for a transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.resource_list_of_portfolio_cash_ladder import ResourceListOfPortfolioCashLadder
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_portfolio_cash_ladder import ResourceListOfPortfolioCashLadder
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3387,12 +3387,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -3413,7 +3413,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_ladder: %s\n" % e)
 
     # example passing only optional values
@@ -3437,7 +3437,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_ladder: %s\n" % e)
 ```
 ### Parameters
@@ -3637,15 +3637,15 @@ Get a cash statement for a transaction portfolio.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_portfolio_cash_flow import ResourceListOfPortfolioCashFlow
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.resource_list_of_portfolio_cash_flow import ResourceListOfPortfolioCashFlow
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3655,12 +3655,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -3680,7 +3680,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_statement: %s\n" % e)
 
     # example passing only optional values
@@ -3703,7 +3703,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_portfolio_cash_statement: %s\n" % e)
 ```
 ### Parameters
@@ -3894,15 +3894,15 @@ Retrieve all the transactions that occurred during a particular time interval.  
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.versioned_resource_list_of_transaction import VersionedResourceListOfTransaction
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.versioned_resource_list_of_transaction import VersionedResourceListOfTransaction
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -3912,12 +3912,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -3935,7 +3935,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_transactions: %s\n" % e)
 
     # example passing only optional values
@@ -3961,7 +3961,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_transactions: %s\n" % e)
 ```
 ### Parameters
@@ -4161,15 +4161,15 @@ Get the set of cash flows that occur in a window for the given portfolio instrum
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_transaction import ResourceListOfTransaction
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_transaction import ResourceListOfTransaction
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4179,12 +4179,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -4202,7 +4202,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_upsertable_portfolio_cash_flows: %s\n" % e)
 
     # example passing only optional values
@@ -4226,7 +4226,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->get_upsertable_portfolio_cash_flows: %s\n" % e)
 ```
 ### Parameters
@@ -4426,15 +4426,15 @@ List the holdings adjustments made to the specified transaction portfolio over a
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.resource_list_of_holdings_adjustment_header import ResourceListOfHoldingsAdjustmentHeader
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_holdings_adjustment_header import ResourceListOfHoldingsAdjustmentHeader
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4444,12 +4444,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -4467,7 +4467,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->list_holdings_adjustments: %s\n" % e)
 
     # example passing only optional values
@@ -4487,7 +4487,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->list_holdings_adjustments: %s\n" % e)
 ```
 ### Parameters
@@ -4651,16 +4651,16 @@ Create or update certain details for a particular transaction portfolio.  The be
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.portfolio_details import PortfolioDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.operation import Operation
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.operation import Operation
+from luisd.model.portfolio_details import PortfolioDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4670,12 +4670,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -4695,7 +4695,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->patch_portfolio_details: %s\n" % e)
 
     # example passing only optional values
@@ -4715,7 +4715,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->patch_portfolio_details: %s\n" % e)
 ```
 ### Parameters
@@ -4897,15 +4897,15 @@ Try to resolve the instrument for transaction and holdings for a given instrumen
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -4915,12 +4915,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -4940,7 +4940,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->resolve_instrument: %s\n" % e)
 
     # example passing only optional values
@@ -4964,7 +4964,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->resolve_instrument: %s\n" % e)
 ```
 ### Parameters
@@ -5168,16 +5168,16 @@ Set the holdings of the specified transaction portfolio to the provided targets.
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.adjust_holding import AdjustHolding
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.adjust_holding_request import AdjustHoldingRequest
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.adjust_holding_request import AdjustHoldingRequest
+from luisd.model.adjust_holding import AdjustHolding
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5187,12 +5187,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -5213,7 +5213,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->set_holdings: %s\n" % e)
 
     # example passing only optional values
@@ -5236,7 +5236,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->set_holdings: %s\n" % e)
 ```
 ### Parameters
@@ -5427,16 +5427,16 @@ Create or update certain details for a particular transaction portfolio. The det
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.portfolio_details import PortfolioDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.create_portfolio_details import CreatePortfolioDetails
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.create_portfolio_details import CreatePortfolioDetails
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.portfolio_details import PortfolioDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5446,12 +5446,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -5476,7 +5476,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->upsert_portfolio_details: %s\n" % e)
 
     # example passing only optional values
@@ -5501,7 +5501,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->upsert_portfolio_details: %s\n" % e)
 ```
 ### Parameters
@@ -5675,16 +5675,16 @@ Create or update one or more transaction properties for a single transaction in 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.perpetual_property import PerpetualProperty
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_transaction_properties_response import UpsertTransactionPropertiesResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.upsert_transaction_properties_response import UpsertTransactionPropertiesResponse
+from luisd.model.perpetual_property import PerpetualProperty
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5694,12 +5694,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -5733,7 +5733,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->upsert_transaction_properties: %s\n" % e)
 ```
 ### Parameters
@@ -5911,16 +5911,16 @@ Create or update transactions in the transaction portfolio. A transaction will b
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import transaction_portfolios_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.transaction_request import TransactionRequest
-from openapi_client.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
+import luisd
+from luisd.api import transaction_portfolios_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_portfolio_transactions_response import UpsertPortfolioTransactionsResponse
+from luisd.model.transaction_request import TransactionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -5930,12 +5930,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = transaction_portfolios_api.TransactionPortfoliosApi(api_client)
 
@@ -5952,7 +5952,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling TransactionPortfoliosApi->upsert_transactions: %s\n" % e)
 ```
 ### Parameters

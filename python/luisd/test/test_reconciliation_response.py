@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconciliation_response import ReconciliationResponse
+import luisd
+from luisd.model.reconciliation_response import ReconciliationResponse
 
 
 class TestReconciliationResponse(unittest.TestCase):

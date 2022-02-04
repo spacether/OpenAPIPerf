@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.transaction_roles import TransactionRoles
+import luisd
+from luisd.model.transaction_roles import TransactionRoles
 
 
 class TestTransactionRoles(unittest.TestCase):

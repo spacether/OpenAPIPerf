@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.configuration_recipe_snippet import ConfigurationRecipeSnippet
+import luisd
+from luisd.model.configuration_recipe_snippet import ConfigurationRecipeSnippet
 
 
 class TestConfigurationRecipeSnippet(unittest.TestCase):

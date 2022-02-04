@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.warning import Warning
+import luisd
+from luisd.model.warning import Warning
 
 
 class TestWarning(unittest.TestCase):

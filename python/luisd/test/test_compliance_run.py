@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.compliance_run import ComplianceRun
+import luisd
+from luisd.model.compliance_run import ComplianceRun
 
 
 class TestComplianceRun(unittest.TestCase):

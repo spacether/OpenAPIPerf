@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.vendor_model_rule import VendorModelRule
+import luisd
+from luisd.model.vendor_model_rule import VendorModelRule
 
 
 class TestVendorModelRule(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.adjust_holding import AdjustHolding
+import luisd
+from luisd.model.adjust_holding import AdjustHolding
 
 
 class TestAdjustHolding(unittest.TestCase):

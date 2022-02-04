@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.create_recipe_request import CreateRecipeRequest
+import luisd
+from luisd.model.create_recipe_request import CreateRecipeRequest
 
 
 class TestCreateRecipeRequest(unittest.TestCase):

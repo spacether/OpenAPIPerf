@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.data_mapping import DataMapping
+import luisd
+from luisd.model.data_mapping import DataMapping
 
 
 class TestDataMapping(unittest.TestCase):

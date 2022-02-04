@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.reconcile_numeric_rule import ReconcileNumericRule
+import luisd
+from luisd.model.reconcile_numeric_rule import ReconcileNumericRule
 
 
 class TestReconcileNumericRule(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.update_unit_request import UpdateUnitRequest
+import luisd
+from luisd.model.update_unit_request import UpdateUnitRequest
 
 
 class TestUpdateUnitRequest(unittest.TestCase):

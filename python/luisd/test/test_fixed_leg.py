@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.fixed_leg import FixedLeg
+import luisd
+from luisd.model.fixed_leg import FixedLeg
 
 
 class TestFixedLeg(unittest.TestCase):

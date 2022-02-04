@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.change import Change
+import luisd
+from luisd.model.change import Change
 
 
 class TestChange(unittest.TestCase):

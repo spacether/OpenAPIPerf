@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.a2_b_data_record import A2BDataRecord
+import luisd
+from luisd.model.a2_b_data_record import A2BDataRecord
 
 
 class TestA2BDataRecord(unittest.TestCase):

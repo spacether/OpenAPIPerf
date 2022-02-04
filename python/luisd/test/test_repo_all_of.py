@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.repo_all_of import RepoAllOf
+import luisd
+from luisd.model.repo_all_of import RepoAllOf
 
 
 class TestRepoAllOf(unittest.TestCase):

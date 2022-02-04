@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.level_step import LevelStep
+import luisd
+from luisd.model.level_step import LevelStep
 
 
 class TestLevelStep(unittest.TestCase):

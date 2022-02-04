@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.annul_structured_data_response import AnnulStructuredDataResponse
+import luisd
+from luisd.model.annul_structured_data_response import AnnulStructuredDataResponse
 
 
 class TestAnnulStructuredDataResponse(unittest.TestCase):

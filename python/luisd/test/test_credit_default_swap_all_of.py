@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.credit_default_swap_all_of import CreditDefaultSwapAllOf
+import luisd
+from luisd.model.credit_default_swap_all_of import CreditDefaultSwapAllOf
 
 
 class TestCreditDefaultSwapAllOf(unittest.TestCase):

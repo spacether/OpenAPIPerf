@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.market_observable_type import MarketObservableType
+import luisd
+from luisd.model.market_observable_type import MarketObservableType
 
 
 class TestMarketObservableType(unittest.TestCase):

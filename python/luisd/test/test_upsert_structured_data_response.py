@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.upsert_structured_data_response import UpsertStructuredDataResponse
+import luisd
+from luisd.model.upsert_structured_data_response import UpsertStructuredDataResponse
 
 
 class TestUpsertStructuredDataResponse(unittest.TestCase):

@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.calendar import Calendar
+import luisd
+from luisd.model.calendar import Calendar
 
 
 class TestCalendar(unittest.TestCase):

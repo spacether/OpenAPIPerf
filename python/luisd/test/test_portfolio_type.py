@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.portfolio_type import PortfolioType
+import luisd
+from luisd.model.portfolio_type import PortfolioType
 
 
 class TestPortfolioType(unittest.TestCase):

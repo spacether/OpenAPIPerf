@@ -1,4 +1,4 @@
-# openapi_client.QuotesApi
+# luisd.QuotesApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -25,15 +25,15 @@ Delete the Quote Access Metadata Rule that exactly matches the provided identifi
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.quote_access_metadata_rule import QuoteAccessMetadataRule
+import luisd
+from luisd.api import quotes_api
+from luisd.model.quote_access_metadata_rule import QuoteAccessMetadataRule
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -43,12 +43,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -65,7 +65,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->delete_quote_access_metadata_rule: %s\n" % e)
 
     # example passing only optional values
@@ -88,7 +88,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->delete_quote_access_metadata_rule: %s\n" % e)
 ```
 ### Parameters
@@ -279,16 +279,16 @@ Delete one or more specified quotes from a single scope. A quote is identified b
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.quote_id import QuoteId
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_quotes_response import AnnulQuotesResponse
+import luisd
+from luisd.api import quotes_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.quote_id import QuoteId
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_quotes_response import AnnulQuotesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -298,12 +298,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -317,7 +317,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->delete_quotes: %s\n" % e)
 
     # example passing only optional values
@@ -344,7 +344,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->delete_quotes: %s\n" % e)
 ```
 ### Parameters
@@ -504,16 +504,16 @@ Get one or more quotes from a single scope.                Each quote can be ide
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.get_quotes_response import GetQuotesResponse
-from openapi_client.model.quote_series_id import QuoteSeriesId
+import luisd
+from luisd.api import quotes_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.quote_series_id import QuoteSeriesId
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_quotes_response import GetQuotesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -523,12 +523,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -545,7 +545,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->get_quotes: %s\n" % e)
 
     # example passing only optional values
@@ -575,7 +575,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->get_quotes: %s\n" % e)
 ```
 ### Parameters
@@ -770,15 +770,15 @@ Get a specific quote access metadata rule by specifying the corresponding identi
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.quote_access_metadata_rule import QuoteAccessMetadataRule
+import luisd
+from luisd.api import quotes_api
+from luisd.model.quote_access_metadata_rule import QuoteAccessMetadataRule
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -788,12 +788,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -807,7 +807,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->get_quotes_access_metadata_rule: %s\n" % e)
 
     # example passing only optional values
@@ -828,7 +828,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->get_quotes_access_metadata_rule: %s\n" % e)
 ```
 ### Parameters
@@ -1021,15 +1021,15 @@ List all the quotes from a single scope at the specified date/time  Please use M
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_quote import ResourceListOfQuote
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import quotes_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_quote import ResourceListOfQuote
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1039,12 +1039,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -1061,7 +1061,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes: %s\n" % e)
 
     # example passing only optional values
@@ -1082,7 +1082,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes: %s\n" % e)
 ```
 ### Parameters
@@ -1255,15 +1255,15 @@ Get all the quote access metadata rules in the specified scope
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.resource_list_of_quote_access_metadata_rule import ResourceListOfQuoteAccessMetadataRule
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import quotes_api
+from luisd.model.resource_list_of_quote_access_metadata_rule import ResourceListOfQuoteAccessMetadataRule
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1273,12 +1273,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -1295,7 +1295,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes_access_metadata_rules: %s\n" % e)
 
     # example passing only optional values
@@ -1312,7 +1312,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes_access_metadata_rules: %s\n" % e)
 ```
 ### Parameters
@@ -1449,15 +1449,15 @@ List all the quotes from a single scope at the specified date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.resource_list_of_quote import ResourceListOfQuote
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import quotes_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_quote import ResourceListOfQuote
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1467,12 +1467,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -1489,7 +1489,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes_for_scope: %s\n" % e)
 
     # example passing only optional values
@@ -1510,7 +1510,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->list_quotes_for_scope: %s\n" % e)
 ```
 ### Parameters
@@ -1683,16 +1683,16 @@ Update or insert one Quote Access Metadata Rule in a single scope. An item will 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.quote_access_metadata_rule import QuoteAccessMetadataRule
-from openapi_client.model.upsert_quote_access_metadata_rule_request import UpsertQuoteAccessMetadataRuleRequest
+import luisd
+from luisd.api import quotes_api
+from luisd.model.quote_access_metadata_rule import QuoteAccessMetadataRule
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_quote_access_metadata_rule_request import UpsertQuoteAccessMetadataRuleRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1702,12 +1702,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -1743,7 +1743,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->upsert_quote_access_metadata_rule: %s\n" % e)
 
     # example passing only optional values
@@ -1779,7 +1779,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->upsert_quote_access_metadata_rule: %s\n" % e)
 ```
 ### Parameters
@@ -1944,16 +1944,16 @@ Update or insert one or more quotes in a single scope. A quote will be updated i
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import quotes_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_quotes_response import UpsertQuotesResponse
-from openapi_client.model.upsert_quote_request import UpsertQuoteRequest
+import luisd
+from luisd.api import quotes_api
+from luisd.model.upsert_quote_request import UpsertQuoteRequest
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_quotes_response import UpsertQuotesResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1963,12 +1963,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = quotes_api.QuotesApi(api_client)
 
@@ -1982,7 +1982,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->upsert_quotes: %s\n" % e)
 
     # example passing only optional values
@@ -2017,7 +2017,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling QuotesApi->upsert_quotes: %s\n" % e)
 ```
 ### Parameters

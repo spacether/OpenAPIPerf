@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.period_type import PeriodType
+import luisd
+from luisd.model.period_type import PeriodType
 
 
 class TestPeriodType(unittest.TestCase):

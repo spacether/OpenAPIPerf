@@ -12,8 +12,8 @@
 
 import unittest
 
-import openapi_client
-from openapi_client.model.cash_perpetual import CashPerpetual
+import luisd
+from luisd.model.cash_perpetual import CashPerpetual
 
 
 class TestCashPerpetual(unittest.TestCase):

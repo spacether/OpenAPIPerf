@@ -1,4 +1,4 @@
-# openapi_client.ConventionsApi
+# luisd.ConventionsApi
 
 All URIs are relative to *https://www.lusid.com/api*
 
@@ -28,15 +28,15 @@ Delete the specified CDS Flow Conventions from a single scope.  The response wil
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -46,12 +46,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -66,7 +66,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->delete_cds_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -195,15 +195,15 @@ Delete the specified conventions from a single scope.  The response will return 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -213,12 +213,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -233,7 +233,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->delete_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -362,15 +362,15 @@ Delete the specified Index Convention from a single scope.  The response will re
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.annul_single_structured_data_response import AnnulSingleStructuredDataResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -380,12 +380,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -400,7 +400,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             path_params=path_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->delete_index_convention: %s\n" % e)
 ```
 ### Parameters
@@ -529,15 +529,15 @@ Get a CDS Flow Conventions from a single scope.  The response will return either
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.get_cds_flow_conventions_response import GetCdsFlowConventionsResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.get_cds_flow_conventions_response import GetCdsFlowConventionsResponse
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -547,12 +547,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -570,7 +570,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_cds_flow_conventions: %s\n" % e)
 
     # example passing only optional values
@@ -588,7 +588,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_cds_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -734,15 +734,15 @@ Get a Flow Conventions from a single scope.  The response will return either the
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.get_flow_conventions_response import GetFlowConventionsResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_flow_conventions_response import GetFlowConventionsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -752,12 +752,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -775,7 +775,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_flow_conventions: %s\n" % e)
 
     # example passing only optional values
@@ -793,7 +793,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -939,15 +939,15 @@ Get a Index Convention from a single scope.  The response will return either the
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.get_index_convention_response import GetIndexConventionResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.get_index_convention_response import GetIndexConventionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -957,12 +957,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -980,7 +980,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_index_convention: %s\n" % e)
 
     # example passing only optional values
@@ -998,7 +998,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->get_index_convention: %s\n" % e)
 ```
 ### Parameters
@@ -1144,15 +1144,15 @@ List the set of CDS Flow Conventions at the specified date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.resource_list_of_get_cds_flow_conventions_response import ResourceListOfGetCdsFlowConventionsResponse
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
+import luisd
+from luisd.api import conventions_api
+from luisd.model.resource_list_of_get_cds_flow_conventions_response import ResourceListOfGetCdsFlowConventionsResponse
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1162,12 +1162,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -1181,7 +1181,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->list_cds_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -1302,15 +1302,15 @@ List the set of Flow Conventions at the specified date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_get_flow_conventions_response import ResourceListOfGetFlowConventionsResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_get_flow_conventions_response import ResourceListOfGetFlowConventionsResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1320,12 +1320,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -1339,7 +1339,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->list_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -1460,15 +1460,15 @@ List the set of Index Conventions at the specified date/time
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.resource_list_of_get_index_convention_response import ResourceListOfGetIndexConventionResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.resource_list_of_get_index_convention_response import ResourceListOfGetIndexConventionResponse
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1478,12 +1478,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -1497,7 +1497,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             query_params=query_params,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->list_index_convention: %s\n" % e)
 ```
 ### Parameters
@@ -1618,16 +1618,16 @@ Update or insert CDS Flow Conventions in a single scope. An item will be updated
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_cds_flow_conventions_request import UpsertCdsFlowConventionsRequest
-from openapi_client.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+from luisd.model.upsert_cds_flow_conventions_request import UpsertCdsFlowConventionsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1637,12 +1637,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -1672,7 +1672,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->upsert_cds_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -1804,16 +1804,16 @@ Update or insert Flow Conventions in a single scope. An item will be updated if 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_flow_conventions_request import UpsertFlowConventionsRequest
-from openapi_client.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+from luisd.model.upsert_flow_conventions_request import UpsertFlowConventionsRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -1823,12 +1823,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -1858,7 +1858,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->upsert_flow_conventions: %s\n" % e)
 ```
 ### Parameters
@@ -1990,16 +1990,16 @@ Update or insert Index Convention in a single scope. An item will be updated if 
 
 * OAuth Authentication (oauth2):
 ```python
-import openapi_client
-from openapi_client.api import conventions_api
-from openapi_client.model.lusid_validation_problem_details import LusidValidationProblemDetails
-from openapi_client.model.lusid_problem_details import LusidProblemDetails
-from openapi_client.model.upsert_index_convention_request import UpsertIndexConventionRequest
-from openapi_client.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+import luisd
+from luisd.api import conventions_api
+from luisd.model.lusid_problem_details import LusidProblemDetails
+from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
+from luisd.model.upsert_single_structured_data_response import UpsertSingleStructuredDataResponse
+from luisd.model.upsert_index_convention_request import UpsertIndexConventionRequest
 from pprint import pprint
 # Defining the host is optional and defaults to https://www.lusid.com/api
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 
@@ -2009,12 +2009,12 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure OAuth2 access token for authorization: oauth2
-configuration = openapi_client.Configuration(
+configuration = luisd.Configuration(
     host = "https://www.lusid.com/api"
 )
 configuration.access_token = 'YOUR_ACCESS_TOKEN'
 # Enter a context with an instance of the API client
-with openapi_client.ApiClient(configuration) as api_client:
+with luisd.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = conventions_api.ConventionsApi(api_client)
 
@@ -2036,7 +2036,7 @@ with openapi_client.ApiClient(configuration) as api_client:
             body=body,
         )
         pprint(api_response)
-    except openapi_client.ApiException as e:
+    except luisd.ApiException as e:
         print("Exception when calling ConventionsApi->upsert_index_convention: %s\n" % e)
 ```
 ### Parameters
