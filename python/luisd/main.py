@@ -13,6 +13,15 @@ class DeserializationTests(unittest.TestCase):
     """
     to generate the client
     java -jar /Users/justinblack/programming/openapi-generator/modules/openapi-generator-cli/target/openapi-generator-cli.jar generate -i data/lusid.json -o python/luisd -g python-experimental --package-name luisd
+
+    # install lib locally in the luisd folder
+    python3 -m venv venv
+    source venv/bin/activate
+    # install lib in developer mode
+    pip install -e .
+
+    # run test
+    python main.py
     """
 
     def test_deserialize(self):

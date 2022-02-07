@@ -71,8 +71,11 @@ def update(d: dict, u: dict):
     for k, v in u.items():
         if not v:
             continue
-        d[k] = d[k] | v
-    return d
+        val_from_d = d.get(k)
+        if not val_from_d:
+            d[k] = v
+        else:
+            d[k] = d[k] | v
 
 
 class InstantiationMetadata:
@@ -106,7 +109,7 @@ class InstantiationMetadata:
         self.configuration = configuration
         self.base_classes = base_classes
         if path_to_schemas is None:
-            path_to_schemas = defaultdict(set)
+            path_to_schemas = {}
         self.path_to_schemas = path_to_schemas
 
     def __repr__(self):
@@ -116,6 +119,16 @@ class InstantiationMetadata:
         if not isinstance(other, InstantiationMetadata):
             return False
         return self.__dict__ == other.__dict__
+
+    def __hash__(self):
+        repr = frozendict(dict(
+            path_to_item=self.path_to_item,
+            from_server=self.from_server,
+            configuration=self.configuration,
+            base_classes=self.base_classes,
+            path_to_schemas=frozendict(self.path_to_schemas),
+        ))
+        return repr.__hash__()
 
 
 class ValidatorBase:
@@ -609,12 +622,17 @@ class DateBase(StrBase):
                 )
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         DateBase _validate
         """
-        cls._validate_format(args[0], _instantiation_metadata=_instantiation_metadata)
-        return super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        cls._validate_format(arg, _instantiation_metadata=_instantiation_metadata)
+        return super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
 
 class DateTimeBase:
@@ -636,12 +654,17 @@ class DateTimeBase:
                 )
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         DateTimeBase _validate
         """
-        cls._validate_format(args[0], _instantiation_metadata=_instantiation_metadata)
-        return super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        cls._validate_format(arg, _instantiation_metadata=_instantiation_metadata)
+        return super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
 
 class DecimalBase(StrBase):
@@ -669,12 +692,17 @@ class DecimalBase(StrBase):
                 )
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         DecimalBase _validate
         """
-        cls._validate_format(args[0], _instantiation_metadata=_instantiation_metadata)
-        return super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        cls._validate_format(arg, _instantiation_metadata=_instantiation_metadata)
+        return super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
 
 class NumberBase:
@@ -728,7 +756,7 @@ class ListBase:
         # if we have definitions for an items schema, use it
         # otherwise accept anything
         item_cls = getattr(cls, '_items', AnyTypeSchema)
-        path_to_schemas = defaultdict(set)
+        path_to_schemas = {}
         for i, value in enumerate(list_items):
             if isinstance(value, item_cls):
                 continue
@@ -738,12 +766,17 @@ class ListBase:
                 path_to_item=_instantiation_metadata.path_to_item+(i,)
             )
             other_path_to_schemas = item_cls._validate(
-                value, _instantiation_metadata=item_instantiation_metadata)
+                value, _instantiation_metadata=item_instantiation_metadata, _hash_key=type(value))
             update(path_to_schemas, other_path_to_schemas)
         return path_to_schemas
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         ListBase _validate
         We return dynamic classes of different bases depending upon the inputs
@@ -759,8 +792,7 @@ class ListBase:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
-        arg = args[0]
-        _path_to_schemas = super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        _path_to_schemas = super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
         if not isinstance(arg, tuple):
             return _path_to_schemas
         if cls in _instantiation_metadata.base_classes:
@@ -921,7 +953,7 @@ class DictBase(Discriminable):
         Raises:
             ApiTypeError - for missing required arguments, or for invalid properties
         """
-        path_to_schemas = defaultdict(set)
+        path_to_schemas = {}
         for property_name, value in arg.items():
             if property_name in cls._required_property_names or property_name in cls._property_names:
                 schema = getattr(cls, property_name)
@@ -938,12 +970,17 @@ class DictBase(Discriminable):
                 configuration=_instantiation_metadata.configuration,
                 path_to_item=_instantiation_metadata.path_to_item+(property_name,)
             )
-            other_path_to_schemas = schema._validate(value, _instantiation_metadata=arg_instantiation_metadata)
+            other_path_to_schemas = schema._validate(value, _instantiation_metadata=arg_instantiation_metadata, _hash_key=type(value))
             update(path_to_schemas, other_path_to_schemas)
         return path_to_schemas
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         DictBase _validate
         We return dynamic classes of different bases depending upon the inputs
@@ -959,15 +996,14 @@ class DictBase(Discriminable):
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
-        if args and isinstance(args[0], cls):
+        if isinstance(arg, cls):
             # an instance of the correct type was passed in
             return {}
-        arg = args[0]
-        _path_to_schemas = super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        _path_to_schemas = super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
         if not isinstance(arg, frozendict):
             return _path_to_schemas
-        cls._validate_arg_presence(args[0])
-        other_path_to_schemas = cls._validate_args(args[0], _instantiation_metadata=_instantiation_metadata)
+        cls._validate_arg_presence(arg)
+        other_path_to_schemas = cls._validate_args(arg, _instantiation_metadata=_instantiation_metadata)
         update(_path_to_schemas, other_path_to_schemas)
         try:
             _discriminator = cls._discriminator
@@ -975,7 +1011,7 @@ class DictBase(Discriminable):
             return _path_to_schemas
         # discriminator exists
         disc_prop_name = list(_discriminator.keys())[0]
-        cls._ensure_discriminator_value_present(disc_prop_name, _instantiation_metadata, *args)
+        cls._ensure_discriminator_value_present(disc_prop_name, _instantiation_metadata, arg)
         discriminated_cls = cls._get_discriminated_class(
             disc_property_name=disc_prop_name, disc_payload_value=arg[disc_prop_name])
         if discriminated_cls is None:
@@ -991,7 +1027,7 @@ class DictBase(Discriminable):
             # we have already moved through this class so stop here
             return _path_to_schemas
         _instantiation_metadata.base_classes |= frozenset({cls})
-        other_path_to_schemas = discriminated_cls._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        other_path_to_schemas = discriminated_cls._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
         update(_path_to_schemas, other_path_to_schemas)
         return _path_to_schemas
 
@@ -1197,7 +1233,13 @@ class Schema:
         return new_cls
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    @functools.cache
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         Schema _validate
         Runs all schema validation logic and
@@ -1225,8 +1267,6 @@ class Schema:
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
-        arg = args[0]
-
         base_class = cls.__get_simple_class(arg)
         failed_type_check_classes = cls._validate_type(base_class)
         if failed_type_check_classes:
@@ -1238,7 +1278,9 @@ class Schema:
             )
         if hasattr(cls, '_validate_validations_pass'):
             cls._validate_validations_pass(arg, _instantiation_metadata)
-        path_to_schemas = defaultdict(set)
+        path_to_schemas = {}
+        if _instantiation_metadata.path_to_item not in path_to_schemas:
+            path_to_schemas[_instantiation_metadata.path_to_item] = set()
         path_to_schemas[_instantiation_metadata.path_to_item].add(cls)
 
         if hasattr(cls, "_enum_by_value"):
@@ -1259,7 +1301,11 @@ class Schema:
             raise ApiValueError("Invalid value {} passed in to {}, {}".format(arg, cls, cls._enum_value_to_name))
 
     @classmethod
-    def __get_new_cls(cls, arg, _instantiation_metadata: InstantiationMetadata):
+    def __get_new_cls(
+        cls,
+        arg,
+        _instantiation_metadata: InstantiationMetadata
+    ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], 'Schema']:
         """
         PATH 1 - make a new dynamic class and return an instance of that class
         We are making an instance of cls, but instead of making cls
@@ -1270,8 +1316,7 @@ class Schema:
         if (
         _instantiation_metadata.path_to_schemas and
         _instantiation_metadata.path_to_item in _instantiation_metadata.path_to_schemas):
-            chosen_new_cls = _instantiation_metadata.path_to_schemas[_instantiation_metadata.path_to_item]
-            return chosen_new_cls
+            return _instantiation_metadata.path_to_schemas
         """
         Dict property + List Item Assignment Use cases:
         1. value is NOT an instance of the required schema class
@@ -1285,8 +1330,10 @@ class Schema:
             and in list/dict _get_items,_get_properties the value will be directly assigned
             because value is of the correct type, and validation was run earlier when the instance was created
         """
-        _path_to_schemas = cls._validate(arg, _instantiation_metadata=_instantiation_metadata)
+        _path_to_schemas = cls._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
         # loop through it make a new class for each entry
+        # do not modify the returned result because it is cached and we would be modifying the cached value
+        path_to_schemas = {}
         for path, schema_classes in _path_to_schemas.items():
             enum_schema = any(
                 hasattr(this_cls, '_enum_by_value') for this_cls in schema_classes)
@@ -1312,7 +1359,7 @@ class Schema:
                 mfg_cls = get_new_class(class_name='DynamicSchema', bases=used_classes)
 
             if inheritable_primitive_type and not enum_schema:
-                _instantiation_metadata.path_to_schemas[path] = mfg_cls
+                path_to_schemas[path] = mfg_cls
                 continue
 
             # Use case: value is None, True, False, or an enum value
@@ -1327,9 +1374,9 @@ class Schema:
                 mfg_cls = mfg_cls._class_by_base_class(none_type)
             else:
                 raise ApiValueError('Unhandled case value={} bases={}'.format(value, mfg_cls.__bases__))
-            _instantiation_metadata.path_to_schemas[path] = mfg_cls
+            path_to_schemas[path] = mfg_cls
 
-        return _instantiation_metadata.path_to_schemas[_instantiation_metadata.path_to_item]
+        return path_to_schemas
 
     @classmethod
     def _get_new_instance_without_conversion(cls, arg, _instantiation_metadata):
@@ -1377,7 +1424,15 @@ class Schema:
             raise ApiValueError(
                 'from_server must be True in this code path, if you need it to be False, use cls()'
             )
-        new_cls = cls.__get_new_cls(arg, _instantiation_metadata)
+        path_to_schemas = cls.__get_new_cls(arg, _instantiation_metadata)
+        _instantiation_metadata = InstantiationMetadata(
+            path_to_item=_instantiation_metadata.path_to_item,
+            from_server=_instantiation_metadata.from_server,
+            configuration=_instantiation_metadata.configuration,
+            base_classes=_instantiation_metadata.base_classes,
+            path_to_schemas=path_to_schemas,
+        )
+        new_cls = path_to_schemas[_instantiation_metadata.path_to_item]
         new_inst = new_cls._get_new_instance_without_conversion(arg, _instantiation_metadata)
         return new_inst
 
@@ -1418,7 +1473,15 @@ class Schema:
                 'from_server must be False in this code path, if you need it to be True, use cls._from_openapi_data()'
             )
         arg = cast_to_allowed_types(arg, from_server=_instantiation_metadata.from_server)
-        new_cls = cls.__get_new_cls(arg, _instantiation_metadata)
+        path_to_schemas = cls.__get_new_cls(arg, _instantiation_metadata)
+        _instantiation_metadata = InstantiationMetadata(
+            path_to_item=_instantiation_metadata.path_to_item,
+            from_server=_instantiation_metadata.from_server,
+            configuration=_instantiation_metadata.configuration,
+            base_classes=_instantiation_metadata.base_classes,
+            path_to_schemas=path_to_schemas,
+        )
+        new_cls = path_to_schemas[_instantiation_metadata.path_to_item]
         return new_cls._get_new_instance_without_conversion(arg, _instantiation_metadata)
 
     def __init__(
@@ -1455,6 +1518,8 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
         because isinstance(True, int) is True
         """
         return arg
+    elif isinstance(arg, int):
+        return decimal.Decimal(arg)
     elif isinstance(arg, float):
         decimal_from_float = decimal.Decimal(arg)
         if decimal_from_float.as_integer_ratio()[1] == 1:
@@ -1464,8 +1529,6 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
         return decimal_from_float
     elif type(arg) is list or type(arg) is tuple:
         return tuple([cast_to_allowed_types(item) for item in arg])
-    elif isinstance(arg, int):
-        return decimal.Decimal(arg)
     elif arg is None:
         return arg
     elif isinstance(arg, (date, datetime)):
@@ -1476,6 +1539,8 @@ def cast_to_allowed_types(arg: typing.Union[str, date, datetime, decimal.Decimal
     elif isinstance(arg, decimal.Decimal):
         return arg
     elif isinstance(arg, bytes):
+        return arg
+    elif isinstance(arg, decimal.Decimal):
         return arg
     elif isinstance(arg, (io.FileIO, io.BufferedReader)):
         if arg.closed:
@@ -1494,7 +1559,7 @@ class ComposedBase(Discriminable):
         for allof_cls in cls._composed_schemas['allOf']:
             if allof_cls in _instantiation_metadata.base_classes:
                 continue
-            other_path_to_schemas = allof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata)
+            other_path_to_schemas = allof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata, _hash_key=type(args))
             update(path_to_schemas, other_path_to_schemas)
         return path_to_schemas
 
@@ -1522,7 +1587,7 @@ class ComposedBase(Discriminable):
                 continue
             _instantiation_metadata.base_classes = original_base_classes
             try:
-                path_to_schemas = oneof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata)
+                path_to_schemas = oneof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata, _hash_key=type(args))
                 new_base_classes = _instantiation_metadata.base_classes
             except (ApiValueError, ApiTypeError) as ex:
                 if discriminated_cls is not None and oneof_cls is discriminated_cls:
@@ -1565,7 +1630,7 @@ class ComposedBase(Discriminable):
 
             _instantiation_metadata.base_classes = original_base_classes
             try:
-                other_path_to_schemas = anyof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata)
+                other_path_to_schemas = anyof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata, _hash_key=type(args))
             except (ApiValueError, ApiTypeError) as ex:
                 if discriminated_cls is not None and anyof_cls is discriminated_cls:
                     raise ex
@@ -1582,7 +1647,12 @@ class ComposedBase(Discriminable):
         return path_to_schemas
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         ComposedBase _validate
         We return dynamic classes of different bases depending upon the inputs
@@ -1598,36 +1668,36 @@ class ComposedBase(Discriminable):
             ApiValueError: when a string can't be converted into a date or datetime and it must be one of those classes
             ApiTypeError: when the input type is not in the list of allowed spec types
         """
-        if args and isinstance(args[0], Schema) and _instantiation_metadata.from_server is False:
-            if isinstance(args[0], cls):
+        if isinstance(arg, Schema) and _instantiation_metadata.from_server is False:
+            if isinstance(arg, cls):
                 # an instance of the correct type was passed in
                 return {}
             raise ApiTypeError(
                 'Incorrect type passed in, required type was {} and passed type was {} at {}'.format(
                     cls,
-                    type(args[0]),
+                    type(arg),
                     _instantiation_metadata.path_to_item
                 )
             )
 
         # validation checking on types, validations, and enums
-        path_to_schemas = super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        path_to_schemas = super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
         _instantiation_metadata.base_classes |= frozenset({cls})
 
         # process composed schema
         _discriminator = getattr(cls, '_discriminator', None)
         discriminated_cls = None
-        if _discriminator and args and isinstance(args[0], frozendict):
+        if _discriminator and arg and isinstance(arg, frozendict):
             disc_property_name = list(_discriminator.keys())[0]
-            cls._ensure_discriminator_value_present(disc_property_name, _instantiation_metadata, *args)
+            cls._ensure_discriminator_value_present(disc_property_name, _instantiation_metadata, arg)
             # get discriminated_cls by looking at the dict in the current class
             discriminated_cls = cls._get_discriminated_class(
-                disc_property_name=disc_property_name, disc_payload_value=args[0][disc_property_name])
+                disc_property_name=disc_property_name, disc_payload_value=arg[disc_property_name])
             if discriminated_cls is None:
                 raise ApiValueError(
                     "Invalid discriminator value '{}' was passed in to {}.{} Only the values {} are allowed at {}".format(
-                        args[0][disc_property_name],
+                        arg[disc_property_name],
                         cls.__name__,
                         disc_property_name,
                         list(_discriminator[disc_property_name].keys()),
@@ -1636,11 +1706,11 @@ class ComposedBase(Discriminable):
                 )
 
         if cls._composed_schemas['allOf']:
-            other_path_to_schemas = cls.__get_allof_classes(*args, _instantiation_metadata=_instantiation_metadata)
+            other_path_to_schemas = cls.__get_allof_classes(arg, _instantiation_metadata=_instantiation_metadata)
             update(path_to_schemas, other_path_to_schemas)
         if cls._composed_schemas['oneOf']:
             other_path_to_schemas = cls.__get_oneof_class(
-                *args,
+                arg,
                 discriminated_cls=discriminated_cls,
                 _instantiation_metadata=_instantiation_metadata,
                 path_to_schemas=path_to_schemas
@@ -1648,7 +1718,7 @@ class ComposedBase(Discriminable):
             update(path_to_schemas, other_path_to_schemas)
         if cls._composed_schemas['anyOf']:
             other_path_to_schemas = cls.__get_anyof_classes(
-                *args,
+                arg,
                 discriminated_cls=discriminated_cls,
                 _instantiation_metadata=_instantiation_metadata
             )
@@ -1750,13 +1820,18 @@ class IntBase(NumberBase):
                 )
 
     @classmethod
-    def _validate(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _validate(
+        cls,
+        arg,
+        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _hash_key: typing.Any = ''
+    ):
         """
         IntBase _validate
         TODO what about types = (int, number) -> IntBase, NumberBase? We could drop int and keep number only
         """
-        cls._validate_format(args[0], _instantiation_metadata=_instantiation_metadata)
-        return super()._validate(*args, _instantiation_metadata=_instantiation_metadata)
+        cls._validate_format(arg, _instantiation_metadata=_instantiation_metadata)
+        return super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
 
 class IntSchema(IntBase, NumberSchema):
