@@ -78,17 +78,16 @@ def update(d: dict, u: dict):
             d[k] = d[k] | v
 
 
-class InstantiationMetadata:
+class InstantiationMetadata(frozendict):
     """
     A class to store metadata that is needed when instantiating OpenApi Schema subclasses
     """
-    def __init__(
-        self,
+    def __new__(
+        cls,
         path_to_item: typing.Tuple[typing.Union[str, int], ...] = tuple(['args[0]']),
         from_server: bool = False,
         configuration: typing.Optional[Configuration] = None,
         base_classes: typing.FrozenSet[typing.Type] = frozenset(),
-        path_to_schemas: typing.Optional[typing.Dict[str, typing.Set[typing.Type]]] = None,
     ):
         """
         Args:
@@ -102,33 +101,30 @@ class InstantiationMetadata:
                 - one can disable validation checking
             base_classes: when deserializing data that matches multiple schemas, this is used to store
                 the schemas that have been traversed. This is used to stop processing when a cycle is seen.
-            path_to_schemas: a dict that goes from path to a list of classes at each path location
         """
-        self.path_to_item = path_to_item
-        self.from_server = from_server
-        self.configuration = configuration
-        self.base_classes = base_classes
-        if path_to_schemas is None:
-            path_to_schemas = {}
-        self.path_to_schemas = path_to_schemas
+        return super().__new__(
+            cls,
+            path_to_item=path_to_item,
+            from_server=from_server,
+            configuration=configuration,
+            base_classes=base_classes,
+        )
 
-    def __repr__(self):
-        return str(self.__dict__)
+    @property
+    def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
+        return self.get('path_to_item')
 
-    def __eq__(self, other):
-        if not isinstance(other, InstantiationMetadata):
-            return False
-        return self.__dict__ == other.__dict__
+    @property
+    def from_server(self) -> bool:
+        return self.get('from_server')
 
-    def __hash__(self):
-        repr = frozendict(dict(
-            path_to_item=self.path_to_item,
-            from_server=self.from_server,
-            configuration=self.configuration,
-            base_classes=self.base_classes,
-            path_to_schemas=frozendict(self.path_to_schemas),
-        ))
-        return repr.__hash__()
+    @property
+    def configuration(self) -> typing.Optional[Configuration]:
+        return self.get('configuration')
+
+    @property
+    def base_classes(self) -> typing.FrozenSet[typing.Type]:
+        return self.get('base_classes')
 
 
 class ValidatorBase:
@@ -798,27 +794,35 @@ class ListBase:
         if cls in _instantiation_metadata.base_classes:
             # we have already moved through this class so stop here
             return _path_to_schemas
-        _instantiation_metadata.base_classes |= frozenset({cls})
-        other_path_to_schemas = cls._validate_items(arg, _instantiation_metadata=_instantiation_metadata)
+        updated_im = InstantiationMetadata(
+            configuration=_instantiation_metadata.configuration,
+            from_server=_instantiation_metadata.from_server,
+            path_to_item=_instantiation_metadata.path_to_item,
+            base_classes=_instantiation_metadata.base_classes | frozenset({cls})
+        )
+        other_path_to_schemas = cls._validate_items(arg, _instantiation_metadata=updated_im)
         update(_path_to_schemas, other_path_to_schemas)
         return _path_to_schemas
 
     @classmethod
-    def _get_items(cls, *args, _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _get_items(
+        cls: 'Schema',
+        arg: typing.List[typing.Any],
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
         '''
         ListBase _get_items
         '''
-        _instantiation_metadata = InstantiationMetadata() if _instantiation_metadata is None else _instantiation_metadata
-
-        list_items = args[0]
+        list_items = arg
         cast_items = []
         # if we have definitions for an items schema, use it
         # otherwise accept anything
 
         cls_item_cls = getattr(cls, '_items', AnyTypeSchema)
         for i, value in enumerate(list_items):
-            item_path_to_item = _instantiation_metadata.path_to_item+(i,)
-            item_cls = _instantiation_metadata.path_to_schemas.get(item_path_to_item)
+            item_path_to_item = path_to_item + (i,)
+            item_cls = path_to_schemas.get(item_path_to_item)
             if item_cls is None:
                 item_cls = cls_item_cls
 
@@ -826,14 +830,11 @@ class ListBase:
                 cast_items.append(value)
                 continue
 
-            item_instantiation_metadata = InstantiationMetadata(
-                configuration=_instantiation_metadata.configuration,
-                from_server=_instantiation_metadata.from_server,
-                path_to_item=item_path_to_item,
-                path_to_schemas=_instantiation_metadata.path_to_schemas,
-            )
             new_value = item_cls._get_new_instance_without_conversion(
-                value, _instantiation_metadata=item_instantiation_metadata)
+                value,
+                item_path_to_item,
+                path_to_schemas
+            )
             cast_items.append(new_value)
 
         return cast_items
@@ -1026,8 +1027,13 @@ class DictBase(Discriminable):
         if discriminated_cls in _instantiation_metadata.base_classes:
             # we have already moved through this class so stop here
             return _path_to_schemas
-        _instantiation_metadata.base_classes |= frozenset({cls})
-        other_path_to_schemas = discriminated_cls._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
+        updated_im = InstantiationMetadata(
+            configuration=_instantiation_metadata.configuration,
+            from_server=_instantiation_metadata.from_server,
+            path_to_item=_instantiation_metadata.path_to_item,
+            base_classes=_instantiation_metadata.base_classes | frozenset({cls})
+        )
+        other_path_to_schemas = discriminated_cls._validate(arg, _instantiation_metadata=updated_im, _hash_key=type(arg))
         update(_path_to_schemas, other_path_to_schemas)
         return _path_to_schemas
 
@@ -1060,7 +1066,12 @@ class DictBase(Discriminable):
         return tuple(property_names)
 
     @classmethod
-    def _get_properties(cls, arg: typing.Dict[str, typing.Any], _instantiation_metadata: typing.Optional[InstantiationMetadata] = None):
+    def _get_properties(
+        cls,
+        arg: typing.Dict[str, typing.Any],
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
         """
         DictBase _get_properties, this is how properties are set
         These values already passed validation
@@ -1069,12 +1080,10 @@ class DictBase(Discriminable):
         # if we have definitions for property schemas convert values using it
         # otherwise accept anything
 
-        _instantiation_metadata = InstantiationMetadata() if _instantiation_metadata is None else _instantiation_metadata
-
         for property_name_js, value in arg.items():
             property_cls = getattr(cls, property_name_js, cls._additional_properties)
-            property_path_to_item = _instantiation_metadata.path_to_item+(property_name_js,)
-            stored_property_cls = _instantiation_metadata.path_to_schemas.get(property_path_to_item)
+            property_path_to_item = path_to_item + (property_name_js,)
+            stored_property_cls = path_to_schemas.get(property_path_to_item)
             if stored_property_cls:
                 property_cls = stored_property_cls
 
@@ -1082,14 +1091,11 @@ class DictBase(Discriminable):
                 dict_items[property_name_js] = value
                 continue
 
-            prop_instantiation_metadata = InstantiationMetadata(
-                configuration=_instantiation_metadata.configuration,
-                from_server=_instantiation_metadata.from_server,
-                path_to_item=property_path_to_item,
-                path_to_schemas=_instantiation_metadata.path_to_schemas,
-            )
             new_value = property_cls._get_new_instance_without_conversion(
-                value, _instantiation_metadata=prop_instantiation_metadata)
+                value,
+                property_path_to_item,
+                path_to_schemas
+            )
             dict_items[property_name_js] = new_value
         return dict_items
 
@@ -1307,17 +1313,12 @@ class Schema:
         _instantiation_metadata: InstantiationMetadata
     ) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], 'Schema']:
         """
-        PATH 1 - make a new dynamic class and return an instance of that class
+        Make a new dynamic class and return an instance of that class
         We are making an instance of cls, but instead of making cls
         make a new class, new_cls
         which includes dynamic bases including cls
         return an instance of that new class
-        """
-        if (
-        _instantiation_metadata.path_to_schemas and
-        _instantiation_metadata.path_to_item in _instantiation_metadata.path_to_schemas):
-            return _instantiation_metadata.path_to_schemas
-        """
+
         Dict property + List Item Assignment Use cases:
         1. value is NOT an instance of the required schema class
             the value is validated by _validate
@@ -1379,13 +1380,18 @@ class Schema:
         return path_to_schemas
 
     @classmethod
-    def _get_new_instance_without_conversion(cls, arg, _instantiation_metadata):
-        # PATH 2 - we have a Dynamic class and we are making an instance of it
+    def _get_new_instance_without_conversion(
+        cls: 'Schema',
+        arg: typing.Any,
+        path_to_item: typing.Tuple[typing.Union[str, int], ...],
+        path_to_schemas: typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Type['Schema']]
+    ):
+        # We have a Dynamic class and we are making an instance of it
         if issubclass(cls, frozendict):
-            properties = cls._get_properties(arg, _instantiation_metadata=_instantiation_metadata)
+            properties = cls._get_properties(arg, path_to_item, path_to_schemas)
             return super(Schema, cls).__new__(cls, properties)
         elif issubclass(cls, tuple):
-            items = cls._get_items(arg, _instantiation_metadata=_instantiation_metadata)
+            items = cls._get_items(arg, path_to_item, path_to_schemas)
             return super(Schema, cls).__new__(cls, items)
         """
         str = openapi str, date, and datetime
@@ -1419,21 +1425,18 @@ class Schema:
         _instantiation_metadata: typing.Optional[InstantiationMetadata]
     ):
         arg = cast_to_allowed_types(arg, from_server=True)
-        _instantiation_metadata = InstantiationMetadata(from_server=True) if _instantiation_metadata is None else _instantiation_metadata
-        if not _instantiation_metadata.from_server:
+        instantiation_metadata = InstantiationMetadata(from_server=True) if _instantiation_metadata is None else _instantiation_metadata
+        if not instantiation_metadata.from_server:
             raise ApiValueError(
                 'from_server must be True in this code path, if you need it to be False, use cls()'
             )
-        path_to_schemas = cls.__get_new_cls(arg, _instantiation_metadata)
-        _instantiation_metadata = InstantiationMetadata(
-            path_to_item=_instantiation_metadata.path_to_item,
-            from_server=_instantiation_metadata.from_server,
-            configuration=_instantiation_metadata.configuration,
-            base_classes=_instantiation_metadata.base_classes,
-            path_to_schemas=path_to_schemas,
+        path_to_schemas = cls.__get_new_cls(arg, instantiation_metadata)
+        new_cls = path_to_schemas[instantiation_metadata.path_to_item]
+        new_inst = new_cls._get_new_instance_without_conversion(
+            arg,
+            instantiation_metadata.path_to_item,
+            path_to_schemas
         )
-        new_cls = path_to_schemas[_instantiation_metadata.path_to_item]
-        new_inst = new_cls._get_new_instance_without_conversion(arg, _instantiation_metadata)
         return new_inst
 
     @staticmethod
@@ -1467,22 +1470,19 @@ class Schema:
             arg = args[0]
         else:
             arg = cls.__get_input_dict(*args, **kwargs)
-        _instantiation_metadata = InstantiationMetadata() if _instantiation_metadata is None else _instantiation_metadata
-        if _instantiation_metadata.from_server:
+        instantiation_metadata = InstantiationMetadata() if _instantiation_metadata is None else _instantiation_metadata
+        if instantiation_metadata.from_server:
             raise ApiValueError(
                 'from_server must be False in this code path, if you need it to be True, use cls._from_openapi_data()'
             )
-        arg = cast_to_allowed_types(arg, from_server=_instantiation_metadata.from_server)
-        path_to_schemas = cls.__get_new_cls(arg, _instantiation_metadata)
-        _instantiation_metadata = InstantiationMetadata(
-            path_to_item=_instantiation_metadata.path_to_item,
-            from_server=_instantiation_metadata.from_server,
-            configuration=_instantiation_metadata.configuration,
-            base_classes=_instantiation_metadata.base_classes,
-            path_to_schemas=path_to_schemas,
+        arg = cast_to_allowed_types(arg, from_server=instantiation_metadata.from_server)
+        path_to_schemas = cls.__get_new_cls(arg, instantiation_metadata)
+        new_cls = path_to_schemas[instantiation_metadata.path_to_item]
+        return new_cls._get_new_instance_without_conversion(
+            arg,
+            instantiation_metadata.path_to_item,
+            path_to_schemas
         )
-        new_cls = path_to_schemas[_instantiation_metadata.path_to_item]
-        return new_cls._get_new_instance_without_conversion(arg, _instantiation_metadata)
 
     def __init__(
         self,
@@ -1585,7 +1585,6 @@ class ComposedBase(Discriminable):
                 chosen_oneof_cls = oneof_cls
                 oneof_classes.append(oneof_cls)
                 continue
-            _instantiation_metadata.base_classes = original_base_classes
             try:
                 path_to_schemas = oneof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata, _hash_key=type(args))
                 new_base_classes = _instantiation_metadata.base_classes
@@ -1605,7 +1604,6 @@ class ComposedBase(Discriminable):
                 "Invalid inputs given to generate an instance of {}. Multiple "
                 "oneOf schemas {} matched the inputs, but a max of one is allowed.".format(cls, oneof_classes)
             )
-        _instantiation_metadata.base_classes = new_base_classes
         return path_to_schemas
 
     @classmethod
@@ -1628,7 +1626,6 @@ class ComposedBase(Discriminable):
                 anyof_classes.append(anyof_cls)
                 continue
 
-            _instantiation_metadata.base_classes = original_base_classes
             try:
                 other_path_to_schemas = anyof_cls._validate(*args, _instantiation_metadata=_instantiation_metadata, _hash_key=type(args))
             except (ApiValueError, ApiTypeError) as ex:
@@ -1683,14 +1680,19 @@ class ComposedBase(Discriminable):
         # validation checking on types, validations, and enums
         path_to_schemas = super()._validate(arg, _instantiation_metadata=_instantiation_metadata, _hash_key=type(arg))
 
-        _instantiation_metadata.base_classes |= frozenset({cls})
+        updated_im = InstantiationMetadata(
+            configuration=_instantiation_metadata.configuration,
+            from_server=_instantiation_metadata.from_server,
+            path_to_item=_instantiation_metadata.path_to_item,
+            base_classes=_instantiation_metadata.base_classes | frozenset({cls})
+        )
 
         # process composed schema
         _discriminator = getattr(cls, '_discriminator', None)
         discriminated_cls = None
         if _discriminator and arg and isinstance(arg, frozendict):
             disc_property_name = list(_discriminator.keys())[0]
-            cls._ensure_discriminator_value_present(disc_property_name, _instantiation_metadata, arg)
+            cls._ensure_discriminator_value_present(disc_property_name, updated_im, arg)
             # get discriminated_cls by looking at the dict in the current class
             discriminated_cls = cls._get_discriminated_class(
                 disc_property_name=disc_property_name, disc_payload_value=arg[disc_property_name])
@@ -1701,18 +1703,18 @@ class ComposedBase(Discriminable):
                         cls.__name__,
                         disc_property_name,
                         list(_discriminator[disc_property_name].keys()),
-                        _instantiation_metadata.path_to_item + (disc_property_name,)
+                        updated_im.path_to_item + (disc_property_name,)
                     )
                 )
 
         if cls._composed_schemas['allOf']:
-            other_path_to_schemas = cls.__get_allof_classes(arg, _instantiation_metadata=_instantiation_metadata)
+            other_path_to_schemas = cls.__get_allof_classes(arg, _instantiation_metadata=updated_im)
             update(path_to_schemas, other_path_to_schemas)
         if cls._composed_schemas['oneOf']:
             other_path_to_schemas = cls.__get_oneof_class(
                 arg,
                 discriminated_cls=discriminated_cls,
-                _instantiation_metadata=_instantiation_metadata,
+                _instantiation_metadata=updated_im,
                 path_to_schemas=path_to_schemas
             )
             update(path_to_schemas, other_path_to_schemas)
@@ -1720,13 +1722,13 @@ class ComposedBase(Discriminable):
             other_path_to_schemas = cls.__get_anyof_classes(
                 arg,
                 discriminated_cls=discriminated_cls,
-                _instantiation_metadata=_instantiation_metadata
+                _instantiation_metadata=updated_im
             )
             update(path_to_schemas, other_path_to_schemas)
 
         if discriminated_cls is not None:
             # TODO use an exception from this package here
-            assert discriminated_cls in path_to_schemas[_instantiation_metadata.path_to_item]
+            assert discriminated_cls in path_to_schemas[updated_im.path_to_item]
         return path_to_schemas
 
 
