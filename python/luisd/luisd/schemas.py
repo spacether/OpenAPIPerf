@@ -12,7 +12,6 @@
 
 from collections import defaultdict
 from datetime import date, datetime, timedelta  # noqa: F401
-from dataclasses import dataclass
 import functools
 import decimal
 import io
@@ -814,13 +813,12 @@ class ListBase:
         '''
         ListBase _get_items
         '''
-        list_items = arg
         cast_items = []
         # if we have definitions for an items schema, use it
         # otherwise accept anything
 
         cls_item_cls = getattr(cls, '_items', AnyTypeSchema)
-        for i, value in enumerate(list_items):
+        for i, value in enumerate(arg):
             item_path_to_item = path_to_item + (i,)
             item_cls = path_to_schemas.get(item_path_to_item)
             if item_cls is None:
@@ -837,7 +835,7 @@ class ListBase:
             )
             cast_items.append(new_value)
 
-        return cast_items
+        return tuple(cast_items)
 
 
 class Discriminable:
@@ -1097,7 +1095,7 @@ class DictBase(Discriminable):
                 path_to_schemas
             )
             dict_items[property_name_js] = new_value
-        return dict_items
+        return frozendict(dict_items)
 
     def __setattr__(self, name, value):
         if not isinstance(self, FileIO):
@@ -1238,8 +1236,8 @@ class Schema:
         log_cache_usage(get_new_class)
         return new_cls
 
+    # @functools.cache
     @classmethod
-    @functools.cache
     def _validate(
         cls,
         arg,
@@ -1379,6 +1377,16 @@ class Schema:
 
         return path_to_schemas
 
+    # @functools.cache
+    @classmethod
+    def __cached_new(cls: 'Schema', value: typing.Any):
+        """
+        with cache: 28.8, 33.4 33.6 s | key: cls, value
+        without: 27.6 27.8 s
+        with pickle cache: DIDN'T WORK | key (cls, value, hash_key=pickle.dumps(value))
+        """
+        return super(Schema, cls).__new__(cls, value)
+
     @classmethod
     def _get_new_instance_without_conversion(
         cls: 'Schema',
@@ -1389,17 +1397,21 @@ class Schema:
         # We have a Dynamic class and we are making an instance of it
         if issubclass(cls, frozendict):
             properties = cls._get_properties(arg, path_to_item, path_to_schemas)
-            return super(Schema, cls).__new__(cls, properties)
+            try:
+                return cls.__cached_new(properties)
+            except Exception as ex:
+                print(properties)
+                raise ex
         elif issubclass(cls, tuple):
             items = cls._get_items(arg, path_to_item, path_to_schemas)
-            return super(Schema, cls).__new__(cls, items)
+            return cls.__cached_new(items)
         """
         str = openapi str, date, and datetime
         decimal.Decimal = openapi int and float
         FileIO = openapi binary type and the user inputs a file
         bytes = openapi binary type and the user inputs bytes
         """
-        return super(Schema, cls).__new__(cls, arg)
+        return cls.__cached_new(arg)
 
     @classmethod
     def _from_openapi_data(
