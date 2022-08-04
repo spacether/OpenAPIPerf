@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -107,7 +112,7 @@ The options used in comparison may result in elision of results where an exact o
         right: typing.Union['IDataRecord', Unset] = unset,
         difference: typing.Union['IDataRecord', Unset] = unset,
         resultComparison: typing.Union['IDataRecord', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ReconciliationLine':
         return super().__new__(
             cls,
@@ -116,7 +121,7 @@ The options used in comparison may result in elision of results where an exact o
             right=right,
             difference=difference,
             resultComparison=resultComparison,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.i_data_record import IDataRecord

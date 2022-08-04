@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,7 +73,7 @@ class CalculationMethod(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Rate": "RATE",
-            "BasisPoints": "BASISPOINTS",
+            "BasisPoints": "BASIS_POINTS",
             "Percentage": "PERCENTAGE",
             "Flat": "FLAT",
         }
@@ -84,19 +89,19 @@ class CalculationMethod(
     @classmethod
     @property
     def RATE(cls):
-        return cls._enum_by_value["Rate"]("Rate")
+        return cls("Rate")
     
     @classmethod
     @property
-    def BASISPOINTS(cls):
-        return cls._enum_by_value["BasisPoints"]("BasisPoints")
+    def BASIS_POINTS(cls):
+        return cls("BasisPoints")
     
     @classmethod
     @property
     def PERCENTAGE(cls):
-        return cls._enum_by_value["Percentage"]("Percentage")
+        return cls("Percentage")
     
     @classmethod
     @property
     def FLAT(cls):
-        return cls._enum_by_value["Flat"]("Flat")
+        return cls("Flat")

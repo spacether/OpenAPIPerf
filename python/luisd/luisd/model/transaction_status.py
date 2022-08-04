@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -83,14 +88,14 @@ class TransactionStatus(
     @classmethod
     @property
     def ACTIVE(cls):
-        return cls._enum_by_value["Active"]("Active")
+        return cls("Active")
     
     @classmethod
     @property
     def AMENDED(cls):
-        return cls._enum_by_value["Amended"]("Amended")
+        return cls("Amended")
     
     @classmethod
     @property
     def CANCELLED(cls):
-        return cls._enum_by_value["Cancelled"]("Cancelled")
+        return cls("Cancelled")

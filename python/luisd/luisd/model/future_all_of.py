@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -93,13 +93,13 @@ class FutureAllOf(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'identifiers':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
 
@@ -316,7 +316,7 @@ class FutureAllOf(
         instrumentType: instrumentType,
         contracts: typing.Union[contracts, Unset] = unset,
         refSpotPrice: typing.Union[refSpotPrice, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FutureAllOf':
         return super().__new__(
@@ -330,7 +330,7 @@ class FutureAllOf(
             instrumentType=instrumentType,
             contracts=contracts,
             refSpotPrice=refSpotPrice,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

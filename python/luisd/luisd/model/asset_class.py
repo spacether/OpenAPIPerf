@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,7 +72,7 @@ from luisd.schemas import (  # noqa: F401
 class AssetClass(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "InterestRates": "INTERESTRATES",
+            "InterestRates": "INTEREST_RATES",
             "FX": "FX",
             "Inflation": "INFLATION",
             "Equities": "EQUITIES",
@@ -87,40 +92,40 @@ class AssetClass(
     
     @classmethod
     @property
-    def INTERESTRATES(cls):
-        return cls._enum_by_value["InterestRates"]("InterestRates")
+    def INTEREST_RATES(cls):
+        return cls("InterestRates")
     
     @classmethod
     @property
     def FX(cls):
-        return cls._enum_by_value["FX"]("FX")
+        return cls("FX")
     
     @classmethod
     @property
     def INFLATION(cls):
-        return cls._enum_by_value["Inflation"]("Inflation")
+        return cls("Inflation")
     
     @classmethod
     @property
     def EQUITIES(cls):
-        return cls._enum_by_value["Equities"]("Equities")
+        return cls("Equities")
     
     @classmethod
     @property
     def CREDIT(cls):
-        return cls._enum_by_value["Credit"]("Credit")
+        return cls("Credit")
     
     @classmethod
     @property
     def COMMODITIES(cls):
-        return cls._enum_by_value["Commodities"]("Commodities")
+        return cls("Commodities")
     
     @classmethod
     @property
     def MONEY(cls):
-        return cls._enum_by_value["Money"]("Money")
+        return cls("Money")
     
     @classmethod
     @property
     def UNKNOWN(cls):
-        return cls._enum_by_value["Unknown"]("Unknown")
+        return cls("Unknown")

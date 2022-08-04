@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,8 +73,8 @@ class NumericComparisonType(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Exact": "EXACT",
-            "AbsoluteDifference": "ABSOLUTEDIFFERENCE",
-            "RelativeDifference": "RELATIVEDIFFERENCE",
+            "AbsoluteDifference": "ABSOLUTE_DIFFERENCE",
+            "RelativeDifference": "RELATIVE_DIFFERENCE",
         }
     ),
     StrSchema
@@ -85,14 +90,14 @@ class NumericComparisonType(
     @classmethod
     @property
     def EXACT(cls):
-        return cls._enum_by_value["Exact"]("Exact")
+        return cls("Exact")
     
     @classmethod
     @property
-    def ABSOLUTEDIFFERENCE(cls):
-        return cls._enum_by_value["AbsoluteDifference"]("AbsoluteDifference")
+    def ABSOLUTE_DIFFERENCE(cls):
+        return cls("AbsoluteDifference")
     
     @classmethod
     @property
-    def RELATIVEDIFFERENCE(cls):
-        return cls._enum_by_value["RelativeDifference"]("RelativeDifference")
+    def RELATIVE_DIFFERENCE(cls):
+        return cls("RelativeDifference")

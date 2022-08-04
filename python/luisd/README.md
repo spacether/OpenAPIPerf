@@ -322,7 +322,7 @@ Please follow the [installation procedure](#installation--usage) and then run th
 import time
 import luisd
 from pprint import pprint
-from luisd.api import aggregation_api
+from luisd.apis import aggregation_api
 from luisd.model.configuration_recipe import ConfigurationRecipe
 from luisd.model.create_recipe_request import CreateRecipeRequest
 from luisd.model.inline_valuation_request import InlineValuationRequest
@@ -356,7 +356,7 @@ with luisd.ApiClient(configuration) as api_client:
 code = "z" # str, none_type | The code of the portfolio
 create_recipe_request = CreateRecipeRequest(
         recipe_creation_market_data_scopes=[
-            "recipe_creation_market_data_scopes_example",
+            "recipe_creation_market_data_scopes_example"
         ],
         recipe_id=ResourceId(
             scope="scope_example",
@@ -374,12 +374,12 @@ create_recipe_request = CreateRecipeRequest(
                         quote_type="Price",
                         field="field_example",
                         quote_interval="quote_interval_example",
-                        as_at=isoparse('1970-01-01T00:00:00.00Z'),
+                        as_at="1970-01-01T00:00:00.00Z",
                         price_source="price_source_example",
                         mask="mask_example",
-                    ),
+                    )
                 ],
-                suppliers=MarketContextSuppliers(
+                suppliers=dict(
                     commodity="commodity_example",
                     credit="credit_example",
                     equity="equity_example",
@@ -404,7 +404,7 @@ create_recipe_request = CreateRecipeRequest(
                         parameters="parameters_example",
                         model_options=ModelOptions(),
                         instrument_id="instrument_id_example",
-                    ),
+                    )
                 ],
                 model_choice=dict(
                     "key": ModelSelection(
@@ -413,10 +413,7 @@ create_recipe_request = CreateRecipeRequest(
                     ),
                 ),
                 options=PricingOptions(
-                    model_selection=ModelSelection(
-                        library="Lusid",
-                        model="SimpleStatic",
-                    ),
+                    model_selection=ModelSelection(),
                     use_instrument_type_to_determine_pricer=True,
                     allow_any_instruments_with_sec_uid_to_price_off_lookup=True,
                     allow_partially_successful_evaluation=True,
@@ -434,8 +431,8 @@ create_recipe_request = CreateRecipeRequest(
                         data_scope="z",
                         document_code="document_code_example",
                         quote_interval="quote_interval_example",
-                        as_at=isoparse('1970-01-01T00:00:00.00Z'),
-                    ),
+                        as_at="1970-01-01T00:00:00.00Z",
+                    )
                 ],
             ),
             aggregation=AggregationContext(
@@ -445,17 +442,14 @@ create_recipe_request = CreateRecipeRequest(
                 ),
             ),
             inherited_recipes=[
-                ResourceId(
-                    scope="scope_example",
-                    code="code_example",
-                ),
+                ResourceId()
             ],
-            description="",
+            description="Aa6w77ikCX*cKCmv|`K/V",
             holding=HoldingContext(
                 tax_lot_level_holdings=True,
             ),
         ),
-        as_at=isoparse('1970-01-01T00:00:00.00Z'),
+        as_at="1970-01-01T00:00:00.00Z",
         effective_at="effective_at_example",
     ) # CreateRecipeRequest | The request specifying the parameters to generating the recipe (optional)
 
@@ -473,855 +467,803 @@ All URIs are relative to *https://www.lusid.com/api*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AggregationApi* | [**generate_configuration_recipe**](docs/AggregationApi.md#generate_configuration_recipe) | **POST** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
-*AggregationApi* | [**get_queryable_keys**](docs/AggregationApi.md#get_queryable_keys) | **GET** /api/results/queryable/keys | [EXPERIMENTAL] GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
-*AggregationApi* | [**get_valuation**](docs/AggregationApi.md#get_valuation) | **POST** /api/aggregation/$valuation | [BETA] GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
-*AggregationApi* | [**get_valuation_of_weighted_instruments**](docs/AggregationApi.md#get_valuation_of_weighted_instruments) | **POST** /api/aggregation/$valuationinlined | [BETA] GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
-*AllocationsApi* | [**delete_allocation**](docs/AllocationsApi.md#delete_allocation) | **DELETE** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation
-*AllocationsApi* | [**get_allocation**](docs/AllocationsApi.md#get_allocation) | **GET** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
-*AllocationsApi* | [**list_allocations**](docs/AllocationsApi.md#list_allocations) | **GET** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
-*AllocationsApi* | [**upsert_allocations**](docs/AllocationsApi.md#upsert_allocations) | **POST** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations
-*ApplicationMetadataApi* | [**get_excel_addin**](docs/ApplicationMetadataApi.md#get_excel_addin) | **GET** /api/metadata/downloads/exceladdin | [EARLY ACCESS] GetExcelAddin: Download Excel Addin
-*ApplicationMetadataApi* | [**get_lusid_versions**](docs/ApplicationMetadataApi.md#get_lusid_versions) | **GET** /api/metadata/versions | [EARLY ACCESS] GetLusidVersions: Get LUSID versions
-*ApplicationMetadataApi* | [**list_access_controlled_resources**](docs/ApplicationMetadataApi.md#list_access_controlled_resources) | **GET** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
-*BlocksApi* | [**delete_block**](docs/BlocksApi.md#delete_block) | **DELETE** /api/blocks/{scope}/{code} | [EXPERIMENTAL] DeleteBlock: Delete block
-*BlocksApi* | [**get_block**](docs/BlocksApi.md#get_block) | **GET** /api/blocks/{scope}/{code} | [EXPERIMENTAL] GetBlock: Get Block
-*BlocksApi* | [**list_blocks**](docs/BlocksApi.md#list_blocks) | **GET** /api/blocks | [EXPERIMENTAL] ListBlocks: List Blocks
-*BlocksApi* | [**upsert_blocks**](docs/BlocksApi.md#upsert_blocks) | **POST** /api/blocks | [EXPERIMENTAL] UpsertBlocks: Upsert Block
-*CalendarsApi* | [**add_business_days_to_date**](docs/CalendarsApi.md#add_business_days_to_date) | **POST** /api/calendars/businessday/{scope}/add | [EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
-*CalendarsApi* | [**add_date_to_calendar**](docs/CalendarsApi.md#add_date_to_calendar) | **PUT** /api/calendars/generic/{scope}/{code}/dates | [BETA] AddDateToCalendar: Add a date to a calendar
-*CalendarsApi* | [**create_calendar**](docs/CalendarsApi.md#create_calendar) | **POST** /api/calendars/generic | [BETA] CreateCalendar: Create a calendar in its generic form
-*CalendarsApi* | [**delete_calendar**](docs/CalendarsApi.md#delete_calendar) | **DELETE** /api/calendars/generic/{scope}/{code} | [BETA] DeleteCalendar: Delete a calendar
-*CalendarsApi* | [**delete_date_from_calendar**](docs/CalendarsApi.md#delete_date_from_calendar) | **DELETE** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [BETA] DeleteDateFromCalendar: Remove a date from a calendar
-*CalendarsApi* | [**generate_schedule**](docs/CalendarsApi.md#generate_schedule) | **POST** /api/calendars/schedule/{scope} | [EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.
-*CalendarsApi* | [**get_calendar**](docs/CalendarsApi.md#get_calendar) | **GET** /api/calendars/generic/{scope}/{code} | [BETA] GetCalendar: Get a calendar in its generic form
-*CalendarsApi* | [**get_dates**](docs/CalendarsApi.md#get_dates) | **GET** /api/calendars/generic/{scope}/{code}/dates | [BETA] GetDates: Get dates for a specific calendar
-*CalendarsApi* | [**is_business_date_time**](docs/CalendarsApi.md#is_business_date_time) | **GET** /api/calendars/businessday/{scope}/{code} | [BETA] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
-*CalendarsApi* | [**list_calendars**](docs/CalendarsApi.md#list_calendars) | **GET** /api/calendars/generic | [BETA] ListCalendars: List Calendars
-*CalendarsApi* | [**list_calendars_in_scope**](docs/CalendarsApi.md#list_calendars_in_scope) | **GET** /api/calendars/generic/{scope} | [BETA] ListCalendarsInScope: List all calenders in a specified scope
-*CalendarsApi* | [**update_calendar**](docs/CalendarsApi.md#update_calendar) | **POST** /api/calendars/generic/{scope}/{code} | [BETA] UpdateCalendar: Update a calendar
-*ComplexMarketDataApi* | [**delete_complex_market_data**](docs/ComplexMarketDataApi.md#delete_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$delete | [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
-*ComplexMarketDataApi* | [**get_complex_market_data**](docs/ComplexMarketDataApi.md#get_complex_market_data) | **POST** /api/complexmarketdata/{scope}/$get | [EARLY ACCESS] GetComplexMarketData: Get complex market data
-*ComplexMarketDataApi* | [**list_complex_market_data**](docs/ComplexMarketDataApi.md#list_complex_market_data) | **GET** /api/complexmarketdata | [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
-*ComplexMarketDataApi* | [**upsert_complex_market_data**](docs/ComplexMarketDataApi.md#upsert_complex_market_data) | **POST** /api/complexmarketdata/{scope} | [EARLY ACCESS] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
-*ComplianceApi* | [**get_compliance_run**](docs/ComplianceApi.md#get_compliance_run) | **GET** /api/compliance/{runId} | [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.
-*ComplianceApi* | [**list_compliance_runs**](docs/ComplianceApi.md#list_compliance_runs) | **GET** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
-*ComplianceApi* | [**run_compliance_check**](docs/ComplianceApi.md#run_compliance_check) | **POST** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
-*ConfigurationRecipeApi* | [**delete_configuration_recipe**](docs/ConfigurationRecipeApi.md#delete_configuration_recipe) | **DELETE** /api/recipes/{scope}/{code} | [EXPERIMENTAL] DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
-*ConfigurationRecipeApi* | [**get_configuration_recipe**](docs/ConfigurationRecipeApi.md#get_configuration_recipe) | **GET** /api/recipes/{scope}/{code} | [EXPERIMENTAL] GetConfigurationRecipe: Get Configuration Recipe
-*ConfigurationRecipeApi* | [**list_configuration_recipes**](docs/ConfigurationRecipeApi.md#list_configuration_recipes) | **GET** /api/recipes | [EXPERIMENTAL] ListConfigurationRecipes: List the set of Configuration Recipes
-*ConfigurationRecipeApi* | [**upsert_configuration_recipe**](docs/ConfigurationRecipeApi.md#upsert_configuration_recipe) | **POST** /api/recipes | [EXPERIMENTAL] UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
-*ConventionsApi* | [**delete_cds_flow_conventions**](docs/ConventionsApi.md#delete_cds_flow_conventions) | **DELETE** /api/conventions/credit/conventions/{scope}/{code} | [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
-*ConventionsApi* | [**delete_flow_conventions**](docs/ConventionsApi.md#delete_flow_conventions) | **DELETE** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
-*ConventionsApi* | [**delete_index_convention**](docs/ConventionsApi.md#delete_index_convention) | **DELETE** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
-*ConventionsApi* | [**get_cds_flow_conventions**](docs/ConventionsApi.md#get_cds_flow_conventions) | **GET** /api/conventions/credit/conventions/{scope}/{code} | [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
-*ConventionsApi* | [**get_flow_conventions**](docs/ConventionsApi.md#get_flow_conventions) | **GET** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] GetFlowConventions: Get Flow Conventions
-*ConventionsApi* | [**get_index_convention**](docs/ConventionsApi.md#get_index_convention) | **GET** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] GetIndexConvention: Get Index Convention
-*ConventionsApi* | [**list_cds_flow_conventions**](docs/ConventionsApi.md#list_cds_flow_conventions) | **GET** /api/conventions/credit/conventions | [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
-*ConventionsApi* | [**list_flow_conventions**](docs/ConventionsApi.md#list_flow_conventions) | **GET** /api/conventions/rates/flowconventions | [BETA] ListFlowConventions: List the set of Flow Conventions
-*ConventionsApi* | [**list_index_convention**](docs/ConventionsApi.md#list_index_convention) | **GET** /api/conventions/rates/indexconventions | [BETA] ListIndexConvention: List the set of Index Conventions
-*ConventionsApi* | [**upsert_cds_flow_conventions**](docs/ConventionsApi.md#upsert_cds_flow_conventions) | **POST** /api/conventions/credit/conventions | [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
-*ConventionsApi* | [**upsert_flow_conventions**](docs/ConventionsApi.md#upsert_flow_conventions) | **POST** /api/conventions/rates/flowconventions | [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
-*ConventionsApi* | [**upsert_index_convention**](docs/ConventionsApi.md#upsert_index_convention) | **POST** /api/conventions/rates/indexconventions | [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
-*CorporateActionSourcesApi* | [**batch_upsert_corporate_actions**](docs/CorporateActionSourcesApi.md#batch_upsert_corporate_actions) | **POST** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] BatchUpsertCorporateActions: Upsert corporate actions
-*CorporateActionSourcesApi* | [**create_corporate_action_source**](docs/CorporateActionSourcesApi.md#create_corporate_action_source) | **POST** /api/corporateactionsources | [BETA] CreateCorporateActionSource: Create corporate action source
-*CorporateActionSourcesApi* | [**delete_corporate_action_source**](docs/CorporateActionSourcesApi.md#delete_corporate_action_source) | **DELETE** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete a corporate action source
-*CorporateActionSourcesApi* | [**delete_corporate_actions**](docs/CorporateActionSourcesApi.md#delete_corporate_actions) | **DELETE** /api/corporateactionsources/{scope}/{code}/corporateactions | [EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions
-*CorporateActionSourcesApi* | [**get_corporate_actions**](docs/CorporateActionSourcesApi.md#get_corporate_actions) | **GET** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] GetCorporateActions: Get corporate actions
-*CorporateActionSourcesApi* | [**list_corporate_action_sources**](docs/CorporateActionSourcesApi.md#list_corporate_action_sources) | **GET** /api/corporateactionsources | [BETA] ListCorporateActionSources: List corporate action sources
-*CounterpartiesApi* | [**delete_counterparty_agreement**](docs/CounterpartiesApi.md#delete_counterparty_agreement) | **DELETE** /api/counterparties/counterpartyagreements/{scope}/{code} | [EXPERIMENTAL] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
-*CounterpartiesApi* | [**delete_credit_support_annex**](docs/CounterpartiesApi.md#delete_credit_support_annex) | **DELETE** /api/counterparties/creditsupportannexes/{scope}/{code} | [EXPERIMENTAL] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
-*CounterpartiesApi* | [**get_counterparty_agreement**](docs/CounterpartiesApi.md#get_counterparty_agreement) | **GET** /api/counterparties/counterpartyagreements/{scope}/{code} | [EXPERIMENTAL] GetCounterpartyAgreement: Get Counterparty Agreement
-*CounterpartiesApi* | [**get_credit_support_annex**](docs/CounterpartiesApi.md#get_credit_support_annex) | **GET** /api/counterparties/creditsupportannexes/{scope}/{code} | [EXPERIMENTAL] GetCreditSupportAnnex: Get Credit Support Annex
-*CounterpartiesApi* | [**list_counterparty_agreements**](docs/CounterpartiesApi.md#list_counterparty_agreements) | **GET** /api/counterparties/counterpartyagreements | [EXPERIMENTAL] ListCounterpartyAgreements: List the set of Counterparty Agreements
-*CounterpartiesApi* | [**list_credit_support_annexes**](docs/CounterpartiesApi.md#list_credit_support_annexes) | **GET** /api/counterparties/creditsupportannexes | [EXPERIMENTAL] ListCreditSupportAnnexes: List the set of Credit Support Annexes
-*CounterpartiesApi* | [**upsert_counterparty_agreement**](docs/CounterpartiesApi.md#upsert_counterparty_agreement) | **POST** /api/counterparties/counterpartyagreements | [EXPERIMENTAL] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
-*CounterpartiesApi* | [**upsert_credit_support_annex**](docs/CounterpartiesApi.md#upsert_credit_support_annex) | **POST** /api/counterparties/creditsupportannexes | [EXPERIMENTAL] UpsertCreditSupportAnnex: Upsert Credit Support Annex
-*CustomEntitiesApi* | [**get_custom_entity**](docs/CustomEntitiesApi.md#get_custom_entity) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
-*CustomEntitiesApi* | [**get_custom_entity_relationships**](docs/CustomEntitiesApi.md#get_custom_entity_relationships) | **GET** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
-*CustomEntitiesApi* | [**list_custom_entities**](docs/CustomEntitiesApi.md#list_custom_entities) | **GET** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List Custom Entities
-*CustomEntitiesApi* | [**upsert_custom_entity**](docs/CustomEntitiesApi.md#upsert_custom_entity) | **POST** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
-*CustomEntityDefinitionsApi* | [**create_custom_entity_definition**](docs/CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **POST** /api/customentities/entitytypes | [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
-*CustomEntityDefinitionsApi* | [**get_definition**](docs/CustomEntityDefinitionsApi.md#get_definition) | **GET** /api/customentities/entitytypes/{entityType} | [EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition
-*CutLabelDefinitionsApi* | [**create_cut_label_definition**](docs/CutLabelDefinitionsApi.md#create_cut_label_definition) | **POST** /api/systemconfiguration/cutlabels | [EARLY ACCESS] CreateCutLabelDefinition: Create a Cut Label
-*CutLabelDefinitionsApi* | [**delete_cut_label_definition**](docs/CutLabelDefinitionsApi.md#delete_cut_label_definition) | **DELETE** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] DeleteCutLabelDefinition: Delete a Cut Label
-*CutLabelDefinitionsApi* | [**get_cut_label_definition**](docs/CutLabelDefinitionsApi.md#get_cut_label_definition) | **GET** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] GetCutLabelDefinition: Get a Cut Label
-*CutLabelDefinitionsApi* | [**list_cut_label_definitions**](docs/CutLabelDefinitionsApi.md#list_cut_label_definitions) | **GET** /api/systemconfiguration/cutlabels | [EARLY ACCESS] ListCutLabelDefinitions: List Existing Cut Labels
-*CutLabelDefinitionsApi* | [**update_cut_label_definition**](docs/CutLabelDefinitionsApi.md#update_cut_label_definition) | **PUT** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] UpdateCutLabelDefinition: Update a Cut Label
-*DataTypesApi* | [**create_data_type**](docs/DataTypesApi.md#create_data_type) | **POST** /api/datatypes | [BETA] CreateDataType: Create data type definition
-*DataTypesApi* | [**get_data_type**](docs/DataTypesApi.md#get_data_type) | **GET** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
-*DataTypesApi* | [**get_units_from_data_type**](docs/DataTypesApi.md#get_units_from_data_type) | **GET** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
-*DataTypesApi* | [**list_data_type_summaries**](docs/DataTypesApi.md#list_data_type_summaries) | **GET** /api/datatypes | [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
-*DataTypesApi* | [**list_data_types**](docs/DataTypesApi.md#list_data_types) | **GET** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
-*DataTypesApi* | [**update_data_type**](docs/DataTypesApi.md#update_data_type) | **PUT** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
-*DataTypesApi* | [**update_reference_values**](docs/DataTypesApi.md#update_reference_values) | **PUT** /api/datatypes/{scope}/{code}/referencedatavalues | [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
-*DerivedTransactionPortfoliosApi* | [**create_derived_portfolio**](docs/DerivedTransactionPortfoliosApi.md#create_derived_portfolio) | **POST** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
-*DerivedTransactionPortfoliosApi* | [**delete_derived_portfolio_details**](docs/DerivedTransactionPortfoliosApi.md#delete_derived_portfolio_details) | **DELETE** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
-*EntitiesApi* | [**get_portfolio_changes**](docs/EntitiesApi.md#get_portfolio_changes) | **GET** /api/entities/changes/portfolios | [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
-*ExecutionsApi* | [**delete_execution**](docs/ExecutionsApi.md#delete_execution) | **DELETE** /api/executions/{scope}/{code} | [EXPERIMENTAL] DeleteExecution: Delete execution
-*ExecutionsApi* | [**get_execution**](docs/ExecutionsApi.md#get_execution) | **GET** /api/executions/{scope}/{code} | [EXPERIMENTAL] GetExecution: Get Execution
-*ExecutionsApi* | [**list_executions**](docs/ExecutionsApi.md#list_executions) | **GET** /api/executions | [EXPERIMENTAL] ListExecutions: List Executions
-*ExecutionsApi* | [**upsert_executions**](docs/ExecutionsApi.md#upsert_executions) | **POST** /api/executions | [EXPERIMENTAL] UpsertExecutions: Upsert Execution
-*FeesAndCommissionsApi* | [**get_applicable_fees**](docs/FeesAndCommissionsApi.md#get_applicable_fees) | **GET** /api/feesandcommissions | [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
-*FeesAndCommissionsApi* | [**list_all_fees**](docs/FeesAndCommissionsApi.md#list_all_fees) | **GET** /api/feesandcommissions/rules | [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
-*InstrumentsApi* | [**delete_instrument**](docs/InstrumentsApi.md#delete_instrument) | **DELETE** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Delete instrument
-*InstrumentsApi* | [**delete_instrument_properties**](docs/InstrumentsApi.md#delete_instrument_properties) | **POST** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
-*InstrumentsApi* | [**get_instrument**](docs/InstrumentsApi.md#get_instrument) | **GET** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
-*InstrumentsApi* | [**get_instrument_identifier_types**](docs/InstrumentsApi.md#get_instrument_identifier_types) | **GET** /api/instruments/identifierTypes | [EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
-*InstrumentsApi* | [**get_instrument_properties**](docs/InstrumentsApi.md#get_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties | [EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
-*InstrumentsApi* | [**get_instrument_property_time_series**](docs/InstrumentsApi.md#get_instrument_property_time_series) | **GET** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
-*InstrumentsApi* | [**get_instruments**](docs/InstrumentsApi.md#get_instruments) | **POST** /api/instruments/$get | GetInstruments: Get instruments
-*InstrumentsApi* | [**list_instrument_properties**](docs/InstrumentsApi.md#list_instrument_properties) | **GET** /api/instruments/{identifierType}/{identifier}/properties/list | [EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
-*InstrumentsApi* | [**list_instruments**](docs/InstrumentsApi.md#list_instruments) | **GET** /api/instruments | [EARLY ACCESS] ListInstruments: List instruments
-*InstrumentsApi* | [**update_instrument_identifier**](docs/InstrumentsApi.md#update_instrument_identifier) | **POST** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier
-*InstrumentsApi* | [**upsert_instruments**](docs/InstrumentsApi.md#upsert_instruments) | **POST** /api/instruments | UpsertInstruments: Upsert instruments
-*InstrumentsApi* | [**upsert_instruments_properties**](docs/InstrumentsApi.md#upsert_instruments_properties) | **POST** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
-*LegalEntitiesApi* | [**delete_legal_entity**](docs/LegalEntitiesApi.md#delete_legal_entity) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
-*LegalEntitiesApi* | [**delete_legal_entity_access_metadata**](docs/LegalEntitiesApi.md#delete_legal_entity_access_metadata) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
-*LegalEntitiesApi* | [**delete_legal_entity_identifiers**](docs/LegalEntitiesApi.md#delete_legal_entity_identifiers) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
-*LegalEntitiesApi* | [**delete_legal_entity_properties**](docs/LegalEntitiesApi.md#delete_legal_entity_properties) | **DELETE** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeleteLegalEntityProperties: Delete Legal Entity Properties
-*LegalEntitiesApi* | [**get_all_legal_entity_access_metadata**](docs/LegalEntitiesApi.md#get_all_legal_entity_access_metadata) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
-*LegalEntitiesApi* | [**get_legal_entity**](docs/LegalEntitiesApi.md#get_legal_entity) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetLegalEntity: Get Legal Entity
-*LegalEntitiesApi* | [**get_legal_entity_access_metadata_by_key**](docs/LegalEntitiesApi.md#get_legal_entity_access_metadata_by_key) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity
-*LegalEntitiesApi* | [**get_legal_entity_property_time_series**](docs/LegalEntitiesApi.md#get_legal_entity_property_time_series) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
-*LegalEntitiesApi* | [**get_legal_entity_relations**](docs/LegalEntitiesApi.md#get_legal_entity_relations) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
-*LegalEntitiesApi* | [**get_legal_entity_relationships**](docs/LegalEntitiesApi.md#get_legal_entity_relationships) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetLegalEntityRelationships: Get Relationships for Legal Entity
-*LegalEntitiesApi* | [**list_legal_entities**](docs/LegalEntitiesApi.md#list_legal_entities) | **GET** /api/legalentities/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] ListLegalEntities: List Legal Entities
-*LegalEntitiesApi* | [**set_legal_entity_identifiers**](docs/LegalEntitiesApi.md#set_legal_entity_identifiers) | **POST** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
-*LegalEntitiesApi* | [**upsert_legal_entity**](docs/LegalEntitiesApi.md#upsert_legal_entity) | **POST** /api/legalentities | [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
-*LegalEntitiesApi* | [**upsert_legal_entity_access_metadata**](docs/LegalEntitiesApi.md#upsert_legal_entity_access_metadata) | **PUT** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-*OrderGraphApi* | [**list_order_graph_blocks**](docs/OrderGraphApi.md#list_order_graph_blocks) | **GET** /api/ordergraph/blocks | [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
-*OrderGraphApi* | [**list_order_graph_placements**](docs/OrderGraphApi.md#list_order_graph_placements) | **GET** /api/ordergraph/placements | [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
-*OrderInstructionsApi* | [**delete_order_instruction**](docs/OrderInstructionsApi.md#delete_order_instruction) | **DELETE** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
-*OrderInstructionsApi* | [**get_order_instruction**](docs/OrderInstructionsApi.md#get_order_instruction) | **GET** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
-*OrderInstructionsApi* | [**list_order_instructions**](docs/OrderInstructionsApi.md#list_order_instructions) | **GET** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
-*OrderInstructionsApi* | [**upsert_order_instructions**](docs/OrderInstructionsApi.md#upsert_order_instructions) | **POST** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
-*OrdersApi* | [**delete_order**](docs/OrdersApi.md#delete_order) | **DELETE** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
-*OrdersApi* | [**get_order**](docs/OrdersApi.md#get_order) | **GET** /api/orders/{scope}/{code} | [EARLY ACCESS] GetOrder: Get Order
-*OrdersApi* | [**list_orders**](docs/OrdersApi.md#list_orders) | **GET** /api/orders | [EARLY ACCESS] ListOrders: List Orders
-*OrdersApi* | [**upsert_orders**](docs/OrdersApi.md#upsert_orders) | **POST** /api/orders | [EARLY ACCESS] UpsertOrders: Upsert Order
-*PackagesApi* | [**delete_package**](docs/PackagesApi.md#delete_package) | **DELETE** /api/packages/{scope}/{code} | [EXPERIMENTAL] DeletePackage: Delete package
-*PackagesApi* | [**get_package**](docs/PackagesApi.md#get_package) | **GET** /api/packages/{scope}/{code} | [EXPERIMENTAL] GetPackage: Get Package
-*PackagesApi* | [**list_packages**](docs/PackagesApi.md#list_packages) | **GET** /api/packages | [EXPERIMENTAL] ListPackages: List Packages
-*PackagesApi* | [**upsert_packages**](docs/PackagesApi.md#upsert_packages) | **POST** /api/packages | [EXPERIMENTAL] UpsertPackages: Upsert Package
-*ParticipationsApi* | [**delete_participation**](docs/ParticipationsApi.md#delete_participation) | **DELETE** /api/participations/{scope}/{code} | [EXPERIMENTAL] DeleteParticipation: Delete participation
-*ParticipationsApi* | [**get_participation**](docs/ParticipationsApi.md#get_participation) | **GET** /api/participations/{scope}/{code} | [EXPERIMENTAL] GetParticipation: Get Participation
-*ParticipationsApi* | [**list_participations**](docs/ParticipationsApi.md#list_participations) | **GET** /api/participations | [EXPERIMENTAL] ListParticipations: List Participations
-*ParticipationsApi* | [**upsert_participations**](docs/ParticipationsApi.md#upsert_participations) | **POST** /api/participations | [EXPERIMENTAL] UpsertParticipations: Upsert Participation
-*PersonsApi* | [**delete_person**](docs/PersonsApi.md#delete_person) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] DeletePerson: Delete person
-*PersonsApi* | [**delete_person_access_metadata**](docs/PersonsApi.md#delete_person_access_metadata) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
-*PersonsApi* | [**delete_person_identifiers**](docs/PersonsApi.md#delete_person_identifiers) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
-*PersonsApi* | [**delete_person_properties**](docs/PersonsApi.md#delete_person_properties) | **DELETE** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
-*PersonsApi* | [**get_all_person_access_metadata**](docs/PersonsApi.md#get_all_person_access_metadata) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
-*PersonsApi* | [**get_person**](docs/PersonsApi.md#get_person) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] GetPerson: Get Person
-*PersonsApi* | [**get_person_access_metadata_by_key**](docs/PersonsApi.md#get_person_access_metadata_by_key) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
-*PersonsApi* | [**get_person_property_time_series**](docs/PersonsApi.md#get_person_property_time_series) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
-*PersonsApi* | [**get_person_relations**](docs/PersonsApi.md#get_person_relations) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
-*PersonsApi* | [**get_person_relationships**](docs/PersonsApi.md#get_person_relationships) | **GET** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
-*PersonsApi* | [**list_persons**](docs/PersonsApi.md#list_persons) | **GET** /api/persons/{idTypeScope}/{idTypeCode} | [EXPERIMENTAL] ListPersons: List Persons
-*PersonsApi* | [**set_person_identifiers**](docs/PersonsApi.md#set_person_identifiers) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
-*PersonsApi* | [**set_person_properties**](docs/PersonsApi.md#set_person_properties) | **POST** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] SetPersonProperties: Set Person Properties
-*PersonsApi* | [**upsert_person**](docs/PersonsApi.md#upsert_person) | **POST** /api/persons | [EXPERIMENTAL] UpsertPerson: Upsert Person
-*PersonsApi* | [**upsert_person_access_metadata**](docs/PersonsApi.md#upsert_person_access_metadata) | **PUT** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-*PlacementsApi* | [**delete_placement**](docs/PlacementsApi.md#delete_placement) | **DELETE** /api/placements/{scope}/{code} | [EXPERIMENTAL] DeletePlacement: Delete placement
-*PlacementsApi* | [**get_placement**](docs/PlacementsApi.md#get_placement) | **GET** /api/placements/{scope}/{code} | [EXPERIMENTAL] GetPlacement: Get Placement
-*PlacementsApi* | [**list_placements**](docs/PlacementsApi.md#list_placements) | **GET** /api/placements | [EXPERIMENTAL] ListPlacements: List Placements
-*PlacementsApi* | [**upsert_placements**](docs/PlacementsApi.md#upsert_placements) | **POST** /api/placements | [EXPERIMENTAL] UpsertPlacements: Upsert Placement
-*PortfolioGroupsApi* | [**add_portfolio_to_group**](docs/PortfolioGroupsApi.md#add_portfolio_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
-*PortfolioGroupsApi* | [**add_sub_group_to_group**](docs/PortfolioGroupsApi.md#add_sub_group_to_group) | **POST** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
-*PortfolioGroupsApi* | [**build_transactions_for_portfolio_group**](docs/PortfolioGroupsApi.md#build_transactions_for_portfolio_group) | **POST** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
-*PortfolioGroupsApi* | [**create_portfolio_group**](docs/PortfolioGroupsApi.md#create_portfolio_group) | **POST** /api/portfoliogroups/{scope} | [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
-*PortfolioGroupsApi* | [**delete_group_properties**](docs/PortfolioGroupsApi.md#delete_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeleteGroupProperties: Delete group properties
-*PortfolioGroupsApi* | [**delete_key_from_portfolio_group_access_metadata**](docs/PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **DELETE** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
-*PortfolioGroupsApi* | [**delete_portfolio_from_group**](docs/PortfolioGroupsApi.md#delete_portfolio_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
-*PortfolioGroupsApi* | [**delete_portfolio_group**](docs/PortfolioGroupsApi.md#delete_portfolio_group) | **DELETE** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
-*PortfolioGroupsApi* | [**delete_sub_group_from_group**](docs/PortfolioGroupsApi.md#delete_sub_group_from_group) | **DELETE** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
-*PortfolioGroupsApi* | [**get_a2_b_data_for_portfolio_group**](docs/PortfolioGroupsApi.md#get_a2_b_data_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/a2b | [EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
-*PortfolioGroupsApi* | [**get_group_properties**](docs/PortfolioGroupsApi.md#get_group_properties) | **GET** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] GetGroupProperties: Get group properties
-*PortfolioGroupsApi* | [**get_holdings_for_portfolio_group**](docs/PortfolioGroupsApi.md#get_holdings_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
-*PortfolioGroupsApi* | [**get_portfolio_group**](docs/PortfolioGroupsApi.md#get_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
-*PortfolioGroupsApi* | [**get_portfolio_group_access_metadata_by_key**](docs/PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **GET** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
-*PortfolioGroupsApi* | [**get_portfolio_group_commands**](docs/PortfolioGroupsApi.md#get_portfolio_group_commands) | **GET** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
-*PortfolioGroupsApi* | [**get_portfolio_group_expansion**](docs/PortfolioGroupsApi.md#get_portfolio_group_expansion) | **GET** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
-*PortfolioGroupsApi* | [**get_portfolio_group_metadata**](docs/PortfolioGroupsApi.md#get_portfolio_group_metadata) | **GET** /api/portfoliogroups/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
-*PortfolioGroupsApi* | [**get_portfolio_group_property_time_series**](docs/PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **GET** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
-*PortfolioGroupsApi* | [**get_portfolio_group_relations**](docs/PortfolioGroupsApi.md#get_portfolio_group_relations) | **GET** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
-*PortfolioGroupsApi* | [**get_portfolio_group_relationships**](docs/PortfolioGroupsApi.md#get_portfolio_group_relationships) | **GET** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
-*PortfolioGroupsApi* | [**get_transactions_for_portfolio_group**](docs/PortfolioGroupsApi.md#get_transactions_for_portfolio_group) | **GET** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
-*PortfolioGroupsApi* | [**list_portfolio_groups**](docs/PortfolioGroupsApi.md#list_portfolio_groups) | **GET** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
-*PortfolioGroupsApi* | [**update_portfolio_group**](docs/PortfolioGroupsApi.md#update_portfolio_group) | **PUT** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
-*PortfolioGroupsApi* | [**upsert_group_properties**](docs/PortfolioGroupsApi.md#upsert_group_properties) | **POST** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
-*PortfolioGroupsApi* | [**upsert_portfolio_group_access_metadata**](docs/PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **PUT** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
-*PortfoliosApi* | [**delete_key_from_portfolio_access_metadata**](docs/PortfoliosApi.md#delete_key_from_portfolio_access_metadata) | **DELETE** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
-*PortfoliosApi* | [**delete_portfolio**](docs/PortfoliosApi.md#delete_portfolio) | **DELETE** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
-*PortfoliosApi* | [**delete_portfolio_properties**](docs/PortfoliosApi.md#delete_portfolio_properties) | **DELETE** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties
-*PortfoliosApi* | [**delete_portfolio_returns**](docs/PortfoliosApi.md#delete_portfolio_returns) | **DELETE** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
-*PortfoliosApi* | [**get_portfolio**](docs/PortfoliosApi.md#get_portfolio) | **GET** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio
-*PortfoliosApi* | [**get_portfolio_aggregate_returns**](docs/PortfoliosApi.md#get_portfolio_aggregate_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
-*PortfoliosApi* | [**get_portfolio_aggregated_returns**](docs/PortfoliosApi.md#get_portfolio_aggregated_returns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$aggregated | [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
-*PortfoliosApi* | [**get_portfolio_commands**](docs/PortfoliosApi.md#get_portfolio_commands) | **GET** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioCommands: Get portfolio commands
-*PortfoliosApi* | [**get_portfolio_metadata**](docs/PortfoliosApi.md#get_portfolio_metadata) | **GET** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
-*PortfoliosApi* | [**get_portfolio_properties**](docs/PortfoliosApi.md#get_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties
-*PortfoliosApi* | [**get_portfolio_property_time_series**](docs/PortfoliosApi.md#get_portfolio_property_time_series) | **GET** /api/portfolios/{scope}/{code}/properties/time-series | [EXPERIMENTAL] GetPortfolioPropertyTimeSeries: Get portfolio property time series
-*PortfoliosApi* | [**get_portfolio_relations**](docs/PortfoliosApi.md#get_portfolio_relations) | **GET** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
-*PortfoliosApi* | [**get_portfolio_relationships**](docs/PortfoliosApi.md#get_portfolio_relationships) | **GET** /api/portfolios/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships
-*PortfoliosApi* | [**get_portfolio_returns**](docs/PortfoliosApi.md#get_portfolio_returns) | **GET** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
-*PortfoliosApi* | [**get_portfolios_access_metadata_by_key**](docs/PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **GET** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
-*PortfoliosApi* | [**list_portfolio_properties**](docs/PortfoliosApi.md#list_portfolio_properties) | **GET** /api/portfolios/{scope}/{code}/properties/list | [EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
-*PortfoliosApi* | [**list_portfolios**](docs/PortfoliosApi.md#list_portfolios) | **GET** /api/portfolios | ListPortfolios: List portfolios
-*PortfoliosApi* | [**list_portfolios_for_scope**](docs/PortfoliosApi.md#list_portfolios_for_scope) | **GET** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope
-*PortfoliosApi* | [**update_portfolio**](docs/PortfoliosApi.md#update_portfolio) | **PUT** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
-*PortfoliosApi* | [**upsert_portfolio_access_metadata**](docs/PortfoliosApi.md#upsert_portfolio_access_metadata) | **PUT** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
-*PortfoliosApi* | [**upsert_portfolio_properties**](docs/PortfoliosApi.md#upsert_portfolio_properties) | **POST** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
-*PortfoliosApi* | [**upsert_portfolio_returns**](docs/PortfoliosApi.md#upsert_portfolio_returns) | **POST** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
-*PropertyDefinitionsApi* | [**create_derived_property_definition**](docs/PropertyDefinitionsApi.md#create_derived_property_definition) | **POST** /api/propertydefinitions/derived | [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
-*PropertyDefinitionsApi* | [**create_property_definition**](docs/PropertyDefinitionsApi.md#create_property_definition) | **POST** /api/propertydefinitions | CreatePropertyDefinition: Create property definition
-*PropertyDefinitionsApi* | [**delete_property_definition**](docs/PropertyDefinitionsApi.md#delete_property_definition) | **DELETE** /api/propertydefinitions/{domain}/{scope}/{code} | DeletePropertyDefinition: Delete property definition
-*PropertyDefinitionsApi* | [**get_multiple_property_definitions**](docs/PropertyDefinitionsApi.md#get_multiple_property_definitions) | **GET** /api/propertydefinitions | GetMultiplePropertyDefinitions: Get multiple property definitions
-*PropertyDefinitionsApi* | [**get_property_definition**](docs/PropertyDefinitionsApi.md#get_property_definition) | **GET** /api/propertydefinitions/{domain}/{scope}/{code} | GetPropertyDefinition: Get property definition
-*PropertyDefinitionsApi* | [**update_property_definition**](docs/PropertyDefinitionsApi.md#update_property_definition) | **PUT** /api/propertydefinitions/{domain}/{scope}/{code} | UpdatePropertyDefinition: Update property definition
-*QuotesApi* | [**delete_quote_access_metadata_rule**](docs/QuotesApi.md#delete_quote_access_metadata_rule) | **DELETE** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
-*QuotesApi* | [**delete_quotes**](docs/QuotesApi.md#delete_quotes) | **POST** /api/quotes/{scope}/$delete | [EARLY ACCESS] DeleteQuotes: Delete quotes
-*QuotesApi* | [**get_quotes**](docs/QuotesApi.md#get_quotes) | **POST** /api/quotes/{scope}/$get | [EARLY ACCESS] GetQuotes: Get quotes
-*QuotesApi* | [**get_quotes_access_metadata_rule**](docs/QuotesApi.md#get_quotes_access_metadata_rule) | **GET** /api/metadata/quotes/rules | [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
-*QuotesApi* | [**list_quotes**](docs/QuotesApi.md#list_quotes) | **GET** /api/quotes/{scope}/$deprecated | [DEPRECATED] ListQuotes: List quotes
-*QuotesApi* | [**list_quotes_access_metadata_rules**](docs/QuotesApi.md#list_quotes_access_metadata_rules) | **GET** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
-*QuotesApi* | [**list_quotes_for_scope**](docs/QuotesApi.md#list_quotes_for_scope) | **GET** /api/quotes/{scope} | [EARLY ACCESS] ListQuotesForScope: List quotes for scope
-*QuotesApi* | [**upsert_quote_access_metadata_rule**](docs/QuotesApi.md#upsert_quote_access_metadata_rule) | **POST** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
-*QuotesApi* | [**upsert_quotes**](docs/QuotesApi.md#upsert_quotes) | **POST** /api/quotes/{scope} | [EARLY ACCESS] UpsertQuotes: Upsert quotes
-*ReconciliationsApi* | [**reconcile_generic**](docs/ReconciliationsApi.md#reconcile_generic) | **POST** /api/portfolios/$reconcileGeneric | [EXPERIMENTAL] ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#x27;empty&#x27; or null or zero.
-*ReconciliationsApi* | [**reconcile_holdings**](docs/ReconciliationsApi.md#reconcile_holdings) | **POST** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
-*ReconciliationsApi* | [**reconcile_holdings_preview**](docs/ReconciliationsApi.md#reconcile_holdings_preview) | **POST** /api/portfolios/preview/$reconcileholdings | [EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance
-*ReconciliationsApi* | [**reconcile_inline**](docs/ReconciliationsApi.md#reconcile_inline) | **POST** /api/portfolios/$reconcileInline | [BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
-*ReconciliationsApi* | [**reconcile_valuation**](docs/ReconciliationsApi.md#reconcile_valuation) | **POST** /api/portfolios/$reconcileValuation | [BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
-*ReferencePortfolioApi* | [**create_reference_portfolio**](docs/ReferencePortfolioApi.md#create_reference_portfolio) | **POST** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio
-*ReferencePortfolioApi* | [**get_reference_portfolio_constituents**](docs/ReferencePortfolioApi.md#get_reference_portfolio_constituents) | **GET** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents
-*ReferencePortfolioApi* | [**list_constituents_adjustments**](docs/ReferencePortfolioApi.md#list_constituents_adjustments) | **GET** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments
-*ReferencePortfolioApi* | [**upsert_reference_portfolio_constituents**](docs/ReferencePortfolioApi.md#upsert_reference_portfolio_constituents) | **POST** /api/referenceportfolios/{scope}/{code}/constituents | UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
-*RelationDefinitionsApi* | [**create_relation_definition**](docs/RelationDefinitionsApi.md#create_relation_definition) | **POST** /api/relationdefinitions | [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
-*RelationDefinitionsApi* | [**get_relation_definition**](docs/RelationDefinitionsApi.md#get_relation_definition) | **GET** /api/relationdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationDefinition: Get relation definition
-*RelationsApi* | [**create_relation**](docs/RelationsApi.md#create_relation) | **POST** /api/relations/{scope}/{code} | [EXPERIMENTAL] CreateRelation: Create Relation
-*RelationsApi* | [**delete_relation**](docs/RelationsApi.md#delete_relation) | **POST** /api/relations/{scope}/{code}/$delete | [EXPERIMENTAL] DeleteRelation: Delete a relation
-*RelationshipDefinitionsApi* | [**create_relationship_definition**](docs/RelationshipDefinitionsApi.md#create_relationship_definition) | **POST** /api/relationshipdefinitions | [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
-*RelationshipDefinitionsApi* | [**get_relationship_definition**](docs/RelationshipDefinitionsApi.md#get_relationship_definition) | **GET** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
-*RelationshipDefinitionsApi* | [**list_relationship_definitions**](docs/RelationshipDefinitionsApi.md#list_relationship_definitions) | **GET** /api/relationshipdefinitions | [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
-*RelationshipDefinitionsApi* | [**update_relationship_definition**](docs/RelationshipDefinitionsApi.md#update_relationship_definition) | **PUT** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
-*RelationshipsApi* | [**create_relationship**](docs/RelationshipsApi.md#create_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships | [EXPERIMENTAL] CreateRelationship: Create Relationship
-*RelationshipsApi* | [**delete_relationship**](docs/RelationshipsApi.md#delete_relationship) | **POST** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EXPERIMENTAL] DeleteRelationship: Delete Relationship
-*SchemasApi* | [**get_entity_schema**](docs/SchemasApi.md#get_entity_schema) | **GET** /api/schemas/entities/{entity} | [BETA] GetEntitySchema: Get schema
-*SchemasApi* | [**get_property_schema**](docs/SchemasApi.md#get_property_schema) | **GET** /api/schemas/properties | [BETA] GetPropertySchema: Get property schema
-*SchemasApi* | [**get_value_types**](docs/SchemasApi.md#get_value_types) | **GET** /api/schemas/types | [BETA] GetValueTypes: Get value types
-*SchemasApi* | [**list_entities**](docs/SchemasApi.md#list_entities) | **GET** /api/schemas/entities | [BETA] ListEntities: List entities
-*ScopesApi* | [**list_scopes**](docs/ScopesApi.md#list_scopes) | **GET** /api/scopes | [EARLY ACCESS] ListScopes: List Scopes
-*SearchApi* | [**instruments_search**](docs/SearchApi.md#instruments_search) | **POST** /api/search/instruments | [EXPERIMENTAL] InstrumentsSearch: Instruments search
-*SearchApi* | [**search_portfolio_groups**](docs/SearchApi.md#search_portfolio_groups) | **GET** /api/search/portfoliogroups | [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
-*SearchApi* | [**search_portfolios**](docs/SearchApi.md#search_portfolios) | **GET** /api/search/portfolios | [EARLY ACCESS] SearchPortfolios: Search Portfolios
-*SearchApi* | [**search_properties**](docs/SearchApi.md#search_properties) | **GET** /api/search/propertydefinitions | [EARLY ACCESS] SearchProperties: Search Property Definitions
-*SequencesApi* | [**create_sequence**](docs/SequencesApi.md#create_sequence) | **POST** /api/sequences/{scope} | [EXPERIMENTAL] CreateSequence: Create a new sequence
-*SequencesApi* | [**get_sequence**](docs/SequencesApi.md#get_sequence) | **GET** /api/sequences/{scope}/{code} | [EXPERIMENTAL] GetSequence: Get a specified sequence
-*SequencesApi* | [**list_sequences**](docs/SequencesApi.md#list_sequences) | **GET** /api/sequences | [EXPERIMENTAL] ListSequences: List Sequences
-*SequencesApi* | [**next**](docs/SequencesApi.md#next) | **GET** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Next: Get next values from sequence
-*StructuredResultDataApi* | [**create_data_map**](docs/StructuredResultDataApi.md#create_data_map) | **POST** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] CreateDataMap: Create data map
-*StructuredResultDataApi* | [**delete_structured_result_data**](docs/StructuredResultDataApi.md#delete_structured_result_data) | **POST** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
-*StructuredResultDataApi* | [**get_data_map**](docs/StructuredResultDataApi.md#get_data_map) | **POST** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] GetDataMap: Get data map
-*StructuredResultDataApi* | [**get_structured_result_data**](docs/StructuredResultDataApi.md#get_structured_result_data) | **POST** /api/unitresults/{scope}/$get | [EXPERIMENTAL] GetStructuredResultData: Get structured result data
-*StructuredResultDataApi* | [**get_virtual_document**](docs/StructuredResultDataApi.md#get_virtual_document) | **POST** /api/unitresults/virtualdocument/{scope}/$get | [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
-*StructuredResultDataApi* | [**upsert_structured_result_data**](docs/StructuredResultDataApi.md#upsert_structured_result_data) | **POST** /api/unitresults/{scope} | [BETA] UpsertStructuredResultData: Upsert structured result data
-*SystemConfigurationApi* | [**create_configuration_transaction_type**](docs/SystemConfigurationApi.md#create_configuration_transaction_type) | **POST** /api/systemconfiguration/transactions/type | [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
-*SystemConfigurationApi* | [**create_side_definition**](docs/SystemConfigurationApi.md#create_side_definition) | **POST** /api/systemconfiguration/transactions/side | [EXPERIMENTAL] CreateSideDefinition: Create side definition
-*SystemConfigurationApi* | [**delete_transaction_configuration_source**](docs/SystemConfigurationApi.md#delete_transaction_configuration_source) | **DELETE** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
-*SystemConfigurationApi* | [**get_transaction_configuration_source**](docs/SystemConfigurationApi.md#get_transaction_configuration_source) | **GET** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
-*SystemConfigurationApi* | [**list_configuration_transaction_types**](docs/SystemConfigurationApi.md#list_configuration_transaction_types) | **GET** /api/systemconfiguration/transactions | [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
-*SystemConfigurationApi* | [**set_configuration_transaction_types**](docs/SystemConfigurationApi.md#set_configuration_transaction_types) | **PUT** /api/systemconfiguration/transactions | [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
-*SystemConfigurationApi* | [**set_transaction_configuration_source**](docs/SystemConfigurationApi.md#set_transaction_configuration_source) | **PUT** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
-*TransactionPortfoliosApi* | [**adjust_holdings**](docs/TransactionPortfoliosApi.md#adjust_holdings) | **POST** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings
-*TransactionPortfoliosApi* | [**build_transactions**](docs/TransactionPortfoliosApi.md#build_transactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions
-*TransactionPortfoliosApi* | [**cancel_adjust_holdings**](docs/TransactionPortfoliosApi.md#cancel_adjust_holdings) | **DELETE** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings
-*TransactionPortfoliosApi* | [**cancel_transactions**](docs/TransactionPortfoliosApi.md#cancel_transactions) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions
-*TransactionPortfoliosApi* | [**create_portfolio**](docs/TransactionPortfoliosApi.md#create_portfolio) | **POST** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio
-*TransactionPortfoliosApi* | [**delete_properties_from_transaction**](docs/TransactionPortfoliosApi.md#delete_properties_from_transaction) | **DELETE** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction
-*TransactionPortfoliosApi* | [**get_a2_b_data**](docs/TransactionPortfoliosApi.md#get_a2_b_data) | **GET** /api/transactionportfolios/{scope}/{code}/a2b | [EXPERIMENTAL] GetA2BData: Get A2B data
-*TransactionPortfoliosApi* | [**get_a2_b_movements**](docs/TransactionPortfoliosApi.md#get_a2_b_movements) | **GET** /api/transactionportfolios/{scope}/{code}/a2bmovements | [EXPERIMENTAL] GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
-*TransactionPortfoliosApi* | [**get_bucketed_cash_flows**](docs/TransactionPortfoliosApi.md#get_bucketed_cash_flows) | **POST** /api/transactionportfolios/{scope}/{code}/bucketedCashFlows | [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
-*TransactionPortfoliosApi* | [**get_details**](docs/TransactionPortfoliosApi.md#get_details) | **GET** /api/transactionportfolios/{scope}/{code}/details | GetDetails: Get details
-*TransactionPortfoliosApi* | [**get_holdings**](docs/TransactionPortfoliosApi.md#get_holdings) | **GET** /api/transactionportfolios/{scope}/{code}/holdings | GetHoldings: Get holdings
-*TransactionPortfoliosApi* | [**get_holdings_adjustment**](docs/TransactionPortfoliosApi.md#get_holdings_adjustment) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | GetHoldingsAdjustment: Get holdings adjustment
-*TransactionPortfoliosApi* | [**get_holdings_with_orders**](docs/TransactionPortfoliosApi.md#get_holdings_with_orders) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsWithOrders | [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
-*TransactionPortfoliosApi* | [**get_portfolio_cash_flows**](docs/TransactionPortfoliosApi.md#get_portfolio_cash_flows) | **GET** /api/transactionportfolios/{scope}/{code}/cashflows | [BETA] GetPortfolioCashFlows: Get portfolio cash flows
-*TransactionPortfoliosApi* | [**get_portfolio_cash_ladder**](docs/TransactionPortfoliosApi.md#get_portfolio_cash_ladder) | **GET** /api/transactionportfolios/{scope}/{code}/cashladder | [EXPERIMENTAL] GetPortfolioCashLadder: Get portfolio cash ladder
-*TransactionPortfoliosApi* | [**get_portfolio_cash_statement**](docs/TransactionPortfoliosApi.md#get_portfolio_cash_statement) | **GET** /api/transactionportfolios/{scope}/{code}/cashstatement | [EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement
-*TransactionPortfoliosApi* | [**get_transactions**](docs/TransactionPortfoliosApi.md#get_transactions) | **GET** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions
-*TransactionPortfoliosApi* | [**get_upsertable_portfolio_cash_flows**](docs/TransactionPortfoliosApi.md#get_upsertable_portfolio_cash_flows) | **GET** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
-*TransactionPortfoliosApi* | [**list_holdings_adjustments**](docs/TransactionPortfoliosApi.md#list_holdings_adjustments) | **GET** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments
-*TransactionPortfoliosApi* | [**patch_portfolio_details**](docs/TransactionPortfoliosApi.md#patch_portfolio_details) | **PATCH** /api/transactionportfolios/{scope}/{code}/details | [EXPERIMENTAL] PatchPortfolioDetails: Patch portfolio details
-*TransactionPortfoliosApi* | [**resolve_instrument**](docs/TransactionPortfoliosApi.md#resolve_instrument) | **POST** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] ResolveInstrument: Resolve instrument
-*TransactionPortfoliosApi* | [**set_holdings**](docs/TransactionPortfoliosApi.md#set_holdings) | **PUT** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings
-*TransactionPortfoliosApi* | [**upsert_portfolio_details**](docs/TransactionPortfoliosApi.md#upsert_portfolio_details) | **POST** /api/transactionportfolios/{scope}/{code}/details | UpsertPortfolioDetails: Upsert portfolio details
-*TransactionPortfoliosApi* | [**upsert_transaction_properties**](docs/TransactionPortfoliosApi.md#upsert_transaction_properties) | **POST** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties
-*TransactionPortfoliosApi* | [**upsert_transactions**](docs/TransactionPortfoliosApi.md#upsert_transactions) | **POST** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions
-*TranslationApi* | [**translate_instrument_definitions**](docs/TranslationApi.md#translate_instrument_definitions) | **POST** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
+*AggregationApi* | [**generate_configuration_recipe**](docs/apis/tags/AggregationApi.md#generate_configuration_recipe) | **post** /api/aggregation/{scope}/{code}/$generateconfigurationrecipe | [EXPERIMENTAL] GenerateConfigurationRecipe: Generates a recipe sufficient to perform valuations for the given portfolio.
+*AggregationApi* | [**get_queryable_keys**](docs/apis/tags/AggregationApi.md#get_queryable_keys) | **get** /api/results/queryable/keys | [EXPERIMENTAL] GetQueryableKeys: Query the set of supported \&quot;addresses\&quot; that can be queried from the aggregation endpoint.
+*AggregationApi* | [**get_valuation**](docs/apis/tags/AggregationApi.md#get_valuation) | **post** /api/aggregation/$valuation | [BETA] GetValuation: Perform valuation for a list of portfolios and/or portfolio groups
+*AggregationApi* | [**get_valuation_of_weighted_instruments**](docs/apis/tags/AggregationApi.md#get_valuation_of_weighted_instruments) | **post** /api/aggregation/$valuationinlined | [BETA] GetValuationOfWeightedInstruments: Perform valuation for an inlined portfolio
+*AllocationsApi* | [**delete_allocation**](docs/apis/tags/AllocationsApi.md#delete_allocation) | **delete** /api/allocations/{scope}/{code} | [EARLY ACCESS] DeleteAllocation: Delete allocation
+*AllocationsApi* | [**get_allocation**](docs/apis/tags/AllocationsApi.md#get_allocation) | **get** /api/allocations/{scope}/{code} | [EARLY ACCESS] GetAllocation: Get Allocation
+*AllocationsApi* | [**list_allocations**](docs/apis/tags/AllocationsApi.md#list_allocations) | **get** /api/allocations | [EARLY ACCESS] ListAllocations: List Allocations
+*AllocationsApi* | [**upsert_allocations**](docs/apis/tags/AllocationsApi.md#upsert_allocations) | **post** /api/allocations | [EARLY ACCESS] UpsertAllocations: Upsert Allocations
+*ApplicationMetadataApi* | [**get_excel_addin**](docs/apis/tags/ApplicationMetadataApi.md#get_excel_addin) | **get** /api/metadata/downloads/exceladdin | [EARLY ACCESS] GetExcelAddin: Download Excel Addin
+*ApplicationMetadataApi* | [**get_lusid_versions**](docs/apis/tags/ApplicationMetadataApi.md#get_lusid_versions) | **get** /api/metadata/versions | [EARLY ACCESS] GetLusidVersions: Get LUSID versions
+*ApplicationMetadataApi* | [**list_access_controlled_resources**](docs/apis/tags/ApplicationMetadataApi.md#list_access_controlled_resources) | **get** /api/metadata/access/resources | [EARLY ACCESS] ListAccessControlledResources: Get resources available for access control
+*BlocksApi* | [**delete_block**](docs/apis/tags/BlocksApi.md#delete_block) | **delete** /api/blocks/{scope}/{code} | [EXPERIMENTAL] DeleteBlock: Delete block
+*BlocksApi* | [**get_block**](docs/apis/tags/BlocksApi.md#get_block) | **get** /api/blocks/{scope}/{code} | [EXPERIMENTAL] GetBlock: Get Block
+*BlocksApi* | [**list_blocks**](docs/apis/tags/BlocksApi.md#list_blocks) | **get** /api/blocks | [EXPERIMENTAL] ListBlocks: List Blocks
+*BlocksApi* | [**upsert_blocks**](docs/apis/tags/BlocksApi.md#upsert_blocks) | **post** /api/blocks | [EXPERIMENTAL] UpsertBlocks: Upsert Block
+*CalendarsApi* | [**add_business_days_to_date**](docs/apis/tags/CalendarsApi.md#add_business_days_to_date) | **post** /api/calendars/businessday/{scope}/add | [EXPERIMENTAL] AddBusinessDaysToDate: Adds the requested number of Business Days to the provided date.
+*CalendarsApi* | [**add_date_to_calendar**](docs/apis/tags/CalendarsApi.md#add_date_to_calendar) | **put** /api/calendars/generic/{scope}/{code}/dates | [BETA] AddDateToCalendar: Add a date to a calendar
+*CalendarsApi* | [**create_calendar**](docs/apis/tags/CalendarsApi.md#create_calendar) | **post** /api/calendars/generic | [BETA] CreateCalendar: Create a calendar in its generic form
+*CalendarsApi* | [**delete_calendar**](docs/apis/tags/CalendarsApi.md#delete_calendar) | **delete** /api/calendars/generic/{scope}/{code} | [BETA] DeleteCalendar: Delete a calendar
+*CalendarsApi* | [**delete_date_from_calendar**](docs/apis/tags/CalendarsApi.md#delete_date_from_calendar) | **delete** /api/calendars/generic/{scope}/{code}/dates/{dateId} | [BETA] DeleteDateFromCalendar: Remove a date from a calendar
+*CalendarsApi* | [**generate_schedule**](docs/apis/tags/CalendarsApi.md#generate_schedule) | **post** /api/calendars/schedule/{scope} | [EXPERIMENTAL] GenerateSchedule: Generate an ordered schedule of dates.
+*CalendarsApi* | [**get_calendar**](docs/apis/tags/CalendarsApi.md#get_calendar) | **get** /api/calendars/generic/{scope}/{code} | [BETA] GetCalendar: Get a calendar in its generic form
+*CalendarsApi* | [**get_dates**](docs/apis/tags/CalendarsApi.md#get_dates) | **get** /api/calendars/generic/{scope}/{code}/dates | [BETA] GetDates: Get dates for a specific calendar
+*CalendarsApi* | [**is_business_date_time**](docs/apis/tags/CalendarsApi.md#is_business_date_time) | **get** /api/calendars/businessday/{scope}/{code} | [BETA] IsBusinessDateTime: Check whether a DateTime is a \&quot;Business DateTime\&quot;
+*CalendarsApi* | [**list_calendars**](docs/apis/tags/CalendarsApi.md#list_calendars) | **get** /api/calendars/generic | [BETA] ListCalendars: List Calendars
+*CalendarsApi* | [**list_calendars_in_scope**](docs/apis/tags/CalendarsApi.md#list_calendars_in_scope) | **get** /api/calendars/generic/{scope} | [BETA] ListCalendarsInScope: List all calenders in a specified scope
+*CalendarsApi* | [**update_calendar**](docs/apis/tags/CalendarsApi.md#update_calendar) | **post** /api/calendars/generic/{scope}/{code} | [BETA] UpdateCalendar: Update a calendar
+*ComplexMarketDataApi* | [**delete_complex_market_data**](docs/apis/tags/ComplexMarketDataApi.md#delete_complex_market_data) | **post** /api/complexmarketdata/{scope}/$delete | [EARLY ACCESS] DeleteComplexMarketData: Delete one or more items of complex market data, assuming they are present.
+*ComplexMarketDataApi* | [**get_complex_market_data**](docs/apis/tags/ComplexMarketDataApi.md#get_complex_market_data) | **post** /api/complexmarketdata/{scope}/$get | [EARLY ACCESS] GetComplexMarketData: Get complex market data
+*ComplexMarketDataApi* | [**list_complex_market_data**](docs/apis/tags/ComplexMarketDataApi.md#list_complex_market_data) | **get** /api/complexmarketdata | [EXPERIMENTAL] ListComplexMarketData: List the set of ComplexMarketData
+*ComplexMarketDataApi* | [**upsert_complex_market_data**](docs/apis/tags/ComplexMarketDataApi.md#upsert_complex_market_data) | **post** /api/complexmarketdata/{scope} | [EARLY ACCESS] UpsertComplexMarketData: Upsert a set of complex market data items. This creates or updates the data in Lusid.
+*ComplianceApi* | [**get_compliance_run**](docs/apis/tags/ComplianceApi.md#get_compliance_run) | **get** /api/compliance/{runId} | [EXPERIMENTAL] GetComplianceRun: Get the details of a single compliance run.
+*ComplianceApi* | [**list_compliance_runs**](docs/apis/tags/ComplianceApi.md#list_compliance_runs) | **get** /api/compliance | [EXPERIMENTAL] ListComplianceRuns: List historical compliance runs.
+*ComplianceApi* | [**run_compliance_check**](docs/apis/tags/ComplianceApi.md#run_compliance_check) | **post** /api/compliance/run | [EXPERIMENTAL] RunComplianceCheck: Kick off the compliance check process
+*ConfigurationRecipeApi* | [**delete_configuration_recipe**](docs/apis/tags/ConfigurationRecipeApi.md#delete_configuration_recipe) | **delete** /api/recipes/{scope}/{code} | [EXPERIMENTAL] DeleteConfigurationRecipe: Delete a Configuration Recipe, assuming that it is present.
+*ConfigurationRecipeApi* | [**get_configuration_recipe**](docs/apis/tags/ConfigurationRecipeApi.md#get_configuration_recipe) | **get** /api/recipes/{scope}/{code} | [EXPERIMENTAL] GetConfigurationRecipe: Get Configuration Recipe
+*ConfigurationRecipeApi* | [**list_configuration_recipes**](docs/apis/tags/ConfigurationRecipeApi.md#list_configuration_recipes) | **get** /api/recipes | [EXPERIMENTAL] ListConfigurationRecipes: List the set of Configuration Recipes
+*ConfigurationRecipeApi* | [**upsert_configuration_recipe**](docs/apis/tags/ConfigurationRecipeApi.md#upsert_configuration_recipe) | **post** /api/recipes | [EXPERIMENTAL] UpsertConfigurationRecipe: Upsert a Configuration Recipe. This creates or updates the data in Lusid.
+*ConventionsApi* | [**delete_cds_flow_conventions**](docs/apis/tags/ConventionsApi.md#delete_cds_flow_conventions) | **delete** /api/conventions/credit/conventions/{scope}/{code} | [BETA] DeleteCdsFlowConventions: Delete the CDS Flow Conventions of given scope and code, assuming that it is present.
+*ConventionsApi* | [**delete_flow_conventions**](docs/apis/tags/ConventionsApi.md#delete_flow_conventions) | **delete** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] DeleteFlowConventions: Delete the Flow Conventions of given scope and code, assuming that it is present.
+*ConventionsApi* | [**delete_index_convention**](docs/apis/tags/ConventionsApi.md#delete_index_convention) | **delete** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] DeleteIndexConvention: Delete the Index Convention of given scope and code, assuming that it is present.
+*ConventionsApi* | [**get_cds_flow_conventions**](docs/apis/tags/ConventionsApi.md#get_cds_flow_conventions) | **get** /api/conventions/credit/conventions/{scope}/{code} | [BETA] GetCdsFlowConventions: Get CDS Flow Conventions
+*ConventionsApi* | [**get_flow_conventions**](docs/apis/tags/ConventionsApi.md#get_flow_conventions) | **get** /api/conventions/rates/flowconventions/{scope}/{code} | [BETA] GetFlowConventions: Get Flow Conventions
+*ConventionsApi* | [**get_index_convention**](docs/apis/tags/ConventionsApi.md#get_index_convention) | **get** /api/conventions/rates/indexconventions/{scope}/{code} | [BETA] GetIndexConvention: Get Index Convention
+*ConventionsApi* | [**list_cds_flow_conventions**](docs/apis/tags/ConventionsApi.md#list_cds_flow_conventions) | **get** /api/conventions/credit/conventions | [BETA] ListCdsFlowConventions: List the set of CDS Flow Conventions
+*ConventionsApi* | [**list_flow_conventions**](docs/apis/tags/ConventionsApi.md#list_flow_conventions) | **get** /api/conventions/rates/flowconventions | [BETA] ListFlowConventions: List the set of Flow Conventions
+*ConventionsApi* | [**list_index_convention**](docs/apis/tags/ConventionsApi.md#list_index_convention) | **get** /api/conventions/rates/indexconventions | [BETA] ListIndexConvention: List the set of Index Conventions
+*ConventionsApi* | [**upsert_cds_flow_conventions**](docs/apis/tags/ConventionsApi.md#upsert_cds_flow_conventions) | **post** /api/conventions/credit/conventions | [BETA] UpsertCdsFlowConventions: Upsert a set of CDS Flow Conventions. This creates or updates the data in Lusid.
+*ConventionsApi* | [**upsert_flow_conventions**](docs/apis/tags/ConventionsApi.md#upsert_flow_conventions) | **post** /api/conventions/rates/flowconventions | [BETA] UpsertFlowConventions: Upsert Flow Conventions. This creates or updates the data in Lusid.
+*ConventionsApi* | [**upsert_index_convention**](docs/apis/tags/ConventionsApi.md#upsert_index_convention) | **post** /api/conventions/rates/indexconventions | [BETA] UpsertIndexConvention: Upsert a set of Index Convention. This creates or updates the data in Lusid.
+*CorporateActionSourcesApi* | [**batch_upsert_corporate_actions**](docs/apis/tags/CorporateActionSourcesApi.md#batch_upsert_corporate_actions) | **post** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] BatchUpsertCorporateActions: Upsert corporate actions
+*CorporateActionSourcesApi* | [**create_corporate_action_source**](docs/apis/tags/CorporateActionSourcesApi.md#create_corporate_action_source) | **post** /api/corporateactionsources | [BETA] CreateCorporateActionSource: Create corporate action source
+*CorporateActionSourcesApi* | [**delete_corporate_action_source**](docs/apis/tags/CorporateActionSourcesApi.md#delete_corporate_action_source) | **delete** /api/corporateactionsources/{scope}/{code} | [BETA] DeleteCorporateActionSource: Delete a corporate action source
+*CorporateActionSourcesApi* | [**delete_corporate_actions**](docs/apis/tags/CorporateActionSourcesApi.md#delete_corporate_actions) | **delete** /api/corporateactionsources/{scope}/{code}/corporateactions | [EXPERIMENTAL] DeleteCorporateActions: Delete corporate actions
+*CorporateActionSourcesApi* | [**get_corporate_actions**](docs/apis/tags/CorporateActionSourcesApi.md#get_corporate_actions) | **get** /api/corporateactionsources/{scope}/{code}/corporateactions | [BETA] GetCorporateActions: Get corporate actions
+*CorporateActionSourcesApi* | [**list_corporate_action_sources**](docs/apis/tags/CorporateActionSourcesApi.md#list_corporate_action_sources) | **get** /api/corporateactionsources | [BETA] ListCorporateActionSources: List corporate action sources
+*CounterpartiesApi* | [**delete_counterparty_agreement**](docs/apis/tags/CounterpartiesApi.md#delete_counterparty_agreement) | **delete** /api/counterparties/counterpartyagreements/{scope}/{code} | [EXPERIMENTAL] DeleteCounterpartyAgreement: Delete the Counterparty Agreement of given scope and code
+*CounterpartiesApi* | [**delete_credit_support_annex**](docs/apis/tags/CounterpartiesApi.md#delete_credit_support_annex) | **delete** /api/counterparties/creditsupportannexes/{scope}/{code} | [EXPERIMENTAL] DeleteCreditSupportAnnex: Delete the Credit Support Annex of given scope and code
+*CounterpartiesApi* | [**get_counterparty_agreement**](docs/apis/tags/CounterpartiesApi.md#get_counterparty_agreement) | **get** /api/counterparties/counterpartyagreements/{scope}/{code} | [EXPERIMENTAL] GetCounterpartyAgreement: Get Counterparty Agreement
+*CounterpartiesApi* | [**get_credit_support_annex**](docs/apis/tags/CounterpartiesApi.md#get_credit_support_annex) | **get** /api/counterparties/creditsupportannexes/{scope}/{code} | [EXPERIMENTAL] GetCreditSupportAnnex: Get Credit Support Annex
+*CounterpartiesApi* | [**list_counterparty_agreements**](docs/apis/tags/CounterpartiesApi.md#list_counterparty_agreements) | **get** /api/counterparties/counterpartyagreements | [EXPERIMENTAL] ListCounterpartyAgreements: List the set of Counterparty Agreements
+*CounterpartiesApi* | [**list_credit_support_annexes**](docs/apis/tags/CounterpartiesApi.md#list_credit_support_annexes) | **get** /api/counterparties/creditsupportannexes | [EXPERIMENTAL] ListCreditSupportAnnexes: List the set of Credit Support Annexes
+*CounterpartiesApi* | [**upsert_counterparty_agreement**](docs/apis/tags/CounterpartiesApi.md#upsert_counterparty_agreement) | **post** /api/counterparties/counterpartyagreements | [EXPERIMENTAL] UpsertCounterpartyAgreement: Upsert Counterparty Agreement
+*CounterpartiesApi* | [**upsert_credit_support_annex**](docs/apis/tags/CounterpartiesApi.md#upsert_credit_support_annex) | **post** /api/counterparties/creditsupportannexes | [EXPERIMENTAL] UpsertCreditSupportAnnex: Upsert Credit Support Annex
+*CustomEntitiesApi* | [**get_custom_entity**](docs/apis/tags/CustomEntitiesApi.md#get_custom_entity) | **get** /api/customentities/{entityType}/{identifierType}/{identifierValue} | [EXPERIMENTAL] GetCustomEntity: Get CustomEntity
+*CustomEntitiesApi* | [**get_custom_entity_relationships**](docs/apis/tags/CustomEntitiesApi.md#get_custom_entity_relationships) | **get** /api/customentities/{entityType}/{identifierType}/{identifierValue}/relationships | [EXPERIMENTAL] GetCustomEntityRelationships: Get Relationships for Custom Entity
+*CustomEntitiesApi* | [**list_custom_entities**](docs/apis/tags/CustomEntitiesApi.md#list_custom_entities) | **get** /api/customentities/{entityType} | [EXPERIMENTAL] ListCustomEntities: List Custom Entities
+*CustomEntitiesApi* | [**upsert_custom_entity**](docs/apis/tags/CustomEntitiesApi.md#upsert_custom_entity) | **post** /api/customentities/{entityType} | [EXPERIMENTAL] UpsertCustomEntity: Upsert a new CustomEntity
+*CustomEntityDefinitionsApi* | [**create_custom_entity_definition**](docs/apis/tags/CustomEntityDefinitionsApi.md#create_custom_entity_definition) | **post** /api/customentities/entitytypes | [EXPERIMENTAL] CreateCustomEntityDefinition: Create a new CustomEntityDefinition
+*CustomEntityDefinitionsApi* | [**get_definition**](docs/apis/tags/CustomEntityDefinitionsApi.md#get_definition) | **get** /api/customentities/entitytypes/{entityType} | [EXPERIMENTAL] GetDefinition: Get CustomEntityDefinition
+*CutLabelDefinitionsApi* | [**create_cut_label_definition**](docs/apis/tags/CutLabelDefinitionsApi.md#create_cut_label_definition) | **post** /api/systemconfiguration/cutlabels | [EARLY ACCESS] CreateCutLabelDefinition: Create a Cut Label
+*CutLabelDefinitionsApi* | [**delete_cut_label_definition**](docs/apis/tags/CutLabelDefinitionsApi.md#delete_cut_label_definition) | **delete** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] DeleteCutLabelDefinition: Delete a Cut Label
+*CutLabelDefinitionsApi* | [**get_cut_label_definition**](docs/apis/tags/CutLabelDefinitionsApi.md#get_cut_label_definition) | **get** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] GetCutLabelDefinition: Get a Cut Label
+*CutLabelDefinitionsApi* | [**list_cut_label_definitions**](docs/apis/tags/CutLabelDefinitionsApi.md#list_cut_label_definitions) | **get** /api/systemconfiguration/cutlabels | [EARLY ACCESS] ListCutLabelDefinitions: List Existing Cut Labels
+*CutLabelDefinitionsApi* | [**update_cut_label_definition**](docs/apis/tags/CutLabelDefinitionsApi.md#update_cut_label_definition) | **put** /api/systemconfiguration/cutlabels/{code} | [EARLY ACCESS] UpdateCutLabelDefinition: Update a Cut Label
+*DataTypesApi* | [**create_data_type**](docs/apis/tags/DataTypesApi.md#create_data_type) | **post** /api/datatypes | [BETA] CreateDataType: Create data type definition
+*DataTypesApi* | [**get_data_type**](docs/apis/tags/DataTypesApi.md#get_data_type) | **get** /api/datatypes/{scope}/{code} | [EARLY ACCESS] GetDataType: Get data type definition
+*DataTypesApi* | [**get_units_from_data_type**](docs/apis/tags/DataTypesApi.md#get_units_from_data_type) | **get** /api/datatypes/{scope}/{code}/units | [EARLY ACCESS] GetUnitsFromDataType: Get units from data type
+*DataTypesApi* | [**list_data_type_summaries**](docs/apis/tags/DataTypesApi.md#list_data_type_summaries) | **get** /api/datatypes | [EXPERIMENTAL] ListDataTypeSummaries: List all data type summaries, without the reference data
+*DataTypesApi* | [**list_data_types**](docs/apis/tags/DataTypesApi.md#list_data_types) | **get** /api/datatypes/{scope} | [EARLY ACCESS] ListDataTypes: List data types
+*DataTypesApi* | [**update_data_type**](docs/apis/tags/DataTypesApi.md#update_data_type) | **put** /api/datatypes/{scope}/{code} | [EXPERIMENTAL] UpdateDataType: Update data type definition
+*DataTypesApi* | [**update_reference_values**](docs/apis/tags/DataTypesApi.md#update_reference_values) | **put** /api/datatypes/{scope}/{code}/referencedatavalues | [EXPERIMENTAL] UpdateReferenceValues: Update reference data on a data type
+*DerivedTransactionPortfoliosApi* | [**create_derived_portfolio**](docs/apis/tags/DerivedTransactionPortfoliosApi.md#create_derived_portfolio) | **post** /api/derivedtransactionportfolios/{scope} | [EARLY ACCESS] CreateDerivedPortfolio: Create derived portfolio
+*DerivedTransactionPortfoliosApi* | [**delete_derived_portfolio_details**](docs/apis/tags/DerivedTransactionPortfoliosApi.md#delete_derived_portfolio_details) | **delete** /api/derivedtransactionportfolios/{scope}/{code}/details | [EARLY ACCESS] DeleteDerivedPortfolioDetails: Delete derived portfolio details
+*EntitiesApi* | [**get_portfolio_changes**](docs/apis/tags/EntitiesApi.md#get_portfolio_changes) | **get** /api/entities/changes/portfolios | [EARLY ACCESS] GetPortfolioChanges: Get the next change to each portfolio in a scope.
+*ExecutionsApi* | [**delete_execution**](docs/apis/tags/ExecutionsApi.md#delete_execution) | **delete** /api/executions/{scope}/{code} | [EXPERIMENTAL] DeleteExecution: Delete execution
+*ExecutionsApi* | [**get_execution**](docs/apis/tags/ExecutionsApi.md#get_execution) | **get** /api/executions/{scope}/{code} | [EXPERIMENTAL] GetExecution: Get Execution
+*ExecutionsApi* | [**list_executions**](docs/apis/tags/ExecutionsApi.md#list_executions) | **get** /api/executions | [EXPERIMENTAL] ListExecutions: List Executions
+*ExecutionsApi* | [**upsert_executions**](docs/apis/tags/ExecutionsApi.md#upsert_executions) | **post** /api/executions | [EXPERIMENTAL] UpsertExecutions: Upsert Execution
+*FeesAndCommissionsApi* | [**get_applicable_fees**](docs/apis/tags/FeesAndCommissionsApi.md#get_applicable_fees) | **get** /api/feesandcommissions | [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
+*FeesAndCommissionsApi* | [**list_all_fees**](docs/apis/tags/FeesAndCommissionsApi.md#list_all_fees) | **get** /api/feesandcommissions/rules | [EXPERIMENTAL] ListAllFees: List the rules available for fees and commissions.
+*InstrumentsApi* | [**delete_instrument**](docs/apis/tags/InstrumentsApi.md#delete_instrument) | **delete** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] DeleteInstrument: Delete instrument
+*InstrumentsApi* | [**delete_instrument_properties**](docs/apis/tags/InstrumentsApi.md#delete_instrument_properties) | **post** /api/instruments/{identifierType}/{identifier}/properties/$delete | [EXPERIMENTAL] DeleteInstrumentProperties: Delete instrument properties
+*InstrumentsApi* | [**get_instrument**](docs/apis/tags/InstrumentsApi.md#get_instrument) | **get** /api/instruments/{identifierType}/{identifier} | GetInstrument: Get instrument
+*InstrumentsApi* | [**get_instrument_identifier_types**](docs/apis/tags/InstrumentsApi.md#get_instrument_identifier_types) | **get** /api/instruments/identifierTypes | [EARLY ACCESS] GetInstrumentIdentifierTypes: Get instrument identifier types
+*InstrumentsApi* | [**get_instrument_properties**](docs/apis/tags/InstrumentsApi.md#get_instrument_properties) | **get** /api/instruments/{identifierType}/{identifier}/properties | [EXPERIMENTAL] GetInstrumentProperties: Get instrument properties
+*InstrumentsApi* | [**get_instrument_property_time_series**](docs/apis/tags/InstrumentsApi.md#get_instrument_property_time_series) | **get** /api/instruments/{identifierType}/{identifier}/properties/time-series | [EARLY ACCESS] GetInstrumentPropertyTimeSeries: Get instrument property time series
+*InstrumentsApi* | [**get_instruments**](docs/apis/tags/InstrumentsApi.md#get_instruments) | **post** /api/instruments/$get | GetInstruments: Get instruments
+*InstrumentsApi* | [**list_instrument_properties**](docs/apis/tags/InstrumentsApi.md#list_instrument_properties) | **get** /api/instruments/{identifierType}/{identifier}/properties/list | [EXPERIMENTAL] ListInstrumentProperties: Get instrument properties (with Pagination)
+*InstrumentsApi* | [**list_instruments**](docs/apis/tags/InstrumentsApi.md#list_instruments) | **get** /api/instruments | [EARLY ACCESS] ListInstruments: List instruments
+*InstrumentsApi* | [**update_instrument_identifier**](docs/apis/tags/InstrumentsApi.md#update_instrument_identifier) | **post** /api/instruments/{identifierType}/{identifier} | [EARLY ACCESS] UpdateInstrumentIdentifier: Update instrument identifier
+*InstrumentsApi* | [**upsert_instruments**](docs/apis/tags/InstrumentsApi.md#upsert_instruments) | **post** /api/instruments | UpsertInstruments: Upsert instruments
+*InstrumentsApi* | [**upsert_instruments_properties**](docs/apis/tags/InstrumentsApi.md#upsert_instruments_properties) | **post** /api/instruments/$upsertproperties | UpsertInstrumentsProperties: Upsert instruments properties
+*LegalEntitiesApi* | [**delete_legal_entity**](docs/apis/tags/LegalEntitiesApi.md#delete_legal_entity) | **delete** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] DeleteLegalEntity: Delete Legal Entity
+*LegalEntitiesApi* | [**delete_legal_entity_access_metadata**](docs/apis/tags/LegalEntitiesApi.md#delete_legal_entity_access_metadata) | **delete** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteLegalEntityAccessMetadata: Delete a Legal Entity Access Metadata entry
+*LegalEntitiesApi* | [**delete_legal_entity_identifiers**](docs/apis/tags/LegalEntitiesApi.md#delete_legal_entity_identifiers) | **delete** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeleteLegalEntityIdentifiers: Delete Legal Entity Identifiers
+*LegalEntitiesApi* | [**delete_legal_entity_properties**](docs/apis/tags/LegalEntitiesApi.md#delete_legal_entity_properties) | **delete** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeleteLegalEntityProperties: Delete Legal Entity Properties
+*LegalEntitiesApi* | [**get_all_legal_entity_access_metadata**](docs/apis/tags/LegalEntitiesApi.md#get_all_legal_entity_access_metadata) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllLegalEntityAccessMetadata: Get Access Metadata rules for a Legal Entity
+*LegalEntitiesApi* | [**get_legal_entity**](docs/apis/tags/LegalEntitiesApi.md#get_legal_entity) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code} | [EARLY ACCESS] GetLegalEntity: Get Legal Entity
+*LegalEntitiesApi* | [**get_legal_entity_access_metadata_by_key**](docs/apis/tags/LegalEntitiesApi.md#get_legal_entity_access_metadata_by_key) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetLegalEntityAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Legal Entity
+*LegalEntitiesApi* | [**get_legal_entity_property_time_series**](docs/apis/tags/LegalEntitiesApi.md#get_legal_entity_property_time_series) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetLegalEntityPropertyTimeSeries: Get Legal Entity Property Time Series
+*LegalEntitiesApi* | [**get_legal_entity_relations**](docs/apis/tags/LegalEntitiesApi.md#get_legal_entity_relations) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetLegalEntityRelations: Get Relations for Legal Entity
+*LegalEntitiesApi* | [**get_legal_entity_relationships**](docs/apis/tags/LegalEntitiesApi.md#get_legal_entity_relationships) | **get** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetLegalEntityRelationships: Get Relationships for Legal Entity
+*LegalEntitiesApi* | [**list_legal_entities**](docs/apis/tags/LegalEntitiesApi.md#list_legal_entities) | **get** /api/legalentities/{idTypeScope}/{idTypeCode} | [EARLY ACCESS] ListLegalEntities: List Legal Entities
+*LegalEntitiesApi* | [**set_legal_entity_identifiers**](docs/apis/tags/LegalEntitiesApi.md#set_legal_entity_identifiers) | **post** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetLegalEntityIdentifiers: Set Legal Entity Identifiers
+*LegalEntitiesApi* | [**upsert_legal_entity**](docs/apis/tags/LegalEntitiesApi.md#upsert_legal_entity) | **post** /api/legalentities | [EARLY ACCESS] UpsertLegalEntity: Upsert Legal Entity
+*LegalEntitiesApi* | [**upsert_legal_entity_access_metadata**](docs/apis/tags/LegalEntitiesApi.md#upsert_legal_entity_access_metadata) | **put** /api/legalentities/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertLegalEntityAccessMetadata: Upsert a Legal Entity Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+*OrderGraphApi* | [**list_order_graph_blocks**](docs/apis/tags/OrderGraphApi.md#list_order_graph_blocks) | **get** /api/ordergraph/blocks | [EXPERIMENTAL] ListOrderGraphBlocks: Lists blocks that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+*OrderGraphApi* | [**list_order_graph_placements**](docs/apis/tags/OrderGraphApi.md#list_order_graph_placements) | **get** /api/ordergraph/placements | [EXPERIMENTAL] ListOrderGraphPlacements: Lists placements that pass the filter provided, and builds a summary picture of the state of their associated order entities.
+*OrderInstructionsApi* | [**delete_order_instruction**](docs/apis/tags/OrderInstructionsApi.md#delete_order_instruction) | **delete** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] DeleteOrderInstruction: Delete orderInstruction
+*OrderInstructionsApi* | [**get_order_instruction**](docs/apis/tags/OrderInstructionsApi.md#get_order_instruction) | **get** /api/orderinstructions/{scope}/{code} | [EXPERIMENTAL] GetOrderInstruction: Get OrderInstruction
+*OrderInstructionsApi* | [**list_order_instructions**](docs/apis/tags/OrderInstructionsApi.md#list_order_instructions) | **get** /api/orderinstructions | [EXPERIMENTAL] ListOrderInstructions: List OrderInstructions
+*OrderInstructionsApi* | [**upsert_order_instructions**](docs/apis/tags/OrderInstructionsApi.md#upsert_order_instructions) | **post** /api/orderinstructions | [EXPERIMENTAL] UpsertOrderInstructions: Upsert OrderInstruction
+*OrdersApi* | [**delete_order**](docs/apis/tags/OrdersApi.md#delete_order) | **delete** /api/orders/{scope}/{code} | [EARLY ACCESS] DeleteOrder: Delete order
+*OrdersApi* | [**get_order**](docs/apis/tags/OrdersApi.md#get_order) | **get** /api/orders/{scope}/{code} | [EARLY ACCESS] GetOrder: Get Order
+*OrdersApi* | [**list_orders**](docs/apis/tags/OrdersApi.md#list_orders) | **get** /api/orders | [EARLY ACCESS] ListOrders: List Orders
+*OrdersApi* | [**upsert_orders**](docs/apis/tags/OrdersApi.md#upsert_orders) | **post** /api/orders | [EARLY ACCESS] UpsertOrders: Upsert Order
+*PackagesApi* | [**delete_package**](docs/apis/tags/PackagesApi.md#delete_package) | **delete** /api/packages/{scope}/{code} | [EXPERIMENTAL] DeletePackage: Delete package
+*PackagesApi* | [**get_package**](docs/apis/tags/PackagesApi.md#get_package) | **get** /api/packages/{scope}/{code} | [EXPERIMENTAL] GetPackage: Get Package
+*PackagesApi* | [**list_packages**](docs/apis/tags/PackagesApi.md#list_packages) | **get** /api/packages | [EXPERIMENTAL] ListPackages: List Packages
+*PackagesApi* | [**upsert_packages**](docs/apis/tags/PackagesApi.md#upsert_packages) | **post** /api/packages | [EXPERIMENTAL] UpsertPackages: Upsert Package
+*ParticipationsApi* | [**delete_participation**](docs/apis/tags/ParticipationsApi.md#delete_participation) | **delete** /api/participations/{scope}/{code} | [EXPERIMENTAL] DeleteParticipation: Delete participation
+*ParticipationsApi* | [**get_participation**](docs/apis/tags/ParticipationsApi.md#get_participation) | **get** /api/participations/{scope}/{code} | [EXPERIMENTAL] GetParticipation: Get Participation
+*ParticipationsApi* | [**list_participations**](docs/apis/tags/ParticipationsApi.md#list_participations) | **get** /api/participations | [EXPERIMENTAL] ListParticipations: List Participations
+*ParticipationsApi* | [**upsert_participations**](docs/apis/tags/ParticipationsApi.md#upsert_participations) | **post** /api/participations | [EXPERIMENTAL] UpsertParticipations: Upsert Participation
+*PersonsApi* | [**delete_person**](docs/apis/tags/PersonsApi.md#delete_person) | **delete** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] DeletePerson: Delete person
+*PersonsApi* | [**delete_person_access_metadata**](docs/apis/tags/PersonsApi.md#delete_person_access_metadata) | **delete** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeletePersonAccessMetadata: Delete a Person Access Metadata entry
+*PersonsApi* | [**delete_person_identifiers**](docs/apis/tags/PersonsApi.md#delete_person_identifiers) | **delete** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] DeletePersonIdentifiers: Delete Person Identifiers
+*PersonsApi* | [**delete_person_properties**](docs/apis/tags/PersonsApi.md#delete_person_properties) | **delete** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] DeletePersonProperties: Delete Person Properties
+*PersonsApi* | [**get_all_person_access_metadata**](docs/apis/tags/PersonsApi.md#get_all_person_access_metadata) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata | [EARLY ACCESS] GetAllPersonAccessMetadata: Get Access Metadata rules for a Person
+*PersonsApi* | [**get_person**](docs/apis/tags/PersonsApi.md#get_person) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code} | [EXPERIMENTAL] GetPerson: Get Person
+*PersonsApi* | [**get_person_access_metadata_by_key**](docs/apis/tags/PersonsApi.md#get_person_access_metadata_by_key) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPersonAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Person
+*PersonsApi* | [**get_person_property_time_series**](docs/apis/tags/PersonsApi.md#get_person_property_time_series) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties/time-series | [EXPERIMENTAL] GetPersonPropertyTimeSeries: Get Person Property Time Series
+*PersonsApi* | [**get_person_relations**](docs/apis/tags/PersonsApi.md#get_person_relations) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relations | [EXPERIMENTAL] GetPersonRelations: Get Relations for Person
+*PersonsApi* | [**get_person_relationships**](docs/apis/tags/PersonsApi.md#get_person_relationships) | **get** /api/persons/{idTypeScope}/{idTypeCode}/{code}/relationships | [EXPERIMENTAL] GetPersonRelationships: Get Relationships for Person
+*PersonsApi* | [**list_persons**](docs/apis/tags/PersonsApi.md#list_persons) | **get** /api/persons/{idTypeScope}/{idTypeCode} | [EXPERIMENTAL] ListPersons: List Persons
+*PersonsApi* | [**set_person_identifiers**](docs/apis/tags/PersonsApi.md#set_person_identifiers) | **post** /api/persons/{idTypeScope}/{idTypeCode}/{code}/identifiers | [EXPERIMENTAL] SetPersonIdentifiers: Set Person Identifiers
+*PersonsApi* | [**set_person_properties**](docs/apis/tags/PersonsApi.md#set_person_properties) | **post** /api/persons/{idTypeScope}/{idTypeCode}/{code}/properties | [EXPERIMENTAL] SetPersonProperties: Set Person Properties
+*PersonsApi* | [**upsert_person**](docs/apis/tags/PersonsApi.md#upsert_person) | **post** /api/persons | [EXPERIMENTAL] UpsertPerson: Upsert Person
+*PersonsApi* | [**upsert_person_access_metadata**](docs/apis/tags/PersonsApi.md#upsert_person_access_metadata) | **put** /api/persons/{idTypeScope}/{idTypeCode}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPersonAccessMetadata: Upsert a Person Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+*PlacementsApi* | [**delete_placement**](docs/apis/tags/PlacementsApi.md#delete_placement) | **delete** /api/placements/{scope}/{code} | [EXPERIMENTAL] DeletePlacement: Delete placement
+*PlacementsApi* | [**get_placement**](docs/apis/tags/PlacementsApi.md#get_placement) | **get** /api/placements/{scope}/{code} | [EXPERIMENTAL] GetPlacement: Get Placement
+*PlacementsApi* | [**list_placements**](docs/apis/tags/PlacementsApi.md#list_placements) | **get** /api/placements | [EXPERIMENTAL] ListPlacements: List Placements
+*PlacementsApi* | [**upsert_placements**](docs/apis/tags/PlacementsApi.md#upsert_placements) | **post** /api/placements | [EXPERIMENTAL] UpsertPlacements: Upsert Placement
+*PortfolioGroupsApi* | [**add_portfolio_to_group**](docs/apis/tags/PortfolioGroupsApi.md#add_portfolio_to_group) | **post** /api/portfoliogroups/{scope}/{code}/portfolios | [EARLY ACCESS] AddPortfolioToGroup: Add portfolio to group
+*PortfolioGroupsApi* | [**add_sub_group_to_group**](docs/apis/tags/PortfolioGroupsApi.md#add_sub_group_to_group) | **post** /api/portfoliogroups/{scope}/{code}/subgroups | [EARLY ACCESS] AddSubGroupToGroup: Add sub group to group
+*PortfolioGroupsApi* | [**build_transactions_for_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#build_transactions_for_portfolio_group) | **post** /api/portfoliogroups/{scope}/{code}/transactions/$build | [EARLY ACCESS] BuildTransactionsForPortfolioGroup: Build transactions for transaction portfolios in a portfolio group
+*PortfolioGroupsApi* | [**create_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#create_portfolio_group) | **post** /api/portfoliogroups/{scope} | [EARLY ACCESS] CreatePortfolioGroup: Create portfolio group
+*PortfolioGroupsApi* | [**delete_group_properties**](docs/apis/tags/PortfolioGroupsApi.md#delete_group_properties) | **post** /api/portfoliogroups/{scope}/{code}/properties/$delete | [EARLY ACCESS] DeleteGroupProperties: Delete group properties
+*PortfolioGroupsApi* | [**delete_key_from_portfolio_group_access_metadata**](docs/apis/tags/PortfolioGroupsApi.md#delete_key_from_portfolio_group_access_metadata) | **delete** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioGroupAccessMetadata: Delete a Portfolio Group Access Metadata entry
+*PortfolioGroupsApi* | [**delete_portfolio_from_group**](docs/apis/tags/PortfolioGroupsApi.md#delete_portfolio_from_group) | **delete** /api/portfoliogroups/{scope}/{code}/portfolios/{portfolioScope}/{portfolioCode} | [EARLY ACCESS] DeletePortfolioFromGroup: Delete portfolio from group
+*PortfolioGroupsApi* | [**delete_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#delete_portfolio_group) | **delete** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] DeletePortfolioGroup: Delete portfolio group
+*PortfolioGroupsApi* | [**delete_sub_group_from_group**](docs/apis/tags/PortfolioGroupsApi.md#delete_sub_group_from_group) | **delete** /api/portfoliogroups/{scope}/{code}/subgroups/{subgroupScope}/{subgroupCode} | [EARLY ACCESS] DeleteSubGroupFromGroup: Delete sub group from group
+*PortfolioGroupsApi* | [**get_a2_b_data_for_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#get_a2_b_data_for_portfolio_group) | **get** /api/portfoliogroups/{scope}/{code}/a2b | [EXPERIMENTAL] GetA2BDataForPortfolioGroup: Get A2B data for a Portfolio Group
+*PortfolioGroupsApi* | [**get_group_properties**](docs/apis/tags/PortfolioGroupsApi.md#get_group_properties) | **get** /api/portfoliogroups/{scope}/{code}/properties | [EARLY ACCESS] GetGroupProperties: Get group properties
+*PortfolioGroupsApi* | [**get_holdings_for_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#get_holdings_for_portfolio_group) | **get** /api/portfoliogroups/{scope}/{code}/holdings | [EARLY ACCESS] GetHoldingsForPortfolioGroup: Get holdings for transaction portfolios in portfolio group
+*PortfolioGroupsApi* | [**get_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group) | **get** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] GetPortfolioGroup: Get portfolio group
+*PortfolioGroupsApi* | [**get_portfolio_group_access_metadata_by_key**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_access_metadata_by_key) | **get** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfolioGroupAccessMetadataByKey: Get an entry identified by a metadataKey in the Access Metadata of a Portfolio Group
+*PortfolioGroupsApi* | [**get_portfolio_group_commands**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_commands) | **get** /api/portfoliogroups/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioGroupCommands: Get portfolio group commands
+*PortfolioGroupsApi* | [**get_portfolio_group_expansion**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_expansion) | **get** /api/portfoliogroups/{scope}/{code}/expansion | [EARLY ACCESS] GetPortfolioGroupExpansion: Get portfolio group expansion
+*PortfolioGroupsApi* | [**get_portfolio_group_metadata**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_metadata) | **get** /api/portfoliogroups/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioGroupMetadata: Get Access Metadata rules for Portfolio Group
+*PortfolioGroupsApi* | [**get_portfolio_group_property_time_series**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_property_time_series) | **get** /api/portfoliogroups/{scope}/{code}/properties/time-series | [EARLY ACCESS] GetPortfolioGroupPropertyTimeSeries: Get the time series of a portfolio group property
+*PortfolioGroupsApi* | [**get_portfolio_group_relations**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_relations) | **get** /api/portfoliogroups/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioGroupRelations: Get Relations for Portfolio Group
+*PortfolioGroupsApi* | [**get_portfolio_group_relationships**](docs/apis/tags/PortfolioGroupsApi.md#get_portfolio_group_relationships) | **get** /api/portfoliogroups/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioGroupRelationships: Get Relationships for Portfolio Group
+*PortfolioGroupsApi* | [**get_transactions_for_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#get_transactions_for_portfolio_group) | **get** /api/portfoliogroups/{scope}/{code}/transactions | [EARLY ACCESS] GetTransactionsForPortfolioGroup: Get transactions for transaction portfolios in a portfolio group
+*PortfolioGroupsApi* | [**list_portfolio_groups**](docs/apis/tags/PortfolioGroupsApi.md#list_portfolio_groups) | **get** /api/portfoliogroups/{scope} | [EARLY ACCESS] ListPortfolioGroups: List portfolio groups
+*PortfolioGroupsApi* | [**update_portfolio_group**](docs/apis/tags/PortfolioGroupsApi.md#update_portfolio_group) | **put** /api/portfoliogroups/{scope}/{code} | [EARLY ACCESS] UpdatePortfolioGroup: Update portfolio group
+*PortfolioGroupsApi* | [**upsert_group_properties**](docs/apis/tags/PortfolioGroupsApi.md#upsert_group_properties) | **post** /api/portfoliogroups/{scope}/{code}/properties/$upsert | [EARLY ACCESS] UpsertGroupProperties: Upsert group properties
+*PortfolioGroupsApi* | [**upsert_portfolio_group_access_metadata**](docs/apis/tags/PortfolioGroupsApi.md#upsert_portfolio_group_access_metadata) | **put** /api/portfoliogroups/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioGroupAccessMetadata: Upsert a Portfolio Group Access Metadata entry associated with a specific metadataKey. This creates or updates the data in LUSID.
+*PortfoliosApi* | [**delete_key_from_portfolio_access_metadata**](docs/apis/tags/PortfoliosApi.md#delete_key_from_portfolio_access_metadata) | **delete** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] DeleteKeyFromPortfolioAccessMetadata: Delete a Portfolio Access Metadata Rule
+*PortfoliosApi* | [**delete_portfolio**](docs/apis/tags/PortfoliosApi.md#delete_portfolio) | **delete** /api/portfolios/{scope}/{code} | DeletePortfolio: Delete portfolio
+*PortfoliosApi* | [**delete_portfolio_properties**](docs/apis/tags/PortfoliosApi.md#delete_portfolio_properties) | **delete** /api/portfolios/{scope}/{code}/properties | DeletePortfolioProperties: Delete portfolio properties
+*PortfoliosApi* | [**delete_portfolio_returns**](docs/apis/tags/PortfoliosApi.md#delete_portfolio_returns) | **delete** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$delete | [EARLY ACCESS] DeletePortfolioReturns: Delete Returns
+*PortfoliosApi* | [**get_portfolio**](docs/apis/tags/PortfoliosApi.md#get_portfolio) | **get** /api/portfolios/{scope}/{code} | GetPortfolio: Get portfolio
+*PortfoliosApi* | [**get_portfolio_aggregate_returns**](docs/apis/tags/PortfoliosApi.md#get_portfolio_aggregate_returns) | **get** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/aggregated | [EXPERIMENTAL] GetPortfolioAggregateReturns: Aggregate Returns (This is a deprecated endpoint).
+*PortfoliosApi* | [**get_portfolio_aggregated_returns**](docs/apis/tags/PortfoliosApi.md#get_portfolio_aggregated_returns) | **post** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode}/$aggregated | [EARLY ACCESS] GetPortfolioAggregatedReturns: Aggregated Returns
+*PortfoliosApi* | [**get_portfolio_commands**](docs/apis/tags/PortfoliosApi.md#get_portfolio_commands) | **get** /api/portfolios/{scope}/{code}/commands | [EARLY ACCESS] GetPortfolioCommands: Get portfolio commands
+*PortfoliosApi* | [**get_portfolio_metadata**](docs/apis/tags/PortfoliosApi.md#get_portfolio_metadata) | **get** /api/portfolios/{scope}/{code}/metadata | [EARLY ACCESS] GetPortfolioMetadata: Get access metadata rules for a portfolio
+*PortfoliosApi* | [**get_portfolio_properties**](docs/apis/tags/PortfoliosApi.md#get_portfolio_properties) | **get** /api/portfolios/{scope}/{code}/properties | GetPortfolioProperties: Get portfolio properties
+*PortfoliosApi* | [**get_portfolio_property_time_series**](docs/apis/tags/PortfoliosApi.md#get_portfolio_property_time_series) | **get** /api/portfolios/{scope}/{code}/properties/time-series | [EXPERIMENTAL] GetPortfolioPropertyTimeSeries: Get portfolio property time series
+*PortfoliosApi* | [**get_portfolio_relations**](docs/apis/tags/PortfoliosApi.md#get_portfolio_relations) | **get** /api/portfolios/{scope}/{code}/relations | [EXPERIMENTAL] GetPortfolioRelations: Get portfolio relations
+*PortfoliosApi* | [**get_portfolio_relationships**](docs/apis/tags/PortfoliosApi.md#get_portfolio_relationships) | **get** /api/portfolios/{scope}/{code}/relationships | [EXPERIMENTAL] GetPortfolioRelationships: Get portfolio relationships
+*PortfoliosApi* | [**get_portfolio_returns**](docs/apis/tags/PortfoliosApi.md#get_portfolio_returns) | **get** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] GetPortfolioReturns: Get Returns
+*PortfoliosApi* | [**get_portfolios_access_metadata_by_key**](docs/apis/tags/PortfoliosApi.md#get_portfolios_access_metadata_by_key) | **get** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] GetPortfoliosAccessMetadataByKey: Get an entry identified by a metadataKey in the access metadata object
+*PortfoliosApi* | [**list_portfolio_properties**](docs/apis/tags/PortfoliosApi.md#list_portfolio_properties) | **get** /api/portfolios/{scope}/{code}/properties/list | [EXPERIMENTAL] ListPortfolioProperties: Get portfolio properties
+*PortfoliosApi* | [**list_portfolios**](docs/apis/tags/PortfoliosApi.md#list_portfolios) | **get** /api/portfolios | ListPortfolios: List portfolios
+*PortfoliosApi* | [**list_portfolios_for_scope**](docs/apis/tags/PortfoliosApi.md#list_portfolios_for_scope) | **get** /api/portfolios/{scope} | ListPortfoliosForScope: List portfolios for scope
+*PortfoliosApi* | [**update_portfolio**](docs/apis/tags/PortfoliosApi.md#update_portfolio) | **put** /api/portfolios/{scope}/{code} | UpdatePortfolio: Update portfolio
+*PortfoliosApi* | [**upsert_portfolio_access_metadata**](docs/apis/tags/PortfoliosApi.md#upsert_portfolio_access_metadata) | **put** /api/portfolios/{scope}/{code}/metadata/{metadataKey} | [EARLY ACCESS] UpsertPortfolioAccessMetadata: Upsert a Portfolio Access Metadata Rule associated with specific metadataKey. This creates or updates the data in LUSID.
+*PortfoliosApi* | [**upsert_portfolio_properties**](docs/apis/tags/PortfoliosApi.md#upsert_portfolio_properties) | **post** /api/portfolios/{scope}/{code}/properties | UpsertPortfolioProperties: Upsert portfolio properties
+*PortfoliosApi* | [**upsert_portfolio_returns**](docs/apis/tags/PortfoliosApi.md#upsert_portfolio_returns) | **post** /api/portfolios/{scope}/{code}/returns/{returnScope}/{returnCode} | [EARLY ACCESS] UpsertPortfolioReturns: Upsert Returns
+*PropertyDefinitionsApi* | [**create_derived_property_definition**](docs/apis/tags/PropertyDefinitionsApi.md#create_derived_property_definition) | **post** /api/propertydefinitions/derived | [EARLY ACCESS] CreateDerivedPropertyDefinition: Create derived property definition
+*PropertyDefinitionsApi* | [**create_property_definition**](docs/apis/tags/PropertyDefinitionsApi.md#create_property_definition) | **post** /api/propertydefinitions | CreatePropertyDefinition: Create property definition
+*PropertyDefinitionsApi* | [**delete_property_definition**](docs/apis/tags/PropertyDefinitionsApi.md#delete_property_definition) | **delete** /api/propertydefinitions/{domain}/{scope}/{code} | DeletePropertyDefinition: Delete property definition
+*PropertyDefinitionsApi* | [**get_multiple_property_definitions**](docs/apis/tags/PropertyDefinitionsApi.md#get_multiple_property_definitions) | **get** /api/propertydefinitions | GetMultiplePropertyDefinitions: Get multiple property definitions
+*PropertyDefinitionsApi* | [**get_property_definition**](docs/apis/tags/PropertyDefinitionsApi.md#get_property_definition) | **get** /api/propertydefinitions/{domain}/{scope}/{code} | GetPropertyDefinition: Get property definition
+*PropertyDefinitionsApi* | [**update_property_definition**](docs/apis/tags/PropertyDefinitionsApi.md#update_property_definition) | **put** /api/propertydefinitions/{domain}/{scope}/{code} | UpdatePropertyDefinition: Update property definition
+*QuotesApi* | [**delete_quote_access_metadata_rule**](docs/apis/tags/QuotesApi.md#delete_quote_access_metadata_rule) | **delete** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] DeleteQuoteAccessMetadataRule: Delete a Quote Access Metadata Rule
+*QuotesApi* | [**delete_quotes**](docs/apis/tags/QuotesApi.md#delete_quotes) | **post** /api/quotes/{scope}/$delete | [EARLY ACCESS] DeleteQuotes: Delete quotes
+*QuotesApi* | [**get_quotes**](docs/apis/tags/QuotesApi.md#get_quotes) | **post** /api/quotes/{scope}/$get | [EARLY ACCESS] GetQuotes: Get quotes
+*QuotesApi* | [**get_quotes_access_metadata_rule**](docs/apis/tags/QuotesApi.md#get_quotes_access_metadata_rule) | **get** /api/metadata/quotes/rules | [EXPERIMENTAL] GetQuotesAccessMetadataRule: Get a quote access metadata rule
+*QuotesApi* | [**list_quotes**](docs/apis/tags/QuotesApi.md#list_quotes) | **get** /api/quotes/{scope}/$deprecated | [DEPRECATED] ListQuotes: List quotes
+*QuotesApi* | [**list_quotes_access_metadata_rules**](docs/apis/tags/QuotesApi.md#list_quotes_access_metadata_rules) | **get** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] ListQuotesAccessMetadataRules: List all quote access metadata rules in a scope
+*QuotesApi* | [**list_quotes_for_scope**](docs/apis/tags/QuotesApi.md#list_quotes_for_scope) | **get** /api/quotes/{scope} | [EARLY ACCESS] ListQuotesForScope: List quotes for scope
+*QuotesApi* | [**upsert_quote_access_metadata_rule**](docs/apis/tags/QuotesApi.md#upsert_quote_access_metadata_rule) | **post** /api/metadata/quotes/rules/{scope} | [EXPERIMENTAL] UpsertQuoteAccessMetadataRule: Upsert a Quote Access Metadata Rule. This creates or updates the data in LUSID.
+*QuotesApi* | [**upsert_quotes**](docs/apis/tags/QuotesApi.md#upsert_quotes) | **post** /api/quotes/{scope} | [EARLY ACCESS] UpsertQuotes: Upsert quotes
+*ReconciliationsApi* | [**reconcile_generic**](docs/apis/tags/ReconciliationsApi.md#reconcile_generic) | **post** /api/portfolios/$reconcileGeneric | [EXPERIMENTAL] ReconcileGeneric: Reconcile either holdings or valuations performed on one or two sets of holdings using one or two configuration recipes.                The output is configurable for various types of comparisons, to allow tolerances on numerical and date-time data or case-insensitivity on strings,  and elision of resulting differences where they are &#x27;empty&#x27; or null or zero.
+*ReconciliationsApi* | [**reconcile_holdings**](docs/apis/tags/ReconciliationsApi.md#reconcile_holdings) | **post** /api/portfolios/$reconcileholdings | [EARLY ACCESS] ReconcileHoldings: Reconcile portfolio holdings
+*ReconciliationsApi* | [**reconcile_holdings_preview**](docs/apis/tags/ReconciliationsApi.md#reconcile_holdings_preview) | **post** /api/portfolios/preview/$reconcileholdings | [EXPERIMENTAL] ReconcileHoldingsPreview: Reconcile portfolio holdings with given tolerance
+*ReconciliationsApi* | [**reconcile_inline**](docs/apis/tags/ReconciliationsApi.md#reconcile_inline) | **post** /api/portfolios/$reconcileInline | [BETA] ReconcileInline: Reconcile valuations performed on one or two sets of inline instruments using one or two configuration recipes.
+*ReconciliationsApi* | [**reconcile_valuation**](docs/apis/tags/ReconciliationsApi.md#reconcile_valuation) | **post** /api/portfolios/$reconcileValuation | [BETA] ReconcileValuation: Reconcile valuations performed on one or two sets of holdings using one or two configuration recipes.
+*ReferencePortfolioApi* | [**create_reference_portfolio**](docs/apis/tags/ReferencePortfolioApi.md#create_reference_portfolio) | **post** /api/referenceportfolios/{scope} | CreateReferencePortfolio: Create reference portfolio
+*ReferencePortfolioApi* | [**get_reference_portfolio_constituents**](docs/apis/tags/ReferencePortfolioApi.md#get_reference_portfolio_constituents) | **get** /api/referenceportfolios/{scope}/{code}/constituents | GetReferencePortfolioConstituents: Get reference portfolio constituents
+*ReferencePortfolioApi* | [**list_constituents_adjustments**](docs/apis/tags/ReferencePortfolioApi.md#list_constituents_adjustments) | **get** /api/referenceportfolios/{scope}/{code}/constituentsadjustments | ListConstituentsAdjustments: List constituents adjustments
+*ReferencePortfolioApi* | [**upsert_reference_portfolio_constituents**](docs/apis/tags/ReferencePortfolioApi.md#upsert_reference_portfolio_constituents) | **post** /api/referenceportfolios/{scope}/{code}/constituents | UpsertReferencePortfolioConstituents: Upsert reference portfolio constituents
+*RelationDefinitionsApi* | [**create_relation_definition**](docs/apis/tags/RelationDefinitionsApi.md#create_relation_definition) | **post** /api/relationdefinitions | [EXPERIMENTAL] CreateRelationDefinition: Create a relation definition
+*RelationDefinitionsApi* | [**get_relation_definition**](docs/apis/tags/RelationDefinitionsApi.md#get_relation_definition) | **get** /api/relationdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationDefinition: Get relation definition
+*RelationsApi* | [**create_relation**](docs/apis/tags/RelationsApi.md#create_relation) | **post** /api/relations/{scope}/{code} | [EXPERIMENTAL] CreateRelation: Create Relation
+*RelationsApi* | [**delete_relation**](docs/apis/tags/RelationsApi.md#delete_relation) | **post** /api/relations/{scope}/{code}/$delete | [EXPERIMENTAL] DeleteRelation: Delete a relation
+*RelationshipDefinitionsApi* | [**create_relationship_definition**](docs/apis/tags/RelationshipDefinitionsApi.md#create_relationship_definition) | **post** /api/relationshipdefinitions | [EXPERIMENTAL] CreateRelationshipDefinition: Create Relationship Definition
+*RelationshipDefinitionsApi* | [**get_relationship_definition**](docs/apis/tags/RelationshipDefinitionsApi.md#get_relationship_definition) | **get** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] GetRelationshipDefinition: Get relationship definition
+*RelationshipDefinitionsApi* | [**list_relationship_definitions**](docs/apis/tags/RelationshipDefinitionsApi.md#list_relationship_definitions) | **get** /api/relationshipdefinitions | [EXPERIMENTAL] ListRelationshipDefinitions: List relationship definitions
+*RelationshipDefinitionsApi* | [**update_relationship_definition**](docs/apis/tags/RelationshipDefinitionsApi.md#update_relationship_definition) | **put** /api/relationshipdefinitions/{scope}/{code} | [EXPERIMENTAL] UpdateRelationshipDefinition: Update Relationship Definition
+*RelationshipsApi* | [**create_relationship**](docs/apis/tags/RelationshipsApi.md#create_relationship) | **post** /api/relationshipdefinitions/{scope}/{code}/relationships | [EXPERIMENTAL] CreateRelationship: Create Relationship
+*RelationshipsApi* | [**delete_relationship**](docs/apis/tags/RelationshipsApi.md#delete_relationship) | **post** /api/relationshipdefinitions/{scope}/{code}/relationships/$delete | [EXPERIMENTAL] DeleteRelationship: Delete Relationship
+*SchemasApi* | [**get_entity_schema**](docs/apis/tags/SchemasApi.md#get_entity_schema) | **get** /api/schemas/entities/{entity} | [BETA] GetEntitySchema: Get schema
+*SchemasApi* | [**get_property_schema**](docs/apis/tags/SchemasApi.md#get_property_schema) | **get** /api/schemas/properties | [BETA] GetPropertySchema: Get property schema
+*SchemasApi* | [**get_value_types**](docs/apis/tags/SchemasApi.md#get_value_types) | **get** /api/schemas/types | [BETA] GetValueTypes: Get value types
+*SchemasApi* | [**list_entities**](docs/apis/tags/SchemasApi.md#list_entities) | **get** /api/schemas/entities | [BETA] ListEntities: List entities
+*ScopesApi* | [**list_scopes**](docs/apis/tags/ScopesApi.md#list_scopes) | **get** /api/scopes | [EARLY ACCESS] ListScopes: List Scopes
+*SearchApi* | [**instruments_search**](docs/apis/tags/SearchApi.md#instruments_search) | **post** /api/search/instruments | [EXPERIMENTAL] InstrumentsSearch: Instruments search
+*SearchApi* | [**search_portfolio_groups**](docs/apis/tags/SearchApi.md#search_portfolio_groups) | **get** /api/search/portfoliogroups | [EARLY ACCESS] SearchPortfolioGroups: Search Portfolio Groups
+*SearchApi* | [**search_portfolios**](docs/apis/tags/SearchApi.md#search_portfolios) | **get** /api/search/portfolios | [EARLY ACCESS] SearchPortfolios: Search Portfolios
+*SearchApi* | [**search_properties**](docs/apis/tags/SearchApi.md#search_properties) | **get** /api/search/propertydefinitions | [EARLY ACCESS] SearchProperties: Search Property Definitions
+*SequencesApi* | [**create_sequence**](docs/apis/tags/SequencesApi.md#create_sequence) | **post** /api/sequences/{scope} | [EXPERIMENTAL] CreateSequence: Create a new sequence
+*SequencesApi* | [**get_sequence**](docs/apis/tags/SequencesApi.md#get_sequence) | **get** /api/sequences/{scope}/{code} | [EXPERIMENTAL] GetSequence: Get a specified sequence
+*SequencesApi* | [**list_sequences**](docs/apis/tags/SequencesApi.md#list_sequences) | **get** /api/sequences | [EXPERIMENTAL] ListSequences: List Sequences
+*SequencesApi* | [**next**](docs/apis/tags/SequencesApi.md#next) | **get** /api/sequences/{scope}/{code}/next | [EXPERIMENTAL] Next: Get next values from sequence
+*StructuredResultDataApi* | [**create_data_map**](docs/apis/tags/StructuredResultDataApi.md#create_data_map) | **post** /api/unitresults/datamap/{scope} | [EXPERIMENTAL] CreateDataMap: Create data map
+*StructuredResultDataApi* | [**delete_structured_result_data**](docs/apis/tags/StructuredResultDataApi.md#delete_structured_result_data) | **post** /api/unitresults/{scope}/$delete | [EXPERIMENTAL] DeleteStructuredResultData: Delete structured result data
+*StructuredResultDataApi* | [**get_data_map**](docs/apis/tags/StructuredResultDataApi.md#get_data_map) | **post** /api/unitresults/datamap/{scope}/$get | [EXPERIMENTAL] GetDataMap: Get data map
+*StructuredResultDataApi* | [**get_structured_result_data**](docs/apis/tags/StructuredResultDataApi.md#get_structured_result_data) | **post** /api/unitresults/{scope}/$get | [EXPERIMENTAL] GetStructuredResultData: Get structured result data
+*StructuredResultDataApi* | [**get_virtual_document**](docs/apis/tags/StructuredResultDataApi.md#get_virtual_document) | **post** /api/unitresults/virtualdocument/{scope}/$get | [EXPERIMENTAL] GetVirtualDocument: Get Virtual Documents
+*StructuredResultDataApi* | [**upsert_structured_result_data**](docs/apis/tags/StructuredResultDataApi.md#upsert_structured_result_data) | **post** /api/unitresults/{scope} | [BETA] UpsertStructuredResultData: Upsert structured result data
+*SystemConfigurationApi* | [**create_configuration_transaction_type**](docs/apis/tags/SystemConfigurationApi.md#create_configuration_transaction_type) | **post** /api/systemconfiguration/transactions/type | [EARLY ACCESS] CreateConfigurationTransactionType: Create transaction type
+*SystemConfigurationApi* | [**create_side_definition**](docs/apis/tags/SystemConfigurationApi.md#create_side_definition) | **post** /api/systemconfiguration/transactions/side | [EXPERIMENTAL] CreateSideDefinition: Create side definition
+*SystemConfigurationApi* | [**delete_transaction_configuration_source**](docs/apis/tags/SystemConfigurationApi.md#delete_transaction_configuration_source) | **delete** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] DeleteTransactionConfigurationSource: Delete all transaction configurations for a source
+*SystemConfigurationApi* | [**get_transaction_configuration_source**](docs/apis/tags/SystemConfigurationApi.md#get_transaction_configuration_source) | **get** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] GetTransactionConfigurationSource: Get all transaction configurations for a source
+*SystemConfigurationApi* | [**list_configuration_transaction_types**](docs/apis/tags/SystemConfigurationApi.md#list_configuration_transaction_types) | **get** /api/systemconfiguration/transactions | [EARLY ACCESS] ListConfigurationTransactionTypes: List transaction types
+*SystemConfigurationApi* | [**set_configuration_transaction_types**](docs/apis/tags/SystemConfigurationApi.md#set_configuration_transaction_types) | **put** /api/systemconfiguration/transactions | [EXPERIMENTAL] SetConfigurationTransactionTypes: Set transaction types
+*SystemConfigurationApi* | [**set_transaction_configuration_source**](docs/apis/tags/SystemConfigurationApi.md#set_transaction_configuration_source) | **put** /api/systemconfiguration/transactions/type/{source} | [EXPERIMENTAL] SetTransactionConfigurationSource: Set transaction types for a source
+*TransactionPortfoliosApi* | [**adjust_holdings**](docs/apis/tags/TransactionPortfoliosApi.md#adjust_holdings) | **post** /api/transactionportfolios/{scope}/{code}/holdings | AdjustHoldings: Adjust holdings
+*TransactionPortfoliosApi* | [**build_transactions**](docs/apis/tags/TransactionPortfoliosApi.md#build_transactions) | **post** /api/transactionportfolios/{scope}/{code}/transactions/$build | BuildTransactions: Build transactions
+*TransactionPortfoliosApi* | [**cancel_adjust_holdings**](docs/apis/tags/TransactionPortfoliosApi.md#cancel_adjust_holdings) | **delete** /api/transactionportfolios/{scope}/{code}/holdings | CancelAdjustHoldings: Cancel adjust holdings
+*TransactionPortfoliosApi* | [**cancel_transactions**](docs/apis/tags/TransactionPortfoliosApi.md#cancel_transactions) | **delete** /api/transactionportfolios/{scope}/{code}/transactions | CancelTransactions: Cancel transactions
+*TransactionPortfoliosApi* | [**create_portfolio**](docs/apis/tags/TransactionPortfoliosApi.md#create_portfolio) | **post** /api/transactionportfolios/{scope} | CreatePortfolio: Create portfolio
+*TransactionPortfoliosApi* | [**delete_properties_from_transaction**](docs/apis/tags/TransactionPortfoliosApi.md#delete_properties_from_transaction) | **delete** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | DeletePropertiesFromTransaction: Delete properties from transaction
+*TransactionPortfoliosApi* | [**get_a2_b_data**](docs/apis/tags/TransactionPortfoliosApi.md#get_a2_b_data) | **get** /api/transactionportfolios/{scope}/{code}/a2b | [EXPERIMENTAL] GetA2BData: Get A2B data
+*TransactionPortfoliosApi* | [**get_a2_b_movements**](docs/apis/tags/TransactionPortfoliosApi.md#get_a2_b_movements) | **get** /api/transactionportfolios/{scope}/{code}/a2bmovements | [EXPERIMENTAL] GetA2BMovements: Get an A2B report at the movement level for the given portfolio.
+*TransactionPortfoliosApi* | [**get_bucketed_cash_flows**](docs/apis/tags/TransactionPortfoliosApi.md#get_bucketed_cash_flows) | **post** /api/transactionportfolios/{scope}/{code}/bucketedCashFlows | [EXPERIMENTAL] GetBucketedCashFlows: Get bucketed cash flows from a list of portfolios
+*TransactionPortfoliosApi* | [**get_details**](docs/apis/tags/TransactionPortfoliosApi.md#get_details) | **get** /api/transactionportfolios/{scope}/{code}/details | GetDetails: Get details
+*TransactionPortfoliosApi* | [**get_holdings**](docs/apis/tags/TransactionPortfoliosApi.md#get_holdings) | **get** /api/transactionportfolios/{scope}/{code}/holdings | GetHoldings: Get holdings
+*TransactionPortfoliosApi* | [**get_holdings_adjustment**](docs/apis/tags/TransactionPortfoliosApi.md#get_holdings_adjustment) | **get** /api/transactionportfolios/{scope}/{code}/holdingsadjustments/{effectiveAt} | GetHoldingsAdjustment: Get holdings adjustment
+*TransactionPortfoliosApi* | [**get_holdings_with_orders**](docs/apis/tags/TransactionPortfoliosApi.md#get_holdings_with_orders) | **get** /api/transactionportfolios/{scope}/{code}/holdingsWithOrders | [EXPERIMENTAL] GetHoldingsWithOrders: Get holdings with orders
+*TransactionPortfoliosApi* | [**get_portfolio_cash_flows**](docs/apis/tags/TransactionPortfoliosApi.md#get_portfolio_cash_flows) | **get** /api/transactionportfolios/{scope}/{code}/cashflows | [BETA] GetPortfolioCashFlows: Get portfolio cash flows
+*TransactionPortfoliosApi* | [**get_portfolio_cash_ladder**](docs/apis/tags/TransactionPortfoliosApi.md#get_portfolio_cash_ladder) | **get** /api/transactionportfolios/{scope}/{code}/cashladder | [EXPERIMENTAL] GetPortfolioCashLadder: Get portfolio cash ladder
+*TransactionPortfoliosApi* | [**get_portfolio_cash_statement**](docs/apis/tags/TransactionPortfoliosApi.md#get_portfolio_cash_statement) | **get** /api/transactionportfolios/{scope}/{code}/cashstatement | [EARLY ACCESS] GetPortfolioCashStatement: Get portfolio cash statement
+*TransactionPortfoliosApi* | [**get_transactions**](docs/apis/tags/TransactionPortfoliosApi.md#get_transactions) | **get** /api/transactionportfolios/{scope}/{code}/transactions | GetTransactions: Get transactions
+*TransactionPortfoliosApi* | [**get_upsertable_portfolio_cash_flows**](docs/apis/tags/TransactionPortfoliosApi.md#get_upsertable_portfolio_cash_flows) | **get** /api/transactionportfolios/{scope}/{code}/upsertablecashflows | [BETA] GetUpsertablePortfolioCashFlows: Get upsertable portfolio cash flows.
+*TransactionPortfoliosApi* | [**list_holdings_adjustments**](docs/apis/tags/TransactionPortfoliosApi.md#list_holdings_adjustments) | **get** /api/transactionportfolios/{scope}/{code}/holdingsadjustments | ListHoldingsAdjustments: List holdings adjustments
+*TransactionPortfoliosApi* | [**patch_portfolio_details**](docs/apis/tags/TransactionPortfoliosApi.md#patch_portfolio_details) | **patch** /api/transactionportfolios/{scope}/{code}/details | [EXPERIMENTAL] PatchPortfolioDetails: Patch portfolio details
+*TransactionPortfoliosApi* | [**resolve_instrument**](docs/apis/tags/TransactionPortfoliosApi.md#resolve_instrument) | **post** /api/transactionportfolios/{scope}/{code}/$resolve | [EARLY ACCESS] ResolveInstrument: Resolve instrument
+*TransactionPortfoliosApi* | [**set_holdings**](docs/apis/tags/TransactionPortfoliosApi.md#set_holdings) | **put** /api/transactionportfolios/{scope}/{code}/holdings | SetHoldings: Set holdings
+*TransactionPortfoliosApi* | [**upsert_portfolio_details**](docs/apis/tags/TransactionPortfoliosApi.md#upsert_portfolio_details) | **post** /api/transactionportfolios/{scope}/{code}/details | UpsertPortfolioDetails: Upsert portfolio details
+*TransactionPortfoliosApi* | [**upsert_transaction_properties**](docs/apis/tags/TransactionPortfoliosApi.md#upsert_transaction_properties) | **post** /api/transactionportfolios/{scope}/{code}/transactions/{transactionId}/properties | UpsertTransactionProperties: Upsert transaction properties
+*TransactionPortfoliosApi* | [**upsert_transactions**](docs/apis/tags/TransactionPortfoliosApi.md#upsert_transactions) | **post** /api/transactionportfolios/{scope}/{code}/transactions | UpsertTransactions: Upsert transactions
+*TranslationApi* | [**translate_instrument_definitions**](docs/apis/tags/TranslationApi.md#translate_instrument_definitions) | **post** /api/translation/instrumentdefinitions | [EXPERIMENTAL] TranslateInstrumentDefinitions: Translate instruments
 
 ## Documentation For Models
 
- - [A2BBreakdown](docs/A2BBreakdown.md)
- - [A2BCategory](docs/A2BCategory.md)
- - [A2BDataRecord](docs/A2BDataRecord.md)
- - [A2BMovementRecord](docs/A2BMovementRecord.md)
- - [AccessControlledAction](docs/AccessControlledAction.md)
- - [AccessControlledResource](docs/AccessControlledResource.md)
- - [AccessMetadataValue](docs/AccessMetadataValue.md)
- - [AccountingMethod](docs/AccountingMethod.md)
- - [ActionId](docs/ActionId.md)
- - [AddBusinessDaysToDateRequest](docs/AddBusinessDaysToDateRequest.md)
- - [AddBusinessDaysToDateResponse](docs/AddBusinessDaysToDateResponse.md)
- - [AdjustHolding](docs/AdjustHolding.md)
- - [AdjustHoldingRequest](docs/AdjustHoldingRequest.md)
- - [AggregateSpec](docs/AggregateSpec.md)
- - [AggregatedReturn](docs/AggregatedReturn.md)
- - [AggregatedReturnsRequest](docs/AggregatedReturnsRequest.md)
- - [AggregationContext](docs/AggregationContext.md)
- - [AggregationMeasureFailureDetail](docs/AggregationMeasureFailureDetail.md)
- - [AggregationOp](docs/AggregationOp.md)
- - [AggregationOptions](docs/AggregationOptions.md)
- - [AggregationQuery](docs/AggregationQuery.md)
- - [AggregationType](docs/AggregationType.md)
- - [Allocation](docs/Allocation.md)
- - [AllocationRequest](docs/AllocationRequest.md)
- - [AllocationSetRequest](docs/AllocationSetRequest.md)
- - [AnnulQuotesResponse](docs/AnnulQuotesResponse.md)
- - [AnnulSingleStructuredDataResponse](docs/AnnulSingleStructuredDataResponse.md)
- - [AnnulStructuredDataResponse](docs/AnnulStructuredDataResponse.md)
- - [AssetClass](docs/AssetClass.md)
- - [AtomValue](docs/AtomValue.md)
- - [AtomValue0D](docs/AtomValue0D.md)
- - [AtomValue0DAllOf](docs/AtomValue0DAllOf.md)
- - [AtomValueDecimal](docs/AtomValueDecimal.md)
- - [AtomValueDecimalAllOf](docs/AtomValueDecimalAllOf.md)
- - [AtomValueInt](docs/AtomValueInt.md)
- - [AtomValueIntAllOf](docs/AtomValueIntAllOf.md)
- - [AtomValueString](docs/AtomValueString.md)
- - [AtomValueStringAllOf](docs/AtomValueStringAllOf.md)
- - [AtomValueType](docs/AtomValueType.md)
- - [Basket](docs/Basket.md)
- - [BasketAllOf](docs/BasketAllOf.md)
- - [BasketIdentifier](docs/BasketIdentifier.md)
- - [Block](docs/Block.md)
- - [BlockRequest](docs/BlockRequest.md)
- - [BlockSetRequest](docs/BlockSetRequest.md)
- - [Bond](docs/Bond.md)
- - [BondAllOf](docs/BondAllOf.md)
- - [BucketedCashFlowRequest](docs/BucketedCashFlowRequest.md)
- - [BucketedCashFlowResponse](docs/BucketedCashFlowResponse.md)
- - [CalculationInfo](docs/CalculationInfo.md)
- - [CalculationMethod](docs/CalculationMethod.md)
- - [Calendar](docs/Calendar.md)
- - [CalendarDate](docs/CalendarDate.md)
- - [CapFloor](docs/CapFloor.md)
- - [CapFloorAllOf](docs/CapFloorAllOf.md)
- - [CashLadderRecord](docs/CashLadderRecord.md)
- - [CashPerpetual](docs/CashPerpetual.md)
- - [CashPerpetualAllOf](docs/CashPerpetualAllOf.md)
- - [CdsFlowConventions](docs/CdsFlowConventions.md)
- - [CdsIndex](docs/CdsIndex.md)
- - [CdsIndexAllOf](docs/CdsIndexAllOf.md)
- - [CdsProtectionDetailSpecification](docs/CdsProtectionDetailSpecification.md)
- - [CdsRestructuringType](docs/CdsRestructuringType.md)
- - [CdsSeniority](docs/CdsSeniority.md)
- - [Change](docs/Change.md)
- - [CompletePortfolio](docs/CompletePortfolio.md)
- - [CompleteRelation](docs/CompleteRelation.md)
- - [CompleteRelationship](docs/CompleteRelationship.md)
- - [ComplexMarketData](docs/ComplexMarketData.md)
- - [ComplexMarketDataId](docs/ComplexMarketDataId.md)
- - [ComplianceRuleResult](docs/ComplianceRuleResult.md)
- - [ComplianceRun](docs/ComplianceRun.md)
- - [Compounding](docs/Compounding.md)
- - [ConfigurationRecipe](docs/ConfigurationRecipe.md)
- - [ConfigurationRecipeSnippet](docs/ConfigurationRecipeSnippet.md)
- - [ConstituentsAdjustmentHeader](docs/ConstituentsAdjustmentHeader.md)
- - [ContractForDifference](docs/ContractForDifference.md)
- - [ContractForDifferenceAllOf](docs/ContractForDifferenceAllOf.md)
- - [CorporateAction](docs/CorporateAction.md)
- - [CorporateActionSource](docs/CorporateActionSource.md)
- - [CorporateActionTransition](docs/CorporateActionTransition.md)
- - [CorporateActionTransitionComponent](docs/CorporateActionTransitionComponent.md)
- - [CorporateActionTransitionComponentRequest](docs/CorporateActionTransitionComponentRequest.md)
- - [CorporateActionTransitionRequest](docs/CorporateActionTransitionRequest.md)
- - [CounterpartyAgreement](docs/CounterpartyAgreement.md)
- - [CounterpartyRiskInformation](docs/CounterpartyRiskInformation.md)
- - [CounterpartySignatory](docs/CounterpartySignatory.md)
- - [CreateCalendarRequest](docs/CreateCalendarRequest.md)
- - [CreateCorporateActionSourceRequest](docs/CreateCorporateActionSourceRequest.md)
- - [CreateCutLabelDefinitionRequest](docs/CreateCutLabelDefinitionRequest.md)
- - [CreateDataMapRequest](docs/CreateDataMapRequest.md)
- - [CreateDataTypeRequest](docs/CreateDataTypeRequest.md)
- - [CreateDateRequest](docs/CreateDateRequest.md)
- - [CreateDerivedPropertyDefinitionRequest](docs/CreateDerivedPropertyDefinitionRequest.md)
- - [CreateDerivedTransactionPortfolioRequest](docs/CreateDerivedTransactionPortfolioRequest.md)
- - [CreatePortfolioDetails](docs/CreatePortfolioDetails.md)
- - [CreatePortfolioGroupRequest](docs/CreatePortfolioGroupRequest.md)
- - [CreatePropertyDefinitionRequest](docs/CreatePropertyDefinitionRequest.md)
- - [CreateRecipeRequest](docs/CreateRecipeRequest.md)
- - [CreateReferencePortfolioRequest](docs/CreateReferencePortfolioRequest.md)
- - [CreateRelationDefinitionRequest](docs/CreateRelationDefinitionRequest.md)
- - [CreateRelationRequest](docs/CreateRelationRequest.md)
- - [CreateRelationshipDefinitionRequest](docs/CreateRelationshipDefinitionRequest.md)
- - [CreateRelationshipRequest](docs/CreateRelationshipRequest.md)
- - [CreateSequenceRequest](docs/CreateSequenceRequest.md)
- - [CreateTransactionPortfolioRequest](docs/CreateTransactionPortfolioRequest.md)
- - [CreateUnitDefinition](docs/CreateUnitDefinition.md)
- - [CreditDefaultSwap](docs/CreditDefaultSwap.md)
- - [CreditDefaultSwapAllOf](docs/CreditDefaultSwapAllOf.md)
- - [CreditRating](docs/CreditRating.md)
- - [CreditSpreadCurveData](docs/CreditSpreadCurveData.md)
- - [CreditSpreadCurveDataAllOf](docs/CreditSpreadCurveDataAllOf.md)
- - [CreditSupportAnnex](docs/CreditSupportAnnex.md)
- - [CrossCurrencySwap](docs/CrossCurrencySwap.md)
- - [CrossCurrencySwapAllOf](docs/CrossCurrencySwapAllOf.md)
- - [CurrencyAndAmount](docs/CurrencyAndAmount.md)
- - [CustomEntityDefinition](docs/CustomEntityDefinition.md)
- - [CustomEntityDefinitionRequest](docs/CustomEntityDefinitionRequest.md)
- - [CustomEntityField](docs/CustomEntityField.md)
- - [CustomEntityFieldDefinition](docs/CustomEntityFieldDefinition.md)
- - [CustomEntityIdRequest](docs/CustomEntityIdRequest.md)
- - [CustomEntityIdResponse](docs/CustomEntityIdResponse.md)
- - [CustomEntityRequest](docs/CustomEntityRequest.md)
- - [CustomEntityResponse](docs/CustomEntityResponse.md)
- - [CutLabelDefinition](docs/CutLabelDefinition.md)
- - [CutLocalTime](docs/CutLocalTime.md)
- - [DataDefinition](docs/DataDefinition.md)
- - [DataMapKey](docs/DataMapKey.md)
- - [DataMapping](docs/DataMapping.md)
- - [DataType](docs/DataType.md)
- - [DataTypeSummary](docs/DataTypeSummary.md)
- - [DataTypeValueRange](docs/DataTypeValueRange.md)
- - [DateAttributes](docs/DateAttributes.md)
- - [DateRange](docs/DateRange.md)
- - [DateTimeComparisonType](docs/DateTimeComparisonType.md)
- - [DayOfWeek](docs/DayOfWeek.md)
- - [DeleteInstrumentPropertiesResponse](docs/DeleteInstrumentPropertiesResponse.md)
- - [DeleteInstrumentResponse](docs/DeleteInstrumentResponse.md)
- - [DeleteRelationRequest](docs/DeleteRelationRequest.md)
- - [DeleteRelationshipRequest](docs/DeleteRelationshipRequest.md)
- - [DeletedEntityResponse](docs/DeletedEntityResponse.md)
- - [DeliveryType](docs/DeliveryType.md)
- - [DiscountFactorCurveData](docs/DiscountFactorCurveData.md)
- - [DiscountFactorCurveDataAllOf](docs/DiscountFactorCurveDataAllOf.md)
- - [DiscountingMethod](docs/DiscountingMethod.md)
- - [EmptyModelOptions](docs/EmptyModelOptions.md)
- - [EmptyModelOptionsAllOf](docs/EmptyModelOptionsAllOf.md)
- - [Equity](docs/Equity.md)
- - [EquityAllOf](docs/EquityAllOf.md)
- - [EquityAllOfIdentifiers](docs/EquityAllOfIdentifiers.md)
- - [EquityOption](docs/EquityOption.md)
- - [EquityOptionAllOf](docs/EquityOptionAllOf.md)
- - [EquitySwap](docs/EquitySwap.md)
- - [EquitySwapAllOf](docs/EquitySwapAllOf.md)
- - [EquityVolSurfaceData](docs/EquityVolSurfaceData.md)
- - [EquityVolSurfaceDataAllOf](docs/EquityVolSurfaceDataAllOf.md)
- - [ErrorDetail](docs/ErrorDetail.md)
- - [ExchangeTradedOption](docs/ExchangeTradedOption.md)
- - [ExchangeTradedOptionAllOf](docs/ExchangeTradedOptionAllOf.md)
- - [ExchangeTradedOptionContractDetails](docs/ExchangeTradedOptionContractDetails.md)
- - [Execution](docs/Execution.md)
- - [ExecutionRequest](docs/ExecutionRequest.md)
- - [ExecutionSetRequest](docs/ExecutionSetRequest.md)
- - [ExoticInstrument](docs/ExoticInstrument.md)
- - [ExoticInstrumentAllOf](docs/ExoticInstrumentAllOf.md)
- - [ExpandedGroup](docs/ExpandedGroup.md)
- - [FeeCalculationDetails](docs/FeeCalculationDetails.md)
- - [FieldDefinition](docs/FieldDefinition.md)
- - [FieldSchema](docs/FieldSchema.md)
- - [FieldValue](docs/FieldValue.md)
- - [FileResponse](docs/FileResponse.md)
- - [FixedLeg](docs/FixedLeg.md)
- - [FixedLegAllOf](docs/FixedLegAllOf.md)
- - [FixedLegAllOfOverrides](docs/FixedLegAllOfOverrides.md)
- - [FloatingLeg](docs/FloatingLeg.md)
- - [FloatingLegAllOf](docs/FloatingLegAllOf.md)
- - [FlowConventionName](docs/FlowConventionName.md)
- - [FlowConventions](docs/FlowConventions.md)
- - [ForwardRateAgreement](docs/ForwardRateAgreement.md)
- - [ForwardRateAgreementAllOf](docs/ForwardRateAgreementAllOf.md)
- - [FundingLeg](docs/FundingLeg.md)
- - [FundingLegAllOf](docs/FundingLegAllOf.md)
- - [Future](docs/Future.md)
- - [FutureAllOf](docs/FutureAllOf.md)
- - [FuturesContractDetails](docs/FuturesContractDetails.md)
- - [FxForward](docs/FxForward.md)
- - [FxForwardAllOf](docs/FxForwardAllOf.md)
- - [FxForwardCurveByQuoteReference](docs/FxForwardCurveByQuoteReference.md)
- - [FxForwardCurveByQuoteReferenceAllOf](docs/FxForwardCurveByQuoteReferenceAllOf.md)
- - [FxForwardCurveData](docs/FxForwardCurveData.md)
- - [FxForwardCurveDataAllOf](docs/FxForwardCurveDataAllOf.md)
- - [FxForwardModelOptions](docs/FxForwardModelOptions.md)
- - [FxForwardModelOptionsAllOf](docs/FxForwardModelOptionsAllOf.md)
- - [FxForwardPipsCurveData](docs/FxForwardPipsCurveData.md)
- - [FxForwardPipsCurveDataAllOf](docs/FxForwardPipsCurveDataAllOf.md)
- - [FxForwardTenorCurveData](docs/FxForwardTenorCurveData.md)
- - [FxForwardTenorCurveDataAllOf](docs/FxForwardTenorCurveDataAllOf.md)
- - [FxForwardTenorPipsCurveData](docs/FxForwardTenorPipsCurveData.md)
- - [FxForwardTenorPipsCurveDataAllOf](docs/FxForwardTenorPipsCurveDataAllOf.md)
- - [FxOption](docs/FxOption.md)
- - [FxOptionAllOf](docs/FxOptionAllOf.md)
- - [FxSwap](docs/FxSwap.md)
- - [FxSwapAllOf](docs/FxSwapAllOf.md)
- - [FxVolSurfaceData](docs/FxVolSurfaceData.md)
- - [GetCdsFlowConventionsResponse](docs/GetCdsFlowConventionsResponse.md)
- - [GetComplexMarketDataResponse](docs/GetComplexMarketDataResponse.md)
- - [GetCounterpartyAgreementResponse](docs/GetCounterpartyAgreementResponse.md)
- - [GetCreditSupportAnnexResponse](docs/GetCreditSupportAnnexResponse.md)
- - [GetDataMapResponse](docs/GetDataMapResponse.md)
- - [GetFlowConventionsResponse](docs/GetFlowConventionsResponse.md)
- - [GetIndexConventionResponse](docs/GetIndexConventionResponse.md)
- - [GetInstrumentsResponse](docs/GetInstrumentsResponse.md)
- - [GetQuotesResponse](docs/GetQuotesResponse.md)
- - [GetRecipeResponse](docs/GetRecipeResponse.md)
- - [GetReferencePortfolioConstituentsResponse](docs/GetReferencePortfolioConstituentsResponse.md)
- - [GetStructuredResultDataResponse](docs/GetStructuredResultDataResponse.md)
- - [GetVirtualDocumentResponse](docs/GetVirtualDocumentResponse.md)
- - [GroupedResultOfAddressKey](docs/GroupedResultOfAddressKey.md)
- - [HoldingAdjustment](docs/HoldingAdjustment.md)
- - [HoldingContext](docs/HoldingContext.md)
- - [HoldingsAdjustment](docs/HoldingsAdjustment.md)
- - [HoldingsAdjustmentHeader](docs/HoldingsAdjustmentHeader.md)
- - [IDataRecord](docs/IDataRecord.md)
- - [IUnitDefinitionDto](docs/IUnitDefinitionDto.md)
- - [IdSelectorDefinition](docs/IdSelectorDefinition.md)
- - [IdentifierPartSchema](docs/IdentifierPartSchema.md)
- - [IndexConvention](docs/IndexConvention.md)
- - [IndexModelOptions](docs/IndexModelOptions.md)
- - [IndexModelOptionsAllOf](docs/IndexModelOptionsAllOf.md)
- - [IndustryClassifier](docs/IndustryClassifier.md)
- - [InlineValuationRequest](docs/InlineValuationRequest.md)
- - [InlineValuationsReconciliationRequest](docs/InlineValuationsReconciliationRequest.md)
- - [Instrument](docs/Instrument.md)
- - [InstrumentCashFlow](docs/InstrumentCashFlow.md)
- - [InstrumentDefinition](docs/InstrumentDefinition.md)
- - [InstrumentDefinitionFormat](docs/InstrumentDefinitionFormat.md)
- - [InstrumentIdTypeDescriptor](docs/InstrumentIdTypeDescriptor.md)
- - [InstrumentIdValue](docs/InstrumentIdValue.md)
- - [InstrumentLeg](docs/InstrumentLeg.md)
- - [InstrumentLegAllOf](docs/InstrumentLegAllOf.md)
- - [InstrumentMatch](docs/InstrumentMatch.md)
- - [InstrumentProperties](docs/InstrumentProperties.md)
- - [InstrumentSearchProperty](docs/InstrumentSearchProperty.md)
- - [InstrumentType](docs/InstrumentType.md)
- - [InterestRateSwap](docs/InterestRateSwap.md)
- - [InterestRateSwapAllOf](docs/InterestRateSwapAllOf.md)
- - [InterestRateSwaption](docs/InterestRateSwaption.md)
- - [InterestRateSwaptionAllOf](docs/InterestRateSwaptionAllOf.md)
- - [IrVolCubeData](docs/IrVolCubeData.md)
- - [IrVolCubeDataAllOf](docs/IrVolCubeDataAllOf.md)
- - [IsBusinessDayResponse](docs/IsBusinessDayResponse.md)
- - [LabelValueSet](docs/LabelValueSet.md)
- - [LegDefinition](docs/LegDefinition.md)
- - [LegalEntity](docs/LegalEntity.md)
- - [LevelStep](docs/LevelStep.md)
- - [Link](docs/Link.md)
- - [ListAggregationReconciliation](docs/ListAggregationReconciliation.md)
- - [ListAggregationResponse](docs/ListAggregationResponse.md)
- - [ListComplexMarketDataWithMetaDataResponse](docs/ListComplexMarketDataWithMetaDataResponse.md)
- - [LusidInstrument](docs/LusidInstrument.md)
- - [LusidProblemDetails](docs/LusidProblemDetails.md)
- - [LusidValidationProblemDetails](docs/LusidValidationProblemDetails.md)
- - [MarketContext](docs/MarketContext.md)
- - [MarketContextSuppliers](docs/MarketContextSuppliers.md)
- - [MarketDataKeyRule](docs/MarketDataKeyRule.md)
- - [MarketDataType](docs/MarketDataType.md)
- - [MarketIdentifier](docs/MarketIdentifier.md)
- - [MarketObservableType](docs/MarketObservableType.md)
- - [MarketOptions](docs/MarketOptions.md)
- - [MarketQuote](docs/MarketQuote.md)
- - [MetricValue](docs/MetricValue.md)
- - [ModelOptions](docs/ModelOptions.md)
- - [ModelOptionsType](docs/ModelOptionsType.md)
- - [ModelProperty](docs/ModelProperty.md)
- - [ModelSelection](docs/ModelSelection.md)
- - [MovementType](docs/MovementType.md)
- - [Multiplier](docs/Multiplier.md)
- - [NextValueInSequenceResponse](docs/NextValueInSequenceResponse.md)
- - [NumericComparisonType](docs/NumericComparisonType.md)
- - [OpaqueMarketData](docs/OpaqueMarketData.md)
- - [OpaqueMarketDataAllOf](docs/OpaqueMarketDataAllOf.md)
- - [OpaqueModelOptions](docs/OpaqueModelOptions.md)
- - [OpaqueModelOptionsAllOf](docs/OpaqueModelOptionsAllOf.md)
- - [OperandType](docs/OperandType.md)
- - [Operation](docs/Operation.md)
- - [Operator](docs/Operator.md)
- - [OptionType](docs/OptionType.md)
- - [Order](docs/Order.md)
- - [OrderBySpec](docs/OrderBySpec.md)
- - [OrderGraphBlock](docs/OrderGraphBlock.md)
- - [OrderGraphPlacement](docs/OrderGraphPlacement.md)
- - [OrderGraphSynopsis](docs/OrderGraphSynopsis.md)
- - [OrderInstruction](docs/OrderInstruction.md)
- - [OrderInstructionRequest](docs/OrderInstructionRequest.md)
- - [OrderInstructionSetRequest](docs/OrderInstructionSetRequest.md)
- - [OrderRequest](docs/OrderRequest.md)
- - [OrderSetRequest](docs/OrderSetRequest.md)
- - [OtcConfirmation](docs/OtcConfirmation.md)
- - [OutputTransaction](docs/OutputTransaction.md)
- - [Package](docs/Package.md)
- - [PackageRequest](docs/PackageRequest.md)
- - [PackageSetRequest](docs/PackageSetRequest.md)
- - [PagedResourceListOfAllocation](docs/PagedResourceListOfAllocation.md)
- - [PagedResourceListOfBlock](docs/PagedResourceListOfBlock.md)
- - [PagedResourceListOfCalendar](docs/PagedResourceListOfCalendar.md)
- - [PagedResourceListOfComplianceRuleResult](docs/PagedResourceListOfComplianceRuleResult.md)
- - [PagedResourceListOfComplianceRun](docs/PagedResourceListOfComplianceRun.md)
- - [PagedResourceListOfCorporateActionSource](docs/PagedResourceListOfCorporateActionSource.md)
- - [PagedResourceListOfCustomEntityResponse](docs/PagedResourceListOfCustomEntityResponse.md)
- - [PagedResourceListOfCutLabelDefinition](docs/PagedResourceListOfCutLabelDefinition.md)
- - [PagedResourceListOfDataTypeSummary](docs/PagedResourceListOfDataTypeSummary.md)
- - [PagedResourceListOfExecution](docs/PagedResourceListOfExecution.md)
- - [PagedResourceListOfInstrument](docs/PagedResourceListOfInstrument.md)
- - [PagedResourceListOfLegalEntity](docs/PagedResourceListOfLegalEntity.md)
- - [PagedResourceListOfOrder](docs/PagedResourceListOfOrder.md)
- - [PagedResourceListOfOrderGraphBlock](docs/PagedResourceListOfOrderGraphBlock.md)
- - [PagedResourceListOfOrderGraphPlacement](docs/PagedResourceListOfOrderGraphPlacement.md)
- - [PagedResourceListOfOrderInstruction](docs/PagedResourceListOfOrderInstruction.md)
- - [PagedResourceListOfPackage](docs/PagedResourceListOfPackage.md)
- - [PagedResourceListOfParticipation](docs/PagedResourceListOfParticipation.md)
- - [PagedResourceListOfPerson](docs/PagedResourceListOfPerson.md)
- - [PagedResourceListOfPlacement](docs/PagedResourceListOfPlacement.md)
- - [PagedResourceListOfPortfolioGroupSearchResult](docs/PagedResourceListOfPortfolioGroupSearchResult.md)
- - [PagedResourceListOfPortfolioSearchResult](docs/PagedResourceListOfPortfolioSearchResult.md)
- - [PagedResourceListOfPropertyDefinitionSearchResult](docs/PagedResourceListOfPropertyDefinitionSearchResult.md)
- - [PagedResourceListOfRelationshipDefinition](docs/PagedResourceListOfRelationshipDefinition.md)
- - [PagedResourceListOfSequenceDefinition](docs/PagedResourceListOfSequenceDefinition.md)
- - [Participation](docs/Participation.md)
- - [ParticipationRequest](docs/ParticipationRequest.md)
- - [ParticipationSetRequest](docs/ParticipationSetRequest.md)
- - [PerformanceReturn](docs/PerformanceReturn.md)
- - [PerformanceReturnsMetric](docs/PerformanceReturnsMetric.md)
- - [PeriodType](docs/PeriodType.md)
- - [PerpetualEntityState](docs/PerpetualEntityState.md)
- - [PerpetualProperty](docs/PerpetualProperty.md)
- - [Person](docs/Person.md)
- - [Placement](docs/Placement.md)
- - [PlacementRequest](docs/PlacementRequest.md)
- - [PlacementSetRequest](docs/PlacementSetRequest.md)
- - [Portfolio](docs/Portfolio.md)
- - [PortfolioCashFlow](docs/PortfolioCashFlow.md)
- - [PortfolioCashLadder](docs/PortfolioCashLadder.md)
- - [PortfolioDetails](docs/PortfolioDetails.md)
- - [PortfolioEntityId](docs/PortfolioEntityId.md)
- - [PortfolioGroup](docs/PortfolioGroup.md)
- - [PortfolioGroupProperties](docs/PortfolioGroupProperties.md)
- - [PortfolioGroupSearchResult](docs/PortfolioGroupSearchResult.md)
- - [PortfolioHolding](docs/PortfolioHolding.md)
- - [PortfolioProperties](docs/PortfolioProperties.md)
- - [PortfolioReconciliationRequest](docs/PortfolioReconciliationRequest.md)
- - [PortfolioSearchResult](docs/PortfolioSearchResult.md)
- - [PortfolioType](docs/PortfolioType.md)
- - [PortfoliosReconciliationRequest](docs/PortfoliosReconciliationRequest.md)
- - [PortfoliosReconciliationRequestPreview](docs/PortfoliosReconciliationRequestPreview.md)
- - [Premium](docs/Premium.md)
- - [PricingContext](docs/PricingContext.md)
- - [PricingModel](docs/PricingModel.md)
- - [PricingOptions](docs/PricingOptions.md)
- - [ProcessedCommand](docs/ProcessedCommand.md)
- - [PropertyDefinition](docs/PropertyDefinition.md)
- - [PropertyDefinitionSearchResult](docs/PropertyDefinitionSearchResult.md)
- - [PropertyDefinitionType](docs/PropertyDefinitionType.md)
- - [PropertyDomain](docs/PropertyDomain.md)
- - [PropertyFilter](docs/PropertyFilter.md)
- - [PropertyInterval](docs/PropertyInterval.md)
- - [PropertyLifeTime](docs/PropertyLifeTime.md)
- - [PropertySchema](docs/PropertySchema.md)
- - [PropertyType](docs/PropertyType.md)
- - [PropertyValue](docs/PropertyValue.md)
- - [Quote](docs/Quote.md)
- - [QuoteAccessMetadataRule](docs/QuoteAccessMetadataRule.md)
- - [QuoteAccessMetadataRuleId](docs/QuoteAccessMetadataRuleId.md)
- - [QuoteId](docs/QuoteId.md)
- - [QuoteInstrumentIdType](docs/QuoteInstrumentIdType.md)
- - [QuoteSeriesId](docs/QuoteSeriesId.md)
- - [QuoteType](docs/QuoteType.md)
- - [RealisedGainLoss](docs/RealisedGainLoss.md)
- - [ReconcileDateTimeRule](docs/ReconcileDateTimeRule.md)
- - [ReconcileDateTimeRuleAllOf](docs/ReconcileDateTimeRuleAllOf.md)
- - [ReconcileNumericRule](docs/ReconcileNumericRule.md)
- - [ReconcileNumericRuleAllOf](docs/ReconcileNumericRuleAllOf.md)
- - [ReconcileStringRule](docs/ReconcileStringRule.md)
- - [ReconcileStringRuleAllOf](docs/ReconcileStringRuleAllOf.md)
- - [ReconciliationBreak](docs/ReconciliationBreak.md)
- - [ReconciliationLeftRightAddressKeyPair](docs/ReconciliationLeftRightAddressKeyPair.md)
- - [ReconciliationLine](docs/ReconciliationLine.md)
- - [ReconciliationRequest](docs/ReconciliationRequest.md)
- - [ReconciliationResponse](docs/ReconciliationResponse.md)
- - [ReconciliationRule](docs/ReconciliationRule.md)
- - [ReconciliationRuleType](docs/ReconciliationRuleType.md)
- - [ReferenceData](docs/ReferenceData.md)
- - [ReferencePortfolioConstituent](docs/ReferencePortfolioConstituent.md)
- - [ReferencePortfolioConstituentRequest](docs/ReferencePortfolioConstituentRequest.md)
- - [ReferencePortfolioWeightType](docs/ReferencePortfolioWeightType.md)
- - [RelatedEntity](docs/RelatedEntity.md)
- - [Relation](docs/Relation.md)
- - [RelationDefinition](docs/RelationDefinition.md)
- - [Relationship](docs/Relationship.md)
- - [RelationshipDefinition](docs/RelationshipDefinition.md)
- - [Repo](docs/Repo.md)
- - [RepoAllOf](docs/RepoAllOf.md)
- - [ResourceId](docs/ResourceId.md)
- - [ResourceListOfAccessControlledResource](docs/ResourceListOfAccessControlledResource.md)
- - [ResourceListOfAccessMetadataValueOf](docs/ResourceListOfAccessMetadataValueOf.md)
- - [ResourceListOfAggregatedReturn](docs/ResourceListOfAggregatedReturn.md)
- - [ResourceListOfAggregationQuery](docs/ResourceListOfAggregationQuery.md)
- - [ResourceListOfAllocation](docs/ResourceListOfAllocation.md)
- - [ResourceListOfBlock](docs/ResourceListOfBlock.md)
- - [ResourceListOfCalendarDate](docs/ResourceListOfCalendarDate.md)
- - [ResourceListOfChange](docs/ResourceListOfChange.md)
- - [ResourceListOfConstituentsAdjustmentHeader](docs/ResourceListOfConstituentsAdjustmentHeader.md)
- - [ResourceListOfCorporateAction](docs/ResourceListOfCorporateAction.md)
- - [ResourceListOfDataType](docs/ResourceListOfDataType.md)
- - [ResourceListOfExecution](docs/ResourceListOfExecution.md)
- - [ResourceListOfFeeCalculationDetails](docs/ResourceListOfFeeCalculationDetails.md)
- - [ResourceListOfGetCdsFlowConventionsResponse](docs/ResourceListOfGetCdsFlowConventionsResponse.md)
- - [ResourceListOfGetCounterpartyAgreementResponse](docs/ResourceListOfGetCounterpartyAgreementResponse.md)
- - [ResourceListOfGetCreditSupportAnnexResponse](docs/ResourceListOfGetCreditSupportAnnexResponse.md)
- - [ResourceListOfGetFlowConventionsResponse](docs/ResourceListOfGetFlowConventionsResponse.md)
- - [ResourceListOfGetIndexConventionResponse](docs/ResourceListOfGetIndexConventionResponse.md)
- - [ResourceListOfGetRecipeResponse](docs/ResourceListOfGetRecipeResponse.md)
- - [ResourceListOfHoldingsAdjustmentHeader](docs/ResourceListOfHoldingsAdjustmentHeader.md)
- - [ResourceListOfIUnitDefinitionDto](docs/ResourceListOfIUnitDefinitionDto.md)
- - [ResourceListOfInstrumentCashFlow](docs/ResourceListOfInstrumentCashFlow.md)
- - [ResourceListOfInstrumentIdTypeDescriptor](docs/ResourceListOfInstrumentIdTypeDescriptor.md)
- - [ResourceListOfListComplexMarketDataWithMetaDataResponse](docs/ResourceListOfListComplexMarketDataWithMetaDataResponse.md)
- - [ResourceListOfOrder](docs/ResourceListOfOrder.md)
- - [ResourceListOfOrderInstruction](docs/ResourceListOfOrderInstruction.md)
- - [ResourceListOfPackage](docs/ResourceListOfPackage.md)
- - [ResourceListOfParticipation](docs/ResourceListOfParticipation.md)
- - [ResourceListOfPerformanceReturn](docs/ResourceListOfPerformanceReturn.md)
- - [ResourceListOfPlacement](docs/ResourceListOfPlacement.md)
- - [ResourceListOfPortfolio](docs/ResourceListOfPortfolio.md)
- - [ResourceListOfPortfolioCashFlow](docs/ResourceListOfPortfolioCashFlow.md)
- - [ResourceListOfPortfolioCashLadder](docs/ResourceListOfPortfolioCashLadder.md)
- - [ResourceListOfPortfolioGroup](docs/ResourceListOfPortfolioGroup.md)
- - [ResourceListOfProcessedCommand](docs/ResourceListOfProcessedCommand.md)
- - [ResourceListOfProperty](docs/ResourceListOfProperty.md)
- - [ResourceListOfPropertyDefinition](docs/ResourceListOfPropertyDefinition.md)
- - [ResourceListOfPropertyInterval](docs/ResourceListOfPropertyInterval.md)
- - [ResourceListOfQuote](docs/ResourceListOfQuote.md)
- - [ResourceListOfQuoteAccessMetadataRule](docs/ResourceListOfQuoteAccessMetadataRule.md)
- - [ResourceListOfReconciliationBreak](docs/ResourceListOfReconciliationBreak.md)
- - [ResourceListOfRelation](docs/ResourceListOfRelation.md)
- - [ResourceListOfRelationship](docs/ResourceListOfRelationship.md)
- - [ResourceListOfScopeDefinition](docs/ResourceListOfScopeDefinition.md)
- - [ResourceListOfString](docs/ResourceListOfString.md)
- - [ResourceListOfTransaction](docs/ResourceListOfTransaction.md)
- - [ResourceListOfValueType](docs/ResourceListOfValueType.md)
- - [ResultDataKeyRule](docs/ResultDataKeyRule.md)
- - [ResultDataSchema](docs/ResultDataSchema.md)
- - [ScalingMethodology](docs/ScalingMethodology.md)
- - [Schema](docs/Schema.md)
- - [ScopeDefinition](docs/ScopeDefinition.md)
- - [SequenceDefinition](docs/SequenceDefinition.md)
- - [SetLegalEntityIdentifiersRequest](docs/SetLegalEntityIdentifiersRequest.md)
- - [SetPersonIdentifiersRequest](docs/SetPersonIdentifiersRequest.md)
- - [SetPersonPropertiesRequest](docs/SetPersonPropertiesRequest.md)
- - [SetTransactionConfigurationAlias](docs/SetTransactionConfigurationAlias.md)
- - [SetTransactionConfigurationSourceRequest](docs/SetTransactionConfigurationSourceRequest.md)
- - [SideConfigurationData](docs/SideConfigurationData.md)
- - [SideConfigurationDataRequest](docs/SideConfigurationDataRequest.md)
- - [SimpleInstrument](docs/SimpleInstrument.md)
- - [SimpleInstrumentAllOf](docs/SimpleInstrumentAllOf.md)
- - [SortOrder](docs/SortOrder.md)
- - [StepSchedule](docs/StepSchedule.md)
- - [Stream](docs/Stream.md)
- - [StringComparisonType](docs/StringComparisonType.md)
- - [StructuredResultData](docs/StructuredResultData.md)
- - [StructuredResultDataId](docs/StructuredResultDataId.md)
- - [TargetTaxLot](docs/TargetTaxLot.md)
- - [TargetTaxLotRequest](docs/TargetTaxLotRequest.md)
- - [TermDeposit](docs/TermDeposit.md)
- - [TermDepositAllOf](docs/TermDepositAllOf.md)
- - [Tolerance](docs/Tolerance.md)
- - [ToleranceEnum](docs/ToleranceEnum.md)
- - [Transaction](docs/Transaction.md)
- - [TransactionConfigurationData](docs/TransactionConfigurationData.md)
- - [TransactionConfigurationDataRequest](docs/TransactionConfigurationDataRequest.md)
- - [TransactionConfigurationMovementData](docs/TransactionConfigurationMovementData.md)
- - [TransactionConfigurationMovementDataRequest](docs/TransactionConfigurationMovementDataRequest.md)
- - [TransactionConfigurationTypeAlias](docs/TransactionConfigurationTypeAlias.md)
- - [TransactionPrice](docs/TransactionPrice.md)
- - [TransactionPriceType](docs/TransactionPriceType.md)
- - [TransactionPropertyMapping](docs/TransactionPropertyMapping.md)
- - [TransactionPropertyMappingRequest](docs/TransactionPropertyMappingRequest.md)
- - [TransactionQueryMode](docs/TransactionQueryMode.md)
- - [TransactionQueryParameters](docs/TransactionQueryParameters.md)
- - [TransactionRequest](docs/TransactionRequest.md)
- - [TransactionRoles](docs/TransactionRoles.md)
- - [TransactionSetConfigurationData](docs/TransactionSetConfigurationData.md)
- - [TransactionSetConfigurationDataRequest](docs/TransactionSetConfigurationDataRequest.md)
- - [TransactionStatus](docs/TransactionStatus.md)
- - [TranslateInstrumentDefinitionsRequest](docs/TranslateInstrumentDefinitionsRequest.md)
- - [TranslateInstrumentDefinitionsResponse](docs/TranslateInstrumentDefinitionsResponse.md)
- - [TypedResourceId](docs/TypedResourceId.md)
- - [UnitSchema](docs/UnitSchema.md)
- - [UnmatchedHoldingMethod](docs/UnmatchedHoldingMethod.md)
- - [UpdateCalendarRequest](docs/UpdateCalendarRequest.md)
- - [UpdateCutLabelDefinitionRequest](docs/UpdateCutLabelDefinitionRequest.md)
- - [UpdateDataTypeRequest](docs/UpdateDataTypeRequest.md)
- - [UpdateInstrumentIdentifierRequest](docs/UpdateInstrumentIdentifierRequest.md)
- - [UpdatePortfolioGroupRequest](docs/UpdatePortfolioGroupRequest.md)
- - [UpdatePortfolioRequest](docs/UpdatePortfolioRequest.md)
- - [UpdatePropertyDefinitionRequest](docs/UpdatePropertyDefinitionRequest.md)
- - [UpdateRelationshipDefinitionRequest](docs/UpdateRelationshipDefinitionRequest.md)
- - [UpdateUnitRequest](docs/UpdateUnitRequest.md)
- - [UpsertCdsFlowConventionsRequest](docs/UpsertCdsFlowConventionsRequest.md)
- - [UpsertComplexMarketDataRequest](docs/UpsertComplexMarketDataRequest.md)
- - [UpsertCorporateActionRequest](docs/UpsertCorporateActionRequest.md)
- - [UpsertCorporateActionsResponse](docs/UpsertCorporateActionsResponse.md)
- - [UpsertCounterpartyAgreementRequest](docs/UpsertCounterpartyAgreementRequest.md)
- - [UpsertCreditSupportAnnexRequest](docs/UpsertCreditSupportAnnexRequest.md)
- - [UpsertFlowConventionsRequest](docs/UpsertFlowConventionsRequest.md)
- - [UpsertIndexConventionRequest](docs/UpsertIndexConventionRequest.md)
- - [UpsertInstrumentPropertiesResponse](docs/UpsertInstrumentPropertiesResponse.md)
- - [UpsertInstrumentPropertyRequest](docs/UpsertInstrumentPropertyRequest.md)
- - [UpsertInstrumentsResponse](docs/UpsertInstrumentsResponse.md)
- - [UpsertLegalEntityAccessMetadataRequest](docs/UpsertLegalEntityAccessMetadataRequest.md)
- - [UpsertLegalEntityRequest](docs/UpsertLegalEntityRequest.md)
- - [UpsertPersonAccessMetadataRequest](docs/UpsertPersonAccessMetadataRequest.md)
- - [UpsertPersonRequest](docs/UpsertPersonRequest.md)
- - [UpsertPortfolioAccessMetadataRequest](docs/UpsertPortfolioAccessMetadataRequest.md)
- - [UpsertPortfolioGroupAccessMetadataRequest](docs/UpsertPortfolioGroupAccessMetadataRequest.md)
- - [UpsertPortfolioTransactionsResponse](docs/UpsertPortfolioTransactionsResponse.md)
- - [UpsertQuoteAccessMetadataRuleRequest](docs/UpsertQuoteAccessMetadataRuleRequest.md)
- - [UpsertQuoteRequest](docs/UpsertQuoteRequest.md)
- - [UpsertQuotesResponse](docs/UpsertQuotesResponse.md)
- - [UpsertRecipeRequest](docs/UpsertRecipeRequest.md)
- - [UpsertReferencePortfolioConstituentsRequest](docs/UpsertReferencePortfolioConstituentsRequest.md)
- - [UpsertReferencePortfolioConstituentsResponse](docs/UpsertReferencePortfolioConstituentsResponse.md)
- - [UpsertReturnsResponse](docs/UpsertReturnsResponse.md)
- - [UpsertSingleStructuredDataResponse](docs/UpsertSingleStructuredDataResponse.md)
- - [UpsertStructuredDataResponse](docs/UpsertStructuredDataResponse.md)
- - [UpsertStructuredResultDataRequest](docs/UpsertStructuredResultDataRequest.md)
- - [UpsertTransactionPropertiesResponse](docs/UpsertTransactionPropertiesResponse.md)
- - [User](docs/User.md)
- - [ValuationRequest](docs/ValuationRequest.md)
- - [ValuationSchedule](docs/ValuationSchedule.md)
- - [ValuationsReconciliationRequest](docs/ValuationsReconciliationRequest.md)
- - [ValueType](docs/ValueType.md)
- - [VendorLibrary](docs/VendorLibrary.md)
- - [VendorModelRule](docs/VendorModelRule.md)
- - [Version](docs/Version.md)
- - [VersionSummaryDto](docs/VersionSummaryDto.md)
- - [VersionedResourceListOfA2BDataRecord](docs/VersionedResourceListOfA2BDataRecord.md)
- - [VersionedResourceListOfA2BMovementRecord](docs/VersionedResourceListOfA2BMovementRecord.md)
- - [VersionedResourceListOfOutputTransaction](docs/VersionedResourceListOfOutputTransaction.md)
- - [VersionedResourceListOfPortfolioHolding](docs/VersionedResourceListOfPortfolioHolding.md)
- - [VersionedResourceListOfTransaction](docs/VersionedResourceListOfTransaction.md)
- - [VersionedResourceListWithWarningsOfPortfolioHolding](docs/VersionedResourceListWithWarningsOfPortfolioHolding.md)
- - [VirtualDocument](docs/VirtualDocument.md)
- - [VirtualDocumentRow](docs/VirtualDocumentRow.md)
- - [Warning](docs/Warning.md)
- - [WeekendMask](docs/WeekendMask.md)
- - [WeightedInstrument](docs/WeightedInstrument.md)
- - [WeightedInstruments](docs/WeightedInstruments.md)
- - [YieldCurveData](docs/YieldCurveData.md)
- - [YieldCurveDataAllOf](docs/YieldCurveDataAllOf.md)
+ - [A2BBreakdown](docs/models/A2BBreakdown.md)
+ - [A2BCategory](docs/models/A2BCategory.md)
+ - [A2BDataRecord](docs/models/A2BDataRecord.md)
+ - [A2BMovementRecord](docs/models/A2BMovementRecord.md)
+ - [AccessControlledAction](docs/models/AccessControlledAction.md)
+ - [AccessControlledResource](docs/models/AccessControlledResource.md)
+ - [AccessMetadataValue](docs/models/AccessMetadataValue.md)
+ - [AccountingMethod](docs/models/AccountingMethod.md)
+ - [ActionId](docs/models/ActionId.md)
+ - [AddBusinessDaysToDateRequest](docs/models/AddBusinessDaysToDateRequest.md)
+ - [AddBusinessDaysToDateResponse](docs/models/AddBusinessDaysToDateResponse.md)
+ - [AdjustHolding](docs/models/AdjustHolding.md)
+ - [AdjustHoldingRequest](docs/models/AdjustHoldingRequest.md)
+ - [AggregateSpec](docs/models/AggregateSpec.md)
+ - [AggregatedReturn](docs/models/AggregatedReturn.md)
+ - [AggregatedReturnsRequest](docs/models/AggregatedReturnsRequest.md)
+ - [AggregationContext](docs/models/AggregationContext.md)
+ - [AggregationMeasureFailureDetail](docs/models/AggregationMeasureFailureDetail.md)
+ - [AggregationOp](docs/models/AggregationOp.md)
+ - [AggregationOptions](docs/models/AggregationOptions.md)
+ - [AggregationQuery](docs/models/AggregationQuery.md)
+ - [AggregationType](docs/models/AggregationType.md)
+ - [Allocation](docs/models/Allocation.md)
+ - [AllocationRequest](docs/models/AllocationRequest.md)
+ - [AllocationSetRequest](docs/models/AllocationSetRequest.md)
+ - [AnnulQuotesResponse](docs/models/AnnulQuotesResponse.md)
+ - [AnnulSingleStructuredDataResponse](docs/models/AnnulSingleStructuredDataResponse.md)
+ - [AnnulStructuredDataResponse](docs/models/AnnulStructuredDataResponse.md)
+ - [AssetClass](docs/models/AssetClass.md)
+ - [AtomValue](docs/models/AtomValue.md)
+ - [AtomValue0D](docs/models/AtomValue0D.md)
+ - [AtomValueDecimal](docs/models/AtomValueDecimal.md)
+ - [AtomValueInt](docs/models/AtomValueInt.md)
+ - [AtomValueString](docs/models/AtomValueString.md)
+ - [AtomValueType](docs/models/AtomValueType.md)
+ - [Basket](docs/models/Basket.md)
+ - [BasketIdentifier](docs/models/BasketIdentifier.md)
+ - [Block](docs/models/Block.md)
+ - [BlockRequest](docs/models/BlockRequest.md)
+ - [BlockSetRequest](docs/models/BlockSetRequest.md)
+ - [Bond](docs/models/Bond.md)
+ - [BucketedCashFlowRequest](docs/models/BucketedCashFlowRequest.md)
+ - [BucketedCashFlowResponse](docs/models/BucketedCashFlowResponse.md)
+ - [CalculationInfo](docs/models/CalculationInfo.md)
+ - [CalculationMethod](docs/models/CalculationMethod.md)
+ - [Calendar](docs/models/Calendar.md)
+ - [CalendarDate](docs/models/CalendarDate.md)
+ - [CapFloor](docs/models/CapFloor.md)
+ - [CashLadderRecord](docs/models/CashLadderRecord.md)
+ - [CashPerpetual](docs/models/CashPerpetual.md)
+ - [CdsFlowConventions](docs/models/CdsFlowConventions.md)
+ - [CdsIndex](docs/models/CdsIndex.md)
+ - [CdsProtectionDetailSpecification](docs/models/CdsProtectionDetailSpecification.md)
+ - [CdsRestructuringType](docs/models/CdsRestructuringType.md)
+ - [CdsSeniority](docs/models/CdsSeniority.md)
+ - [Change](docs/models/Change.md)
+ - [CompletePortfolio](docs/models/CompletePortfolio.md)
+ - [CompleteRelation](docs/models/CompleteRelation.md)
+ - [CompleteRelationship](docs/models/CompleteRelationship.md)
+ - [ComplexMarketData](docs/models/ComplexMarketData.md)
+ - [ComplexMarketDataId](docs/models/ComplexMarketDataId.md)
+ - [ComplianceRuleResult](docs/models/ComplianceRuleResult.md)
+ - [ComplianceRun](docs/models/ComplianceRun.md)
+ - [Compounding](docs/models/Compounding.md)
+ - [ConfigurationRecipe](docs/models/ConfigurationRecipe.md)
+ - [ConfigurationRecipeSnippet](docs/models/ConfigurationRecipeSnippet.md)
+ - [ConstituentsAdjustmentHeader](docs/models/ConstituentsAdjustmentHeader.md)
+ - [ContractForDifference](docs/models/ContractForDifference.md)
+ - [CorporateAction](docs/models/CorporateAction.md)
+ - [CorporateActionSource](docs/models/CorporateActionSource.md)
+ - [CorporateActionTransition](docs/models/CorporateActionTransition.md)
+ - [CorporateActionTransitionComponent](docs/models/CorporateActionTransitionComponent.md)
+ - [CorporateActionTransitionComponentRequest](docs/models/CorporateActionTransitionComponentRequest.md)
+ - [CorporateActionTransitionRequest](docs/models/CorporateActionTransitionRequest.md)
+ - [CounterpartyAgreement](docs/models/CounterpartyAgreement.md)
+ - [CounterpartyRiskInformation](docs/models/CounterpartyRiskInformation.md)
+ - [CounterpartySignatory](docs/models/CounterpartySignatory.md)
+ - [CreateCalendarRequest](docs/models/CreateCalendarRequest.md)
+ - [CreateCorporateActionSourceRequest](docs/models/CreateCorporateActionSourceRequest.md)
+ - [CreateCutLabelDefinitionRequest](docs/models/CreateCutLabelDefinitionRequest.md)
+ - [CreateDataMapRequest](docs/models/CreateDataMapRequest.md)
+ - [CreateDataTypeRequest](docs/models/CreateDataTypeRequest.md)
+ - [CreateDateRequest](docs/models/CreateDateRequest.md)
+ - [CreateDerivedPropertyDefinitionRequest](docs/models/CreateDerivedPropertyDefinitionRequest.md)
+ - [CreateDerivedTransactionPortfolioRequest](docs/models/CreateDerivedTransactionPortfolioRequest.md)
+ - [CreatePortfolioDetails](docs/models/CreatePortfolioDetails.md)
+ - [CreatePortfolioGroupRequest](docs/models/CreatePortfolioGroupRequest.md)
+ - [CreatePropertyDefinitionRequest](docs/models/CreatePropertyDefinitionRequest.md)
+ - [CreateRecipeRequest](docs/models/CreateRecipeRequest.md)
+ - [CreateReferencePortfolioRequest](docs/models/CreateReferencePortfolioRequest.md)
+ - [CreateRelationDefinitionRequest](docs/models/CreateRelationDefinitionRequest.md)
+ - [CreateRelationRequest](docs/models/CreateRelationRequest.md)
+ - [CreateRelationshipDefinitionRequest](docs/models/CreateRelationshipDefinitionRequest.md)
+ - [CreateRelationshipRequest](docs/models/CreateRelationshipRequest.md)
+ - [CreateSequenceRequest](docs/models/CreateSequenceRequest.md)
+ - [CreateTransactionPortfolioRequest](docs/models/CreateTransactionPortfolioRequest.md)
+ - [CreateUnitDefinition](docs/models/CreateUnitDefinition.md)
+ - [CreditDefaultSwap](docs/models/CreditDefaultSwap.md)
+ - [CreditRating](docs/models/CreditRating.md)
+ - [CreditSpreadCurveData](docs/models/CreditSpreadCurveData.md)
+ - [CreditSupportAnnex](docs/models/CreditSupportAnnex.md)
+ - [CrossCurrencySwap](docs/models/CrossCurrencySwap.md)
+ - [CurrencyAndAmount](docs/models/CurrencyAndAmount.md)
+ - [CustomEntityDefinition](docs/models/CustomEntityDefinition.md)
+ - [CustomEntityDefinitionRequest](docs/models/CustomEntityDefinitionRequest.md)
+ - [CustomEntityField](docs/models/CustomEntityField.md)
+ - [CustomEntityFieldDefinition](docs/models/CustomEntityFieldDefinition.md)
+ - [CustomEntityIdRequest](docs/models/CustomEntityIdRequest.md)
+ - [CustomEntityIdResponse](docs/models/CustomEntityIdResponse.md)
+ - [CustomEntityRequest](docs/models/CustomEntityRequest.md)
+ - [CustomEntityResponse](docs/models/CustomEntityResponse.md)
+ - [CutLabelDefinition](docs/models/CutLabelDefinition.md)
+ - [CutLocalTime](docs/models/CutLocalTime.md)
+ - [DataDefinition](docs/models/DataDefinition.md)
+ - [DataMapKey](docs/models/DataMapKey.md)
+ - [DataMapping](docs/models/DataMapping.md)
+ - [DataType](docs/models/DataType.md)
+ - [DataTypeSummary](docs/models/DataTypeSummary.md)
+ - [DataTypeValueRange](docs/models/DataTypeValueRange.md)
+ - [DateAttributes](docs/models/DateAttributes.md)
+ - [DateRange](docs/models/DateRange.md)
+ - [DateTimeComparisonType](docs/models/DateTimeComparisonType.md)
+ - [DayOfWeek](docs/models/DayOfWeek.md)
+ - [DeleteInstrumentPropertiesResponse](docs/models/DeleteInstrumentPropertiesResponse.md)
+ - [DeleteInstrumentResponse](docs/models/DeleteInstrumentResponse.md)
+ - [DeleteRelationRequest](docs/models/DeleteRelationRequest.md)
+ - [DeleteRelationshipRequest](docs/models/DeleteRelationshipRequest.md)
+ - [DeletedEntityResponse](docs/models/DeletedEntityResponse.md)
+ - [DeliveryType](docs/models/DeliveryType.md)
+ - [DiscountFactorCurveData](docs/models/DiscountFactorCurveData.md)
+ - [DiscountingMethod](docs/models/DiscountingMethod.md)
+ - [EmptyModelOptions](docs/models/EmptyModelOptions.md)
+ - [Equity](docs/models/Equity.md)
+ - [EquityOption](docs/models/EquityOption.md)
+ - [EquitySwap](docs/models/EquitySwap.md)
+ - [EquityVolSurfaceData](docs/models/EquityVolSurfaceData.md)
+ - [ErrorDetail](docs/models/ErrorDetail.md)
+ - [ExchangeTradedOption](docs/models/ExchangeTradedOption.md)
+ - [ExchangeTradedOptionContractDetails](docs/models/ExchangeTradedOptionContractDetails.md)
+ - [Execution](docs/models/Execution.md)
+ - [ExecutionRequest](docs/models/ExecutionRequest.md)
+ - [ExecutionSetRequest](docs/models/ExecutionSetRequest.md)
+ - [ExoticInstrument](docs/models/ExoticInstrument.md)
+ - [ExpandedGroup](docs/models/ExpandedGroup.md)
+ - [FeeCalculationDetails](docs/models/FeeCalculationDetails.md)
+ - [FieldDefinition](docs/models/FieldDefinition.md)
+ - [FieldSchema](docs/models/FieldSchema.md)
+ - [FieldValue](docs/models/FieldValue.md)
+ - [FileResponse](docs/models/FileResponse.md)
+ - [FixedLeg](docs/models/FixedLeg.md)
+ - [FloatingLeg](docs/models/FloatingLeg.md)
+ - [FlowConventionName](docs/models/FlowConventionName.md)
+ - [FlowConventions](docs/models/FlowConventions.md)
+ - [ForwardRateAgreement](docs/models/ForwardRateAgreement.md)
+ - [FundingLeg](docs/models/FundingLeg.md)
+ - [Future](docs/models/Future.md)
+ - [FuturesContractDetails](docs/models/FuturesContractDetails.md)
+ - [FxForward](docs/models/FxForward.md)
+ - [FxForwardCurveByQuoteReference](docs/models/FxForwardCurveByQuoteReference.md)
+ - [FxForwardCurveData](docs/models/FxForwardCurveData.md)
+ - [FxForwardModelOptions](docs/models/FxForwardModelOptions.md)
+ - [FxForwardPipsCurveData](docs/models/FxForwardPipsCurveData.md)
+ - [FxForwardTenorCurveData](docs/models/FxForwardTenorCurveData.md)
+ - [FxForwardTenorPipsCurveData](docs/models/FxForwardTenorPipsCurveData.md)
+ - [FxOption](docs/models/FxOption.md)
+ - [FxSwap](docs/models/FxSwap.md)
+ - [FxVolSurfaceData](docs/models/FxVolSurfaceData.md)
+ - [GetCdsFlowConventionsResponse](docs/models/GetCdsFlowConventionsResponse.md)
+ - [GetComplexMarketDataResponse](docs/models/GetComplexMarketDataResponse.md)
+ - [GetCounterpartyAgreementResponse](docs/models/GetCounterpartyAgreementResponse.md)
+ - [GetCreditSupportAnnexResponse](docs/models/GetCreditSupportAnnexResponse.md)
+ - [GetDataMapResponse](docs/models/GetDataMapResponse.md)
+ - [GetFlowConventionsResponse](docs/models/GetFlowConventionsResponse.md)
+ - [GetIndexConventionResponse](docs/models/GetIndexConventionResponse.md)
+ - [GetInstrumentsResponse](docs/models/GetInstrumentsResponse.md)
+ - [GetQuotesResponse](docs/models/GetQuotesResponse.md)
+ - [GetRecipeResponse](docs/models/GetRecipeResponse.md)
+ - [GetReferencePortfolioConstituentsResponse](docs/models/GetReferencePortfolioConstituentsResponse.md)
+ - [GetStructuredResultDataResponse](docs/models/GetStructuredResultDataResponse.md)
+ - [GetVirtualDocumentResponse](docs/models/GetVirtualDocumentResponse.md)
+ - [GroupedResultOfAddressKey](docs/models/GroupedResultOfAddressKey.md)
+ - [HoldingAdjustment](docs/models/HoldingAdjustment.md)
+ - [HoldingContext](docs/models/HoldingContext.md)
+ - [HoldingsAdjustment](docs/models/HoldingsAdjustment.md)
+ - [HoldingsAdjustmentHeader](docs/models/HoldingsAdjustmentHeader.md)
+ - [IDataRecord](docs/models/IDataRecord.md)
+ - [IUnitDefinitionDto](docs/models/IUnitDefinitionDto.md)
+ - [IdSelectorDefinition](docs/models/IdSelectorDefinition.md)
+ - [IdentifierPartSchema](docs/models/IdentifierPartSchema.md)
+ - [IndexConvention](docs/models/IndexConvention.md)
+ - [IndexModelOptions](docs/models/IndexModelOptions.md)
+ - [IndustryClassifier](docs/models/IndustryClassifier.md)
+ - [InlineValuationRequest](docs/models/InlineValuationRequest.md)
+ - [InlineValuationsReconciliationRequest](docs/models/InlineValuationsReconciliationRequest.md)
+ - [Instrument](docs/models/Instrument.md)
+ - [InstrumentCashFlow](docs/models/InstrumentCashFlow.md)
+ - [InstrumentDefinition](docs/models/InstrumentDefinition.md)
+ - [InstrumentDefinitionFormat](docs/models/InstrumentDefinitionFormat.md)
+ - [InstrumentIdTypeDescriptor](docs/models/InstrumentIdTypeDescriptor.md)
+ - [InstrumentIdValue](docs/models/InstrumentIdValue.md)
+ - [InstrumentLeg](docs/models/InstrumentLeg.md)
+ - [InstrumentMatch](docs/models/InstrumentMatch.md)
+ - [InstrumentProperties](docs/models/InstrumentProperties.md)
+ - [InstrumentSearchProperty](docs/models/InstrumentSearchProperty.md)
+ - [InstrumentType](docs/models/InstrumentType.md)
+ - [InterestRateSwap](docs/models/InterestRateSwap.md)
+ - [InterestRateSwaption](docs/models/InterestRateSwaption.md)
+ - [IrVolCubeData](docs/models/IrVolCubeData.md)
+ - [IsBusinessDayResponse](docs/models/IsBusinessDayResponse.md)
+ - [LabelValueSet](docs/models/LabelValueSet.md)
+ - [LegDefinition](docs/models/LegDefinition.md)
+ - [LegalEntity](docs/models/LegalEntity.md)
+ - [LevelStep](docs/models/LevelStep.md)
+ - [Link](docs/models/Link.md)
+ - [ListAggregationReconciliation](docs/models/ListAggregationReconciliation.md)
+ - [ListAggregationResponse](docs/models/ListAggregationResponse.md)
+ - [ListComplexMarketDataWithMetaDataResponse](docs/models/ListComplexMarketDataWithMetaDataResponse.md)
+ - [LusidInstrument](docs/models/LusidInstrument.md)
+ - [LusidProblemDetails](docs/models/LusidProblemDetails.md)
+ - [LusidValidationProblemDetails](docs/models/LusidValidationProblemDetails.md)
+ - [MarketContext](docs/models/MarketContext.md)
+ - [MarketDataKeyRule](docs/models/MarketDataKeyRule.md)
+ - [MarketDataType](docs/models/MarketDataType.md)
+ - [MarketIdentifier](docs/models/MarketIdentifier.md)
+ - [MarketObservableType](docs/models/MarketObservableType.md)
+ - [MarketOptions](docs/models/MarketOptions.md)
+ - [MarketQuote](docs/models/MarketQuote.md)
+ - [MetricValue](docs/models/MetricValue.md)
+ - [ModelOptions](docs/models/ModelOptions.md)
+ - [ModelOptionsType](docs/models/ModelOptionsType.md)
+ - [ModelProperty](docs/models/ModelProperty.md)
+ - [ModelSelection](docs/models/ModelSelection.md)
+ - [MovementType](docs/models/MovementType.md)
+ - [Multiplier](docs/models/Multiplier.md)
+ - [NextValueInSequenceResponse](docs/models/NextValueInSequenceResponse.md)
+ - [NumericComparisonType](docs/models/NumericComparisonType.md)
+ - [OpaqueMarketData](docs/models/OpaqueMarketData.md)
+ - [OpaqueModelOptions](docs/models/OpaqueModelOptions.md)
+ - [OperandType](docs/models/OperandType.md)
+ - [Operation](docs/models/Operation.md)
+ - [Operator](docs/models/Operator.md)
+ - [OptionType](docs/models/OptionType.md)
+ - [Order](docs/models/Order.md)
+ - [OrderBySpec](docs/models/OrderBySpec.md)
+ - [OrderGraphBlock](docs/models/OrderGraphBlock.md)
+ - [OrderGraphPlacement](docs/models/OrderGraphPlacement.md)
+ - [OrderGraphSynopsis](docs/models/OrderGraphSynopsis.md)
+ - [OrderInstruction](docs/models/OrderInstruction.md)
+ - [OrderInstructionRequest](docs/models/OrderInstructionRequest.md)
+ - [OrderInstructionSetRequest](docs/models/OrderInstructionSetRequest.md)
+ - [OrderRequest](docs/models/OrderRequest.md)
+ - [OrderSetRequest](docs/models/OrderSetRequest.md)
+ - [OtcConfirmation](docs/models/OtcConfirmation.md)
+ - [OutputTransaction](docs/models/OutputTransaction.md)
+ - [Package](docs/models/Package.md)
+ - [PackageRequest](docs/models/PackageRequest.md)
+ - [PackageSetRequest](docs/models/PackageSetRequest.md)
+ - [PagedResourceListOfAllocation](docs/models/PagedResourceListOfAllocation.md)
+ - [PagedResourceListOfBlock](docs/models/PagedResourceListOfBlock.md)
+ - [PagedResourceListOfCalendar](docs/models/PagedResourceListOfCalendar.md)
+ - [PagedResourceListOfComplianceRuleResult](docs/models/PagedResourceListOfComplianceRuleResult.md)
+ - [PagedResourceListOfComplianceRun](docs/models/PagedResourceListOfComplianceRun.md)
+ - [PagedResourceListOfCorporateActionSource](docs/models/PagedResourceListOfCorporateActionSource.md)
+ - [PagedResourceListOfCustomEntityResponse](docs/models/PagedResourceListOfCustomEntityResponse.md)
+ - [PagedResourceListOfCutLabelDefinition](docs/models/PagedResourceListOfCutLabelDefinition.md)
+ - [PagedResourceListOfDataTypeSummary](docs/models/PagedResourceListOfDataTypeSummary.md)
+ - [PagedResourceListOfExecution](docs/models/PagedResourceListOfExecution.md)
+ - [PagedResourceListOfInstrument](docs/models/PagedResourceListOfInstrument.md)
+ - [PagedResourceListOfLegalEntity](docs/models/PagedResourceListOfLegalEntity.md)
+ - [PagedResourceListOfOrder](docs/models/PagedResourceListOfOrder.md)
+ - [PagedResourceListOfOrderGraphBlock](docs/models/PagedResourceListOfOrderGraphBlock.md)
+ - [PagedResourceListOfOrderGraphPlacement](docs/models/PagedResourceListOfOrderGraphPlacement.md)
+ - [PagedResourceListOfOrderInstruction](docs/models/PagedResourceListOfOrderInstruction.md)
+ - [PagedResourceListOfPackage](docs/models/PagedResourceListOfPackage.md)
+ - [PagedResourceListOfParticipation](docs/models/PagedResourceListOfParticipation.md)
+ - [PagedResourceListOfPerson](docs/models/PagedResourceListOfPerson.md)
+ - [PagedResourceListOfPlacement](docs/models/PagedResourceListOfPlacement.md)
+ - [PagedResourceListOfPortfolioGroupSearchResult](docs/models/PagedResourceListOfPortfolioGroupSearchResult.md)
+ - [PagedResourceListOfPortfolioSearchResult](docs/models/PagedResourceListOfPortfolioSearchResult.md)
+ - [PagedResourceListOfPropertyDefinitionSearchResult](docs/models/PagedResourceListOfPropertyDefinitionSearchResult.md)
+ - [PagedResourceListOfRelationshipDefinition](docs/models/PagedResourceListOfRelationshipDefinition.md)
+ - [PagedResourceListOfSequenceDefinition](docs/models/PagedResourceListOfSequenceDefinition.md)
+ - [Participation](docs/models/Participation.md)
+ - [ParticipationRequest](docs/models/ParticipationRequest.md)
+ - [ParticipationSetRequest](docs/models/ParticipationSetRequest.md)
+ - [PerformanceReturn](docs/models/PerformanceReturn.md)
+ - [PerformanceReturnsMetric](docs/models/PerformanceReturnsMetric.md)
+ - [PeriodType](docs/models/PeriodType.md)
+ - [PerpetualEntityState](docs/models/PerpetualEntityState.md)
+ - [PerpetualProperty](docs/models/PerpetualProperty.md)
+ - [Person](docs/models/Person.md)
+ - [Placement](docs/models/Placement.md)
+ - [PlacementRequest](docs/models/PlacementRequest.md)
+ - [PlacementSetRequest](docs/models/PlacementSetRequest.md)
+ - [Portfolio](docs/models/Portfolio.md)
+ - [PortfolioCashFlow](docs/models/PortfolioCashFlow.md)
+ - [PortfolioCashLadder](docs/models/PortfolioCashLadder.md)
+ - [PortfolioDetails](docs/models/PortfolioDetails.md)
+ - [PortfolioEntityId](docs/models/PortfolioEntityId.md)
+ - [PortfolioGroup](docs/models/PortfolioGroup.md)
+ - [PortfolioGroupProperties](docs/models/PortfolioGroupProperties.md)
+ - [PortfolioGroupSearchResult](docs/models/PortfolioGroupSearchResult.md)
+ - [PortfolioHolding](docs/models/PortfolioHolding.md)
+ - [PortfolioProperties](docs/models/PortfolioProperties.md)
+ - [PortfolioReconciliationRequest](docs/models/PortfolioReconciliationRequest.md)
+ - [PortfolioSearchResult](docs/models/PortfolioSearchResult.md)
+ - [PortfolioType](docs/models/PortfolioType.md)
+ - [PortfoliosReconciliationRequest](docs/models/PortfoliosReconciliationRequest.md)
+ - [PortfoliosReconciliationRequestPreview](docs/models/PortfoliosReconciliationRequestPreview.md)
+ - [Premium](docs/models/Premium.md)
+ - [PricingContext](docs/models/PricingContext.md)
+ - [PricingModel](docs/models/PricingModel.md)
+ - [PricingOptions](docs/models/PricingOptions.md)
+ - [ProcessedCommand](docs/models/ProcessedCommand.md)
+ - [PropertyDefinition](docs/models/PropertyDefinition.md)
+ - [PropertyDefinitionSearchResult](docs/models/PropertyDefinitionSearchResult.md)
+ - [PropertyDefinitionType](docs/models/PropertyDefinitionType.md)
+ - [PropertyDomain](docs/models/PropertyDomain.md)
+ - [PropertyFilter](docs/models/PropertyFilter.md)
+ - [PropertyInterval](docs/models/PropertyInterval.md)
+ - [PropertyLifeTime](docs/models/PropertyLifeTime.md)
+ - [PropertySchema](docs/models/PropertySchema.md)
+ - [PropertyType](docs/models/PropertyType.md)
+ - [PropertyValue](docs/models/PropertyValue.md)
+ - [Quote](docs/models/Quote.md)
+ - [QuoteAccessMetadataRule](docs/models/QuoteAccessMetadataRule.md)
+ - [QuoteAccessMetadataRuleId](docs/models/QuoteAccessMetadataRuleId.md)
+ - [QuoteId](docs/models/QuoteId.md)
+ - [QuoteInstrumentIdType](docs/models/QuoteInstrumentIdType.md)
+ - [QuoteSeriesId](docs/models/QuoteSeriesId.md)
+ - [QuoteType](docs/models/QuoteType.md)
+ - [RealisedGainLoss](docs/models/RealisedGainLoss.md)
+ - [ReconcileDateTimeRule](docs/models/ReconcileDateTimeRule.md)
+ - [ReconcileNumericRule](docs/models/ReconcileNumericRule.md)
+ - [ReconcileStringRule](docs/models/ReconcileStringRule.md)
+ - [ReconciliationBreak](docs/models/ReconciliationBreak.md)
+ - [ReconciliationLeftRightAddressKeyPair](docs/models/ReconciliationLeftRightAddressKeyPair.md)
+ - [ReconciliationLine](docs/models/ReconciliationLine.md)
+ - [ReconciliationRequest](docs/models/ReconciliationRequest.md)
+ - [ReconciliationResponse](docs/models/ReconciliationResponse.md)
+ - [ReconciliationRule](docs/models/ReconciliationRule.md)
+ - [ReconciliationRuleType](docs/models/ReconciliationRuleType.md)
+ - [ReferenceData](docs/models/ReferenceData.md)
+ - [ReferencePortfolioConstituent](docs/models/ReferencePortfolioConstituent.md)
+ - [ReferencePortfolioConstituentRequest](docs/models/ReferencePortfolioConstituentRequest.md)
+ - [ReferencePortfolioWeightType](docs/models/ReferencePortfolioWeightType.md)
+ - [RelatedEntity](docs/models/RelatedEntity.md)
+ - [Relation](docs/models/Relation.md)
+ - [RelationDefinition](docs/models/RelationDefinition.md)
+ - [Relationship](docs/models/Relationship.md)
+ - [RelationshipDefinition](docs/models/RelationshipDefinition.md)
+ - [Repo](docs/models/Repo.md)
+ - [ResourceId](docs/models/ResourceId.md)
+ - [ResourceListOfAccessControlledResource](docs/models/ResourceListOfAccessControlledResource.md)
+ - [ResourceListOfAccessMetadataValueOf](docs/models/ResourceListOfAccessMetadataValueOf.md)
+ - [ResourceListOfAggregatedReturn](docs/models/ResourceListOfAggregatedReturn.md)
+ - [ResourceListOfAggregationQuery](docs/models/ResourceListOfAggregationQuery.md)
+ - [ResourceListOfAllocation](docs/models/ResourceListOfAllocation.md)
+ - [ResourceListOfBlock](docs/models/ResourceListOfBlock.md)
+ - [ResourceListOfCalendarDate](docs/models/ResourceListOfCalendarDate.md)
+ - [ResourceListOfChange](docs/models/ResourceListOfChange.md)
+ - [ResourceListOfConstituentsAdjustmentHeader](docs/models/ResourceListOfConstituentsAdjustmentHeader.md)
+ - [ResourceListOfCorporateAction](docs/models/ResourceListOfCorporateAction.md)
+ - [ResourceListOfDataType](docs/models/ResourceListOfDataType.md)
+ - [ResourceListOfExecution](docs/models/ResourceListOfExecution.md)
+ - [ResourceListOfFeeCalculationDetails](docs/models/ResourceListOfFeeCalculationDetails.md)
+ - [ResourceListOfGetCdsFlowConventionsResponse](docs/models/ResourceListOfGetCdsFlowConventionsResponse.md)
+ - [ResourceListOfGetCounterpartyAgreementResponse](docs/models/ResourceListOfGetCounterpartyAgreementResponse.md)
+ - [ResourceListOfGetCreditSupportAnnexResponse](docs/models/ResourceListOfGetCreditSupportAnnexResponse.md)
+ - [ResourceListOfGetFlowConventionsResponse](docs/models/ResourceListOfGetFlowConventionsResponse.md)
+ - [ResourceListOfGetIndexConventionResponse](docs/models/ResourceListOfGetIndexConventionResponse.md)
+ - [ResourceListOfGetRecipeResponse](docs/models/ResourceListOfGetRecipeResponse.md)
+ - [ResourceListOfHoldingsAdjustmentHeader](docs/models/ResourceListOfHoldingsAdjustmentHeader.md)
+ - [ResourceListOfIUnitDefinitionDto](docs/models/ResourceListOfIUnitDefinitionDto.md)
+ - [ResourceListOfInstrumentCashFlow](docs/models/ResourceListOfInstrumentCashFlow.md)
+ - [ResourceListOfInstrumentIdTypeDescriptor](docs/models/ResourceListOfInstrumentIdTypeDescriptor.md)
+ - [ResourceListOfListComplexMarketDataWithMetaDataResponse](docs/models/ResourceListOfListComplexMarketDataWithMetaDataResponse.md)
+ - [ResourceListOfOrder](docs/models/ResourceListOfOrder.md)
+ - [ResourceListOfOrderInstruction](docs/models/ResourceListOfOrderInstruction.md)
+ - [ResourceListOfPackage](docs/models/ResourceListOfPackage.md)
+ - [ResourceListOfParticipation](docs/models/ResourceListOfParticipation.md)
+ - [ResourceListOfPerformanceReturn](docs/models/ResourceListOfPerformanceReturn.md)
+ - [ResourceListOfPlacement](docs/models/ResourceListOfPlacement.md)
+ - [ResourceListOfPortfolio](docs/models/ResourceListOfPortfolio.md)
+ - [ResourceListOfPortfolioCashFlow](docs/models/ResourceListOfPortfolioCashFlow.md)
+ - [ResourceListOfPortfolioCashLadder](docs/models/ResourceListOfPortfolioCashLadder.md)
+ - [ResourceListOfPortfolioGroup](docs/models/ResourceListOfPortfolioGroup.md)
+ - [ResourceListOfProcessedCommand](docs/models/ResourceListOfProcessedCommand.md)
+ - [ResourceListOfProperty](docs/models/ResourceListOfProperty.md)
+ - [ResourceListOfPropertyDefinition](docs/models/ResourceListOfPropertyDefinition.md)
+ - [ResourceListOfPropertyInterval](docs/models/ResourceListOfPropertyInterval.md)
+ - [ResourceListOfQuote](docs/models/ResourceListOfQuote.md)
+ - [ResourceListOfQuoteAccessMetadataRule](docs/models/ResourceListOfQuoteAccessMetadataRule.md)
+ - [ResourceListOfReconciliationBreak](docs/models/ResourceListOfReconciliationBreak.md)
+ - [ResourceListOfRelation](docs/models/ResourceListOfRelation.md)
+ - [ResourceListOfRelationship](docs/models/ResourceListOfRelationship.md)
+ - [ResourceListOfScopeDefinition](docs/models/ResourceListOfScopeDefinition.md)
+ - [ResourceListOfString](docs/models/ResourceListOfString.md)
+ - [ResourceListOfTransaction](docs/models/ResourceListOfTransaction.md)
+ - [ResourceListOfValueType](docs/models/ResourceListOfValueType.md)
+ - [ResultDataKeyRule](docs/models/ResultDataKeyRule.md)
+ - [ResultDataSchema](docs/models/ResultDataSchema.md)
+ - [ScalingMethodology](docs/models/ScalingMethodology.md)
+ - [Schema](docs/models/Schema.md)
+ - [ScopeDefinition](docs/models/ScopeDefinition.md)
+ - [SequenceDefinition](docs/models/SequenceDefinition.md)
+ - [SetLegalEntityIdentifiersRequest](docs/models/SetLegalEntityIdentifiersRequest.md)
+ - [SetPersonIdentifiersRequest](docs/models/SetPersonIdentifiersRequest.md)
+ - [SetPersonPropertiesRequest](docs/models/SetPersonPropertiesRequest.md)
+ - [SetTransactionConfigurationAlias](docs/models/SetTransactionConfigurationAlias.md)
+ - [SetTransactionConfigurationSourceRequest](docs/models/SetTransactionConfigurationSourceRequest.md)
+ - [SideConfigurationData](docs/models/SideConfigurationData.md)
+ - [SideConfigurationDataRequest](docs/models/SideConfigurationDataRequest.md)
+ - [SimpleInstrument](docs/models/SimpleInstrument.md)
+ - [SortOrder](docs/models/SortOrder.md)
+ - [StepSchedule](docs/models/StepSchedule.md)
+ - [Stream](docs/models/Stream.md)
+ - [StringComparisonType](docs/models/StringComparisonType.md)
+ - [StructuredResultData](docs/models/StructuredResultData.md)
+ - [StructuredResultDataId](docs/models/StructuredResultDataId.md)
+ - [TargetTaxLot](docs/models/TargetTaxLot.md)
+ - [TargetTaxLotRequest](docs/models/TargetTaxLotRequest.md)
+ - [TermDeposit](docs/models/TermDeposit.md)
+ - [Tolerance](docs/models/Tolerance.md)
+ - [ToleranceEnum](docs/models/ToleranceEnum.md)
+ - [Transaction](docs/models/Transaction.md)
+ - [TransactionConfigurationData](docs/models/TransactionConfigurationData.md)
+ - [TransactionConfigurationDataRequest](docs/models/TransactionConfigurationDataRequest.md)
+ - [TransactionConfigurationMovementData](docs/models/TransactionConfigurationMovementData.md)
+ - [TransactionConfigurationMovementDataRequest](docs/models/TransactionConfigurationMovementDataRequest.md)
+ - [TransactionConfigurationTypeAlias](docs/models/TransactionConfigurationTypeAlias.md)
+ - [TransactionPrice](docs/models/TransactionPrice.md)
+ - [TransactionPriceType](docs/models/TransactionPriceType.md)
+ - [TransactionPropertyMapping](docs/models/TransactionPropertyMapping.md)
+ - [TransactionPropertyMappingRequest](docs/models/TransactionPropertyMappingRequest.md)
+ - [TransactionQueryMode](docs/models/TransactionQueryMode.md)
+ - [TransactionQueryParameters](docs/models/TransactionQueryParameters.md)
+ - [TransactionRequest](docs/models/TransactionRequest.md)
+ - [TransactionRoles](docs/models/TransactionRoles.md)
+ - [TransactionSetConfigurationData](docs/models/TransactionSetConfigurationData.md)
+ - [TransactionSetConfigurationDataRequest](docs/models/TransactionSetConfigurationDataRequest.md)
+ - [TransactionStatus](docs/models/TransactionStatus.md)
+ - [TranslateInstrumentDefinitionsRequest](docs/models/TranslateInstrumentDefinitionsRequest.md)
+ - [TranslateInstrumentDefinitionsResponse](docs/models/TranslateInstrumentDefinitionsResponse.md)
+ - [TypedResourceId](docs/models/TypedResourceId.md)
+ - [UnitSchema](docs/models/UnitSchema.md)
+ - [UnmatchedHoldingMethod](docs/models/UnmatchedHoldingMethod.md)
+ - [UpdateCalendarRequest](docs/models/UpdateCalendarRequest.md)
+ - [UpdateCutLabelDefinitionRequest](docs/models/UpdateCutLabelDefinitionRequest.md)
+ - [UpdateDataTypeRequest](docs/models/UpdateDataTypeRequest.md)
+ - [UpdateInstrumentIdentifierRequest](docs/models/UpdateInstrumentIdentifierRequest.md)
+ - [UpdatePortfolioGroupRequest](docs/models/UpdatePortfolioGroupRequest.md)
+ - [UpdatePortfolioRequest](docs/models/UpdatePortfolioRequest.md)
+ - [UpdatePropertyDefinitionRequest](docs/models/UpdatePropertyDefinitionRequest.md)
+ - [UpdateRelationshipDefinitionRequest](docs/models/UpdateRelationshipDefinitionRequest.md)
+ - [UpdateUnitRequest](docs/models/UpdateUnitRequest.md)
+ - [UpsertCdsFlowConventionsRequest](docs/models/UpsertCdsFlowConventionsRequest.md)
+ - [UpsertComplexMarketDataRequest](docs/models/UpsertComplexMarketDataRequest.md)
+ - [UpsertCorporateActionRequest](docs/models/UpsertCorporateActionRequest.md)
+ - [UpsertCorporateActionsResponse](docs/models/UpsertCorporateActionsResponse.md)
+ - [UpsertCounterpartyAgreementRequest](docs/models/UpsertCounterpartyAgreementRequest.md)
+ - [UpsertCreditSupportAnnexRequest](docs/models/UpsertCreditSupportAnnexRequest.md)
+ - [UpsertFlowConventionsRequest](docs/models/UpsertFlowConventionsRequest.md)
+ - [UpsertIndexConventionRequest](docs/models/UpsertIndexConventionRequest.md)
+ - [UpsertInstrumentPropertiesResponse](docs/models/UpsertInstrumentPropertiesResponse.md)
+ - [UpsertInstrumentPropertyRequest](docs/models/UpsertInstrumentPropertyRequest.md)
+ - [UpsertInstrumentsResponse](docs/models/UpsertInstrumentsResponse.md)
+ - [UpsertLegalEntityAccessMetadataRequest](docs/models/UpsertLegalEntityAccessMetadataRequest.md)
+ - [UpsertLegalEntityRequest](docs/models/UpsertLegalEntityRequest.md)
+ - [UpsertPersonAccessMetadataRequest](docs/models/UpsertPersonAccessMetadataRequest.md)
+ - [UpsertPersonRequest](docs/models/UpsertPersonRequest.md)
+ - [UpsertPortfolioAccessMetadataRequest](docs/models/UpsertPortfolioAccessMetadataRequest.md)
+ - [UpsertPortfolioGroupAccessMetadataRequest](docs/models/UpsertPortfolioGroupAccessMetadataRequest.md)
+ - [UpsertPortfolioTransactionsResponse](docs/models/UpsertPortfolioTransactionsResponse.md)
+ - [UpsertQuoteAccessMetadataRuleRequest](docs/models/UpsertQuoteAccessMetadataRuleRequest.md)
+ - [UpsertQuoteRequest](docs/models/UpsertQuoteRequest.md)
+ - [UpsertQuotesResponse](docs/models/UpsertQuotesResponse.md)
+ - [UpsertRecipeRequest](docs/models/UpsertRecipeRequest.md)
+ - [UpsertReferencePortfolioConstituentsRequest](docs/models/UpsertReferencePortfolioConstituentsRequest.md)
+ - [UpsertReferencePortfolioConstituentsResponse](docs/models/UpsertReferencePortfolioConstituentsResponse.md)
+ - [UpsertReturnsResponse](docs/models/UpsertReturnsResponse.md)
+ - [UpsertSingleStructuredDataResponse](docs/models/UpsertSingleStructuredDataResponse.md)
+ - [UpsertStructuredDataResponse](docs/models/UpsertStructuredDataResponse.md)
+ - [UpsertStructuredResultDataRequest](docs/models/UpsertStructuredResultDataRequest.md)
+ - [UpsertTransactionPropertiesResponse](docs/models/UpsertTransactionPropertiesResponse.md)
+ - [User](docs/models/User.md)
+ - [ValuationRequest](docs/models/ValuationRequest.md)
+ - [ValuationSchedule](docs/models/ValuationSchedule.md)
+ - [ValuationsReconciliationRequest](docs/models/ValuationsReconciliationRequest.md)
+ - [ValueType](docs/models/ValueType.md)
+ - [VendorLibrary](docs/models/VendorLibrary.md)
+ - [VendorModelRule](docs/models/VendorModelRule.md)
+ - [Version](docs/models/Version.md)
+ - [VersionSummaryDto](docs/models/VersionSummaryDto.md)
+ - [VersionedResourceListOfA2BDataRecord](docs/models/VersionedResourceListOfA2BDataRecord.md)
+ - [VersionedResourceListOfA2BMovementRecord](docs/models/VersionedResourceListOfA2BMovementRecord.md)
+ - [VersionedResourceListOfOutputTransaction](docs/models/VersionedResourceListOfOutputTransaction.md)
+ - [VersionedResourceListOfPortfolioHolding](docs/models/VersionedResourceListOfPortfolioHolding.md)
+ - [VersionedResourceListOfTransaction](docs/models/VersionedResourceListOfTransaction.md)
+ - [VersionedResourceListWithWarningsOfPortfolioHolding](docs/models/VersionedResourceListWithWarningsOfPortfolioHolding.md)
+ - [VirtualDocument](docs/models/VirtualDocument.md)
+ - [VirtualDocumentRow](docs/models/VirtualDocumentRow.md)
+ - [Warning](docs/models/Warning.md)
+ - [WeekendMask](docs/models/WeekendMask.md)
+ - [WeightedInstrument](docs/models/WeightedInstrument.md)
+ - [WeightedInstruments](docs/models/WeightedInstruments.md)
+ - [YieldCurveData](docs/models/YieldCurveData.md)
 
 ## Documentation For Authorization
 
@@ -1389,7 +1331,7 @@ RecursionError indicating the maximum recursion limit has been exceeded. In that
 
 Solution 1:
 Use specific imports for apis and models like:
-- `from luisd.api.default_api import DefaultApi`
+- `from luisd.apis.default_api import DefaultApi`
 - `from luisd.model.pet import Pet`
 
 Solution 1:

@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -107,12 +107,12 @@ class CreditSpreadCurveDataAllOf(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'referenceDate':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -126,12 +126,12 @@ class CreditSpreadCurveDataAllOf(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'maturities':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -227,7 +227,7 @@ class CreditSpreadCurveDataAllOf(
         marketDataType: marketDataType,
         referenceDate: typing.Union[referenceDate, Unset] = unset,
         maturities: typing.Union[maturities, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'CreditSpreadCurveDataAllOf':
         return super().__new__(
@@ -241,6 +241,6 @@ class CreditSpreadCurveDataAllOf(
             marketDataType=marketDataType,
             referenceDate=referenceDate,
             maturities=maturities,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

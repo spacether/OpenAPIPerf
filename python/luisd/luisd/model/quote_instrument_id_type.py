@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,13 +72,13 @@ from luisd.schemas import (  # noqa: F401
 class QuoteInstrumentIdType(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "LusidInstrumentId": "LUSIDINSTRUMENTID",
+            "LusidInstrumentId": "LUSID_INSTRUMENT_ID",
             "Figi": "FIGI",
             "RIC": "RIC",
-            "QuotePermId": "QUOTEPERMID",
+            "QuotePermId": "QUOTE_PERM_ID",
             "Isin": "ISIN",
-            "CurrencyPair": "CURRENCYPAIR",
-            "ClientInternal": "CLIENTINTERNAL",
+            "CurrencyPair": "CURRENCY_PAIR",
+            "ClientInternal": "CLIENT_INTERNAL",
         }
     ),
     StrSchema
@@ -86,35 +91,35 @@ class QuoteInstrumentIdType(
     
     @classmethod
     @property
-    def LUSIDINSTRUMENTID(cls):
-        return cls._enum_by_value["LusidInstrumentId"]("LusidInstrumentId")
+    def LUSID_INSTRUMENT_ID(cls):
+        return cls("LusidInstrumentId")
     
     @classmethod
     @property
     def FIGI(cls):
-        return cls._enum_by_value["Figi"]("Figi")
+        return cls("Figi")
     
     @classmethod
     @property
     def RIC(cls):
-        return cls._enum_by_value["RIC"]("RIC")
+        return cls("RIC")
     
     @classmethod
     @property
-    def QUOTEPERMID(cls):
-        return cls._enum_by_value["QuotePermId"]("QuotePermId")
+    def QUOTE_PERM_ID(cls):
+        return cls("QuotePermId")
     
     @classmethod
     @property
     def ISIN(cls):
-        return cls._enum_by_value["Isin"]("Isin")
+        return cls("Isin")
     
     @classmethod
     @property
-    def CURRENCYPAIR(cls):
-        return cls._enum_by_value["CurrencyPair"]("CurrencyPair")
+    def CURRENCY_PAIR(cls):
+        return cls("CurrencyPair")
     
     @classmethod
     @property
-    def CLIENTINTERNAL(cls):
-        return cls._enum_by_value["ClientInternal"]("ClientInternal")
+    def CLIENT_INTERNAL(cls):
+        return cls("ClientInternal")

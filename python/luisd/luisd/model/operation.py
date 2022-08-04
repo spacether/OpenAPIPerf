@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -75,7 +80,7 @@ class Operation(
     
     
     class value(
-        _SchemaTypeChecker(typing.Union[frozendict, none_type, ]),
+        _SchemaTypeChecker(typing.Union[frozendict, NoneClass, ]),
         DictBase,
         NoneBase,
         Schema
@@ -85,17 +90,17 @@ class Operation(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'value':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class path(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -104,17 +109,17 @@ class Operation(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'path':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class op(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -123,17 +128,17 @@ class Operation(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'op':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class _from(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -142,12 +147,12 @@ class Operation(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> '_from':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -158,7 +163,7 @@ class Operation(
         value: typing.Union[value, Unset] = unset,
         path: typing.Union[path, Unset] = unset,
         op: typing.Union[op, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'Operation':
         return super().__new__(
             cls,
@@ -166,5 +171,5 @@ class Operation(
             value=value,
             path=path,
             op=op,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

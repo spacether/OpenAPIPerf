@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -289,7 +289,7 @@ class CapFloorAllOf(
         includeFirstCaplet: includeFirstCaplet,
         underlyingFloatingLeg: underlyingFloatingLeg,
         instrumentType: instrumentType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'CapFloorAllOf':
         return super().__new__(
@@ -301,7 +301,7 @@ class CapFloorAllOf(
             includeFirstCaplet=includeFirstCaplet,
             underlyingFloatingLeg=underlyingFloatingLeg,
             instrumentType=instrumentType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

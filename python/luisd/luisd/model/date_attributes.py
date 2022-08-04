@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -89,7 +94,7 @@ class DateAttributes(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -98,12 +103,12 @@ class DateAttributes(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'activity':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -114,7 +119,7 @@ class DateAttributes(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -123,12 +128,12 @@ class DateAttributes(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'firstOpen':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -139,7 +144,7 @@ class DateAttributes(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -148,12 +153,12 @@ class DateAttributes(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'lastOpen':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -164,7 +169,7 @@ class DateAttributes(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -173,12 +178,12 @@ class DateAttributes(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'firstClose':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -189,7 +194,7 @@ class DateAttributes(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -198,12 +203,12 @@ class DateAttributes(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'lastClose':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -219,7 +224,7 @@ class DateAttributes(
         lastOpen: typing.Union[lastOpen, Unset] = unset,
         firstClose: typing.Union[firstClose, Unset] = unset,
         lastClose: typing.Union[lastClose, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'DateAttributes':
         return super().__new__(
             cls,
@@ -232,5 +237,5 @@ class DateAttributes(
             lastOpen=lastOpen,
             firstClose=firstClose,
             lastClose=lastClose,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

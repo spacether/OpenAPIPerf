@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,6 +82,7 @@ class AtomValueString(
 
     @classmethod
     @property
+    @functools.cache
     def _composed_schemas(cls):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
@@ -85,29 +91,114 @@ class AtomValueString(
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
+        
+        
+        class allOf_1(
+            DictSchema
+        ):
+            _required_property_names = set((
+                'atomValueType',
+            ))
+            
+            
+            class value(
+                _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
+                StrBase,
+                NoneBase,
+                Schema
+            ):
+            
+                def __new__(
+                    cls,
+                    *args: typing.Union[str, None, ],
+                    _configuration: typing.Optional[Configuration] = None,
+                ) -> 'value':
+                    return super().__new__(
+                        cls,
+                        *args,
+                        _configuration=_configuration,
+                    )
+            
+            
+            class atomValueType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "AtomValueInt": "ATOM_VALUE_INT",
+                        "AtomValueDecimal": "ATOM_VALUE_DECIMAL",
+                        "AtomValueString": "ATOM_VALUE_STRING",
+                        "AtomValue0D": "ATOM_VALUE0D",
+                        "AtomValue": "ATOM_VALUE",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def ATOM_VALUE_INT(cls):
+                    return cls("AtomValueInt")
+                
+                @classmethod
+                @property
+                def ATOM_VALUE_DECIMAL(cls):
+                    return cls("AtomValueDecimal")
+                
+                @classmethod
+                @property
+                def ATOM_VALUE_STRING(cls):
+                    return cls("AtomValueString")
+                
+                @classmethod
+                @property
+                def ATOM_VALUE0D(cls):
+                    return cls("AtomValue0D")
+                
+                @classmethod
+                @property
+                def ATOM_VALUE(cls):
+                    return cls("AtomValue")
+        
+        
+            def __new__(
+                cls,
+                *args: typing.Union[dict, frozendict, ],
+                atomValueType: atomValueType,
+                value: typing.Union[value, Unset] = unset,
+                _configuration: typing.Optional[Configuration] = None,
+                **kwargs: typing.Type[Schema],
+            ) -> 'allOf_1':
+                return super().__new__(
+                    cls,
+                    *args,
+                    atomValueType=atomValueType,
+                    value=value,
+                    _configuration=_configuration,
+                    **kwargs,
+                )
         return {
             'allOf': [
                 AtomValue,
-                AtomValueStringAllOf,
+                allOf_1,
             ],
             'oneOf': [
             ],
             'anyOf': [
             ],
+            'not':
+                None
         }
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict, str, date, datetime, int, float, decimal.Decimal, None, list, tuple, bytes],
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'AtomValueString':
         return super().__new__(
             cls,
             *args,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
 from luisd.model.atom_value import AtomValue
-from luisd.model.atom_value_string_all_of import AtomValueStringAllOf

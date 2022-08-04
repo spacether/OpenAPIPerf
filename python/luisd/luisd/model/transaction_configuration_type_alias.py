@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -84,7 +89,7 @@ class TransactionConfigurationTypeAlias(
     
     
     class transactionGroup(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -93,12 +98,12 @@ class TransactionConfigurationTypeAlias(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'transactionGroup':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -110,7 +115,7 @@ class TransactionConfigurationTypeAlias(
                 'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -119,12 +124,12 @@ class TransactionConfigurationTypeAlias(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'source':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -132,13 +137,13 @@ class TransactionConfigurationTypeAlias(
         _SchemaEnumMaker(
             enum_value_to_name={
                 "None": "NONE",
-                "LongLonger": "LONGLONGER",
-                "LongShorter": "LONGSHORTER",
-                "ShortShorter": "SHORTSHORTER",
+                "LongLonger": "LONG_LONGER",
+                "LongShorter": "LONG_SHORTER",
+                "ShortShorter": "SHORT_SHORTER",
                 "Shorter": "SHORTER",
-                "ShortLonger": "SHORTLONGER",
+                "ShortLonger": "SHORT_LONGER",
                 "Longer": "LONGER",
-                "AllRoles": "ALLROLES",
+                "AllRoles": "ALL_ROLES",
             }
         ),
         StrSchema
@@ -147,42 +152,42 @@ class TransactionConfigurationTypeAlias(
         @classmethod
         @property
         def NONE(cls):
-            return cls._enum_by_value["None"]("None")
+            return cls("None")
         
         @classmethod
         @property
-        def LONGLONGER(cls):
-            return cls._enum_by_value["LongLonger"]("LongLonger")
+        def LONG_LONGER(cls):
+            return cls("LongLonger")
         
         @classmethod
         @property
-        def LONGSHORTER(cls):
-            return cls._enum_by_value["LongShorter"]("LongShorter")
+        def LONG_SHORTER(cls):
+            return cls("LongShorter")
         
         @classmethod
         @property
-        def SHORTSHORTER(cls):
-            return cls._enum_by_value["ShortShorter"]("ShortShorter")
+        def SHORT_SHORTER(cls):
+            return cls("ShortShorter")
         
         @classmethod
         @property
         def SHORTER(cls):
-            return cls._enum_by_value["Shorter"]("Shorter")
+            return cls("Shorter")
         
         @classmethod
         @property
-        def SHORTLONGER(cls):
-            return cls._enum_by_value["ShortLonger"]("ShortLonger")
+        def SHORT_LONGER(cls):
+            return cls("ShortLonger")
         
         @classmethod
         @property
         def LONGER(cls):
-            return cls._enum_by_value["Longer"]("Longer")
+            return cls("Longer")
         
         @classmethod
         @property
-        def ALLROLES(cls):
-            return cls._enum_by_value["AllRoles"]("AllRoles")
+        def ALL_ROLES(cls):
+            return cls("AllRoles")
     isDefault = BoolSchema
     _additional_properties = None
 
@@ -197,7 +202,7 @@ class TransactionConfigurationTypeAlias(
         transactionGroup: typing.Union[transactionGroup, Unset] = unset,
         source: typing.Union[source, Unset] = unset,
         isDefault: typing.Union[isDefault, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'TransactionConfigurationTypeAlias':
         return super().__new__(
             cls,
@@ -209,5 +214,5 @@ class TransactionConfigurationTypeAlias(
             transactionGroup=transactionGroup,
             source=source,
             isDefault=isDefault,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

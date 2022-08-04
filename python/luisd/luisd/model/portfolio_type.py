@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -69,7 +74,7 @@ class PortfolioType(
         enum_value_to_name={
             "Transaction": "TRANSACTION",
             "Reference": "REFERENCE",
-            "DerivedTransaction": "DERIVEDTRANSACTION",
+            "DerivedTransaction": "DERIVED_TRANSACTION",
         }
     ),
     StrSchema
@@ -83,14 +88,14 @@ class PortfolioType(
     @classmethod
     @property
     def TRANSACTION(cls):
-        return cls._enum_by_value["Transaction"]("Transaction")
+        return cls("Transaction")
     
     @classmethod
     @property
     def REFERENCE(cls):
-        return cls._enum_by_value["Reference"]("Reference")
+        return cls("Reference")
     
     @classmethod
     @property
-    def DERIVEDTRANSACTION(cls):
-        return cls._enum_by_value["DerivedTransaction"]("DerivedTransaction")
+    def DERIVED_TRANSACTION(cls):
+        return cls("DerivedTransaction")

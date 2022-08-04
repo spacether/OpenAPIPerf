@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,21 +72,21 @@ from luisd.schemas import (  # noqa: F401
 class PricingModel(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "SimpleStatic": "SIMPLESTATIC",
+            "SimpleStatic": "SIMPLE_STATIC",
             "Discounting": "DISCOUNTING",
-            "VendorDefault": "VENDORDEFAULT",
-            "BlackScholes": "BLACKSCHOLES",
-            "ConstantTimeValueOfMoney": "CONSTANTTIMEVALUEOFMONEY",
+            "VendorDefault": "VENDOR_DEFAULT",
+            "BlackScholes": "BLACK_SCHOLES",
+            "ConstantTimeValueOfMoney": "CONSTANT_TIME_VALUE_OF_MONEY",
             "Bachelier": "BACHELIER",
-            "ForwardWithPoints": "FORWARDWITHPOINTS",
-            "ForwardWithPointsUndiscounted": "FORWARDWITHPOINTSUNDISCOUNTED",
-            "ForwardSpecifiedRate": "FORWARDSPECIFIEDRATE",
-            "ForwardSpecifiedRateUndiscounted": "FORWARDSPECIFIEDRATEUNDISCOUNTED",
-            "IndexNav": "INDEXNAV",
-            "IndexPrice": "INDEXPRICE",
-            "InlinedIndex": "INLINEDINDEX",
-            "ForwardFromCurve": "FORWARDFROMCURVE",
-            "ForwardFromCurveUndiscounted": "FORWARDFROMCURVEUNDISCOUNTED",
+            "ForwardWithPoints": "FORWARD_WITH_POINTS",
+            "ForwardWithPointsUndiscounted": "FORWARD_WITH_POINTS_UNDISCOUNTED",
+            "ForwardSpecifiedRate": "FORWARD_SPECIFIED_RATE",
+            "ForwardSpecifiedRateUndiscounted": "FORWARD_SPECIFIED_RATE_UNDISCOUNTED",
+            "IndexNav": "INDEX_NAV",
+            "IndexPrice": "INDEX_PRICE",
+            "InlinedIndex": "INLINED_INDEX",
+            "ForwardFromCurve": "FORWARD_FROM_CURVE",
+            "ForwardFromCurveUndiscounted": "FORWARD_FROM_CURVE_UNDISCOUNTED",
         }
     ),
     StrSchema
@@ -94,75 +99,75 @@ class PricingModel(
     
     @classmethod
     @property
-    def SIMPLESTATIC(cls):
-        return cls._enum_by_value["SimpleStatic"]("SimpleStatic")
+    def SIMPLE_STATIC(cls):
+        return cls("SimpleStatic")
     
     @classmethod
     @property
     def DISCOUNTING(cls):
-        return cls._enum_by_value["Discounting"]("Discounting")
+        return cls("Discounting")
     
     @classmethod
     @property
-    def VENDORDEFAULT(cls):
-        return cls._enum_by_value["VendorDefault"]("VendorDefault")
+    def VENDOR_DEFAULT(cls):
+        return cls("VendorDefault")
     
     @classmethod
     @property
-    def BLACKSCHOLES(cls):
-        return cls._enum_by_value["BlackScholes"]("BlackScholes")
+    def BLACK_SCHOLES(cls):
+        return cls("BlackScholes")
     
     @classmethod
     @property
-    def CONSTANTTIMEVALUEOFMONEY(cls):
-        return cls._enum_by_value["ConstantTimeValueOfMoney"]("ConstantTimeValueOfMoney")
+    def CONSTANT_TIME_VALUE_OF_MONEY(cls):
+        return cls("ConstantTimeValueOfMoney")
     
     @classmethod
     @property
     def BACHELIER(cls):
-        return cls._enum_by_value["Bachelier"]("Bachelier")
+        return cls("Bachelier")
     
     @classmethod
     @property
-    def FORWARDWITHPOINTS(cls):
-        return cls._enum_by_value["ForwardWithPoints"]("ForwardWithPoints")
+    def FORWARD_WITH_POINTS(cls):
+        return cls("ForwardWithPoints")
     
     @classmethod
     @property
-    def FORWARDWITHPOINTSUNDISCOUNTED(cls):
-        return cls._enum_by_value["ForwardWithPointsUndiscounted"]("ForwardWithPointsUndiscounted")
+    def FORWARD_WITH_POINTS_UNDISCOUNTED(cls):
+        return cls("ForwardWithPointsUndiscounted")
     
     @classmethod
     @property
-    def FORWARDSPECIFIEDRATE(cls):
-        return cls._enum_by_value["ForwardSpecifiedRate"]("ForwardSpecifiedRate")
+    def FORWARD_SPECIFIED_RATE(cls):
+        return cls("ForwardSpecifiedRate")
     
     @classmethod
     @property
-    def FORWARDSPECIFIEDRATEUNDISCOUNTED(cls):
-        return cls._enum_by_value["ForwardSpecifiedRateUndiscounted"]("ForwardSpecifiedRateUndiscounted")
+    def FORWARD_SPECIFIED_RATE_UNDISCOUNTED(cls):
+        return cls("ForwardSpecifiedRateUndiscounted")
     
     @classmethod
     @property
-    def INDEXNAV(cls):
-        return cls._enum_by_value["IndexNav"]("IndexNav")
+    def INDEX_NAV(cls):
+        return cls("IndexNav")
     
     @classmethod
     @property
-    def INDEXPRICE(cls):
-        return cls._enum_by_value["IndexPrice"]("IndexPrice")
+    def INDEX_PRICE(cls):
+        return cls("IndexPrice")
     
     @classmethod
     @property
-    def INLINEDINDEX(cls):
-        return cls._enum_by_value["InlinedIndex"]("InlinedIndex")
+    def INLINED_INDEX(cls):
+        return cls("InlinedIndex")
     
     @classmethod
     @property
-    def FORWARDFROMCURVE(cls):
-        return cls._enum_by_value["ForwardFromCurve"]("ForwardFromCurve")
+    def FORWARD_FROM_CURVE(cls):
+        return cls("ForwardFromCurve")
     
     @classmethod
     @property
-    def FORWARDFROMCURVEUNDISCOUNTED(cls):
-        return cls._enum_by_value["ForwardFromCurveUndiscounted"]("ForwardFromCurveUndiscounted")
+    def FORWARD_FROM_CURVE_UNDISCOUNTED(cls):
+        return cls("ForwardFromCurveUndiscounted")

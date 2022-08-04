@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -96,7 +96,7 @@ This supports the case where an amortization schedule is given but otherwise gen
         *args: typing.Union[dict, frozendict, None, ],
         Amortization: typing.Union[Amortization, Unset] = unset,
         Spreads: typing.Union[Spreads, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FixedLegAllOfOverrides':
         return super().__new__(
@@ -104,6 +104,6 @@ This supports the case where an amortization schedule is given but otherwise gen
             *args,
             Amortization=Amortization,
             Spreads=Spreads,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

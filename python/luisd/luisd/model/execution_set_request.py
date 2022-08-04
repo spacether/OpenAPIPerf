@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,7 +82,7 @@ class ExecutionSetRequest(
     
     
     class requests(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -86,12 +91,12 @@ class ExecutionSetRequest(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'requests':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -100,13 +105,13 @@ class ExecutionSetRequest(
         cls,
         *args: typing.Union[dict, frozendict, ],
         requests: typing.Union[requests, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ExecutionSetRequest':
         return super().__new__(
             cls,
             *args,
             requests=requests,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.execution_request import ExecutionRequest

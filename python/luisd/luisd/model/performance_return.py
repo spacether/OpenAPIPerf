@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -83,7 +88,7 @@ class PerformanceReturn(
     
     
     class openingMarketValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Float64Base,
         NoneBase,
         Schema
@@ -92,17 +97,17 @@ class PerformanceReturn(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'openingMarketValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class closingMarketValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Float64Base,
         NoneBase,
         Schema
@@ -111,17 +116,17 @@ class PerformanceReturn(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'closingMarketValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class period(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -130,12 +135,12 @@ class PerformanceReturn(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'period':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -148,7 +153,7 @@ class PerformanceReturn(
         openingMarketValue: typing.Union[openingMarketValue, Unset] = unset,
         closingMarketValue: typing.Union[closingMarketValue, Unset] = unset,
         period: typing.Union[period, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'PerformanceReturn':
         return super().__new__(
             cls,
@@ -158,5 +163,5 @@ class PerformanceReturn(
             openingMarketValue=openingMarketValue,
             closingMarketValue=closingMarketValue,
             period=period,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

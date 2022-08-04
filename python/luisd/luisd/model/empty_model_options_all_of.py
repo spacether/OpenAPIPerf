@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -120,13 +120,13 @@ class EmptyModelOptionsAllOf(
         cls,
         *args: typing.Union[dict, frozendict, ],
         modelOptionsType: modelOptionsType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'EmptyModelOptionsAllOf':
         return super().__new__(
             cls,
             *args,
             modelOptionsType=modelOptionsType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

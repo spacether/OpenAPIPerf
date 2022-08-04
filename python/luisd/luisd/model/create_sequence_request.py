@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -91,7 +96,7 @@ class CreateSequenceRequest(
     
     
     class increment(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Int64Base,
         NoneBase,
         Schema
@@ -100,17 +105,17 @@ class CreateSequenceRequest(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'increment':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class minValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Int64Base,
         NoneBase,
         Schema
@@ -119,17 +124,17 @@ class CreateSequenceRequest(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'minValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class maxValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Int64Base,
         NoneBase,
         Schema
@@ -138,17 +143,17 @@ class CreateSequenceRequest(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'maxValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class start(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Int64Base,
         NoneBase,
         Schema
@@ -157,12 +162,12 @@ class CreateSequenceRequest(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'start':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     cycle = BoolSchema
     
@@ -175,7 +180,7 @@ class CreateSequenceRequest(
                 'pattern': r'^[A-Za-z0-9_-]*\{\{seqValue\}\}[A-Za-z0-9_-]*$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -184,12 +189,12 @@ class CreateSequenceRequest(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'pattern':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -204,7 +209,7 @@ class CreateSequenceRequest(
         start: typing.Union[start, Unset] = unset,
         cycle: typing.Union[cycle, Unset] = unset,
         pattern: typing.Union[pattern, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'CreateSequenceRequest':
         return super().__new__(
             cls,
@@ -216,5 +221,5 @@ class CreateSequenceRequest(
             start=start,
             cycle=cycle,
             pattern=pattern,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -85,7 +90,7 @@ class PortfolioHolding(
     
     
     class instrumentScope(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -94,18 +99,18 @@ class PortfolioHolding(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'instrumentScope':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     instrumentUid = StrSchema
     
     
     class subHoldingKeys(
-        _SchemaTypeChecker(typing.Union[frozendict, none_type, ]),
+        _SchemaTypeChecker(typing.Union[frozendict, NoneClass, ]),
         DictBase,
         NoneBase,
         Schema
@@ -119,19 +124,19 @@ class PortfolioHolding(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'subHoldingKeys':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
     
     
     class properties(
-        _SchemaTypeChecker(typing.Union[frozendict, none_type, ]),
+        _SchemaTypeChecker(typing.Union[frozendict, NoneClass, ]),
         DictBase,
         NoneBase,
         Schema
@@ -145,13 +150,13 @@ class PortfolioHolding(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'properties':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
     holdingType = StrSchema
@@ -175,7 +180,7 @@ class PortfolioHolding(
     
     
     class currency(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -184,12 +189,12 @@ class PortfolioHolding(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'currency':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -208,7 +213,7 @@ class PortfolioHolding(
         properties: typing.Union[properties, Unset] = unset,
         transaction: typing.Union['Transaction', Unset] = unset,
         currency: typing.Union[currency, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'PortfolioHolding':
         return super().__new__(
             cls,
@@ -224,7 +229,7 @@ class PortfolioHolding(
             properties=properties,
             transaction=transaction,
             currency=currency,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.currency_and_amount import CurrencyAndAmount

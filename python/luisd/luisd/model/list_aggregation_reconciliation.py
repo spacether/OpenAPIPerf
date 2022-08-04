@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -85,7 +90,7 @@ class ListAggregationReconciliation(
     
     
     class diff(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -94,12 +99,12 @@ class ListAggregationReconciliation(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'diff':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -116,7 +121,7 @@ class ListAggregationReconciliation(
         right: typing.Union['ListAggregationResponse', Unset] = unset,
         diff: typing.Union[diff, Unset] = unset,
         dataSchema: typing.Union['ResultDataSchema', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ListAggregationReconciliation':
         return super().__new__(
             cls,
@@ -125,7 +130,7 @@ class ListAggregationReconciliation(
             right=right,
             diff=diff,
             dataSchema=dataSchema,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.list_aggregation_response import ListAggregationResponse

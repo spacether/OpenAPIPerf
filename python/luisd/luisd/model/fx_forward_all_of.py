@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -102,12 +102,12 @@ class FxForwardAllOf(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'settlementCcy':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -314,7 +314,7 @@ class FxForwardAllOf(
         isNdf: typing.Union[isNdf, Unset] = unset,
         fixingDate: typing.Union[fixingDate, Unset] = unset,
         settlementCcy: typing.Union[settlementCcy, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FxForwardAllOf':
         return super().__new__(
@@ -331,6 +331,6 @@ class FxForwardAllOf(
             isNdf=isNdf,
             fixingDate=fixingDate,
             settlementCcy=settlementCcy,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

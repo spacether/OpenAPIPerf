@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -79,7 +84,7 @@ class PortfolioGroup(
     
     
     class href(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -88,12 +93,12 @@ class PortfolioGroup(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'href':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -104,7 +109,7 @@ class PortfolioGroup(
     
     
     class description(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -113,18 +118,18 @@ class PortfolioGroup(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'description':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     created = DateTimeSchema
     
     
     class portfolios(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -133,17 +138,17 @@ class PortfolioGroup(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'portfolios':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class subGroups(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -152,12 +157,12 @@ class PortfolioGroup(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'subGroups':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -167,7 +172,7 @@ class PortfolioGroup(
     
     
     class links(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -176,12 +181,12 @@ class PortfolioGroup(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'links':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -198,7 +203,7 @@ class PortfolioGroup(
         subGroups: typing.Union[subGroups, Unset] = unset,
         version: typing.Union['Version', Unset] = unset,
         links: typing.Union[links, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'PortfolioGroup':
         return super().__new__(
             cls,
@@ -212,7 +217,7 @@ class PortfolioGroup(
             subGroups=subGroups,
             version=version,
             links=links,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.link import Link

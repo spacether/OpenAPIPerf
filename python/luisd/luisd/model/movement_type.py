@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -69,21 +74,21 @@ class MovementType(
         enum_value_to_name={
             "Settlement": "SETTLEMENT",
             "Traded": "TRADED",
-            "StockMovement": "STOCKMOVEMENT",
-            "FutureCash": "FUTURECASH",
+            "StockMovement": "STOCK_MOVEMENT",
+            "FutureCash": "FUTURE_CASH",
             "Commitment": "COMMITMENT",
             "Receivable": "RECEIVABLE",
-            "CashSettlement": "CASHSETTLEMENT",
-            "CashForward": "CASHFORWARD",
-            "CashCommitment": "CASHCOMMITMENT",
-            "CashReceivable": "CASHRECEIVABLE",
+            "CashSettlement": "CASH_SETTLEMENT",
+            "CashForward": "CASH_FORWARD",
+            "CashCommitment": "CASH_COMMITMENT",
+            "CashReceivable": "CASH_RECEIVABLE",
             "Accrual": "ACCRUAL",
-            "CashAccrual": "CASHACCRUAL",
-            "ForwardFx": "FORWARDFX",
-            "CashFxForward": "CASHFXFORWARD",
-            "UnsettledCashTypes": "UNSETTLEDCASHTYPES",
+            "CashAccrual": "CASH_ACCRUAL",
+            "ForwardFx": "FORWARD_FX",
+            "CashFxForward": "CASH_FX_FORWARD",
+            "UnsettledCashTypes": "UNSETTLED_CASH_TYPES",
             "Carry": "CARRY",
-            "CarryAsPnl": "CARRYASPNL",
+            "CarryAsPnl": "CARRY_AS_PNL",
         }
     ),
     StrSchema
@@ -97,84 +102,84 @@ class MovementType(
     @classmethod
     @property
     def SETTLEMENT(cls):
-        return cls._enum_by_value["Settlement"]("Settlement")
+        return cls("Settlement")
     
     @classmethod
     @property
     def TRADED(cls):
-        return cls._enum_by_value["Traded"]("Traded")
+        return cls("Traded")
     
     @classmethod
     @property
-    def STOCKMOVEMENT(cls):
-        return cls._enum_by_value["StockMovement"]("StockMovement")
+    def STOCK_MOVEMENT(cls):
+        return cls("StockMovement")
     
     @classmethod
     @property
-    def FUTURECASH(cls):
-        return cls._enum_by_value["FutureCash"]("FutureCash")
+    def FUTURE_CASH(cls):
+        return cls("FutureCash")
     
     @classmethod
     @property
     def COMMITMENT(cls):
-        return cls._enum_by_value["Commitment"]("Commitment")
+        return cls("Commitment")
     
     @classmethod
     @property
     def RECEIVABLE(cls):
-        return cls._enum_by_value["Receivable"]("Receivable")
+        return cls("Receivable")
     
     @classmethod
     @property
-    def CASHSETTLEMENT(cls):
-        return cls._enum_by_value["CashSettlement"]("CashSettlement")
+    def CASH_SETTLEMENT(cls):
+        return cls("CashSettlement")
     
     @classmethod
     @property
-    def CASHFORWARD(cls):
-        return cls._enum_by_value["CashForward"]("CashForward")
+    def CASH_FORWARD(cls):
+        return cls("CashForward")
     
     @classmethod
     @property
-    def CASHCOMMITMENT(cls):
-        return cls._enum_by_value["CashCommitment"]("CashCommitment")
+    def CASH_COMMITMENT(cls):
+        return cls("CashCommitment")
     
     @classmethod
     @property
-    def CASHRECEIVABLE(cls):
-        return cls._enum_by_value["CashReceivable"]("CashReceivable")
+    def CASH_RECEIVABLE(cls):
+        return cls("CashReceivable")
     
     @classmethod
     @property
     def ACCRUAL(cls):
-        return cls._enum_by_value["Accrual"]("Accrual")
+        return cls("Accrual")
     
     @classmethod
     @property
-    def CASHACCRUAL(cls):
-        return cls._enum_by_value["CashAccrual"]("CashAccrual")
+    def CASH_ACCRUAL(cls):
+        return cls("CashAccrual")
     
     @classmethod
     @property
-    def FORWARDFX(cls):
-        return cls._enum_by_value["ForwardFx"]("ForwardFx")
+    def FORWARD_FX(cls):
+        return cls("ForwardFx")
     
     @classmethod
     @property
-    def CASHFXFORWARD(cls):
-        return cls._enum_by_value["CashFxForward"]("CashFxForward")
+    def CASH_FX_FORWARD(cls):
+        return cls("CashFxForward")
     
     @classmethod
     @property
-    def UNSETTLEDCASHTYPES(cls):
-        return cls._enum_by_value["UnsettledCashTypes"]("UnsettledCashTypes")
+    def UNSETTLED_CASH_TYPES(cls):
+        return cls("UnsettledCashTypes")
     
     @classmethod
     @property
     def CARRY(cls):
-        return cls._enum_by_value["Carry"]("Carry")
+        return cls("Carry")
     
     @classmethod
     @property
-    def CARRYASPNL(cls):
-        return cls._enum_by_value["CarryAsPnl"]("CarryAsPnl")
+    def CARRY_AS_PNL(cls):
+        return cls("CarryAsPnl")

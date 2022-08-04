@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -103,12 +103,12 @@ class InterestRateSwapAllOf(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'settlementCcy':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -310,7 +310,7 @@ class InterestRateSwapAllOf(
         instrumentType: instrumentType,
         isNonDeliverable: typing.Union[isNonDeliverable, Unset] = unset,
         settlementCcy: typing.Union[settlementCcy, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'InterestRateSwapAllOf':
         return super().__new__(
@@ -322,7 +322,7 @@ class InterestRateSwapAllOf(
             instrumentType=instrumentType,
             isNonDeliverable=isNonDeliverable,
             settlementCcy=settlementCcy,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

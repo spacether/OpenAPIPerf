@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -84,10 +89,10 @@ If a rule is not given for an item, it will default to equality comparison.
     class ruleType(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "ReconcileNumericRule": "RECONCILENUMERICRULE",
-                "ReconcileDateTimeRule": "RECONCILEDATETIMERULE",
-                "ReconcileStringRule": "RECONCILESTRINGRULE",
-                "ReconcileExact": "RECONCILEEXACT",
+                "ReconcileNumericRule": "RECONCILE_NUMERIC_RULE",
+                "ReconcileDateTimeRule": "RECONCILE_DATE_TIME_RULE",
+                "ReconcileStringRule": "RECONCILE_STRING_RULE",
+                "ReconcileExact": "RECONCILE_EXACT",
             }
         ),
         StrSchema
@@ -95,23 +100,23 @@ If a rule is not given for an item, it will default to equality comparison.
         
         @classmethod
         @property
-        def RECONCILENUMERICRULE(cls):
-            return cls._enum_by_value["ReconcileNumericRule"]("ReconcileNumericRule")
+        def RECONCILE_NUMERIC_RULE(cls):
+            return cls("ReconcileNumericRule")
         
         @classmethod
         @property
-        def RECONCILEDATETIMERULE(cls):
-            return cls._enum_by_value["ReconcileDateTimeRule"]("ReconcileDateTimeRule")
+        def RECONCILE_DATE_TIME_RULE(cls):
+            return cls("ReconcileDateTimeRule")
         
         @classmethod
         @property
-        def RECONCILESTRINGRULE(cls):
-            return cls._enum_by_value["ReconcileStringRule"]("ReconcileStringRule")
+        def RECONCILE_STRING_RULE(cls):
+            return cls("ReconcileStringRule")
         
         @classmethod
         @property
-        def RECONCILEEXACT(cls):
-            return cls._enum_by_value["ReconcileExact"]("ReconcileExact")
+        def RECONCILE_EXACT(cls):
+            return cls("ReconcileExact")
 
     @classmethod
     @property
@@ -130,13 +135,13 @@ If a rule is not given for an item, it will default to equality comparison.
         cls,
         *args: typing.Union[dict, frozendict, ],
         ruleType: ruleType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ReconciliationRule':
         return super().__new__(
             cls,
             *args,
             ruleType=ruleType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.reconcile_date_time_rule import ReconcileDateTimeRule

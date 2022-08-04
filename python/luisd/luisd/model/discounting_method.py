@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,7 +73,7 @@ class DiscountingMethod(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Standard": "STANDARD",
-            "ConstantTimeValueOfMoney": "CONSTANTTIMEVALUEOFMONEY",
+            "ConstantTimeValueOfMoney": "CONSTANT_TIME_VALUE_OF_MONEY",
             "Invalid": "INVALID",
         }
     ),
@@ -83,14 +88,14 @@ class DiscountingMethod(
     @classmethod
     @property
     def STANDARD(cls):
-        return cls._enum_by_value["Standard"]("Standard")
+        return cls("Standard")
     
     @classmethod
     @property
-    def CONSTANTTIMEVALUEOFMONEY(cls):
-        return cls._enum_by_value["ConstantTimeValueOfMoney"]("ConstantTimeValueOfMoney")
+    def CONSTANT_TIME_VALUE_OF_MONEY(cls):
+        return cls("ConstantTimeValueOfMoney")
     
     @classmethod
     @property
     def INVALID(cls):
-        return cls._enum_by_value["Invalid"]("Invalid")
+        return cls("Invalid")

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -84,36 +89,36 @@ value the inlined set. This the base instrument for this case.
     class instrumentType(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "QuotedSecurity": "QUOTEDSECURITY",
-                "InterestRateSwap": "INTERESTRATESWAP",
-                "FxForward": "FXFORWARD",
+                "QuotedSecurity": "QUOTED_SECURITY",
+                "InterestRateSwap": "INTEREST_RATE_SWAP",
+                "FxForward": "FX_FORWARD",
                 "Future": "FUTURE",
-                "ExoticInstrument": "EXOTICINSTRUMENT",
-                "FxOption": "FXOPTION",
-                "CreditDefaultSwap": "CREDITDEFAULTSWAP",
-                "InterestRateSwaption": "INTERESTRATESWAPTION",
+                "ExoticInstrument": "EXOTIC_INSTRUMENT",
+                "FxOption": "FX_OPTION",
+                "CreditDefaultSwap": "CREDIT_DEFAULT_SWAP",
+                "InterestRateSwaption": "INTEREST_RATE_SWAPTION",
                 "Bond": "BOND",
-                "EquityOption": "EQUITYOPTION",
-                "FixedLeg": "FIXEDLEG",
-                "FloatingLeg": "FLOATINGLEG",
-                "BespokeCashFlowsLeg": "BESPOKECASHFLOWSLEG",
+                "EquityOption": "EQUITY_OPTION",
+                "FixedLeg": "FIXED_LEG",
+                "FloatingLeg": "FLOATING_LEG",
+                "BespokeCashFlowsLeg": "BESPOKE_CASH_FLOWS_LEG",
                 "Unknown": "UNKNOWN",
-                "TermDeposit": "TERMDEPOSIT",
-                "ContractForDifference": "CONTRACTFORDIFFERENCE",
-                "EquitySwap": "EQUITYSWAP",
-                "CashPerpetual": "CASHPERPETUAL",
-                "CapFloor": "CAPFLOOR",
-                "CashSettled": "CASHSETTLED",
-                "CdsIndex": "CDSINDEX",
+                "TermDeposit": "TERM_DEPOSIT",
+                "ContractForDifference": "CONTRACT_FOR_DIFFERENCE",
+                "EquitySwap": "EQUITY_SWAP",
+                "CashPerpetual": "CASH_PERPETUAL",
+                "CapFloor": "CAP_FLOOR",
+                "CashSettled": "CASH_SETTLED",
+                "CdsIndex": "CDS_INDEX",
                 "Basket": "BASKET",
-                "FundingLeg": "FUNDINGLEG",
-                "CrossCurrencySwap": "CROSSCURRENCYSWAP",
-                "FxSwap": "FXSWAP",
-                "ForwardRateAgreement": "FORWARDRATEAGREEMENT",
-                "SimpleInstrument": "SIMPLEINSTRUMENT",
+                "FundingLeg": "FUNDING_LEG",
+                "CrossCurrencySwap": "CROSS_CURRENCY_SWAP",
+                "FxSwap": "FX_SWAP",
+                "ForwardRateAgreement": "FORWARD_RATE_AGREEMENT",
+                "SimpleInstrument": "SIMPLE_INSTRUMENT",
                 "Repo": "REPO",
                 "Equity": "EQUITY",
-                "ExchangeTradedOption": "EXCHANGETRADEDOPTION",
+                "ExchangeTradedOption": "EXCHANGE_TRADED_OPTION",
             }
         ),
         StrSchema
@@ -121,153 +126,153 @@ value the inlined set. This the base instrument for this case.
         
         @classmethod
         @property
-        def QUOTEDSECURITY(cls):
-            return cls._enum_by_value["QuotedSecurity"]("QuotedSecurity")
+        def QUOTED_SECURITY(cls):
+            return cls("QuotedSecurity")
         
         @classmethod
         @property
-        def INTERESTRATESWAP(cls):
-            return cls._enum_by_value["InterestRateSwap"]("InterestRateSwap")
+        def INTEREST_RATE_SWAP(cls):
+            return cls("InterestRateSwap")
         
         @classmethod
         @property
-        def FXFORWARD(cls):
-            return cls._enum_by_value["FxForward"]("FxForward")
+        def FX_FORWARD(cls):
+            return cls("FxForward")
         
         @classmethod
         @property
         def FUTURE(cls):
-            return cls._enum_by_value["Future"]("Future")
+            return cls("Future")
         
         @classmethod
         @property
-        def EXOTICINSTRUMENT(cls):
-            return cls._enum_by_value["ExoticInstrument"]("ExoticInstrument")
+        def EXOTIC_INSTRUMENT(cls):
+            return cls("ExoticInstrument")
         
         @classmethod
         @property
-        def FXOPTION(cls):
-            return cls._enum_by_value["FxOption"]("FxOption")
+        def FX_OPTION(cls):
+            return cls("FxOption")
         
         @classmethod
         @property
-        def CREDITDEFAULTSWAP(cls):
-            return cls._enum_by_value["CreditDefaultSwap"]("CreditDefaultSwap")
+        def CREDIT_DEFAULT_SWAP(cls):
+            return cls("CreditDefaultSwap")
         
         @classmethod
         @property
-        def INTERESTRATESWAPTION(cls):
-            return cls._enum_by_value["InterestRateSwaption"]("InterestRateSwaption")
+        def INTEREST_RATE_SWAPTION(cls):
+            return cls("InterestRateSwaption")
         
         @classmethod
         @property
         def BOND(cls):
-            return cls._enum_by_value["Bond"]("Bond")
+            return cls("Bond")
         
         @classmethod
         @property
-        def EQUITYOPTION(cls):
-            return cls._enum_by_value["EquityOption"]("EquityOption")
+        def EQUITY_OPTION(cls):
+            return cls("EquityOption")
         
         @classmethod
         @property
-        def FIXEDLEG(cls):
-            return cls._enum_by_value["FixedLeg"]("FixedLeg")
+        def FIXED_LEG(cls):
+            return cls("FixedLeg")
         
         @classmethod
         @property
-        def FLOATINGLEG(cls):
-            return cls._enum_by_value["FloatingLeg"]("FloatingLeg")
+        def FLOATING_LEG(cls):
+            return cls("FloatingLeg")
         
         @classmethod
         @property
-        def BESPOKECASHFLOWSLEG(cls):
-            return cls._enum_by_value["BespokeCashFlowsLeg"]("BespokeCashFlowsLeg")
+        def BESPOKE_CASH_FLOWS_LEG(cls):
+            return cls("BespokeCashFlowsLeg")
         
         @classmethod
         @property
         def UNKNOWN(cls):
-            return cls._enum_by_value["Unknown"]("Unknown")
+            return cls("Unknown")
         
         @classmethod
         @property
-        def TERMDEPOSIT(cls):
-            return cls._enum_by_value["TermDeposit"]("TermDeposit")
+        def TERM_DEPOSIT(cls):
+            return cls("TermDeposit")
         
         @classmethod
         @property
-        def CONTRACTFORDIFFERENCE(cls):
-            return cls._enum_by_value["ContractForDifference"]("ContractForDifference")
+        def CONTRACT_FOR_DIFFERENCE(cls):
+            return cls("ContractForDifference")
         
         @classmethod
         @property
-        def EQUITYSWAP(cls):
-            return cls._enum_by_value["EquitySwap"]("EquitySwap")
+        def EQUITY_SWAP(cls):
+            return cls("EquitySwap")
         
         @classmethod
         @property
-        def CASHPERPETUAL(cls):
-            return cls._enum_by_value["CashPerpetual"]("CashPerpetual")
+        def CASH_PERPETUAL(cls):
+            return cls("CashPerpetual")
         
         @classmethod
         @property
-        def CAPFLOOR(cls):
-            return cls._enum_by_value["CapFloor"]("CapFloor")
+        def CAP_FLOOR(cls):
+            return cls("CapFloor")
         
         @classmethod
         @property
-        def CASHSETTLED(cls):
-            return cls._enum_by_value["CashSettled"]("CashSettled")
+        def CASH_SETTLED(cls):
+            return cls("CashSettled")
         
         @classmethod
         @property
-        def CDSINDEX(cls):
-            return cls._enum_by_value["CdsIndex"]("CdsIndex")
+        def CDS_INDEX(cls):
+            return cls("CdsIndex")
         
         @classmethod
         @property
         def BASKET(cls):
-            return cls._enum_by_value["Basket"]("Basket")
+            return cls("Basket")
         
         @classmethod
         @property
-        def FUNDINGLEG(cls):
-            return cls._enum_by_value["FundingLeg"]("FundingLeg")
+        def FUNDING_LEG(cls):
+            return cls("FundingLeg")
         
         @classmethod
         @property
-        def CROSSCURRENCYSWAP(cls):
-            return cls._enum_by_value["CrossCurrencySwap"]("CrossCurrencySwap")
+        def CROSS_CURRENCY_SWAP(cls):
+            return cls("CrossCurrencySwap")
         
         @classmethod
         @property
-        def FXSWAP(cls):
-            return cls._enum_by_value["FxSwap"]("FxSwap")
+        def FX_SWAP(cls):
+            return cls("FxSwap")
         
         @classmethod
         @property
-        def FORWARDRATEAGREEMENT(cls):
-            return cls._enum_by_value["ForwardRateAgreement"]("ForwardRateAgreement")
+        def FORWARD_RATE_AGREEMENT(cls):
+            return cls("ForwardRateAgreement")
         
         @classmethod
         @property
-        def SIMPLEINSTRUMENT(cls):
-            return cls._enum_by_value["SimpleInstrument"]("SimpleInstrument")
+        def SIMPLE_INSTRUMENT(cls):
+            return cls("SimpleInstrument")
         
         @classmethod
         @property
         def REPO(cls):
-            return cls._enum_by_value["Repo"]("Repo")
+            return cls("Repo")
         
         @classmethod
         @property
         def EQUITY(cls):
-            return cls._enum_by_value["Equity"]("Equity")
+            return cls("Equity")
         
         @classmethod
         @property
-        def EXCHANGETRADEDOPTION(cls):
-            return cls._enum_by_value["ExchangeTradedOption"]("ExchangeTradedOption")
+        def EXCHANGE_TRADED_OPTION(cls):
+            return cls("ExchangeTradedOption")
 
     @classmethod
     @property
@@ -310,13 +315,13 @@ value the inlined set. This the base instrument for this case.
         cls,
         *args: typing.Union[dict, frozendict, ],
         instrumentType: instrumentType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'LusidInstrument':
         return super().__new__(
             cls,
             *args,
             instrumentType=instrumentType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.basket import Basket

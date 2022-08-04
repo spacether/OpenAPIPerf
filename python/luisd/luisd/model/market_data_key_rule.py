@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -123,10 +128,10 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
                 "Price": "PRICE",
                 "Spread": "SPREAD",
                 "Rate": "RATE",
-                "LogNormalVol": "LOGNORMALVOL",
-                "NormalVol": "NORMALVOL",
-                "ParSpread": "PARSPREAD",
-                "IsdaSpread": "ISDASPREAD",
+                "LogNormalVol": "LOG_NORMAL_VOL",
+                "NormalVol": "NORMAL_VOL",
+                "ParSpread": "PAR_SPREAD",
+                "IsdaSpread": "ISDA_SPREAD",
                 "Upfront": "UPFRONT",
             }
         ),
@@ -136,42 +141,42 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         @classmethod
         @property
         def PRICE(cls):
-            return cls._enum_by_value["Price"]("Price")
+            return cls("Price")
         
         @classmethod
         @property
         def SPREAD(cls):
-            return cls._enum_by_value["Spread"]("Spread")
+            return cls("Spread")
         
         @classmethod
         @property
         def RATE(cls):
-            return cls._enum_by_value["Rate"]("Rate")
+            return cls("Rate")
         
         @classmethod
         @property
-        def LOGNORMALVOL(cls):
-            return cls._enum_by_value["LogNormalVol"]("LogNormalVol")
+        def LOG_NORMAL_VOL(cls):
+            return cls("LogNormalVol")
         
         @classmethod
         @property
-        def NORMALVOL(cls):
-            return cls._enum_by_value["NormalVol"]("NormalVol")
+        def NORMAL_VOL(cls):
+            return cls("NormalVol")
         
         @classmethod
         @property
-        def PARSPREAD(cls):
-            return cls._enum_by_value["ParSpread"]("ParSpread")
+        def PAR_SPREAD(cls):
+            return cls("ParSpread")
         
         @classmethod
         @property
-        def ISDASPREAD(cls):
-            return cls._enum_by_value["IsdaSpread"]("IsdaSpread")
+        def ISDA_SPREAD(cls):
+            return cls("IsdaSpread")
         
         @classmethod
         @property
         def UPFRONT(cls):
-            return cls._enum_by_value["Upfront"]("Upfront")
+            return cls("Upfront")
     
     
     class field(
@@ -187,7 +192,7 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         _SchemaValidator(
             max_length=16,
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -196,17 +201,17 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'quoteInterval':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class asAt(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         DateTimeBase,
         NoneBase,
         Schema
@@ -215,12 +220,12 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'asAt':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -228,7 +233,7 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         _SchemaValidator(
             max_length=256,
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -237,12 +242,12 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'priceSource':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -250,7 +255,7 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         _SchemaValidator(
             max_length=256,
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -259,12 +264,12 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'mask':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -281,7 +286,7 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
         asAt: typing.Union[asAt, Unset] = unset,
         priceSource: typing.Union[priceSource, Unset] = unset,
         mask: typing.Union[mask, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'MarketDataKeyRule':
         return super().__new__(
             cls,
@@ -295,5 +300,5 @@ specifics required to uniquely describe a specific economic entity (e.g. an Fx c
             asAt=asAt,
             priceSource=priceSource,
             mask=mask,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

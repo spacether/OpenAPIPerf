@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -82,11 +87,11 @@ class AtomValue(
     class atomValueType(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "AtomValueInt": "ATOMVALUEINT",
-                "AtomValueDecimal": "ATOMVALUEDECIMAL",
-                "AtomValueString": "ATOMVALUESTRING",
-                "AtomValue0D": "ATOMVALUE0D",
-                "AtomValue": "ATOMVALUE",
+                "AtomValueInt": "ATOM_VALUE_INT",
+                "AtomValueDecimal": "ATOM_VALUE_DECIMAL",
+                "AtomValueString": "ATOM_VALUE_STRING",
+                "AtomValue0D": "ATOM_VALUE0D",
+                "AtomValue": "ATOM_VALUE",
             }
         ),
         StrSchema
@@ -94,28 +99,28 @@ class AtomValue(
         
         @classmethod
         @property
-        def ATOMVALUEINT(cls):
-            return cls._enum_by_value["AtomValueInt"]("AtomValueInt")
+        def ATOM_VALUE_INT(cls):
+            return cls("AtomValueInt")
         
         @classmethod
         @property
-        def ATOMVALUEDECIMAL(cls):
-            return cls._enum_by_value["AtomValueDecimal"]("AtomValueDecimal")
+        def ATOM_VALUE_DECIMAL(cls):
+            return cls("AtomValueDecimal")
         
         @classmethod
         @property
-        def ATOMVALUESTRING(cls):
-            return cls._enum_by_value["AtomValueString"]("AtomValueString")
+        def ATOM_VALUE_STRING(cls):
+            return cls("AtomValueString")
         
         @classmethod
         @property
-        def ATOMVALUE0D(cls):
-            return cls._enum_by_value["AtomValue0D"]("AtomValue0D")
+        def ATOM_VALUE0D(cls):
+            return cls("AtomValue0D")
         
         @classmethod
         @property
-        def ATOMVALUE(cls):
-            return cls._enum_by_value["AtomValue"]("AtomValue")
+        def ATOM_VALUE(cls):
+            return cls("AtomValue")
 
     @classmethod
     @property
@@ -135,13 +140,13 @@ class AtomValue(
         cls,
         *args: typing.Union[dict, frozendict, ],
         atomValueType: atomValueType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'AtomValue':
         return super().__new__(
             cls,
             *args,
             atomValueType=atomValueType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.atom_value0_d import AtomValue0D

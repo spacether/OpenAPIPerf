@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -193,7 +193,7 @@ class FxForwardModelOptionsAllOf(
         discountingMethod: discountingMethod,
         convertToReportCcy: convertToReportCcy,
         modelOptionsType: modelOptionsType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FxForwardModelOptionsAllOf':
         return super().__new__(
@@ -203,6 +203,6 @@ class FxForwardModelOptionsAllOf(
             discountingMethod=discountingMethod,
             convertToReportCcy=convertToReportCcy,
             modelOptionsType=modelOptionsType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

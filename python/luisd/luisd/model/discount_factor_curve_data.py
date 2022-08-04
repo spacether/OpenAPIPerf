@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,6 +82,7 @@ class DiscountFactorCurveData(
 
     @classmethod
     @property
+    @functools.cache
     def _composed_schemas(cls):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
@@ -85,29 +91,157 @@ class DiscountFactorCurveData(
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
+        
+        
+        class allOf_1(
+            DictSchema
+        ):
+            _required_property_names = set((
+                'baseDate',
+                'dates',
+                'discountFactors',
+                'marketDataType',
+            ))
+            baseDate = DateTimeSchema
+            
+            
+            class dates(
+                ListSchema
+            ):
+                _items = DateTimeSchema
+            
+            
+            class discountFactors(
+                ListSchema
+            ):
+                _items = Float64Schema
+            
+            
+            class marketDataType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "DiscountFactorCurveData": "DISCOUNT_FACTOR_CURVE_DATA",
+                        "EquityVolSurfaceData": "EQUITY_VOL_SURFACE_DATA",
+                        "FxVolSurfaceData": "FX_VOL_SURFACE_DATA",
+                        "IrVolCubeData": "IR_VOL_CUBE_DATA",
+                        "OpaqueMarketData": "OPAQUE_MARKET_DATA",
+                        "YieldCurveData": "YIELD_CURVE_DATA",
+                        "FxForwardCurveData": "FX_FORWARD_CURVE_DATA",
+                        "FxForwardPipsCurveData": "FX_FORWARD_PIPS_CURVE_DATA",
+                        "FxForwardTenorCurveData": "FX_FORWARD_TENOR_CURVE_DATA",
+                        "FxForwardTenorPipsCurveData": "FX_FORWARD_TENOR_PIPS_CURVE_DATA",
+                        "FxForwardCurveByQuoteReference": "FX_FORWARD_CURVE_BY_QUOTE_REFERENCE",
+                        "CreditSpreadCurveData": "CREDIT_SPREAD_CURVE_DATA",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def DISCOUNT_FACTOR_CURVE_DATA(cls):
+                    return cls("DiscountFactorCurveData")
+                
+                @classmethod
+                @property
+                def EQUITY_VOL_SURFACE_DATA(cls):
+                    return cls("EquityVolSurfaceData")
+                
+                @classmethod
+                @property
+                def FX_VOL_SURFACE_DATA(cls):
+                    return cls("FxVolSurfaceData")
+                
+                @classmethod
+                @property
+                def IR_VOL_CUBE_DATA(cls):
+                    return cls("IrVolCubeData")
+                
+                @classmethod
+                @property
+                def OPAQUE_MARKET_DATA(cls):
+                    return cls("OpaqueMarketData")
+                
+                @classmethod
+                @property
+                def YIELD_CURVE_DATA(cls):
+                    return cls("YieldCurveData")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_CURVE_DATA(cls):
+                    return cls("FxForwardCurveData")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_PIPS_CURVE_DATA(cls):
+                    return cls("FxForwardPipsCurveData")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_TENOR_CURVE_DATA(cls):
+                    return cls("FxForwardTenorCurveData")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_TENOR_PIPS_CURVE_DATA(cls):
+                    return cls("FxForwardTenorPipsCurveData")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_CURVE_BY_QUOTE_REFERENCE(cls):
+                    return cls("FxForwardCurveByQuoteReference")
+                
+                @classmethod
+                @property
+                def CREDIT_SPREAD_CURVE_DATA(cls):
+                    return cls("CreditSpreadCurveData")
+        
+        
+            def __new__(
+                cls,
+                *args: typing.Union[dict, frozendict, ],
+                baseDate: baseDate,
+                dates: dates,
+                discountFactors: discountFactors,
+                marketDataType: marketDataType,
+                _configuration: typing.Optional[Configuration] = None,
+                **kwargs: typing.Type[Schema],
+            ) -> 'allOf_1':
+                return super().__new__(
+                    cls,
+                    *args,
+                    baseDate=baseDate,
+                    dates=dates,
+                    discountFactors=discountFactors,
+                    marketDataType=marketDataType,
+                    _configuration=_configuration,
+                    **kwargs,
+                )
         return {
             'allOf': [
                 ComplexMarketData,
-                DiscountFactorCurveDataAllOf,
+                allOf_1,
             ],
             'oneOf': [
             ],
             'anyOf': [
             ],
+            'not':
+                None
         }
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict, str, date, datetime, int, float, decimal.Decimal, None, list, tuple, bytes],
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'DiscountFactorCurveData':
         return super().__new__(
             cls,
             *args,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
 from luisd.model.complex_market_data import ComplexMarketData
-from luisd.model.discount_factor_curve_data_all_of import DiscountFactorCurveDataAllOf

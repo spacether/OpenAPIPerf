@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -82,18 +87,18 @@ class ComplexMarketData(
     class marketDataType(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "DiscountFactorCurveData": "DISCOUNTFACTORCURVEDATA",
-                "EquityVolSurfaceData": "EQUITYVOLSURFACEDATA",
-                "FxVolSurfaceData": "FXVOLSURFACEDATA",
-                "IrVolCubeData": "IRVOLCUBEDATA",
-                "OpaqueMarketData": "OPAQUEMARKETDATA",
-                "YieldCurveData": "YIELDCURVEDATA",
-                "FxForwardCurveData": "FXFORWARDCURVEDATA",
-                "FxForwardPipsCurveData": "FXFORWARDPIPSCURVEDATA",
-                "FxForwardTenorCurveData": "FXFORWARDTENORCURVEDATA",
-                "FxForwardTenorPipsCurveData": "FXFORWARDTENORPIPSCURVEDATA",
-                "FxForwardCurveByQuoteReference": "FXFORWARDCURVEBYQUOTEREFERENCE",
-                "CreditSpreadCurveData": "CREDITSPREADCURVEDATA",
+                "DiscountFactorCurveData": "DISCOUNT_FACTOR_CURVE_DATA",
+                "EquityVolSurfaceData": "EQUITY_VOL_SURFACE_DATA",
+                "FxVolSurfaceData": "FX_VOL_SURFACE_DATA",
+                "IrVolCubeData": "IR_VOL_CUBE_DATA",
+                "OpaqueMarketData": "OPAQUE_MARKET_DATA",
+                "YieldCurveData": "YIELD_CURVE_DATA",
+                "FxForwardCurveData": "FX_FORWARD_CURVE_DATA",
+                "FxForwardPipsCurveData": "FX_FORWARD_PIPS_CURVE_DATA",
+                "FxForwardTenorCurveData": "FX_FORWARD_TENOR_CURVE_DATA",
+                "FxForwardTenorPipsCurveData": "FX_FORWARD_TENOR_PIPS_CURVE_DATA",
+                "FxForwardCurveByQuoteReference": "FX_FORWARD_CURVE_BY_QUOTE_REFERENCE",
+                "CreditSpreadCurveData": "CREDIT_SPREAD_CURVE_DATA",
             }
         ),
         StrSchema
@@ -101,63 +106,63 @@ class ComplexMarketData(
         
         @classmethod
         @property
-        def DISCOUNTFACTORCURVEDATA(cls):
-            return cls._enum_by_value["DiscountFactorCurveData"]("DiscountFactorCurveData")
+        def DISCOUNT_FACTOR_CURVE_DATA(cls):
+            return cls("DiscountFactorCurveData")
         
         @classmethod
         @property
-        def EQUITYVOLSURFACEDATA(cls):
-            return cls._enum_by_value["EquityVolSurfaceData"]("EquityVolSurfaceData")
+        def EQUITY_VOL_SURFACE_DATA(cls):
+            return cls("EquityVolSurfaceData")
         
         @classmethod
         @property
-        def FXVOLSURFACEDATA(cls):
-            return cls._enum_by_value["FxVolSurfaceData"]("FxVolSurfaceData")
+        def FX_VOL_SURFACE_DATA(cls):
+            return cls("FxVolSurfaceData")
         
         @classmethod
         @property
-        def IRVOLCUBEDATA(cls):
-            return cls._enum_by_value["IrVolCubeData"]("IrVolCubeData")
+        def IR_VOL_CUBE_DATA(cls):
+            return cls("IrVolCubeData")
         
         @classmethod
         @property
-        def OPAQUEMARKETDATA(cls):
-            return cls._enum_by_value["OpaqueMarketData"]("OpaqueMarketData")
+        def OPAQUE_MARKET_DATA(cls):
+            return cls("OpaqueMarketData")
         
         @classmethod
         @property
-        def YIELDCURVEDATA(cls):
-            return cls._enum_by_value["YieldCurveData"]("YieldCurveData")
+        def YIELD_CURVE_DATA(cls):
+            return cls("YieldCurveData")
         
         @classmethod
         @property
-        def FXFORWARDCURVEDATA(cls):
-            return cls._enum_by_value["FxForwardCurveData"]("FxForwardCurveData")
+        def FX_FORWARD_CURVE_DATA(cls):
+            return cls("FxForwardCurveData")
         
         @classmethod
         @property
-        def FXFORWARDPIPSCURVEDATA(cls):
-            return cls._enum_by_value["FxForwardPipsCurveData"]("FxForwardPipsCurveData")
+        def FX_FORWARD_PIPS_CURVE_DATA(cls):
+            return cls("FxForwardPipsCurveData")
         
         @classmethod
         @property
-        def FXFORWARDTENORCURVEDATA(cls):
-            return cls._enum_by_value["FxForwardTenorCurveData"]("FxForwardTenorCurveData")
+        def FX_FORWARD_TENOR_CURVE_DATA(cls):
+            return cls("FxForwardTenorCurveData")
         
         @classmethod
         @property
-        def FXFORWARDTENORPIPSCURVEDATA(cls):
-            return cls._enum_by_value["FxForwardTenorPipsCurveData"]("FxForwardTenorPipsCurveData")
+        def FX_FORWARD_TENOR_PIPS_CURVE_DATA(cls):
+            return cls("FxForwardTenorPipsCurveData")
         
         @classmethod
         @property
-        def FXFORWARDCURVEBYQUOTEREFERENCE(cls):
-            return cls._enum_by_value["FxForwardCurveByQuoteReference"]("FxForwardCurveByQuoteReference")
+        def FX_FORWARD_CURVE_BY_QUOTE_REFERENCE(cls):
+            return cls("FxForwardCurveByQuoteReference")
         
         @classmethod
         @property
-        def CREDITSPREADCURVEDATA(cls):
-            return cls._enum_by_value["CreditSpreadCurveData"]("CreditSpreadCurveData")
+        def CREDIT_SPREAD_CURVE_DATA(cls):
+            return cls("CreditSpreadCurveData")
 
     @classmethod
     @property
@@ -185,13 +190,13 @@ class ComplexMarketData(
         cls,
         *args: typing.Union[dict, frozendict, ],
         marketDataType: marketDataType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ComplexMarketData':
         return super().__new__(
             cls,
             *args,
             marketDataType=marketDataType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.credit_spread_curve_data import CreditSpreadCurveData

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -78,7 +83,7 @@ Fx rates. It controls where the data is loaded from and which sources take prece
     
     
     class marketRules(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -87,18 +92,48 @@ Fx rates. It controls where the data is loaded from and which sources take prece
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'marketRules':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
-
-    @classmethod
-    @property
-    def suppliers(cls) -> typing.Type['MarketContextSuppliers']:
-        return MarketContextSuppliers
+    
+    
+    class suppliers(
+        _SchemaTypeChecker(typing.Union[frozendict, NoneClass, ]),
+        DictBase,
+        NoneBase,
+        Schema
+    ):
+        Commodity = StrSchema
+        Credit = StrSchema
+        Equity = StrSchema
+        Fx = StrSchema
+        Rates = StrSchema
+        _additional_properties = None
+    
+        def __new__(
+            cls,
+            *args: typing.Union[dict, frozendict, None, ],
+            Commodity: typing.Union[Commodity, Unset] = unset,
+            Credit: typing.Union[Credit, Unset] = unset,
+            Equity: typing.Union[Equity, Unset] = unset,
+            Fx: typing.Union[Fx, Unset] = unset,
+            Rates: typing.Union[Rates, Unset] = unset,
+            _configuration: typing.Optional[Configuration] = None,
+        ) -> 'suppliers':
+            return super().__new__(
+                cls,
+                *args,
+                Commodity=Commodity,
+                Credit=Credit,
+                Equity=Equity,
+                Fx=Fx,
+                Rates=Rates,
+                _configuration=_configuration,
+            )
 
     @classmethod
     @property
@@ -111,9 +146,9 @@ Fx rates. It controls where the data is loaded from and which sources take prece
         cls,
         *args: typing.Union[dict, frozendict, ],
         marketRules: typing.Union[marketRules, Unset] = unset,
-        suppliers: typing.Union['MarketContextSuppliers', Unset] = unset,
+        suppliers: typing.Union[suppliers, Unset] = unset,
         options: typing.Union['MarketOptions', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'MarketContext':
         return super().__new__(
             cls,
@@ -121,9 +156,8 @@ Fx rates. It controls where the data is loaded from and which sources take prece
             marketRules=marketRules,
             suppliers=suppliers,
             options=options,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
-from luisd.model.market_context_suppliers import MarketContextSuppliers
 from luisd.model.market_data_key_rule import MarketDataKeyRule
 from luisd.model.market_options import MarketOptions

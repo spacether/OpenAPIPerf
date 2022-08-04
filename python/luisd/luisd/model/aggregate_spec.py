@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -89,10 +94,10 @@ class AggregateSpec(
                 "Min": "MIN",
                 "Max": "MAX",
                 "Value": "VALUE",
-                "SumOfPositiveValues": "SUMOFPOSITIVEVALUES",
-                "SumOfNegativeValues": "SUMOFNEGATIVEVALUES",
-                "SumOfAbsoluteValues": "SUMOFABSOLUTEVALUES",
-                "ProportionOfAbsoluteValues": "PROPORTIONOFABSOLUTEVALUES",
+                "SumOfPositiveValues": "SUM_OF_POSITIVE_VALUES",
+                "SumOfNegativeValues": "SUM_OF_NEGATIVE_VALUES",
+                "SumOfAbsoluteValues": "SUM_OF_ABSOLUTE_VALUES",
+                "ProportionOfAbsoluteValues": "PROPORTION_OF_ABSOLUTE_VALUES",
             }
         ),
         StrSchema
@@ -101,57 +106,57 @@ class AggregateSpec(
         @classmethod
         @property
         def SUM(cls):
-            return cls._enum_by_value["Sum"]("Sum")
+            return cls("Sum")
         
         @classmethod
         @property
         def PROPORTION(cls):
-            return cls._enum_by_value["Proportion"]("Proportion")
+            return cls("Proportion")
         
         @classmethod
         @property
         def AVERAGE(cls):
-            return cls._enum_by_value["Average"]("Average")
+            return cls("Average")
         
         @classmethod
         @property
         def COUNT(cls):
-            return cls._enum_by_value["Count"]("Count")
+            return cls("Count")
         
         @classmethod
         @property
         def MIN(cls):
-            return cls._enum_by_value["Min"]("Min")
+            return cls("Min")
         
         @classmethod
         @property
         def MAX(cls):
-            return cls._enum_by_value["Max"]("Max")
+            return cls("Max")
         
         @classmethod
         @property
         def VALUE(cls):
-            return cls._enum_by_value["Value"]("Value")
+            return cls("Value")
         
         @classmethod
         @property
-        def SUMOFPOSITIVEVALUES(cls):
-            return cls._enum_by_value["SumOfPositiveValues"]("SumOfPositiveValues")
+        def SUM_OF_POSITIVE_VALUES(cls):
+            return cls("SumOfPositiveValues")
         
         @classmethod
         @property
-        def SUMOFNEGATIVEVALUES(cls):
-            return cls._enum_by_value["SumOfNegativeValues"]("SumOfNegativeValues")
+        def SUM_OF_NEGATIVE_VALUES(cls):
+            return cls("SumOfNegativeValues")
         
         @classmethod
         @property
-        def SUMOFABSOLUTEVALUES(cls):
-            return cls._enum_by_value["SumOfAbsoluteValues"]("SumOfAbsoluteValues")
+        def SUM_OF_ABSOLUTE_VALUES(cls):
+            return cls("SumOfAbsoluteValues")
         
         @classmethod
         @property
-        def PROPORTIONOFABSOLUTEVALUES(cls):
-            return cls._enum_by_value["ProportionOfAbsoluteValues"]("ProportionOfAbsoluteValues")
+        def PROPORTION_OF_ABSOLUTE_VALUES(cls):
+            return cls("ProportionOfAbsoluteValues")
     _additional_properties = None
 
 
@@ -160,12 +165,12 @@ class AggregateSpec(
         *args: typing.Union[dict, frozendict, ],
         key: key,
         op: op,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'AggregateSpec':
         return super().__new__(
             cls,
             *args,
             key=key,
             op=op,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

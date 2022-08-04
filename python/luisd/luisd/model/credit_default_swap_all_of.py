@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -106,12 +106,12 @@ class CreditDefaultSwapAllOf(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'notional':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -321,7 +321,7 @@ class CreditDefaultSwapAllOf(
         flowConventions: typing.Union['CdsFlowConventions', Unset] = unset,
         conventionName: typing.Union['FlowConventionName', Unset] = unset,
         notional: typing.Union[notional, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'CreditDefaultSwapAllOf':
         return super().__new__(
@@ -336,7 +336,7 @@ class CreditDefaultSwapAllOf(
             flowConventions=flowConventions,
             conventionName=conventionName,
             notional=notional,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

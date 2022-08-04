@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -85,10 +90,10 @@ having a particular type/class. This allows us to control the model type and lib
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Lusid": "LUSID",
-                "RefinitivQps": "REFINITIVQPS",
-                "RefinitivTracsWeb": "REFINITIVTRACSWEB",
-                "VolMaster": "VOLMASTER",
-                "IsdaCds": "ISDACDS",
+                "RefinitivQps": "REFINITIV_QPS",
+                "RefinitivTracsWeb": "REFINITIV_TRACS_WEB",
+                "VolMaster": "VOL_MASTER",
+                "IsdaCds": "ISDA_CDS",
             }
         ),
         StrSchema
@@ -97,47 +102,47 @@ having a particular type/class. This allows us to control the model type and lib
         @classmethod
         @property
         def LUSID(cls):
-            return cls._enum_by_value["Lusid"]("Lusid")
+            return cls("Lusid")
         
         @classmethod
         @property
-        def REFINITIVQPS(cls):
-            return cls._enum_by_value["RefinitivQps"]("RefinitivQps")
+        def REFINITIV_QPS(cls):
+            return cls("RefinitivQps")
         
         @classmethod
         @property
-        def REFINITIVTRACSWEB(cls):
-            return cls._enum_by_value["RefinitivTracsWeb"]("RefinitivTracsWeb")
+        def REFINITIV_TRACS_WEB(cls):
+            return cls("RefinitivTracsWeb")
         
         @classmethod
         @property
-        def VOLMASTER(cls):
-            return cls._enum_by_value["VolMaster"]("VolMaster")
+        def VOL_MASTER(cls):
+            return cls("VolMaster")
         
         @classmethod
         @property
-        def ISDACDS(cls):
-            return cls._enum_by_value["IsdaCds"]("IsdaCds")
+        def ISDA_CDS(cls):
+            return cls("IsdaCds")
     
     
     class model(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "SimpleStatic": "SIMPLESTATIC",
+                "SimpleStatic": "SIMPLE_STATIC",
                 "Discounting": "DISCOUNTING",
-                "VendorDefault": "VENDORDEFAULT",
-                "BlackScholes": "BLACKSCHOLES",
-                "ConstantTimeValueOfMoney": "CONSTANTTIMEVALUEOFMONEY",
+                "VendorDefault": "VENDOR_DEFAULT",
+                "BlackScholes": "BLACK_SCHOLES",
+                "ConstantTimeValueOfMoney": "CONSTANT_TIME_VALUE_OF_MONEY",
                 "Bachelier": "BACHELIER",
-                "ForwardWithPoints": "FORWARDWITHPOINTS",
-                "ForwardWithPointsUndiscounted": "FORWARDWITHPOINTSUNDISCOUNTED",
-                "ForwardSpecifiedRate": "FORWARDSPECIFIEDRATE",
-                "ForwardSpecifiedRateUndiscounted": "FORWARDSPECIFIEDRATEUNDISCOUNTED",
-                "IndexNav": "INDEXNAV",
-                "IndexPrice": "INDEXPRICE",
-                "InlinedIndex": "INLINEDINDEX",
-                "ForwardFromCurve": "FORWARDFROMCURVE",
-                "ForwardFromCurveUndiscounted": "FORWARDFROMCURVEUNDISCOUNTED",
+                "ForwardWithPoints": "FORWARD_WITH_POINTS",
+                "ForwardWithPointsUndiscounted": "FORWARD_WITH_POINTS_UNDISCOUNTED",
+                "ForwardSpecifiedRate": "FORWARD_SPECIFIED_RATE",
+                "ForwardSpecifiedRateUndiscounted": "FORWARD_SPECIFIED_RATE_UNDISCOUNTED",
+                "IndexNav": "INDEX_NAV",
+                "IndexPrice": "INDEX_PRICE",
+                "InlinedIndex": "INLINED_INDEX",
+                "ForwardFromCurve": "FORWARD_FROM_CURVE",
+                "ForwardFromCurveUndiscounted": "FORWARD_FROM_CURVE_UNDISCOUNTED",
             }
         ),
         StrSchema
@@ -145,78 +150,78 @@ having a particular type/class. This allows us to control the model type and lib
         
         @classmethod
         @property
-        def SIMPLESTATIC(cls):
-            return cls._enum_by_value["SimpleStatic"]("SimpleStatic")
+        def SIMPLE_STATIC(cls):
+            return cls("SimpleStatic")
         
         @classmethod
         @property
         def DISCOUNTING(cls):
-            return cls._enum_by_value["Discounting"]("Discounting")
+            return cls("Discounting")
         
         @classmethod
         @property
-        def VENDORDEFAULT(cls):
-            return cls._enum_by_value["VendorDefault"]("VendorDefault")
+        def VENDOR_DEFAULT(cls):
+            return cls("VendorDefault")
         
         @classmethod
         @property
-        def BLACKSCHOLES(cls):
-            return cls._enum_by_value["BlackScholes"]("BlackScholes")
+        def BLACK_SCHOLES(cls):
+            return cls("BlackScholes")
         
         @classmethod
         @property
-        def CONSTANTTIMEVALUEOFMONEY(cls):
-            return cls._enum_by_value["ConstantTimeValueOfMoney"]("ConstantTimeValueOfMoney")
+        def CONSTANT_TIME_VALUE_OF_MONEY(cls):
+            return cls("ConstantTimeValueOfMoney")
         
         @classmethod
         @property
         def BACHELIER(cls):
-            return cls._enum_by_value["Bachelier"]("Bachelier")
+            return cls("Bachelier")
         
         @classmethod
         @property
-        def FORWARDWITHPOINTS(cls):
-            return cls._enum_by_value["ForwardWithPoints"]("ForwardWithPoints")
+        def FORWARD_WITH_POINTS(cls):
+            return cls("ForwardWithPoints")
         
         @classmethod
         @property
-        def FORWARDWITHPOINTSUNDISCOUNTED(cls):
-            return cls._enum_by_value["ForwardWithPointsUndiscounted"]("ForwardWithPointsUndiscounted")
+        def FORWARD_WITH_POINTS_UNDISCOUNTED(cls):
+            return cls("ForwardWithPointsUndiscounted")
         
         @classmethod
         @property
-        def FORWARDSPECIFIEDRATE(cls):
-            return cls._enum_by_value["ForwardSpecifiedRate"]("ForwardSpecifiedRate")
+        def FORWARD_SPECIFIED_RATE(cls):
+            return cls("ForwardSpecifiedRate")
         
         @classmethod
         @property
-        def FORWARDSPECIFIEDRATEUNDISCOUNTED(cls):
-            return cls._enum_by_value["ForwardSpecifiedRateUndiscounted"]("ForwardSpecifiedRateUndiscounted")
+        def FORWARD_SPECIFIED_RATE_UNDISCOUNTED(cls):
+            return cls("ForwardSpecifiedRateUndiscounted")
         
         @classmethod
         @property
-        def INDEXNAV(cls):
-            return cls._enum_by_value["IndexNav"]("IndexNav")
+        def INDEX_NAV(cls):
+            return cls("IndexNav")
         
         @classmethod
         @property
-        def INDEXPRICE(cls):
-            return cls._enum_by_value["IndexPrice"]("IndexPrice")
+        def INDEX_PRICE(cls):
+            return cls("IndexPrice")
         
         @classmethod
         @property
-        def INLINEDINDEX(cls):
-            return cls._enum_by_value["InlinedIndex"]("InlinedIndex")
+        def INLINED_INDEX(cls):
+            return cls("InlinedIndex")
         
         @classmethod
         @property
-        def FORWARDFROMCURVE(cls):
-            return cls._enum_by_value["ForwardFromCurve"]("ForwardFromCurve")
+        def FORWARD_FROM_CURVE(cls):
+            return cls("ForwardFromCurve")
         
         @classmethod
         @property
-        def FORWARDFROMCURVEUNDISCOUNTED(cls):
-            return cls._enum_by_value["ForwardFromCurveUndiscounted"]("ForwardFromCurveUndiscounted")
+        def FORWARD_FROM_CURVE_UNDISCOUNTED(cls):
+            return cls("ForwardFromCurveUndiscounted")
     _additional_properties = None
 
 
@@ -225,12 +230,12 @@ having a particular type/class. This allows us to control the model type and lib
         *args: typing.Union[dict, frozendict, ],
         library: library,
         model: model,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'ModelSelection':
         return super().__new__(
             cls,
             *args,
             library=library,
             model=model,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

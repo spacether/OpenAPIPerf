@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -100,13 +100,13 @@ class CdsIndexAllOf(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'identifiers':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
 
@@ -323,7 +323,7 @@ class CdsIndexAllOf(
         instrumentType: instrumentType,
         flowConventions: typing.Union['CdsFlowConventions', Unset] = unset,
         conventionName: typing.Union['FlowConventionName', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'CdsIndexAllOf':
         return super().__new__(
@@ -338,7 +338,7 @@ class CdsIndexAllOf(
             instrumentType=instrumentType,
             flowConventions=flowConventions,
             conventionName=conventionName,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -86,10 +91,10 @@ There can be many such rules, though only the first found for a given combinatio
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Lusid": "LUSID",
-                "RefinitivQps": "REFINITIVQPS",
-                "RefinitivTracsWeb": "REFINITIVTRACSWEB",
-                "VolMaster": "VOLMASTER",
-                "IsdaCds": "ISDACDS",
+                "RefinitivQps": "REFINITIV_QPS",
+                "RefinitivTracsWeb": "REFINITIV_TRACS_WEB",
+                "VolMaster": "VOL_MASTER",
+                "IsdaCds": "ISDA_CDS",
             }
         ),
         StrSchema
@@ -98,27 +103,27 @@ There can be many such rules, though only the first found for a given combinatio
         @classmethod
         @property
         def LUSID(cls):
-            return cls._enum_by_value["Lusid"]("Lusid")
+            return cls("Lusid")
         
         @classmethod
         @property
-        def REFINITIVQPS(cls):
-            return cls._enum_by_value["RefinitivQps"]("RefinitivQps")
+        def REFINITIV_QPS(cls):
+            return cls("RefinitivQps")
         
         @classmethod
         @property
-        def REFINITIVTRACSWEB(cls):
-            return cls._enum_by_value["RefinitivTracsWeb"]("RefinitivTracsWeb")
+        def REFINITIV_TRACS_WEB(cls):
+            return cls("RefinitivTracsWeb")
         
         @classmethod
         @property
-        def VOLMASTER(cls):
-            return cls._enum_by_value["VolMaster"]("VolMaster")
+        def VOL_MASTER(cls):
+            return cls("VolMaster")
         
         @classmethod
         @property
-        def ISDACDS(cls):
-            return cls._enum_by_value["IsdaCds"]("IsdaCds")
+        def ISDA_CDS(cls):
+            return cls("IsdaCds")
     
     
     class modelName(
@@ -143,7 +148,7 @@ There can be many such rules, though only the first found for a given combinatio
         _SchemaValidator(
             max_length=64,
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -152,12 +157,12 @@ There can be many such rules, though only the first found for a given combinatio
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'parameters':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -167,7 +172,7 @@ There can be many such rules, though only the first found for a given combinatio
     
     
     class instrumentId(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -176,12 +181,12 @@ There can be many such rules, though only the first found for a given combinatio
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'instrumentId':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -195,7 +200,7 @@ There can be many such rules, though only the first found for a given combinatio
         parameters: typing.Union[parameters, Unset] = unset,
         modelOptions: typing.Union['ModelOptions', Unset] = unset,
         instrumentId: typing.Union[instrumentId, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'VendorModelRule':
         return super().__new__(
             cls,
@@ -206,7 +211,7 @@ There can be many such rules, though only the first found for a given combinatio
             parameters=parameters,
             modelOptions=modelOptions,
             instrumentId=instrumentId,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.model_options import ModelOptions

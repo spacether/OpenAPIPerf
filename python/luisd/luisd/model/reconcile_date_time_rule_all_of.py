@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -146,7 +146,7 @@ class ReconcileDateTimeRuleAllOf(
         appliesTo: appliesTo,
         ruleType: ruleType,
         tolerance: typing.Union[tolerance, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'ReconcileDateTimeRuleAllOf':
         return super().__new__(
@@ -156,7 +156,7 @@ class ReconcileDateTimeRuleAllOf(
             appliesTo=appliesTo,
             ruleType=ruleType,
             tolerance=tolerance,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

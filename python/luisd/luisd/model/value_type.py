@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -70,23 +75,23 @@ class ValueType(
             "String": "STRING",
             "Int": "INT",
             "Decimal": "DECIMAL",
-            "DateTime": "DATETIME",
+            "DateTime": "DATE_TIME",
             "Boolean": "BOOLEAN",
             "Map": "MAP",
             "List": "LIST",
-            "PropertyArray": "PROPERTYARRAY",
+            "PropertyArray": "PROPERTY_ARRAY",
             "Percentage": "PERCENTAGE",
             "Code": "CODE",
             "Id": "ID",
             "Uri": "URI",
-            "CurrencyAndAmount": "CURRENCYANDAMOUNT",
-            "TradePrice": "TRADEPRICE",
+            "CurrencyAndAmount": "CURRENCY_AND_AMOUNT",
+            "TradePrice": "TRADE_PRICE",
             "Currency": "CURRENCY",
-            "MetricValue": "METRICVALUE",
-            "ResourceId": "RESOURCEID",
-            "ResultValue": "RESULTVALUE",
-            "CutLocalTime": "CUTLOCALTIME",
-            "DateOrCutLabel": "DATEORCUTLABEL",
+            "MetricValue": "METRIC_VALUE",
+            "ResourceId": "RESOURCE_ID",
+            "ResultValue": "RESULT_VALUE",
+            "CutLocalTime": "CUT_LOCAL_TIME",
+            "DateOrCutLabel": "DATE_OR_CUT_LABEL",
         }
     ),
     StrSchema
@@ -102,99 +107,99 @@ class ValueType(
     @classmethod
     @property
     def STRING(cls):
-        return cls._enum_by_value["String"]("String")
+        return cls("String")
     
     @classmethod
     @property
     def INT(cls):
-        return cls._enum_by_value["Int"]("Int")
+        return cls("Int")
     
     @classmethod
     @property
     def DECIMAL(cls):
-        return cls._enum_by_value["Decimal"]("Decimal")
+        return cls("Decimal")
     
     @classmethod
     @property
-    def DATETIME(cls):
-        return cls._enum_by_value["DateTime"]("DateTime")
+    def DATE_TIME(cls):
+        return cls("DateTime")
     
     @classmethod
     @property
     def BOOLEAN(cls):
-        return cls._enum_by_value["Boolean"]("Boolean")
+        return cls("Boolean")
     
     @classmethod
     @property
     def MAP(cls):
-        return cls._enum_by_value["Map"]("Map")
+        return cls("Map")
     
     @classmethod
     @property
     def LIST(cls):
-        return cls._enum_by_value["List"]("List")
+        return cls("List")
     
     @classmethod
     @property
-    def PROPERTYARRAY(cls):
-        return cls._enum_by_value["PropertyArray"]("PropertyArray")
+    def PROPERTY_ARRAY(cls):
+        return cls("PropertyArray")
     
     @classmethod
     @property
     def PERCENTAGE(cls):
-        return cls._enum_by_value["Percentage"]("Percentage")
+        return cls("Percentage")
     
     @classmethod
     @property
     def CODE(cls):
-        return cls._enum_by_value["Code"]("Code")
+        return cls("Code")
     
     @classmethod
     @property
     def ID(cls):
-        return cls._enum_by_value["Id"]("Id")
+        return cls("Id")
     
     @classmethod
     @property
     def URI(cls):
-        return cls._enum_by_value["Uri"]("Uri")
+        return cls("Uri")
     
     @classmethod
     @property
-    def CURRENCYANDAMOUNT(cls):
-        return cls._enum_by_value["CurrencyAndAmount"]("CurrencyAndAmount")
+    def CURRENCY_AND_AMOUNT(cls):
+        return cls("CurrencyAndAmount")
     
     @classmethod
     @property
-    def TRADEPRICE(cls):
-        return cls._enum_by_value["TradePrice"]("TradePrice")
+    def TRADE_PRICE(cls):
+        return cls("TradePrice")
     
     @classmethod
     @property
     def CURRENCY(cls):
-        return cls._enum_by_value["Currency"]("Currency")
+        return cls("Currency")
     
     @classmethod
     @property
-    def METRICVALUE(cls):
-        return cls._enum_by_value["MetricValue"]("MetricValue")
+    def METRIC_VALUE(cls):
+        return cls("MetricValue")
     
     @classmethod
     @property
-    def RESOURCEID(cls):
-        return cls._enum_by_value["ResourceId"]("ResourceId")
+    def RESOURCE_ID(cls):
+        return cls("ResourceId")
     
     @classmethod
     @property
-    def RESULTVALUE(cls):
-        return cls._enum_by_value["ResultValue"]("ResultValue")
+    def RESULT_VALUE(cls):
+        return cls("ResultValue")
     
     @classmethod
     @property
-    def CUTLOCALTIME(cls):
-        return cls._enum_by_value["CutLocalTime"]("CutLocalTime")
+    def CUT_LOCAL_TIME(cls):
+        return cls("CutLocalTime")
     
     @classmethod
     @property
-    def DATEORCUTLABEL(cls):
-        return cls._enum_by_value["DateOrCutLabel"]("DateOrCutLabel")
+    def DATE_OR_CUT_LABEL(cls):
+        return cls("DateOrCutLabel")

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,6 +82,7 @@ class SimpleInstrument(
 
     @classmethod
     @property
+    @functools.cache
     def _composed_schemas(cls):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
@@ -85,29 +91,335 @@ class SimpleInstrument(
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
+        
+        
+        class allOf_1(
+            DictSchema
+        ):
+            _required_property_names = set((
+                'domCcy',
+                'assetClass',
+                'simpleInstrumentType',
+                'instrumentType',
+            ))
+            maturityDate = DateTimeSchema
+            domCcy = StrSchema
+            
+            
+            class assetClass(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "InterestRates": "INTEREST_RATES",
+                        "FX": "FX",
+                        "Inflation": "INFLATION",
+                        "Equities": "EQUITIES",
+                        "Credit": "CREDIT",
+                        "Commodities": "COMMODITIES",
+                        "Money": "MONEY",
+                        "Unknown": "UNKNOWN",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def INTEREST_RATES(cls):
+                    return cls("InterestRates")
+                
+                @classmethod
+                @property
+                def FX(cls):
+                    return cls("FX")
+                
+                @classmethod
+                @property
+                def INFLATION(cls):
+                    return cls("Inflation")
+                
+                @classmethod
+                @property
+                def EQUITIES(cls):
+                    return cls("Equities")
+                
+                @classmethod
+                @property
+                def CREDIT(cls):
+                    return cls("Credit")
+                
+                @classmethod
+                @property
+                def COMMODITIES(cls):
+                    return cls("Commodities")
+                
+                @classmethod
+                @property
+                def MONEY(cls):
+                    return cls("Money")
+                
+                @classmethod
+                @property
+                def UNKNOWN(cls):
+                    return cls("Unknown")
+            
+            
+            class fgnCcys(
+                _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
+                ListBase,
+                NoneBase,
+                Schema
+            ):
+            
+                def __new__(
+                    cls,
+                    *args: typing.Union[list, tuple, None, ],
+                    _configuration: typing.Optional[Configuration] = None,
+                ) -> 'fgnCcys':
+                    return super().__new__(
+                        cls,
+                        *args,
+                        _configuration=_configuration,
+                    )
+            simpleInstrumentType = StrSchema
+            
+            
+            class instrumentType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "QuotedSecurity": "QUOTED_SECURITY",
+                        "InterestRateSwap": "INTEREST_RATE_SWAP",
+                        "FxForward": "FX_FORWARD",
+                        "Future": "FUTURE",
+                        "ExoticInstrument": "EXOTIC_INSTRUMENT",
+                        "FxOption": "FX_OPTION",
+                        "CreditDefaultSwap": "CREDIT_DEFAULT_SWAP",
+                        "InterestRateSwaption": "INTEREST_RATE_SWAPTION",
+                        "Bond": "BOND",
+                        "EquityOption": "EQUITY_OPTION",
+                        "FixedLeg": "FIXED_LEG",
+                        "FloatingLeg": "FLOATING_LEG",
+                        "BespokeCashFlowsLeg": "BESPOKE_CASH_FLOWS_LEG",
+                        "Unknown": "UNKNOWN",
+                        "TermDeposit": "TERM_DEPOSIT",
+                        "ContractForDifference": "CONTRACT_FOR_DIFFERENCE",
+                        "EquitySwap": "EQUITY_SWAP",
+                        "CashPerpetual": "CASH_PERPETUAL",
+                        "CapFloor": "CAP_FLOOR",
+                        "CashSettled": "CASH_SETTLED",
+                        "CdsIndex": "CDS_INDEX",
+                        "Basket": "BASKET",
+                        "FundingLeg": "FUNDING_LEG",
+                        "CrossCurrencySwap": "CROSS_CURRENCY_SWAP",
+                        "FxSwap": "FX_SWAP",
+                        "ForwardRateAgreement": "FORWARD_RATE_AGREEMENT",
+                        "SimpleInstrument": "SIMPLE_INSTRUMENT",
+                        "Repo": "REPO",
+                        "Equity": "EQUITY",
+                        "ExchangeTradedOption": "EXCHANGE_TRADED_OPTION",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def QUOTED_SECURITY(cls):
+                    return cls("QuotedSecurity")
+                
+                @classmethod
+                @property
+                def INTEREST_RATE_SWAP(cls):
+                    return cls("InterestRateSwap")
+                
+                @classmethod
+                @property
+                def FX_FORWARD(cls):
+                    return cls("FxForward")
+                
+                @classmethod
+                @property
+                def FUTURE(cls):
+                    return cls("Future")
+                
+                @classmethod
+                @property
+                def EXOTIC_INSTRUMENT(cls):
+                    return cls("ExoticInstrument")
+                
+                @classmethod
+                @property
+                def FX_OPTION(cls):
+                    return cls("FxOption")
+                
+                @classmethod
+                @property
+                def CREDIT_DEFAULT_SWAP(cls):
+                    return cls("CreditDefaultSwap")
+                
+                @classmethod
+                @property
+                def INTEREST_RATE_SWAPTION(cls):
+                    return cls("InterestRateSwaption")
+                
+                @classmethod
+                @property
+                def BOND(cls):
+                    return cls("Bond")
+                
+                @classmethod
+                @property
+                def EQUITY_OPTION(cls):
+                    return cls("EquityOption")
+                
+                @classmethod
+                @property
+                def FIXED_LEG(cls):
+                    return cls("FixedLeg")
+                
+                @classmethod
+                @property
+                def FLOATING_LEG(cls):
+                    return cls("FloatingLeg")
+                
+                @classmethod
+                @property
+                def BESPOKE_CASH_FLOWS_LEG(cls):
+                    return cls("BespokeCashFlowsLeg")
+                
+                @classmethod
+                @property
+                def UNKNOWN(cls):
+                    return cls("Unknown")
+                
+                @classmethod
+                @property
+                def TERM_DEPOSIT(cls):
+                    return cls("TermDeposit")
+                
+                @classmethod
+                @property
+                def CONTRACT_FOR_DIFFERENCE(cls):
+                    return cls("ContractForDifference")
+                
+                @classmethod
+                @property
+                def EQUITY_SWAP(cls):
+                    return cls("EquitySwap")
+                
+                @classmethod
+                @property
+                def CASH_PERPETUAL(cls):
+                    return cls("CashPerpetual")
+                
+                @classmethod
+                @property
+                def CAP_FLOOR(cls):
+                    return cls("CapFloor")
+                
+                @classmethod
+                @property
+                def CASH_SETTLED(cls):
+                    return cls("CashSettled")
+                
+                @classmethod
+                @property
+                def CDS_INDEX(cls):
+                    return cls("CdsIndex")
+                
+                @classmethod
+                @property
+                def BASKET(cls):
+                    return cls("Basket")
+                
+                @classmethod
+                @property
+                def FUNDING_LEG(cls):
+                    return cls("FundingLeg")
+                
+                @classmethod
+                @property
+                def CROSS_CURRENCY_SWAP(cls):
+                    return cls("CrossCurrencySwap")
+                
+                @classmethod
+                @property
+                def FX_SWAP(cls):
+                    return cls("FxSwap")
+                
+                @classmethod
+                @property
+                def FORWARD_RATE_AGREEMENT(cls):
+                    return cls("ForwardRateAgreement")
+                
+                @classmethod
+                @property
+                def SIMPLE_INSTRUMENT(cls):
+                    return cls("SimpleInstrument")
+                
+                @classmethod
+                @property
+                def REPO(cls):
+                    return cls("Repo")
+                
+                @classmethod
+                @property
+                def EQUITY(cls):
+                    return cls("Equity")
+                
+                @classmethod
+                @property
+                def EXCHANGE_TRADED_OPTION(cls):
+                    return cls("ExchangeTradedOption")
+        
+        
+            def __new__(
+                cls,
+                *args: typing.Union[dict, frozendict, ],
+                domCcy: domCcy,
+                assetClass: assetClass,
+                simpleInstrumentType: simpleInstrumentType,
+                instrumentType: instrumentType,
+                maturityDate: typing.Union[maturityDate, Unset] = unset,
+                fgnCcys: typing.Union[fgnCcys, Unset] = unset,
+                _configuration: typing.Optional[Configuration] = None,
+                **kwargs: typing.Type[Schema],
+            ) -> 'allOf_1':
+                return super().__new__(
+                    cls,
+                    *args,
+                    domCcy=domCcy,
+                    assetClass=assetClass,
+                    simpleInstrumentType=simpleInstrumentType,
+                    instrumentType=instrumentType,
+                    maturityDate=maturityDate,
+                    fgnCcys=fgnCcys,
+                    _configuration=_configuration,
+                    **kwargs,
+                )
         return {
             'allOf': [
                 LusidInstrument,
-                SimpleInstrumentAllOf,
+                allOf_1,
             ],
             'oneOf': [
             ],
             'anyOf': [
             ],
+            'not':
+                None
         }
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict, str, date, datetime, int, float, decimal.Decimal, None, list, tuple, bytes],
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'SimpleInstrument':
         return super().__new__(
             cls,
             *args,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
 from luisd.model.lusid_instrument import LusidInstrument
-from luisd.model.simple_instrument_all_of import SimpleInstrumentAllOf

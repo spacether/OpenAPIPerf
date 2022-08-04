@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -103,13 +103,13 @@ class FxForwardCurveByQuoteReferenceAllOf(
             def __new__(
                 cls,
                 *args: typing.Union[dict, frozendict, ],
-                _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+                _configuration: typing.Optional[Configuration] = None,
                 **kwargs: typing.Type[Schema],
             ) -> '_items':
                 return super().__new__(
                     cls,
                     *args,
-                    _instantiation_metadata=_instantiation_metadata,
+                    _configuration=_configuration,
                     **kwargs,
                 )
     
@@ -203,7 +203,7 @@ class FxForwardCurveByQuoteReferenceAllOf(
         tenors: tenors,
         quoteReferences: quoteReferences,
         marketDataType: marketDataType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FxForwardCurveByQuoteReferenceAllOf':
         return super().__new__(
@@ -214,6 +214,6 @@ class FxForwardCurveByQuoteReferenceAllOf(
             tenors=tenors,
             quoteReferences=quoteReferences,
             marketDataType=marketDataType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

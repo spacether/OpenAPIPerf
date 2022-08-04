@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -85,7 +90,7 @@ class CalculationInfo(
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Rate": "RATE",
-                "BasisPoints": "BASISPOINTS",
+                "BasisPoints": "BASIS_POINTS",
                 "Percentage": "PERCENTAGE",
                 "Flat": "FLAT",
             }
@@ -96,22 +101,22 @@ class CalculationInfo(
         @classmethod
         @property
         def RATE(cls):
-            return cls._enum_by_value["Rate"]("Rate")
+            return cls("Rate")
         
         @classmethod
         @property
-        def BASISPOINTS(cls):
-            return cls._enum_by_value["BasisPoints"]("BasisPoints")
+        def BASIS_POINTS(cls):
+            return cls("BasisPoints")
         
         @classmethod
         @property
         def PERCENTAGE(cls):
-            return cls._enum_by_value["Percentage"]("Percentage")
+            return cls("Percentage")
         
         @classmethod
         @property
         def FLAT(cls):
-            return cls._enum_by_value["Flat"]("Flat")
+            return cls("Flat")
     
     
     class multiplier(
@@ -128,17 +133,17 @@ class CalculationInfo(
         @classmethod
         @property
         def NONE(cls):
-            return cls._enum_by_value["None"]("None")
+            return cls("None")
         
         @classmethod
         @property
         def QUANTITY(cls):
-            return cls._enum_by_value["Quantity"]("Quantity")
+            return cls("Quantity")
         
         @classmethod
         @property
         def VALUE(cls):
-            return cls._enum_by_value["Value"]("Value")
+            return cls("Value")
     calculationAmount = Float64Schema
     _additional_properties = None
 
@@ -150,7 +155,7 @@ class CalculationInfo(
         calculationMethod: calculationMethod,
         multiplier: multiplier,
         calculationAmount: calculationAmount,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'CalculationInfo':
         return super().__new__(
             cls,
@@ -159,5 +164,5 @@ class CalculationInfo(
             calculationMethod=calculationMethod,
             multiplier=multiplier,
             calculationAmount=calculationAmount,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

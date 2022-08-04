@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -102,12 +102,12 @@ class FxOptionAllOf(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'domAmount':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     fgnCcy = StrSchema
 
@@ -320,7 +320,7 @@ class FxOptionAllOf(
         instrumentType: instrumentType,
         domAmount: typing.Union[domAmount, Unset] = unset,
         premium: typing.Union['Premium', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FxOptionAllOf':
         return super().__new__(
@@ -337,7 +337,7 @@ class FxOptionAllOf(
             instrumentType=instrumentType,
             domAmount=domAmount,
             premium=premium,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

@@ -6,7 +6,7 @@ import unittest
 from unittest.mock import patch, MagicMock
 
 from luisd import ApiClient
-from luisd.api.transaction_portfolios_api import TransactionPortfoliosApi
+from luisd.apis.tags.transaction_portfolios_api import TransactionPortfoliosApi
 
 
 class DeserializationTests(unittest.TestCase):

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,7 +82,7 @@ class PropertyDefinitionSearchResult(
     
     
     class href(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -86,17 +91,17 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'href':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class key(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -105,12 +110,12 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'key':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -120,23 +125,23 @@ class PropertyDefinitionSearchResult(
                 "String": "STRING",
                 "Int": "INT",
                 "Decimal": "DECIMAL",
-                "DateTime": "DATETIME",
+                "DateTime": "DATE_TIME",
                 "Boolean": "BOOLEAN",
                 "Map": "MAP",
                 "List": "LIST",
-                "PropertyArray": "PROPERTYARRAY",
+                "PropertyArray": "PROPERTY_ARRAY",
                 "Percentage": "PERCENTAGE",
                 "Code": "CODE",
                 "Id": "ID",
                 "Uri": "URI",
-                "CurrencyAndAmount": "CURRENCYANDAMOUNT",
-                "TradePrice": "TRADEPRICE",
+                "CurrencyAndAmount": "CURRENCY_AND_AMOUNT",
+                "TradePrice": "TRADE_PRICE",
                 "Currency": "CURRENCY",
-                "MetricValue": "METRICVALUE",
-                "ResourceId": "RESOURCEID",
-                "ResultValue": "RESULTVALUE",
-                "CutLocalTime": "CUTLOCALTIME",
-                "DateOrCutLabel": "DATEORCUTLABEL",
+                "MetricValue": "METRIC_VALUE",
+                "ResourceId": "RESOURCE_ID",
+                "ResultValue": "RESULT_VALUE",
+                "CutLocalTime": "CUT_LOCAL_TIME",
+                "DateOrCutLabel": "DATE_OR_CUT_LABEL",
             }
         ),
         StrSchema
@@ -145,106 +150,106 @@ class PropertyDefinitionSearchResult(
         @classmethod
         @property
         def STRING(cls):
-            return cls._enum_by_value["String"]("String")
+            return cls("String")
         
         @classmethod
         @property
         def INT(cls):
-            return cls._enum_by_value["Int"]("Int")
+            return cls("Int")
         
         @classmethod
         @property
         def DECIMAL(cls):
-            return cls._enum_by_value["Decimal"]("Decimal")
+            return cls("Decimal")
         
         @classmethod
         @property
-        def DATETIME(cls):
-            return cls._enum_by_value["DateTime"]("DateTime")
+        def DATE_TIME(cls):
+            return cls("DateTime")
         
         @classmethod
         @property
         def BOOLEAN(cls):
-            return cls._enum_by_value["Boolean"]("Boolean")
+            return cls("Boolean")
         
         @classmethod
         @property
         def MAP(cls):
-            return cls._enum_by_value["Map"]("Map")
+            return cls("Map")
         
         @classmethod
         @property
         def LIST(cls):
-            return cls._enum_by_value["List"]("List")
+            return cls("List")
         
         @classmethod
         @property
-        def PROPERTYARRAY(cls):
-            return cls._enum_by_value["PropertyArray"]("PropertyArray")
+        def PROPERTY_ARRAY(cls):
+            return cls("PropertyArray")
         
         @classmethod
         @property
         def PERCENTAGE(cls):
-            return cls._enum_by_value["Percentage"]("Percentage")
+            return cls("Percentage")
         
         @classmethod
         @property
         def CODE(cls):
-            return cls._enum_by_value["Code"]("Code")
+            return cls("Code")
         
         @classmethod
         @property
         def ID(cls):
-            return cls._enum_by_value["Id"]("Id")
+            return cls("Id")
         
         @classmethod
         @property
         def URI(cls):
-            return cls._enum_by_value["Uri"]("Uri")
+            return cls("Uri")
         
         @classmethod
         @property
-        def CURRENCYANDAMOUNT(cls):
-            return cls._enum_by_value["CurrencyAndAmount"]("CurrencyAndAmount")
+        def CURRENCY_AND_AMOUNT(cls):
+            return cls("CurrencyAndAmount")
         
         @classmethod
         @property
-        def TRADEPRICE(cls):
-            return cls._enum_by_value["TradePrice"]("TradePrice")
+        def TRADE_PRICE(cls):
+            return cls("TradePrice")
         
         @classmethod
         @property
         def CURRENCY(cls):
-            return cls._enum_by_value["Currency"]("Currency")
+            return cls("Currency")
         
         @classmethod
         @property
-        def METRICVALUE(cls):
-            return cls._enum_by_value["MetricValue"]("MetricValue")
+        def METRIC_VALUE(cls):
+            return cls("MetricValue")
         
         @classmethod
         @property
-        def RESOURCEID(cls):
-            return cls._enum_by_value["ResourceId"]("ResourceId")
+        def RESOURCE_ID(cls):
+            return cls("ResourceId")
         
         @classmethod
         @property
-        def RESULTVALUE(cls):
-            return cls._enum_by_value["ResultValue"]("ResultValue")
+        def RESULT_VALUE(cls):
+            return cls("ResultValue")
         
         @classmethod
         @property
-        def CUTLOCALTIME(cls):
-            return cls._enum_by_value["CutLocalTime"]("CutLocalTime")
+        def CUT_LOCAL_TIME(cls):
+            return cls("CutLocalTime")
         
         @classmethod
         @property
-        def DATEORCUTLABEL(cls):
-            return cls._enum_by_value["DateOrCutLabel"]("DateOrCutLabel")
+        def DATE_OR_CUT_LABEL(cls):
+            return cls("DateOrCutLabel")
     
     
     class displayName(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -253,12 +258,12 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'displayName':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -281,23 +286,23 @@ class PropertyDefinitionSearchResult(
         @classmethod
         @property
         def LABEL(cls):
-            return cls._enum_by_value["Label"]("Label")
+            return cls("Label")
         
         @classmethod
         @property
         def METRIC(cls):
-            return cls._enum_by_value["Metric"]("Metric")
+            return cls("Metric")
         
         @classmethod
         @property
         def INFORMATION(cls):
-            return cls._enum_by_value["Information"]("Information")
+            return cls("Information")
     
     
     class unitSchema(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "NoUnits": "NOUNITS",
+                "NoUnits": "NO_UNITS",
                 "Basic": "BASIC",
                 "Iso4217Currency": "ISO4217CURRENCY",
             }
@@ -307,49 +312,49 @@ class PropertyDefinitionSearchResult(
         
         @classmethod
         @property
-        def NOUNITS(cls):
-            return cls._enum_by_value["NoUnits"]("NoUnits")
+        def NO_UNITS(cls):
+            return cls("NoUnits")
         
         @classmethod
         @property
         def BASIC(cls):
-            return cls._enum_by_value["Basic"]("Basic")
+            return cls("Basic")
         
         @classmethod
         @property
         def ISO4217CURRENCY(cls):
-            return cls._enum_by_value["Iso4217Currency"]("Iso4217Currency")
+            return cls("Iso4217Currency")
     
     
     class domain(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "NotDefined": "NOTDEFINED",
+                "NotDefined": "NOT_DEFINED",
                 "Transaction": "TRANSACTION",
                 "Portfolio": "PORTFOLIO",
                 "Holding": "HOLDING",
-                "ReferenceHolding": "REFERENCEHOLDING",
-                "TransactionConfiguration": "TRANSACTIONCONFIGURATION",
+                "ReferenceHolding": "REFERENCE_HOLDING",
+                "TransactionConfiguration": "TRANSACTION_CONFIGURATION",
                 "Instrument": "INSTRUMENT",
-                "CutLabelDefinition": "CUTLABELDEFINITION",
+                "CutLabelDefinition": "CUT_LABEL_DEFINITION",
                 "Analytic": "ANALYTIC",
-                "PortfolioGroup": "PORTFOLIOGROUP",
+                "PortfolioGroup": "PORTFOLIO_GROUP",
                 "Person": "PERSON",
-                "AccessMetadata": "ACCESSMETADATA",
+                "AccessMetadata": "ACCESS_METADATA",
                 "Order": "ORDER",
-                "UnitResult": "UNITRESULT",
-                "MarketData": "MARKETDATA",
-                "ConfigurationRecipe": "CONFIGURATIONRECIPE",
+                "UnitResult": "UNIT_RESULT",
+                "MarketData": "MARKET_DATA",
+                "ConfigurationRecipe": "CONFIGURATION_RECIPE",
                 "Allocation": "ALLOCATION",
                 "Calendar": "CALENDAR",
-                "LegalEntity": "LEGALENTITY",
+                "LegalEntity": "LEGAL_ENTITY",
                 "Placement": "PLACEMENT",
                 "Execution": "EXECUTION",
                 "Block": "BLOCK",
                 "Participation": "PARTICIPATION",
                 "Package": "PACKAGE",
-                "OrderInstruction": "ORDERINSTRUCTION",
-                "CustomEntity": "CUSTOMENTITY",
+                "OrderInstruction": "ORDER_INSTRUCTION",
+                "CustomEntity": "CUSTOM_ENTITY",
             }
         ),
         StrSchema
@@ -357,137 +362,137 @@ class PropertyDefinitionSearchResult(
         
         @classmethod
         @property
-        def NOTDEFINED(cls):
-            return cls._enum_by_value["NotDefined"]("NotDefined")
+        def NOT_DEFINED(cls):
+            return cls("NotDefined")
         
         @classmethod
         @property
         def TRANSACTION(cls):
-            return cls._enum_by_value["Transaction"]("Transaction")
+            return cls("Transaction")
         
         @classmethod
         @property
         def PORTFOLIO(cls):
-            return cls._enum_by_value["Portfolio"]("Portfolio")
+            return cls("Portfolio")
         
         @classmethod
         @property
         def HOLDING(cls):
-            return cls._enum_by_value["Holding"]("Holding")
+            return cls("Holding")
         
         @classmethod
         @property
-        def REFERENCEHOLDING(cls):
-            return cls._enum_by_value["ReferenceHolding"]("ReferenceHolding")
+        def REFERENCE_HOLDING(cls):
+            return cls("ReferenceHolding")
         
         @classmethod
         @property
-        def TRANSACTIONCONFIGURATION(cls):
-            return cls._enum_by_value["TransactionConfiguration"]("TransactionConfiguration")
+        def TRANSACTION_CONFIGURATION(cls):
+            return cls("TransactionConfiguration")
         
         @classmethod
         @property
         def INSTRUMENT(cls):
-            return cls._enum_by_value["Instrument"]("Instrument")
+            return cls("Instrument")
         
         @classmethod
         @property
-        def CUTLABELDEFINITION(cls):
-            return cls._enum_by_value["CutLabelDefinition"]("CutLabelDefinition")
+        def CUT_LABEL_DEFINITION(cls):
+            return cls("CutLabelDefinition")
         
         @classmethod
         @property
         def ANALYTIC(cls):
-            return cls._enum_by_value["Analytic"]("Analytic")
+            return cls("Analytic")
         
         @classmethod
         @property
-        def PORTFOLIOGROUP(cls):
-            return cls._enum_by_value["PortfolioGroup"]("PortfolioGroup")
+        def PORTFOLIO_GROUP(cls):
+            return cls("PortfolioGroup")
         
         @classmethod
         @property
         def PERSON(cls):
-            return cls._enum_by_value["Person"]("Person")
+            return cls("Person")
         
         @classmethod
         @property
-        def ACCESSMETADATA(cls):
-            return cls._enum_by_value["AccessMetadata"]("AccessMetadata")
+        def ACCESS_METADATA(cls):
+            return cls("AccessMetadata")
         
         @classmethod
         @property
         def ORDER(cls):
-            return cls._enum_by_value["Order"]("Order")
+            return cls("Order")
         
         @classmethod
         @property
-        def UNITRESULT(cls):
-            return cls._enum_by_value["UnitResult"]("UnitResult")
+        def UNIT_RESULT(cls):
+            return cls("UnitResult")
         
         @classmethod
         @property
-        def MARKETDATA(cls):
-            return cls._enum_by_value["MarketData"]("MarketData")
+        def MARKET_DATA(cls):
+            return cls("MarketData")
         
         @classmethod
         @property
-        def CONFIGURATIONRECIPE(cls):
-            return cls._enum_by_value["ConfigurationRecipe"]("ConfigurationRecipe")
+        def CONFIGURATION_RECIPE(cls):
+            return cls("ConfigurationRecipe")
         
         @classmethod
         @property
         def ALLOCATION(cls):
-            return cls._enum_by_value["Allocation"]("Allocation")
+            return cls("Allocation")
         
         @classmethod
         @property
         def CALENDAR(cls):
-            return cls._enum_by_value["Calendar"]("Calendar")
+            return cls("Calendar")
         
         @classmethod
         @property
-        def LEGALENTITY(cls):
-            return cls._enum_by_value["LegalEntity"]("LegalEntity")
+        def LEGAL_ENTITY(cls):
+            return cls("LegalEntity")
         
         @classmethod
         @property
         def PLACEMENT(cls):
-            return cls._enum_by_value["Placement"]("Placement")
+            return cls("Placement")
         
         @classmethod
         @property
         def EXECUTION(cls):
-            return cls._enum_by_value["Execution"]("Execution")
+            return cls("Execution")
         
         @classmethod
         @property
         def BLOCK(cls):
-            return cls._enum_by_value["Block"]("Block")
+            return cls("Block")
         
         @classmethod
         @property
         def PARTICIPATION(cls):
-            return cls._enum_by_value["Participation"]("Participation")
+            return cls("Participation")
         
         @classmethod
         @property
         def PACKAGE(cls):
-            return cls._enum_by_value["Package"]("Package")
+            return cls("Package")
         
         @classmethod
         @property
-        def ORDERINSTRUCTION(cls):
-            return cls._enum_by_value["OrderInstruction"]("OrderInstruction")
+        def ORDER_INSTRUCTION(cls):
+            return cls("OrderInstruction")
         
         @classmethod
         @property
-        def CUSTOMENTITY(cls):
-            return cls._enum_by_value["CustomEntity"]("CustomEntity")
+        def CUSTOM_ENTITY(cls):
+            return cls("CustomEntity")
     
     
     class scope(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -496,17 +501,17 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'scope':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class code(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -515,12 +520,12 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'code':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     valueRequired = BoolSchema
     
@@ -529,7 +534,7 @@ class PropertyDefinitionSearchResult(
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Perpetual": "PERPETUAL",
-                "TimeVariant": "TIMEVARIANT",
+                "TimeVariant": "TIME_VARIANT",
             }
         ),
         StrSchema
@@ -538,16 +543,16 @@ class PropertyDefinitionSearchResult(
         @classmethod
         @property
         def PERPETUAL(cls):
-            return cls._enum_by_value["Perpetual"]("Perpetual")
+            return cls("Perpetual")
         
         @classmethod
         @property
-        def TIMEVARIANT(cls):
-            return cls._enum_by_value["TimeVariant"]("TimeVariant")
+        def TIME_VARIANT(cls):
+            return cls("TimeVariant")
     
     
     class constraintStyle(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -556,20 +561,20 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'constraintStyle':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class propertyDefinitionType(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "ValueProperty": "VALUEPROPERTY",
-                "DerivedDefinition": "DERIVEDDEFINITION",
+                "ValueProperty": "VALUE_PROPERTY",
+                "DerivedDefinition": "DERIVED_DEFINITION",
             }
         ),
         StrSchema
@@ -577,17 +582,17 @@ class PropertyDefinitionSearchResult(
         
         @classmethod
         @property
-        def VALUEPROPERTY(cls):
-            return cls._enum_by_value["ValueProperty"]("ValueProperty")
+        def VALUE_PROPERTY(cls):
+            return cls("ValueProperty")
         
         @classmethod
         @property
-        def DERIVEDDEFINITION(cls):
-            return cls._enum_by_value["DerivedDefinition"]("DerivedDefinition")
+        def DERIVED_DEFINITION(cls):
+            return cls("DerivedDefinition")
     
     
     class propertyDescription(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -596,17 +601,17 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'propertyDescription':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class derivationFormula(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -615,17 +620,17 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'derivationFormula':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class links(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -634,12 +639,12 @@ class PropertyDefinitionSearchResult(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'links':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -664,7 +669,7 @@ class PropertyDefinitionSearchResult(
         propertyDescription: typing.Union[propertyDescription, Unset] = unset,
         derivationFormula: typing.Union[derivationFormula, Unset] = unset,
         links: typing.Union[links, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'PropertyDefinitionSearchResult':
         return super().__new__(
             cls,
@@ -686,7 +691,7 @@ class PropertyDefinitionSearchResult(
             propertyDescription=propertyDescription,
             derivationFormula=derivationFormula,
             links=links,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.link import Link

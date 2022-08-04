@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,7 +73,7 @@ class ScalingMethodology(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Sum": "SUM",
-            "AbsoluteSum": "ABSOLUTESUM",
+            "AbsoluteSum": "ABSOLUTE_SUM",
             "Unity": "UNITY",
         }
     ),
@@ -83,14 +88,14 @@ class ScalingMethodology(
     @classmethod
     @property
     def SUM(cls):
-        return cls._enum_by_value["Sum"]("Sum")
+        return cls("Sum")
     
     @classmethod
     @property
-    def ABSOLUTESUM(cls):
-        return cls._enum_by_value["AbsoluteSum"]("AbsoluteSum")
+    def ABSOLUTE_SUM(cls):
+        return cls("AbsoluteSum")
     
     @classmethod
     @property
     def UNITY(cls):
-        return cls._enum_by_value["Unity"]("Unity")
+        return cls("Unity")

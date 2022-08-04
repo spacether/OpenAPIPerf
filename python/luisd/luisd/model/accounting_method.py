@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,11 +73,11 @@ class AccountingMethod(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Default": "DEFAULT",
-            "AverageCost": "AVERAGECOST",
-            "FirstInFirstOut": "FIRSTINFIRSTOUT",
-            "LastInFirstOut": "LASTINFIRSTOUT",
-            "HighestCostFirst": "HIGHESTCOSTFIRST",
-            "LowestCostFirst": "LOWESTCOSTFIRST",
+            "AverageCost": "AVERAGE_COST",
+            "FirstInFirstOut": "FIRST_IN_FIRST_OUT",
+            "LastInFirstOut": "LAST_IN_FIRST_OUT",
+            "HighestCostFirst": "HIGHEST_COST_FIRST",
+            "LowestCostFirst": "LOWEST_COST_FIRST",
         }
     ),
     StrSchema
@@ -86,29 +91,29 @@ class AccountingMethod(
     @classmethod
     @property
     def DEFAULT(cls):
-        return cls._enum_by_value["Default"]("Default")
+        return cls("Default")
     
     @classmethod
     @property
-    def AVERAGECOST(cls):
-        return cls._enum_by_value["AverageCost"]("AverageCost")
+    def AVERAGE_COST(cls):
+        return cls("AverageCost")
     
     @classmethod
     @property
-    def FIRSTINFIRSTOUT(cls):
-        return cls._enum_by_value["FirstInFirstOut"]("FirstInFirstOut")
+    def FIRST_IN_FIRST_OUT(cls):
+        return cls("FirstInFirstOut")
     
     @classmethod
     @property
-    def LASTINFIRSTOUT(cls):
-        return cls._enum_by_value["LastInFirstOut"]("LastInFirstOut")
+    def LAST_IN_FIRST_OUT(cls):
+        return cls("LastInFirstOut")
     
     @classmethod
     @property
-    def HIGHESTCOSTFIRST(cls):
-        return cls._enum_by_value["HighestCostFirst"]("HighestCostFirst")
+    def HIGHEST_COST_FIRST(cls):
+        return cls("HighestCostFirst")
     
     @classmethod
     @property
-    def LOWESTCOSTFIRST(cls):
-        return cls._enum_by_value["LowestCostFirst"]("LowestCostFirst")
+    def LOWEST_COST_FIRST(cls):
+        return cls("LowestCostFirst")

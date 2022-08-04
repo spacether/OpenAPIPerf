@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -181,7 +181,7 @@ class DiscountFactorCurveDataAllOf(
         dates: dates,
         discountFactors: discountFactors,
         marketDataType: marketDataType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'DiscountFactorCurveDataAllOf':
         return super().__new__(
@@ -191,6 +191,6 @@ class DiscountFactorCurveDataAllOf(
             dates=dates,
             discountFactors=discountFactors,
             marketDataType=marketDataType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

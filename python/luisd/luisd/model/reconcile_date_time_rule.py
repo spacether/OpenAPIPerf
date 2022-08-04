@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -77,6 +82,7 @@ class ReconcileDateTimeRule(
 
     @classmethod
     @property
+    @functools.cache
     def _composed_schemas(cls):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
@@ -85,29 +91,122 @@ class ReconcileDateTimeRule(
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
+        
+        
+        class allOf_1(
+            DictSchema
+        ):
+            _required_property_names = set((
+                'comparisonType',
+                'appliesTo',
+                'ruleType',
+            ))
+            
+            
+            class comparisonType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "Exact": "EXACT",
+                        "AbsoluteDifference": "ABSOLUTE_DIFFERENCE",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def EXACT(cls):
+                    return cls("Exact")
+                
+                @classmethod
+                @property
+                def ABSOLUTE_DIFFERENCE(cls):
+                    return cls("AbsoluteDifference")
+            tolerance = Float64Schema
+        
+            @classmethod
+            @property
+            def appliesTo(cls) -> typing.Type['AggregateSpec']:
+                return AggregateSpec
+            
+            
+            class ruleType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "ReconcileNumericRule": "RECONCILE_NUMERIC_RULE",
+                        "ReconcileDateTimeRule": "RECONCILE_DATE_TIME_RULE",
+                        "ReconcileStringRule": "RECONCILE_STRING_RULE",
+                        "ReconcileExact": "RECONCILE_EXACT",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def RECONCILE_NUMERIC_RULE(cls):
+                    return cls("ReconcileNumericRule")
+                
+                @classmethod
+                @property
+                def RECONCILE_DATE_TIME_RULE(cls):
+                    return cls("ReconcileDateTimeRule")
+                
+                @classmethod
+                @property
+                def RECONCILE_STRING_RULE(cls):
+                    return cls("ReconcileStringRule")
+                
+                @classmethod
+                @property
+                def RECONCILE_EXACT(cls):
+                    return cls("ReconcileExact")
+        
+        
+            def __new__(
+                cls,
+                *args: typing.Union[dict, frozendict, ],
+                comparisonType: comparisonType,
+                appliesTo: appliesTo,
+                ruleType: ruleType,
+                tolerance: typing.Union[tolerance, Unset] = unset,
+                _configuration: typing.Optional[Configuration] = None,
+                **kwargs: typing.Type[Schema],
+            ) -> 'allOf_1':
+                return super().__new__(
+                    cls,
+                    *args,
+                    comparisonType=comparisonType,
+                    appliesTo=appliesTo,
+                    ruleType=ruleType,
+                    tolerance=tolerance,
+                    _configuration=_configuration,
+                    **kwargs,
+                )
         return {
             'allOf': [
                 ReconciliationRule,
-                ReconcileDateTimeRuleAllOf,
+                allOf_1,
             ],
             'oneOf': [
             ],
             'anyOf': [
             ],
+            'not':
+                None
         }
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict, str, date, datetime, int, float, decimal.Decimal, None, list, tuple, bytes],
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'ReconcileDateTimeRule':
         return super().__new__(
             cls,
             *args,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
-from luisd.model.reconcile_date_time_rule_all_of import ReconcileDateTimeRuleAllOf
 from luisd.model.reconciliation_rule import ReconciliationRule

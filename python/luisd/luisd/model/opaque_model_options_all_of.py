@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -92,25 +92,25 @@ class OpaqueModelOptionsAllOf(
             def __new__(
                 cls,
                 *args: typing.Union[dict, frozendict, ],
-                _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+                _configuration: typing.Optional[Configuration] = None,
             ) -> '_additional_properties':
                 return super().__new__(
                     cls,
                     *args,
-                    _instantiation_metadata=_instantiation_metadata,
+                    _configuration=_configuration,
                 )
     
     
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'data':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
     
@@ -159,7 +159,7 @@ class OpaqueModelOptionsAllOf(
         *args: typing.Union[dict, frozendict, ],
         data: data,
         modelOptionsType: modelOptionsType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'OpaqueModelOptionsAllOf':
         return super().__new__(
@@ -167,6 +167,6 @@ class OpaqueModelOptionsAllOf(
             *args,
             data=data,
             modelOptionsType=modelOptionsType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

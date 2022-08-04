@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -88,39 +93,39 @@ class CdsSeniority(
     @classmethod
     @property
     def UNKNOWN(cls):
-        return cls._enum_by_value["Unknown"]("Unknown")
+        return cls("Unknown")
     
     @classmethod
     @property
     def SNR(cls):
-        return cls._enum_by_value["SNR"]("SNR")
+        return cls("SNR")
     
     @classmethod
     @property
     def SUB(cls):
-        return cls._enum_by_value["SUB"]("SUB")
+        return cls("SUB")
     
     @classmethod
     @property
     def JRSUBUT2(cls):
-        return cls._enum_by_value["JRSUBUT2"]("JRSUBUT2")
+        return cls("JRSUBUT2")
     
     @classmethod
     @property
     def PREFT1(cls):
-        return cls._enum_by_value["PREFT1"]("PREFT1")
+        return cls("PREFT1")
     
     @classmethod
     @property
     def SECDOM(cls):
-        return cls._enum_by_value["SECDOM"]("SECDOM")
+        return cls("SECDOM")
     
     @classmethod
     @property
     def SNRFOR(cls):
-        return cls._enum_by_value["SNRFOR"]("SNRFOR")
+        return cls("SNRFOR")
     
     @classmethod
     @property
     def SUBLT2(cls):
-        return cls._enum_by_value["SUBLT2"]("SUBLT2")
+        return cls("SUBLT2")

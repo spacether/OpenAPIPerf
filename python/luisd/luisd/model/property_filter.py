@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -75,7 +80,7 @@ class PropertyFilter(
     
     
     class left(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -84,12 +89,12 @@ class PropertyFilter(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'left':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -97,11 +102,11 @@ class PropertyFilter(
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Equals": "EQUALS",
-                "NotEquals": "NOTEQUALS",
-                "GreaterThan": "GREATERTHAN",
-                "GreaterThanOrEqualTo": "GREATERTHANOREQUALTO",
-                "LessThan": "LESSTHAN",
-                "LessThanOrEqualTo": "LESSTHANOREQUALTO",
+                "NotEquals": "NOT_EQUALS",
+                "GreaterThan": "GREATER_THAN",
+                "GreaterThanOrEqualTo": "GREATER_THAN_OR_EQUAL_TO",
+                "LessThan": "LESS_THAN",
+                "LessThanOrEqualTo": "LESS_THAN_OR_EQUAL_TO",
                 "In": "IN",
             }
         ),
@@ -111,41 +116,41 @@ class PropertyFilter(
         @classmethod
         @property
         def EQUALS(cls):
-            return cls._enum_by_value["Equals"]("Equals")
+            return cls("Equals")
         
         @classmethod
         @property
-        def NOTEQUALS(cls):
-            return cls._enum_by_value["NotEquals"]("NotEquals")
+        def NOT_EQUALS(cls):
+            return cls("NotEquals")
         
         @classmethod
         @property
-        def GREATERTHAN(cls):
-            return cls._enum_by_value["GreaterThan"]("GreaterThan")
+        def GREATER_THAN(cls):
+            return cls("GreaterThan")
         
         @classmethod
         @property
-        def GREATERTHANOREQUALTO(cls):
-            return cls._enum_by_value["GreaterThanOrEqualTo"]("GreaterThanOrEqualTo")
+        def GREATER_THAN_OR_EQUAL_TO(cls):
+            return cls("GreaterThanOrEqualTo")
         
         @classmethod
         @property
-        def LESSTHAN(cls):
-            return cls._enum_by_value["LessThan"]("LessThan")
+        def LESS_THAN(cls):
+            return cls("LessThan")
         
         @classmethod
         @property
-        def LESSTHANOREQUALTO(cls):
-            return cls._enum_by_value["LessThanOrEqualTo"]("LessThanOrEqualTo")
+        def LESS_THAN_OR_EQUAL_TO(cls):
+            return cls("LessThanOrEqualTo")
         
         @classmethod
         @property
         def IN(cls):
-            return cls._enum_by_value["In"]("In")
+            return cls("In")
     
     
     class right(
-        _SchemaTypeChecker(typing.Union[frozendict, none_type, ]),
+        _SchemaTypeChecker(typing.Union[frozendict, NoneClass, ]),
         DictBase,
         NoneBase,
         Schema
@@ -155,12 +160,12 @@ class PropertyFilter(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'right':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -177,12 +182,12 @@ class PropertyFilter(
         @classmethod
         @property
         def ABSOLUTE(cls):
-            return cls._enum_by_value["Absolute"]("Absolute")
+            return cls("Absolute")
         
         @classmethod
         @property
         def PROPERTY(cls):
-            return cls._enum_by_value["Property"]("Property")
+            return cls("Property")
     _additional_properties = None
 
 
@@ -193,7 +198,7 @@ class PropertyFilter(
         operator: typing.Union[operator, Unset] = unset,
         right: typing.Union[right, Unset] = unset,
         rightOperandType: typing.Union[rightOperandType, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'PropertyFilter':
         return super().__new__(
             cls,
@@ -202,5 +207,5 @@ class PropertyFilter(
             operator=operator,
             right=right,
             rightOperandType=rightOperandType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

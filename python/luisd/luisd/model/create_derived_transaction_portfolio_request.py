@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -99,7 +104,7 @@ class CreateDerivedTransactionPortfolioRequest(
                 'pattern': r'^[\s\S]*$',  # noqa: E501
             }],
         ),
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -108,12 +113,12 @@ class CreateDerivedTransactionPortfolioRequest(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'description':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -136,7 +141,7 @@ class CreateDerivedTransactionPortfolioRequest(
     
     
     class created(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         DateTimeBase,
         NoneBase,
         Schema
@@ -145,12 +150,12 @@ class CreateDerivedTransactionPortfolioRequest(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'created':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
 
     @classmethod
@@ -163,11 +168,11 @@ class CreateDerivedTransactionPortfolioRequest(
         _SchemaEnumMaker(
             enum_value_to_name={
                 "Default": "DEFAULT",
-                "AverageCost": "AVERAGECOST",
-                "FirstInFirstOut": "FIRSTINFIRSTOUT",
-                "LastInFirstOut": "LASTINFIRSTOUT",
-                "HighestCostFirst": "HIGHESTCOSTFIRST",
-                "LowestCostFirst": "LOWESTCOSTFIRST",
+                "AverageCost": "AVERAGE_COST",
+                "FirstInFirstOut": "FIRST_IN_FIRST_OUT",
+                "LastInFirstOut": "LAST_IN_FIRST_OUT",
+                "HighestCostFirst": "HIGHEST_COST_FIRST",
+                "LowestCostFirst": "LOWEST_COST_FIRST",
             }
         ),
         StrSchema
@@ -176,36 +181,36 @@ class CreateDerivedTransactionPortfolioRequest(
         @classmethod
         @property
         def DEFAULT(cls):
-            return cls._enum_by_value["Default"]("Default")
+            return cls("Default")
         
         @classmethod
         @property
-        def AVERAGECOST(cls):
-            return cls._enum_by_value["AverageCost"]("AverageCost")
+        def AVERAGE_COST(cls):
+            return cls("AverageCost")
         
         @classmethod
         @property
-        def FIRSTINFIRSTOUT(cls):
-            return cls._enum_by_value["FirstInFirstOut"]("FirstInFirstOut")
+        def FIRST_IN_FIRST_OUT(cls):
+            return cls("FirstInFirstOut")
         
         @classmethod
         @property
-        def LASTINFIRSTOUT(cls):
-            return cls._enum_by_value["LastInFirstOut"]("LastInFirstOut")
+        def LAST_IN_FIRST_OUT(cls):
+            return cls("LastInFirstOut")
         
         @classmethod
         @property
-        def HIGHESTCOSTFIRST(cls):
-            return cls._enum_by_value["HighestCostFirst"]("HighestCostFirst")
+        def HIGHEST_COST_FIRST(cls):
+            return cls("HighestCostFirst")
         
         @classmethod
         @property
-        def LOWESTCOSTFIRST(cls):
-            return cls._enum_by_value["LowestCostFirst"]("LowestCostFirst")
+        def LOWEST_COST_FIRST(cls):
+            return cls("LowestCostFirst")
     
     
     class subHoldingKeys(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -214,19 +219,19 @@ class CreateDerivedTransactionPortfolioRequest(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'subHoldingKeys':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class instrumentScopes(
         _SchemaValidator(
         ),
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -235,12 +240,12 @@ class CreateDerivedTransactionPortfolioRequest(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'instrumentScopes':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -257,7 +262,7 @@ class CreateDerivedTransactionPortfolioRequest(
         accountingMethod: typing.Union[accountingMethod, Unset] = unset,
         subHoldingKeys: typing.Union[subHoldingKeys, Unset] = unset,
         instrumentScopes: typing.Union[instrumentScopes, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'CreateDerivedTransactionPortfolioRequest':
         return super().__new__(
             cls,
@@ -271,7 +276,7 @@ class CreateDerivedTransactionPortfolioRequest(
             accountingMethod=accountingMethod,
             subHoldingKeys=subHoldingKeys,
             instrumentScopes=instrumentScopes,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.resource_id import ResourceId

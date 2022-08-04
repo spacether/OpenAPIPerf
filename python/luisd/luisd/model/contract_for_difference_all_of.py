@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -295,7 +295,7 @@ class ContractForDifferenceAllOf(
         instrumentType: instrumentType,
         maturityDate: typing.Union[maturityDate, Unset] = unset,
         referenceRate: typing.Union[referenceRate, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'ContractForDifferenceAllOf':
         return super().__new__(
@@ -311,6 +311,6 @@ class ContractForDifferenceAllOf(
             instrumentType=instrumentType,
             maturityDate=maturityDate,
             referenceRate=referenceRate,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

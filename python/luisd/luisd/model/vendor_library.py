@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -68,10 +73,10 @@ class VendorLibrary(
     _SchemaEnumMaker(
         enum_value_to_name={
             "Lusid": "LUSID",
-            "RefinitivQps": "REFINITIVQPS",
-            "RefinitivTracsWeb": "REFINITIVTRACSWEB",
-            "VolMaster": "VOLMASTER",
-            "IsdaCds": "ISDACDS",
+            "RefinitivQps": "REFINITIV_QPS",
+            "RefinitivTracsWeb": "REFINITIV_TRACS_WEB",
+            "VolMaster": "VOL_MASTER",
+            "IsdaCds": "ISDA_CDS",
         }
     ),
     StrSchema
@@ -85,24 +90,24 @@ class VendorLibrary(
     @classmethod
     @property
     def LUSID(cls):
-        return cls._enum_by_value["Lusid"]("Lusid")
+        return cls("Lusid")
     
     @classmethod
     @property
-    def REFINITIVQPS(cls):
-        return cls._enum_by_value["RefinitivQps"]("RefinitivQps")
+    def REFINITIV_QPS(cls):
+        return cls("RefinitivQps")
     
     @classmethod
     @property
-    def REFINITIVTRACSWEB(cls):
-        return cls._enum_by_value["RefinitivTracsWeb"]("RefinitivTracsWeb")
+    def REFINITIV_TRACS_WEB(cls):
+        return cls("RefinitivTracsWeb")
     
     @classmethod
     @property
-    def VOLMASTER(cls):
-        return cls._enum_by_value["VolMaster"]("VolMaster")
+    def VOL_MASTER(cls):
+        return cls("VolMaster")
     
     @classmethod
     @property
-    def ISDACDS(cls):
-        return cls._enum_by_value["IsdaCds"]("IsdaCds")
+    def ISDA_CDS(cls):
+        return cls("IsdaCds")

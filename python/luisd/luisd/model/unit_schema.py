@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,7 +72,7 @@ from luisd.schemas import (  # noqa: F401
 class UnitSchema(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "NoUnits": "NOUNITS",
+            "NoUnits": "NO_UNITS",
             "Basic": "BASIC",
             "Iso4217Currency": "ISO4217CURRENCY",
         }
@@ -82,15 +87,15 @@ class UnitSchema(
     
     @classmethod
     @property
-    def NOUNITS(cls):
-        return cls._enum_by_value["NoUnits"]("NoUnits")
+    def NO_UNITS(cls):
+        return cls("NoUnits")
     
     @classmethod
     @property
     def BASIC(cls):
-        return cls._enum_by_value["Basic"]("Basic")
+        return cls("Basic")
     
     @classmethod
     @property
     def ISO4217CURRENCY(cls):
-        return cls._enum_by_value["Iso4217Currency"]("Iso4217Currency")
+        return cls("Iso4217Currency")

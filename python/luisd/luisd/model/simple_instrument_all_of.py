@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -149,12 +149,12 @@ class SimpleInstrumentAllOf(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'fgnCcys':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     simpleInstrumentType = StrSchema
     
@@ -357,7 +357,7 @@ class SimpleInstrumentAllOf(
         instrumentType: instrumentType,
         maturityDate: typing.Union[maturityDate, Unset] = unset,
         fgnCcys: typing.Union[fgnCcys, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'SimpleInstrumentAllOf':
         return super().__new__(
@@ -369,6 +369,6 @@ class SimpleInstrumentAllOf(
             instrumentType=instrumentType,
             maturityDate=maturityDate,
             fgnCcys=fgnCcys,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )

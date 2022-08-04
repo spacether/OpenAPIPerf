@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -75,6 +80,7 @@ class EmptyModelOptions(
 
     @classmethod
     @property
+    @functools.cache
     def _composed_schemas(cls):
         # we need this here to make our import statements work
         # we must store _composed_schemas in here so the code is only run
@@ -83,29 +89,93 @@ class EmptyModelOptions(
         # code would be run when this module is imported, and these composed
         # classes don't exist yet because their module has not finished
         # loading
+        
+        
+        class allOf_1(
+            DictSchema
+        ):
+            _required_property_names = set((
+                'modelOptionsType',
+            ))
+            
+            
+            class modelOptionsType(
+                _SchemaEnumMaker(
+                    enum_value_to_name={
+                        "Invalid": "INVALID",
+                        "OpaqueModelOptions": "OPAQUE_MODEL_OPTIONS",
+                        "EmptyModelOptions": "EMPTY_MODEL_OPTIONS",
+                        "IndexModelOptions": "INDEX_MODEL_OPTIONS",
+                        "FxForwardModelOptions": "FX_FORWARD_MODEL_OPTIONS",
+                    }
+                ),
+                StrSchema
+            ):
+                
+                @classmethod
+                @property
+                def INVALID(cls):
+                    return cls("Invalid")
+                
+                @classmethod
+                @property
+                def OPAQUE_MODEL_OPTIONS(cls):
+                    return cls("OpaqueModelOptions")
+                
+                @classmethod
+                @property
+                def EMPTY_MODEL_OPTIONS(cls):
+                    return cls("EmptyModelOptions")
+                
+                @classmethod
+                @property
+                def INDEX_MODEL_OPTIONS(cls):
+                    return cls("IndexModelOptions")
+                
+                @classmethod
+                @property
+                def FX_FORWARD_MODEL_OPTIONS(cls):
+                    return cls("FxForwardModelOptions")
+        
+        
+            def __new__(
+                cls,
+                *args: typing.Union[dict, frozendict, ],
+                modelOptionsType: modelOptionsType,
+                _configuration: typing.Optional[Configuration] = None,
+                **kwargs: typing.Type[Schema],
+            ) -> 'allOf_1':
+                return super().__new__(
+                    cls,
+                    *args,
+                    modelOptionsType=modelOptionsType,
+                    _configuration=_configuration,
+                    **kwargs,
+                )
         return {
             'allOf': [
                 ModelOptions,
-                EmptyModelOptionsAllOf,
+                allOf_1,
             ],
             'oneOf': [
             ],
             'anyOf': [
             ],
+            'not':
+                None
         }
 
     def __new__(
         cls,
         *args: typing.Union[dict, frozendict, str, date, datetime, int, float, decimal.Decimal, None, list, tuple, bytes],
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'EmptyModelOptions':
         return super().__new__(
             cls,
             *args,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
-from luisd.model.empty_model_options_all_of import EmptyModelOptionsAllOf
 from luisd.model.model_options import ModelOptions

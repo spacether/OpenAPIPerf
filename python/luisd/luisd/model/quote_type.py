@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -70,10 +75,10 @@ class QuoteType(
             "Price": "PRICE",
             "Spread": "SPREAD",
             "Rate": "RATE",
-            "LogNormalVol": "LOGNORMALVOL",
-            "NormalVol": "NORMALVOL",
-            "ParSpread": "PARSPREAD",
-            "IsdaSpread": "ISDASPREAD",
+            "LogNormalVol": "LOG_NORMAL_VOL",
+            "NormalVol": "NORMAL_VOL",
+            "ParSpread": "PAR_SPREAD",
+            "IsdaSpread": "ISDA_SPREAD",
             "Upfront": "UPFRONT",
         }
     ),
@@ -88,39 +93,39 @@ class QuoteType(
     @classmethod
     @property
     def PRICE(cls):
-        return cls._enum_by_value["Price"]("Price")
+        return cls("Price")
     
     @classmethod
     @property
     def SPREAD(cls):
-        return cls._enum_by_value["Spread"]("Spread")
+        return cls("Spread")
     
     @classmethod
     @property
     def RATE(cls):
-        return cls._enum_by_value["Rate"]("Rate")
+        return cls("Rate")
     
     @classmethod
     @property
-    def LOGNORMALVOL(cls):
-        return cls._enum_by_value["LogNormalVol"]("LogNormalVol")
+    def LOG_NORMAL_VOL(cls):
+        return cls("LogNormalVol")
     
     @classmethod
     @property
-    def NORMALVOL(cls):
-        return cls._enum_by_value["NormalVol"]("NormalVol")
+    def NORMAL_VOL(cls):
+        return cls("NormalVol")
     
     @classmethod
     @property
-    def PARSPREAD(cls):
-        return cls._enum_by_value["ParSpread"]("ParSpread")
+    def PAR_SPREAD(cls):
+        return cls("ParSpread")
     
     @classmethod
     @property
-    def ISDASPREAD(cls):
-        return cls._enum_by_value["IsdaSpread"]("IsdaSpread")
+    def ISDA_SPREAD(cls):
+        return cls("IsdaSpread")
     
     @classmethod
     @property
     def UPFRONT(cls):
-        return cls._enum_by_value["Upfront"]("Upfront")
+        return cls("Upfront")

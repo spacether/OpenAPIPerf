@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,32 +72,32 @@ from luisd.schemas import (  # noqa: F401
 class PropertyDomain(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "NotDefined": "NOTDEFINED",
+            "NotDefined": "NOT_DEFINED",
             "Transaction": "TRANSACTION",
             "Portfolio": "PORTFOLIO",
             "Holding": "HOLDING",
-            "ReferenceHolding": "REFERENCEHOLDING",
-            "TransactionConfiguration": "TRANSACTIONCONFIGURATION",
+            "ReferenceHolding": "REFERENCE_HOLDING",
+            "TransactionConfiguration": "TRANSACTION_CONFIGURATION",
             "Instrument": "INSTRUMENT",
-            "CutLabelDefinition": "CUTLABELDEFINITION",
+            "CutLabelDefinition": "CUT_LABEL_DEFINITION",
             "Analytic": "ANALYTIC",
-            "PortfolioGroup": "PORTFOLIOGROUP",
+            "PortfolioGroup": "PORTFOLIO_GROUP",
             "Person": "PERSON",
-            "AccessMetadata": "ACCESSMETADATA",
+            "AccessMetadata": "ACCESS_METADATA",
             "Order": "ORDER",
-            "UnitResult": "UNITRESULT",
-            "MarketData": "MARKETDATA",
-            "ConfigurationRecipe": "CONFIGURATIONRECIPE",
+            "UnitResult": "UNIT_RESULT",
+            "MarketData": "MARKET_DATA",
+            "ConfigurationRecipe": "CONFIGURATION_RECIPE",
             "Allocation": "ALLOCATION",
             "Calendar": "CALENDAR",
-            "LegalEntity": "LEGALENTITY",
+            "LegalEntity": "LEGAL_ENTITY",
             "Placement": "PLACEMENT",
             "Execution": "EXECUTION",
             "Block": "BLOCK",
             "Participation": "PARTICIPATION",
             "Package": "PACKAGE",
-            "OrderInstruction": "ORDERINSTRUCTION",
-            "CustomEntity": "CUSTOMENTITY",
+            "OrderInstruction": "ORDER_INSTRUCTION",
+            "CustomEntity": "CUSTOM_ENTITY",
         }
     ),
     StrSchema
@@ -109,130 +114,130 @@ Each domain refers to a logical set of properties which reside within it.
     
     @classmethod
     @property
-    def NOTDEFINED(cls):
-        return cls._enum_by_value["NotDefined"]("NotDefined")
+    def NOT_DEFINED(cls):
+        return cls("NotDefined")
     
     @classmethod
     @property
     def TRANSACTION(cls):
-        return cls._enum_by_value["Transaction"]("Transaction")
+        return cls("Transaction")
     
     @classmethod
     @property
     def PORTFOLIO(cls):
-        return cls._enum_by_value["Portfolio"]("Portfolio")
+        return cls("Portfolio")
     
     @classmethod
     @property
     def HOLDING(cls):
-        return cls._enum_by_value["Holding"]("Holding")
+        return cls("Holding")
     
     @classmethod
     @property
-    def REFERENCEHOLDING(cls):
-        return cls._enum_by_value["ReferenceHolding"]("ReferenceHolding")
+    def REFERENCE_HOLDING(cls):
+        return cls("ReferenceHolding")
     
     @classmethod
     @property
-    def TRANSACTIONCONFIGURATION(cls):
-        return cls._enum_by_value["TransactionConfiguration"]("TransactionConfiguration")
+    def TRANSACTION_CONFIGURATION(cls):
+        return cls("TransactionConfiguration")
     
     @classmethod
     @property
     def INSTRUMENT(cls):
-        return cls._enum_by_value["Instrument"]("Instrument")
+        return cls("Instrument")
     
     @classmethod
     @property
-    def CUTLABELDEFINITION(cls):
-        return cls._enum_by_value["CutLabelDefinition"]("CutLabelDefinition")
+    def CUT_LABEL_DEFINITION(cls):
+        return cls("CutLabelDefinition")
     
     @classmethod
     @property
     def ANALYTIC(cls):
-        return cls._enum_by_value["Analytic"]("Analytic")
+        return cls("Analytic")
     
     @classmethod
     @property
-    def PORTFOLIOGROUP(cls):
-        return cls._enum_by_value["PortfolioGroup"]("PortfolioGroup")
+    def PORTFOLIO_GROUP(cls):
+        return cls("PortfolioGroup")
     
     @classmethod
     @property
     def PERSON(cls):
-        return cls._enum_by_value["Person"]("Person")
+        return cls("Person")
     
     @classmethod
     @property
-    def ACCESSMETADATA(cls):
-        return cls._enum_by_value["AccessMetadata"]("AccessMetadata")
+    def ACCESS_METADATA(cls):
+        return cls("AccessMetadata")
     
     @classmethod
     @property
     def ORDER(cls):
-        return cls._enum_by_value["Order"]("Order")
+        return cls("Order")
     
     @classmethod
     @property
-    def UNITRESULT(cls):
-        return cls._enum_by_value["UnitResult"]("UnitResult")
+    def UNIT_RESULT(cls):
+        return cls("UnitResult")
     
     @classmethod
     @property
-    def MARKETDATA(cls):
-        return cls._enum_by_value["MarketData"]("MarketData")
+    def MARKET_DATA(cls):
+        return cls("MarketData")
     
     @classmethod
     @property
-    def CONFIGURATIONRECIPE(cls):
-        return cls._enum_by_value["ConfigurationRecipe"]("ConfigurationRecipe")
+    def CONFIGURATION_RECIPE(cls):
+        return cls("ConfigurationRecipe")
     
     @classmethod
     @property
     def ALLOCATION(cls):
-        return cls._enum_by_value["Allocation"]("Allocation")
+        return cls("Allocation")
     
     @classmethod
     @property
     def CALENDAR(cls):
-        return cls._enum_by_value["Calendar"]("Calendar")
+        return cls("Calendar")
     
     @classmethod
     @property
-    def LEGALENTITY(cls):
-        return cls._enum_by_value["LegalEntity"]("LegalEntity")
+    def LEGAL_ENTITY(cls):
+        return cls("LegalEntity")
     
     @classmethod
     @property
     def PLACEMENT(cls):
-        return cls._enum_by_value["Placement"]("Placement")
+        return cls("Placement")
     
     @classmethod
     @property
     def EXECUTION(cls):
-        return cls._enum_by_value["Execution"]("Execution")
+        return cls("Execution")
     
     @classmethod
     @property
     def BLOCK(cls):
-        return cls._enum_by_value["Block"]("Block")
+        return cls("Block")
     
     @classmethod
     @property
     def PARTICIPATION(cls):
-        return cls._enum_by_value["Participation"]("Participation")
+        return cls("Participation")
     
     @classmethod
     @property
     def PACKAGE(cls):
-        return cls._enum_by_value["Package"]("Package")
+        return cls("Package")
     
     @classmethod
     @property
-    def ORDERINSTRUCTION(cls):
-        return cls._enum_by_value["OrderInstruction"]("OrderInstruction")
+    def ORDER_INSTRUCTION(cls):
+        return cls("OrderInstruction")
     
     @classmethod
     @property
-    def CUSTOMENTITY(cls):
-        return cls._enum_by_value["CustomEntity"]("CustomEntity")
+    def CUSTOM_ENTITY(cls):
+        return cls("CustomEntity")

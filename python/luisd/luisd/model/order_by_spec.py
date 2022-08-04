@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -92,12 +97,12 @@ class OrderBySpec(
         @classmethod
         @property
         def ASCENDING(cls):
-            return cls._enum_by_value["Ascending"]("Ascending")
+            return cls("Ascending")
         
         @classmethod
         @property
         def DESCENDING(cls):
-            return cls._enum_by_value["Descending"]("Descending")
+            return cls("Descending")
     _additional_properties = None
 
 
@@ -106,12 +111,12 @@ class OrderBySpec(
         *args: typing.Union[dict, frozendict, ],
         key: key,
         sortOrder: sortOrder,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'OrderBySpec':
         return super().__new__(
             cls,
             *args,
             key=key,
             sortOrder=sortOrder,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )

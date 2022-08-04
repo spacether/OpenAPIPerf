@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -69,9 +74,9 @@ class StringComparisonType(
         enum_value_to_name={
             "Exact": "EXACT",
             "Contains": "CONTAINS",
-            "CaseInsensitive": "CASEINSENSITIVE",
-            "ContainsAnyCase": "CONTAINSANYCASE",
-            "IsOneOf": "ISONEOF",
+            "CaseInsensitive": "CASE_INSENSITIVE",
+            "ContainsAnyCase": "CONTAINS_ANY_CASE",
+            "IsOneOf": "IS_ONE_OF",
         }
     ),
     StrSchema
@@ -87,24 +92,24 @@ class StringComparisonType(
     @classmethod
     @property
     def EXACT(cls):
-        return cls._enum_by_value["Exact"]("Exact")
+        return cls("Exact")
     
     @classmethod
     @property
     def CONTAINS(cls):
-        return cls._enum_by_value["Contains"]("Contains")
+        return cls("Contains")
     
     @classmethod
     @property
-    def CASEINSENSITIVE(cls):
-        return cls._enum_by_value["CaseInsensitive"]("CaseInsensitive")
+    def CASE_INSENSITIVE(cls):
+        return cls("CaseInsensitive")
     
     @classmethod
     @property
-    def CONTAINSANYCASE(cls):
-        return cls._enum_by_value["ContainsAnyCase"]("ContainsAnyCase")
+    def CONTAINS_ANY_CASE(cls):
+        return cls("ContainsAnyCase")
     
     @classmethod
     @property
-    def ISONEOF(cls):
-        return cls._enum_by_value["IsOneOf"]("IsOneOf")
+    def IS_ONE_OF(cls):
+        return cls("IsOneOf")

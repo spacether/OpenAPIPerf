@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -90,8 +95,8 @@ class HoldingsAdjustmentHeader(
     class unmatchedHoldingMethod(
         _SchemaEnumMaker(
             enum_value_to_name={
-                "PositionToZero": "POSITIONTOZERO",
-                "KeepTheSame": "KEEPTHESAME",
+                "PositionToZero": "POSITION_TO_ZERO",
+                "KeepTheSame": "KEEP_THE_SAME",
             }
         ),
         StrSchema
@@ -99,17 +104,17 @@ class HoldingsAdjustmentHeader(
         
         @classmethod
         @property
-        def POSITIONTOZERO(cls):
-            return cls._enum_by_value["PositionToZero"]("PositionToZero")
+        def POSITION_TO_ZERO(cls):
+            return cls("PositionToZero")
         
         @classmethod
         @property
-        def KEEPTHESAME(cls):
-            return cls._enum_by_value["KeepTheSame"]("KeepTheSame")
+        def KEEP_THE_SAME(cls):
+            return cls("KeepTheSame")
     
     
     class links(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -118,12 +123,12 @@ class HoldingsAdjustmentHeader(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'links':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -135,7 +140,7 @@ class HoldingsAdjustmentHeader(
         version: version,
         unmatchedHoldingMethod: unmatchedHoldingMethod,
         links: typing.Union[links, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'HoldingsAdjustmentHeader':
         return super().__new__(
             cls,
@@ -144,7 +149,7 @@ class HoldingsAdjustmentHeader(
             version=version,
             unmatchedHoldingMethod=unmatchedHoldingMethod,
             links=links,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.link import Link

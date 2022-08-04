@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -67,14 +72,14 @@ from luisd.schemas import (  # noqa: F401
 class MarketIdentifier(
     _SchemaEnumMaker(
         enum_value_to_name={
-            "LusidInstrumentId": "LUSIDINSTRUMENTID",
+            "LusidInstrumentId": "LUSID_INSTRUMENT_ID",
             "Isin": "ISIN",
             "Sedol": "SEDOL",
             "Cusip": "CUSIP",
-            "ClientInternal": "CLIENTINTERNAL",
+            "ClientInternal": "CLIENT_INTERNAL",
             "Figi": "FIGI",
             "RIC": "RIC",
-            "QuotePermId": "QUOTEPERMID",
+            "QuotePermId": "QUOTE_PERM_ID",
             "REDCode": "REDCODE",
             "BBGId": "BBGID",
             "ICECode": "ICECODE",
@@ -90,55 +95,55 @@ class MarketIdentifier(
     
     @classmethod
     @property
-    def LUSIDINSTRUMENTID(cls):
-        return cls._enum_by_value["LusidInstrumentId"]("LusidInstrumentId")
+    def LUSID_INSTRUMENT_ID(cls):
+        return cls("LusidInstrumentId")
     
     @classmethod
     @property
     def ISIN(cls):
-        return cls._enum_by_value["Isin"]("Isin")
+        return cls("Isin")
     
     @classmethod
     @property
     def SEDOL(cls):
-        return cls._enum_by_value["Sedol"]("Sedol")
+        return cls("Sedol")
     
     @classmethod
     @property
     def CUSIP(cls):
-        return cls._enum_by_value["Cusip"]("Cusip")
+        return cls("Cusip")
     
     @classmethod
     @property
-    def CLIENTINTERNAL(cls):
-        return cls._enum_by_value["ClientInternal"]("ClientInternal")
+    def CLIENT_INTERNAL(cls):
+        return cls("ClientInternal")
     
     @classmethod
     @property
     def FIGI(cls):
-        return cls._enum_by_value["Figi"]("Figi")
+        return cls("Figi")
     
     @classmethod
     @property
     def RIC(cls):
-        return cls._enum_by_value["RIC"]("RIC")
+        return cls("RIC")
     
     @classmethod
     @property
-    def QUOTEPERMID(cls):
-        return cls._enum_by_value["QuotePermId"]("QuotePermId")
+    def QUOTE_PERM_ID(cls):
+        return cls("QuotePermId")
     
     @classmethod
     @property
     def REDCODE(cls):
-        return cls._enum_by_value["REDCode"]("REDCode")
+        return cls("REDCode")
     
     @classmethod
     @property
     def BBGID(cls):
-        return cls._enum_by_value["BBGId"]("BBGId")
+        return cls("BBGId")
     
     @classmethod
     @property
     def ICECODE(cls):
-        return cls._enum_by_value["ICECode"]("ICECode")
+        return cls("ICECode")

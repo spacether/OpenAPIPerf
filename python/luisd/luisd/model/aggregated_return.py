@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -82,7 +87,7 @@ class AggregatedReturn(
     
     
     class openingMarketValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Float64Base,
         NoneBase,
         Schema
@@ -91,17 +96,17 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'openingMarketValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class closingMarketValue(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Float64Base,
         NoneBase,
         Schema
@@ -110,12 +115,12 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'closingMarketValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
@@ -128,19 +133,19 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'metricsValue':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
     
     
     class frequency(
-        _SchemaTypeChecker(typing.Union[none_type, str, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
         StrBase,
         NoneBase,
         Schema
@@ -149,17 +154,17 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[str, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'frequency':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class compositeMembers(
-        _SchemaTypeChecker(typing.Union[none_type, decimal.Decimal, ]),
+        _SchemaTypeChecker(typing.Union[NoneClass, decimal.Decimal, ]),
         Int32Base,
         NoneBase,
         Schema
@@ -168,17 +173,17 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'compositeMembers':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     
     
     class compositeMembersWithoutReturn(
-        _SchemaTypeChecker(typing.Union[tuple, none_type, ]),
+        _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
         ListBase,
         NoneBase,
         Schema
@@ -187,12 +192,12 @@ class AggregatedReturn(
         def __new__(
             cls,
             *args: typing.Union[list, tuple, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
         ) -> 'compositeMembersWithoutReturn':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
             )
     _additional_properties = None
 
@@ -207,7 +212,7 @@ class AggregatedReturn(
         frequency: typing.Union[frequency, Unset] = unset,
         compositeMembers: typing.Union[compositeMembers, Unset] = unset,
         compositeMembersWithoutReturn: typing.Union[compositeMembersWithoutReturn, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
     ) -> 'AggregatedReturn':
         return super().__new__(
             cls,
@@ -219,7 +224,7 @@ class AggregatedReturn(
             frequency=frequency,
             compositeMembers=compositeMembers,
             compositeMembersWithoutReturn=compositeMembersWithoutReturn,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
         )
 
 from luisd.model.resource_id import ResourceId

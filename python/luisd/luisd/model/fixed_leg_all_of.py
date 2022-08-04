@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -292,7 +292,7 @@ class FixedLegAllOf(
         notional: notional,
         instrumentType: instrumentType,
         overrides: typing.Union['FixedLegAllOfOverrides', Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'FixedLegAllOf':
         return super().__new__(
@@ -304,7 +304,7 @@ class FixedLegAllOf(
             notional=notional,
             instrumentType=instrumentType,
             overrides=overrides,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

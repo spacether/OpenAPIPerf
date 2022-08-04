@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -70,9 +75,9 @@ class AggregationType(
             "String": "STRING",
             "Int": "INT",
             "Decimal": "DECIMAL",
-            "DateTime": "DATETIME",
+            "DateTime": "DATE_TIME",
             "Boolean": "BOOLEAN",
-            "ResultValue": "RESULTVALUE",
+            "ResultValue": "RESULT_VALUE",
             "Array": "ARRAY",
             "Map": "MAP",
             "Json": "JSON",
@@ -91,44 +96,44 @@ class AggregationType(
     @classmethod
     @property
     def STRING(cls):
-        return cls._enum_by_value["String"]("String")
+        return cls("String")
     
     @classmethod
     @property
     def INT(cls):
-        return cls._enum_by_value["Int"]("Int")
+        return cls("Int")
     
     @classmethod
     @property
     def DECIMAL(cls):
-        return cls._enum_by_value["Decimal"]("Decimal")
+        return cls("Decimal")
     
     @classmethod
     @property
-    def DATETIME(cls):
-        return cls._enum_by_value["DateTime"]("DateTime")
+    def DATE_TIME(cls):
+        return cls("DateTime")
     
     @classmethod
     @property
     def BOOLEAN(cls):
-        return cls._enum_by_value["Boolean"]("Boolean")
+        return cls("Boolean")
     
     @classmethod
     @property
-    def RESULTVALUE(cls):
-        return cls._enum_by_value["ResultValue"]("ResultValue")
+    def RESULT_VALUE(cls):
+        return cls("ResultValue")
     
     @classmethod
     @property
     def ARRAY(cls):
-        return cls._enum_by_value["Array"]("Array")
+        return cls("Array")
     
     @classmethod
     @property
     def MAP(cls):
-        return cls._enum_by_value["Map"]("Map")
+        return cls("Map")
     
     @classmethod
     @property
     def JSON(cls):
-        return cls._enum_by_value["Json"]("Json")
+        return cls("Json")

@@ -13,6 +13,7 @@
 import re  # noqa: F401
 import sys  # noqa: F401
 import typing  # noqa: F401
+import functools  # noqa: F401
 
 from frozendict import frozendict  # noqa: F401
 
@@ -32,6 +33,7 @@ from luisd.schemas import (  # noqa: F401
     Float32Schema,
     Float64Schema,
     NumberSchema,
+    UUIDSchema,
     DateSchema,
     DateTimeSchema,
     DecimalSchema,
@@ -39,7 +41,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -53,11 +55,14 @@ from luisd.schemas import (  # noqa: F401
     Float32Base,
     Float64Base,
     NumberBase,
+    UUIDBase,
     DateBase,
     DateTimeBase,
     BoolBase,
     BinaryBase,
     Schema,
+    NoneClass,
+    BoolClass,
     _SchemaValidator,
     _SchemaTypeChecker,
     _SchemaEnumMaker
@@ -87,34 +92,34 @@ class DayOfWeek(
     @classmethod
     @property
     def SUNDAY(cls):
-        return cls._enum_by_value["Sunday"]("Sunday")
+        return cls("Sunday")
     
     @classmethod
     @property
     def MONDAY(cls):
-        return cls._enum_by_value["Monday"]("Monday")
+        return cls("Monday")
     
     @classmethod
     @property
     def TUESDAY(cls):
-        return cls._enum_by_value["Tuesday"]("Tuesday")
+        return cls("Tuesday")
     
     @classmethod
     @property
     def WEDNESDAY(cls):
-        return cls._enum_by_value["Wednesday"]("Wednesday")
+        return cls("Wednesday")
     
     @classmethod
     @property
     def THURSDAY(cls):
-        return cls._enum_by_value["Thursday"]("Thursday")
+        return cls("Thursday")
     
     @classmethod
     @property
     def FRIDAY(cls):
-        return cls._enum_by_value["Friday"]("Friday")
+        return cls("Friday")
     
     @classmethod
     @property
     def SATURDAY(cls):
-        return cls._enum_by_value["Saturday"]("Saturday")
+        return cls("Saturday")

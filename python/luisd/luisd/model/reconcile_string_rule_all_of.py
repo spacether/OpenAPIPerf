@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -134,13 +134,13 @@ class ReconcileStringRuleAllOf(
         def __new__(
             cls,
             *args: typing.Union[dict, frozendict, None, ],
-            _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+            _configuration: typing.Optional[Configuration] = None,
             **kwargs: typing.Type[Schema],
         ) -> 'oneOfCandidates':
             return super().__new__(
                 cls,
                 *args,
-                _instantiation_metadata=_instantiation_metadata,
+                _configuration=_configuration,
                 **kwargs,
             )
 
@@ -190,7 +190,7 @@ class ReconcileStringRuleAllOf(
         appliesTo: appliesTo,
         ruleType: ruleType,
         oneOfCandidates: typing.Union[oneOfCandidates, Unset] = unset,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'ReconcileStringRuleAllOf':
         return super().__new__(
@@ -200,7 +200,7 @@ class ReconcileStringRuleAllOf(
             appliesTo=appliesTo,
             ruleType=ruleType,
             oneOfCandidates=oneOfCandidates,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 

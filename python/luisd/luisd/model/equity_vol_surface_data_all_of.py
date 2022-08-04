@@ -39,7 +39,7 @@ from luisd.schemas import (  # noqa: F401
     BinarySchema,
     NoneSchema,
     none_type,
-    InstantiationMetadata,
+    Configuration,
     Unset,
     unset,
     ComposedBase,
@@ -189,7 +189,7 @@ class EquityVolSurfaceDataAllOf(
         instruments: instruments,
         quotes: quotes,
         marketDataType: marketDataType,
-        _instantiation_metadata: typing.Optional[InstantiationMetadata] = None,
+        _configuration: typing.Optional[Configuration] = None,
         **kwargs: typing.Type[Schema],
     ) -> 'EquityVolSurfaceDataAllOf':
         return super().__new__(
@@ -199,7 +199,7 @@ class EquityVolSurfaceDataAllOf(
             instruments=instruments,
             quotes=quotes,
             marketDataType=marketDataType,
-            _instantiation_metadata=_instantiation_metadata,
+            _configuration=_configuration,
             **kwargs,
         )
 
