@@ -130,23 +130,23 @@ class ValidationMetadata(frozendict.frozendict):
 
     @property
     def path_to_item(self) -> typing.Tuple[typing.Union[str, int], ...]:
-        return self.get('path_to_item')
+        return self['path_to_item']
 
     @property
     def from_server(self) -> bool:
-        return self.get('from_server')
+        return self['from_server']
 
     @property
     def configuration(self) -> typing.Optional[Configuration]:
-        return self.get('configuration')
+        return self['configuration']
 
     @property
     def seen_classes(self) -> typing.FrozenSet[typing.Type]:
-        return self.get('seen_classes')
+        return self['seen_classes']
 
     @property
     def validated_path_to_schemas(self) -> typing.Dict[typing.Tuple[typing.Union[str, int], ...], typing.Set[typing.Type]]:
-        return self.get('validated_path_to_schemas')
+        return self['validated_path_to_schemas']
 
 
 class Singleton:
