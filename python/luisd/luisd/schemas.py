@@ -1819,7 +1819,7 @@ def cast_to_allowed_types(
             return decimal.Decimal(str(decimal_from_float)+'.0')
         return decimal_from_float
     elif isinstance(arg, (tuple, list)):
-        return tuple([cast_to_allowed_types(item, from_server, validated_path_to_schemas, path_to_item + (i,)) for i, item in enumerate(arg)])
+        return tuple(cast_to_allowed_types(item, from_server, validated_path_to_schemas, path_to_item + (i,)) for i, item in enumerate(arg))
     elif isinstance(arg, (none_type, NoneClass)):
         return NoneClass.NONE
     elif isinstance(arg, (date, datetime)):
