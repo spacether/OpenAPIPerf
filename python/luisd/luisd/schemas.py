@@ -355,9 +355,9 @@ class Schema:
         Processes and mutates schema_classes
         If a SomeSchema is a subclass of DictSchema then remove DictSchema because it is already included
         """
-        if len(schema_classes) < 2:
+        if len(schema_classes) <= 2:
             return
-        if len(schema_classes) > 2 and UnsetAnyTypeSchema in schema_classes:
+        if UnsetAnyTypeSchema in schema_classes:
             schema_classes.remove(UnsetAnyTypeSchema)
         x_schema = schema_type_classes & schema_classes
         if not x_schema:

@@ -109,4 +109,10 @@ validationmetadata use key access
 2. Why are there multiple calls that happen n*3?
 schemas.py:1359(_get_new_instance_without_conversion)
 schemas.py:1486(cast_to_allowed_types)
+Because the first is the number of total calls including recursion
+The second is the source calls, so this is expected
+
+Improvements
+- ValidationMetadata changed from .get to[] acess, saved 0.9-4 seconds
+- _process_schema_classes_oapg saved 0.7 or 0.6s with early return
 """
