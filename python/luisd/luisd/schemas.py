@@ -114,7 +114,7 @@ class ValidationMetadata(frozendict.frozendict):
             cls,
             path_to_item=path_to_item,
             from_server=from_server,
-            configuration=configuration,
+            configuration=configuration or Configuration(),
             seen_classes=seen_classes,
             validated_path_to_schemas=validated_path_to_schemas
         )
@@ -137,7 +137,7 @@ class ValidationMetadata(frozendict.frozendict):
         return self['from_server']
 
     @property
-    def configuration(self) -> typing.Optional[Configuration]:
+    def configuration(self) -> Configuration:
         return self['configuration']
 
     @property
@@ -852,7 +852,7 @@ else:
 
 class ValidatorBase:
     @staticmethod
-    def _is_json_validation_enabled_oapg(schema_keyword, configuration=None):
+    def _is_json_validation_enabled_oapg(schema_keyword, configuration):
         """Returns true if JSON schema validation is enabled for the specified
         validation keyword. This can be used to skip JSON schema structural validation
         as requested in the configuration.
@@ -864,9 +864,7 @@ class ValidatorBase:
             configuration (Configuration): the configuration class.
         """
 
-        return (configuration is None or
-            not hasattr(configuration, '_disabled_client_side_validations') or
-            schema_keyword not in configuration._disabled_client_side_validations)
+        return schema_keyword not in configuration._disabled_client_side_validations
 
     @staticmethod
     def _raise_validation_errror_message_oapg(value, constraint_msg, constraint_value, path_to_item, additional_txt=""):

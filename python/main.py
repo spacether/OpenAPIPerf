@@ -115,4 +115,5 @@ The second is the source calls, so this is expected
 Improvements
 - ValidationMetadata changed from .get to[] acess, saved 0.9-4 seconds
 - _process_schema_classes_oapg saved 0.7 or 0.6s with early return
+- ValidationMetadata.configuration + _is_json_validation_enabled_oapg improvment 0.9 s saved
 """
