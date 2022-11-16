@@ -13,9 +13,9 @@
 from luisd.paths.api_propertydefinitions_derived.post import CreateDerivedPropertyDefinition
 from luisd.paths.api_propertydefinitions.post import CreatePropertyDefinition
 from luisd.paths.api_propertydefinitions_domain_scope_code.delete import DeletePropertyDefinition
-from luisd.paths.api_propertydefinitions_1.get import GetMultiplePropertyDefinitions
-from luisd.paths.api_propertydefinitions_domain_scope_code_2.get import GetPropertyDefinition
-from luisd.paths.api_propertydefinitions_domain_scope_code_3.put import UpdatePropertyDefinition
+from luisd.paths.api_propertydefinitions.get import GetMultiplePropertyDefinitions
+from luisd.paths.api_propertydefinitions_domain_scope_code.get import GetPropertyDefinition
+from luisd.paths.api_propertydefinitions_domain_scope_code.put import UpdatePropertyDefinition
 
 
 class PropertyDefinitionsApi(

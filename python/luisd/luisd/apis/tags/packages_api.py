@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_packages_scope_code.delete import DeletePackage
-from luisd.paths.api_packages_scope_code_1.get import GetPackage
+from luisd.paths.api_packages_scope_code.get import GetPackage
 from luisd.paths.api_packages.get import ListPackages
-from luisd.paths.api_packages_2.post import UpsertPackages
+from luisd.paths.api_packages.post import UpsertPackages
 
 
 class PackagesApi(

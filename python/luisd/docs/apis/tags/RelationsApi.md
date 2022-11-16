@@ -116,28 +116,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateRelationRequest**](CreateRelationRequest.md) |  | 
+[**CreateRelationRequest**](../../models/CreateRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateRelationRequest**](CreateRelationRequest.md) |  | 
+[**CreateRelationRequest**](../../models/CreateRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateRelationRequest**](CreateRelationRequest.md) |  | 
+[**CreateRelationRequest**](../../models/CreateRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateRelationRequest**](CreateRelationRequest.md) |  | 
+[**CreateRelationRequest**](../../models/CreateRelationRequest.md) |  | 
 
 
 ### query_params
@@ -148,13 +148,14 @@ Name | Type | Description  | Notes
 effectiveAt | EffectiveAtSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which the relation should be effective from. Defaults to the current LUSID system datetime if not specified. | 
 
 ### path_params
 #### RequestPathParams
@@ -164,96 +165,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the relation definition
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the relation definition | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the relation definition
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the relation definition | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The newly created relation.
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#create_relation.ApiResponseFor200) | The newly created relation.
+400 | [ApiResponseFor400](#create_relation.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#create_relation.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### create_relation.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CompleteRelation**](CompleteRelation.md) |  | 
+[**CompleteRelation**](../../models/CompleteRelation.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CompleteRelation**](CompleteRelation.md) |  | 
+[**CompleteRelation**](../../models/CompleteRelation.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CompleteRelation**](CompleteRelation.md) |  | 
+[**CompleteRelation**](../../models/CompleteRelation.md) |  | 
 
 
-#### ApiResponseFor400
+#### create_relation.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### create_relation.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**CompleteRelation**](CompleteRelation.md)
 
 ### Authorization
 
@@ -369,28 +369,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteRelationRequest**](DeleteRelationRequest.md) |  | 
+[**DeleteRelationRequest**](../../models/DeleteRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteRelationRequest**](DeleteRelationRequest.md) |  | 
+[**DeleteRelationRequest**](../../models/DeleteRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteRelationRequest**](DeleteRelationRequest.md) |  | 
+[**DeleteRelationRequest**](../../models/DeleteRelationRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteRelationRequest**](DeleteRelationRequest.md) |  | 
+[**DeleteRelationRequest**](../../models/DeleteRelationRequest.md) |  | 
 
 
 ### query_params
@@ -401,13 +401,14 @@ Name | Type | Description  | Notes
 effectiveAt | EffectiveAtSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which the relation should the deletion be effective from. Defaults to the current LUSID system datetime if not specified. | 
 
 ### path_params
 #### RequestPathParams
@@ -417,96 +418,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the relation definition
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the relation definition | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the relation definition
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the relation definition | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The datetime that the relation is deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_relation.ApiResponseFor200) | The datetime that the relation is deleted
+400 | [ApiResponseFor400](#delete_relation.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_relation.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_relation.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_relation.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_relation.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 

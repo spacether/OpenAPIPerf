@@ -79,88 +79,86 @@ Name | Type | Description  | Notes
 version | VersionSchema | | optional
 
 
-#### VersionSchema
+# VersionSchema
 
 The requested version of the Excel plugin
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The requested version of the Excel plugin | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_excel_addin.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#get_excel_addin.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_excel_addin.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_excel_addin.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileResponse**](FileResponse.md) |  | 
+[**FileResponse**](../../models/FileResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileResponse**](FileResponse.md) |  | 
+[**FileResponse**](../../models/FileResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**FileResponse**](FileResponse.md) |  | 
+[**FileResponse**](../../models/FileResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_excel_addin.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_excel_addin.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**FileResponse**](FileResponse.md)
 
 ### Authorization
 
@@ -222,49 +220,46 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Collection of versions associated with LUSID
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_lusid_versions.ApiResponseFor200) | Collection of versions associated with LUSID
+default | [ApiResponseForDefault](#get_lusid_versions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_lusid_versions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionSummaryDto**](VersionSummaryDto.md) |  | 
+[**VersionSummaryDto**](../../models/VersionSummaryDto.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionSummaryDto**](VersionSummaryDto.md) |  | 
+[**VersionSummaryDto**](../../models/VersionSummaryDto.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionSummaryDto**](VersionSummaryDto.md) |  | 
+[**VersionSummaryDto**](../../models/VersionSummaryDto.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_lusid_versions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionSummaryDto**](VersionSummaryDto.md)
 
 ### Authorization
 
@@ -342,88 +337,86 @@ Name | Type | Description  | Notes
 filter | FilterSchema | | optional
 
 
-#### FilterSchema
+# FilterSchema
 
 Optional. Expression to filter the result set.               For example, to filter on the Application, use \"application eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set.               For example, to filter on the Application, use \&quot;application eq &#x27;string&#x27;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_access_controlled_resources.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#list_access_controlled_resources.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_access_controlled_resources.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_access_controlled_resources.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md) |  | 
+[**ResourceListOfAccessControlledResource**](../../models/ResourceListOfAccessControlledResource.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md) |  | 
+[**ResourceListOfAccessControlledResource**](../../models/ResourceListOfAccessControlledResource.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md) |  | 
+[**ResourceListOfAccessControlledResource**](../../models/ResourceListOfAccessControlledResource.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_access_controlled_resources.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_access_controlled_resources.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfAccessControlledResource**](ResourceListOfAccessControlledResource.md)
 
 ### Authorization
 

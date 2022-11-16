@@ -96,37 +96,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The corporate action definitions
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | The corporate action definitions | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) |  | 
 
-The corporate action definitions
-
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 The corporate action definitions
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | The corporate action definitions | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 The corporate action definitions
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | The corporate action definitions | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+The corporate action definitions
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | The corporate action definitions | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) | [**UpsertCorporateActionRequest**]({{complexTypePrefix}}UpsertCorporateActionRequest.md) |  | 
 
 ### path_params
 #### RequestPathParams
@@ -136,96 +160,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of corporate action source
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of corporate action source | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the corporate action source
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the corporate action source | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | The created corporate actions
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#batch_upsert_corporate_actions.ApiResponseFor201) | The created corporate actions
+400 | [ApiResponseFor400](#batch_upsert_corporate_actions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#batch_upsert_corporate_actions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### batch_upsert_corporate_actions.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertCorporateActionsResponse**](UpsertCorporateActionsResponse.md) |  | 
+[**UpsertCorporateActionsResponse**](../../models/UpsertCorporateActionsResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertCorporateActionsResponse**](UpsertCorporateActionsResponse.md) |  | 
+[**UpsertCorporateActionsResponse**](../../models/UpsertCorporateActionsResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertCorporateActionsResponse**](UpsertCorporateActionsResponse.md) |  | 
+[**UpsertCorporateActionsResponse**](../../models/UpsertCorporateActionsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### batch_upsert_corporate_actions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### batch_upsert_corporate_actions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertCorporateActionsResponse**](UpsertCorporateActionsResponse.md)
 
 ### Authorization
 
@@ -305,28 +328,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md) |  | 
+[**CreateCorporateActionSourceRequest**](../../models/CreateCorporateActionSourceRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md) |  | 
+[**CreateCorporateActionSourceRequest**](../../models/CreateCorporateActionSourceRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md) |  | 
+[**CreateCorporateActionSourceRequest**](../../models/CreateCorporateActionSourceRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateCorporateActionSourceRequest**](CreateCorporateActionSourceRequest.md) |  | 
+[**CreateCorporateActionSourceRequest**](../../models/CreateCorporateActionSourceRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -334,75 +357,72 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | The created corporate action source
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#create_corporate_action_source.ApiResponseFor201) | The created corporate action source
+400 | [ApiResponseFor400](#create_corporate_action_source.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#create_corporate_action_source.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### create_corporate_action_source.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CorporateActionSource**](CorporateActionSource.md) |  | 
+[**CorporateActionSource**](../../models/CorporateActionSource.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CorporateActionSource**](CorporateActionSource.md) |  | 
+[**CorporateActionSource**](../../models/CorporateActionSource.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CorporateActionSource**](CorporateActionSource.md) |  | 
+[**CorporateActionSource**](../../models/CorporateActionSource.md) |  | 
 
 
-#### ApiResponseFor400
+#### create_corporate_action_source.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### create_corporate_action_source.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**CorporateActionSource**](CorporateActionSource.md)
 
 ### Authorization
 
@@ -481,96 +501,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the corporate action source to be deleted
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the corporate action source to be deleted | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the corporate action source to be deleted
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the corporate action source to be deleted | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Corporate Action Source Deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_corporate_action_source.ApiResponseFor200) | Corporate Action Source Deleted
+400 | [ApiResponseFor400](#delete_corporate_action_source.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_corporate_action_source.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_corporate_action_source.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_corporate_action_source.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_corporate_action_source.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 
@@ -656,13 +675,19 @@ Name | Type | Description  | Notes
 corporateActionIds | CorporateActionIdsSchema | | 
 
 
-#### CorporateActionIdsSchema
+# CorporateActionIdsSchema
 
 The IDs of the corporate actions to delete
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | The IDs of the corporate actions to delete | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The IDs of the corporate actions to delete | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -672,96 +697,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the corporate action source
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the corporate action source | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the corporate action source
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the corporate action source | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Corporate Actions Deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_corporate_actions.ApiResponseFor200) | Corporate Actions Deleted
+400 | [ApiResponseFor400](#delete_corporate_actions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_corporate_actions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_corporate_actions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_corporate_actions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_corporate_actions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 
@@ -874,53 +898,64 @@ limit | LimitSchema | | optional
 filter | FilterSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 Optional. The start effective date of the data range.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. The start effective date of the data range. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 Optional. The end effective date of the data range.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. The end effective date of the data range. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 Optional. The AsAt date of the data.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | Optional. The AsAt date of the data. | value must conform to RFC-3339 date-time
 
-#### SortBySchema
+# SortBySchema
 
 Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Optional. Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName | 
 
-#### LimitSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# LimitSchema
 
 Optional. When paginating, limit the results to this number.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Optional. When paginating, limit the results to this number. | value must be a 32 bit integer
 
-#### FilterSchema
+# FilterSchema
 
 Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \"announcementDate eq '2020-03-06'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set.              For example, to filter on the Announcement Date, use \&quot;announcementDate eq &#x27;2020-03-06&#x27;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
 ### path_params
 #### RequestPathParams
@@ -930,96 +965,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the corporate action source.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the corporate action source. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the corporate action source.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the corporate action source. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Corporate Actions
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_corporate_actions.ApiResponseFor200) | Corporate Actions
+400 | [ApiResponseFor400](#get_corporate_actions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_corporate_actions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_corporate_actions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfCorporateAction**](ResourceListOfCorporateAction.md) |  | 
+[**ResourceListOfCorporateAction**](../../models/ResourceListOfCorporateAction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfCorporateAction**](ResourceListOfCorporateAction.md) |  | 
+[**ResourceListOfCorporateAction**](../../models/ResourceListOfCorporateAction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfCorporateAction**](ResourceListOfCorporateAction.md) |  | 
+[**ResourceListOfCorporateAction**](../../models/ResourceListOfCorporateAction.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_corporate_actions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_corporate_actions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfCorporateAction**](ResourceListOfCorporateAction.md)
 
 ### Authorization
 
@@ -1107,120 +1141,127 @@ filter | FilterSchema | | optional
 page | PageSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 Optional. The AsAt date of the data
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | Optional. The AsAt date of the data | value must conform to RFC-3339 date-time
 
-#### SortBySchema
+# SortBySchema
 
 Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Optional. Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName | 
 
-#### LimitSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# LimitSchema
 
 Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Optional. When paginating, limit the number of returned results to this many. If not specified, a default  of 100 is used. | if omitted the server will use the default value of 100value must be a 32 bit integer
 
-#### FilterSchema
+# FilterSchema
 
 Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \"displayName eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set. For example, to  filter on the Display Name, use \&quot;displayName eq &#x27;string&#x27;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### PageSchema
+# PageSchema
 
 Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. The pagination token to use to continue listing items from a previous call. Page values are  return from list calls, and must be supplied exactly as returned. Additionally, when specifying this  value, the filter, asAt, and limit must not  be modified. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | All Existing Corporate Action Sources
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_corporate_action_sources.ApiResponseFor200) | All Existing Corporate Action Sources
+400 | [ApiResponseFor400](#list_corporate_action_sources.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_corporate_action_sources.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_corporate_action_sources.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfCorporateActionSource**](PagedResourceListOfCorporateActionSource.md) |  | 
+[**PagedResourceListOfCorporateActionSource**](../../models/PagedResourceListOfCorporateActionSource.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfCorporateActionSource**](PagedResourceListOfCorporateActionSource.md) |  | 
+[**PagedResourceListOfCorporateActionSource**](../../models/PagedResourceListOfCorporateActionSource.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfCorporateActionSource**](PagedResourceListOfCorporateActionSource.md) |  | 
+[**PagedResourceListOfCorporateActionSource**](../../models/PagedResourceListOfCorporateActionSource.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_corporate_action_sources.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_corporate_action_sources.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfCorporateActionSource**](PagedResourceListOfCorporateActionSource.md)
 
 ### Authorization
 

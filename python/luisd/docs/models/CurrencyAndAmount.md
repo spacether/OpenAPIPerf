@@ -2,11 +2,16 @@
 
 An amount of a specific currency, specifying a value and an associated unit
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**amount** | **int, float** |  | [optional] 
-**currency** | **str, none_type** |  | [optional] 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | An amount of a specific currency, specifying a value and an associated unit | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**amount** | decimal.Decimal, int, float,  | decimal.Decimal,  |  | [optional] value must be a 64 bit float
+**currency** | None, str,  | NoneClass, str,  |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

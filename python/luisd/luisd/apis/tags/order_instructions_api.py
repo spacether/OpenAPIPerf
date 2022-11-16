@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_orderinstructions_scope_code.delete import DeleteOrderInstruction
-from luisd.paths.api_orderinstructions_scope_code_1.get import GetOrderInstruction
+from luisd.paths.api_orderinstructions_scope_code.get import GetOrderInstruction
 from luisd.paths.api_orderinstructions.get import ListOrderInstructions
-from luisd.paths.api_orderinstructions_2.post import UpsertOrderInstructions
+from luisd.paths.api_orderinstructions.post import UpsertOrderInstructions
 
 
 class OrderInstructionsApi(

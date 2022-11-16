@@ -129,37 +129,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
 
-The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+The selected set of holdings to adjust to the provided targets for the              transaction portfolio.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The selected set of holdings to adjust to the provided targets for the              transaction portfolio. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -170,21 +194,28 @@ effectiveAt | EffectiveAtSchema | |
 reconciliationMethods | ReconciliationMethodsSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the holdings should be set to the provided targets.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The effective datetime or cut label at which the holdings should be set to the provided targets. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The effective datetime or cut label at which the holdings should be set to the provided targets. | 
 
-#### ReconciliationMethodsSchema
+# ReconciliationMethodsSchema
 
 Optional parameter for specifying a reconciliation method: e.g. FxForward.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Optional parameter for specifying a reconciliation method: e.g. FxForward. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -194,96 +225,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The version of the transaction portfolio that contains the newly adjusted holdings
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#adjust_holdings.ApiResponseFor200) | The version of the transaction portfolio that contains the newly adjusted holdings
+400 | [ApiResponseFor400](#adjust_holdings.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#adjust_holdings.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### adjust_holdings.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### ApiResponseFor400
+#### adjust_holdings.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### adjust_holdings.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**AdjustHolding**](AdjustHolding.md)
 
 ### Authorization
 
@@ -401,28 +431,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TransactionQueryParameters**](TransactionQueryParameters.md) |  | 
+[**TransactionQueryParameters**](../../models/TransactionQueryParameters.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TransactionQueryParameters**](TransactionQueryParameters.md) |  | 
+[**TransactionQueryParameters**](../../models/TransactionQueryParameters.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TransactionQueryParameters**](TransactionQueryParameters.md) |  | 
+[**TransactionQueryParameters**](../../models/TransactionQueryParameters.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TransactionQueryParameters**](TransactionQueryParameters.md) |  | 
+[**TransactionQueryParameters**](../../models/TransactionQueryParameters.md) |  | 
 
 
 ### query_params
@@ -437,45 +467,55 @@ limit | LimitSchema | | optional
 page | PageSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to build the transactions. Defaults to return the latest              version of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the \"Instrument\" or \"Transaction\" domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or              \"Transaction/strategy/quantsignal\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Transaction\&quot; domain to decorate onto              the transactions. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or              \&quot;Transaction/strategy/quantsignal\&quot;. | 
 
-#### LimitSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# LimitSchema
 
 When paginating, limit the number of returned results to this many. Defaults to 100 if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the number of returned results to this many. Defaults to 100 if not specified. | value must be a 32 bit integer
 
-#### PageSchema
+# PageSchema
 
 The pagination token to use to continue listing transactions from a previous call to BuildTransactions.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing transactions from a previous call to BuildTransactions. | 
 
 ### path_params
 #### RequestPathParams
@@ -485,96 +525,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested transactions from the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#build_transactions.ApiResponseFor200) | The requested transactions from the specified transaction portfolio
+400 | [ApiResponseFor400](#build_transactions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#build_transactions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### build_transactions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfOutputTransaction**](VersionedResourceListOfOutputTransaction.md) |  | 
+[**VersionedResourceListOfOutputTransaction**](../../models/VersionedResourceListOfOutputTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfOutputTransaction**](VersionedResourceListOfOutputTransaction.md) |  | 
+[**VersionedResourceListOfOutputTransaction**](../../models/VersionedResourceListOfOutputTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfOutputTransaction**](VersionedResourceListOfOutputTransaction.md) |  | 
+[**VersionedResourceListOfOutputTransaction**](../../models/VersionedResourceListOfOutputTransaction.md) |  | 
 
 
-#### ApiResponseFor400
+#### build_transactions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### build_transactions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListOfOutputTransaction**](VersionedResourceListOfOutputTransaction.md)
 
 ### Authorization
 
@@ -658,13 +697,14 @@ Name | Type | Description  | Notes
 effectiveAt | EffectiveAtSchema | | 
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the holding adjustments should be undone.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The effective datetime or cut label at which the holding adjustments should be undone. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The effective datetime or cut label at which the holding adjustments should be undone. | 
 
 ### path_params
 #### RequestPathParams
@@ -674,96 +714,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The datetime that the holding adjustments were cancelled
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#cancel_adjust_holdings.ApiResponseFor200) | The datetime that the holding adjustments were cancelled
+400 | [ApiResponseFor400](#cancel_adjust_holdings.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#cancel_adjust_holdings.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### cancel_adjust_holdings.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### cancel_adjust_holdings.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### cancel_adjust_holdings.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 
@@ -849,13 +888,19 @@ Name | Type | Description  | Notes
 transactionIds | TransactionIdsSchema | | 
 
 
-#### TransactionIdsSchema
+# TransactionIdsSchema
 
 The IDs of the transactions to cancel.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | The IDs of the transactions to cancel. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The IDs of the transactions to cancel. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -865,96 +910,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The datetime that the transactions were cancelled
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#cancel_transactions.ApiResponseFor200) | The datetime that the transactions were cancelled
+400 | [ApiResponseFor400](#cancel_transactions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#cancel_transactions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### cancel_transactions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### cancel_transactions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### cancel_transactions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 
@@ -1067,28 +1111,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateTransactionPortfolioRequest**](CreateTransactionPortfolioRequest.md) |  | 
+[**CreateTransactionPortfolioRequest**](../../models/CreateTransactionPortfolioRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateTransactionPortfolioRequest**](CreateTransactionPortfolioRequest.md) |  | 
+[**CreateTransactionPortfolioRequest**](../../models/CreateTransactionPortfolioRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateTransactionPortfolioRequest**](CreateTransactionPortfolioRequest.md) |  | 
+[**CreateTransactionPortfolioRequest**](../../models/CreateTransactionPortfolioRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateTransactionPortfolioRequest**](CreateTransactionPortfolioRequest.md) |  | 
+[**CreateTransactionPortfolioRequest**](../../models/CreateTransactionPortfolioRequest.md) |  | 
 
 
 ### path_params
@@ -1098,88 +1142,86 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 scope | ScopeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which to create the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which to create the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | The newly-created transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#create_portfolio.ApiResponseFor201) | The newly-created transaction portfolio
+400 | [ApiResponseFor400](#create_portfolio.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#create_portfolio.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### create_portfolio.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Portfolio**](Portfolio.md) |  | 
+[**Portfolio**](../../models/Portfolio.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Portfolio**](Portfolio.md) |  | 
+[**Portfolio**](../../models/Portfolio.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Portfolio**](Portfolio.md) |  | 
+[**Portfolio**](../../models/Portfolio.md) |  | 
 
 
-#### ApiResponseFor400
+#### create_portfolio.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### create_portfolio.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**Portfolio**](Portfolio.md)
 
 ### Authorization
 
@@ -1266,13 +1308,19 @@ Name | Type | Description  | Notes
 propertyKeys | PropertyKeysSchema | | 
 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 The property keys of the properties to delete.              These must be from the \"Transaction\" domain and have the format {domain}/{scope}/{code}, for example              \"Transaction/strategy/quantsignal\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | The property keys of the properties to delete.              These must be from the \&quot;Transaction\&quot; domain and have the format {domain}/{scope}/{code}, for example              \&quot;Transaction/strategy/quantsignal\&quot;. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The property keys of the properties to delete.              These must be from the \&quot;Transaction\&quot; domain and have the format {domain}/{scope}/{code}, for example              \&quot;Transaction/strategy/quantsignal\&quot;. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
 
 ### path_params
 #### RequestPathParams
@@ -1283,104 +1331,104 @@ scope | ScopeSchema | |
 code | CodeSchema | | 
 transactionId | TransactionIdSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
-#### TransactionIdSchema
+# TransactionIdSchema
 
 The unique ID of the transaction from which to delete properties.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique ID of the transaction from which to delete properties. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The datetime that the property was deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_properties_from_transaction.ApiResponseFor200) | The datetime that the property was deleted
+400 | [ApiResponseFor400](#delete_properties_from_transaction.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_properties_from_transaction.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_properties_from_transaction.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeletedEntityResponse**](DeletedEntityResponse.md) |  | 
+[**DeletedEntityResponse**](../../models/DeletedEntityResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_properties_from_transaction.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_properties_from_transaction.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeletedEntityResponse**](DeletedEntityResponse.md)
 
 ### Authorization
 
@@ -1497,61 +1545,73 @@ propertyKeys | PropertyKeysSchema | | optional
 filter | FilterSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeId | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | 
 
-#### FilterSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# FilterSchema
 
 Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
 ### path_params
 #### RequestPathParams
@@ -1561,96 +1621,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the portfolio to retrieve the A2B report for.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the portfolio to retrieve the A2B report for. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the portfolio to retrieve the A2B report for. Together with the scope this              uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio A2B data
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_a2_b_data.ApiResponseFor200) | The requested portfolio A2B data
+400 | [ApiResponseFor400](#get_a2_b_data.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_a2_b_data.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_a2_b_data.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BDataRecord**](VersionedResourceListOfA2BDataRecord.md) |  | 
+[**VersionedResourceListOfA2BDataRecord**](../../models/VersionedResourceListOfA2BDataRecord.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BDataRecord**](VersionedResourceListOfA2BDataRecord.md) |  | 
+[**VersionedResourceListOfA2BDataRecord**](../../models/VersionedResourceListOfA2BDataRecord.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BDataRecord**](VersionedResourceListOfA2BDataRecord.md) |  | 
+[**VersionedResourceListOfA2BDataRecord**](../../models/VersionedResourceListOfA2BDataRecord.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_a2_b_data.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_a2_b_data.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListOfA2BDataRecord**](VersionedResourceListOfA2BDataRecord.md)
 
 ### Authorization
 
@@ -1767,61 +1826,73 @@ propertyKeys | PropertyKeysSchema | | optional
 filter | FilterSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version              of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeId | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the \"Instrument\" domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the \&quot;Instrument\&quot; domain to decorate onto              the results. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot;. | 
 
-#### FilterSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# FilterSchema
 
 Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
 ### path_params
 #### RequestPathParams
@@ -1831,96 +1902,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the portfolio to retrieve the A2B movement report for.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the portfolio to retrieve the A2B movement report for. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the portfolio to retrieve the A2B movement report for. Together with the scope this              uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio A2B movement data
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_a2_b_movements.ApiResponseFor200) | The requested portfolio A2B movement data
+400 | [ApiResponseFor400](#get_a2_b_movements.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_a2_b_movements.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_a2_b_movements.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BMovementRecord**](VersionedResourceListOfA2BMovementRecord.md) |  | 
+[**VersionedResourceListOfA2BMovementRecord**](../../models/VersionedResourceListOfA2BMovementRecord.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BMovementRecord**](VersionedResourceListOfA2BMovementRecord.md) |  | 
+[**VersionedResourceListOfA2BMovementRecord**](../../models/VersionedResourceListOfA2BMovementRecord.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfA2BMovementRecord**](VersionedResourceListOfA2BMovementRecord.md) |  | 
+[**VersionedResourceListOfA2BMovementRecord**](../../models/VersionedResourceListOfA2BMovementRecord.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_a2_b_movements.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_a2_b_movements.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListOfA2BMovementRecord**](VersionedResourceListOfA2BMovementRecord.md)
 
 ### Authorization
 
@@ -2029,28 +2099,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowRequest**](BucketedCashFlowRequest.md) |  | 
+[**BucketedCashFlowRequest**](../../models/BucketedCashFlowRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowRequest**](BucketedCashFlowRequest.md) |  | 
+[**BucketedCashFlowRequest**](../../models/BucketedCashFlowRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowRequest**](BucketedCashFlowRequest.md) |  | 
+[**BucketedCashFlowRequest**](../../models/BucketedCashFlowRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowRequest**](BucketedCashFlowRequest.md) |  | 
+[**BucketedCashFlowRequest**](../../models/BucketedCashFlowRequest.md) |  | 
 
 
 ### path_params
@@ -2061,96 +2131,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio instruments&#x27; bucketed cash flow data
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_bucketed_cash_flows.ApiResponseFor200) | The requested portfolio instruments&#x27; bucketed cash flow data
+400 | [ApiResponseFor400](#get_bucketed_cash_flows.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_bucketed_cash_flows.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_bucketed_cash_flows.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowResponse**](BucketedCashFlowResponse.md) |  | 
+[**BucketedCashFlowResponse**](../../models/BucketedCashFlowResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowResponse**](BucketedCashFlowResponse.md) |  | 
+[**BucketedCashFlowResponse**](../../models/BucketedCashFlowResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**BucketedCashFlowResponse**](BucketedCashFlowResponse.md) |  | 
+[**BucketedCashFlowResponse**](../../models/BucketedCashFlowResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_bucketed_cash_flows.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_bucketed_cash_flows.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**BucketedCashFlowResponse**](BucketedCashFlowResponse.md)
 
 ### Authorization
 
@@ -2253,21 +2322,23 @@ effectiveAt | EffectiveAtSchema | | optional
 asAt | AsAtSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to retrieve the details of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the details of the transaction portfolio. Defaults              to returning the latest version of the details if not specified. | value must conform to RFC-3339 date-time
 
 ### path_params
 #### RequestPathParams
@@ -2277,96 +2348,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the              scope this uniquely identifies the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The details of the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_details.ApiResponseFor200) | The details of the specified transaction portfolio
+400 | [ApiResponseFor400](#get_details.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_details.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_details.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_details.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_details.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PortfolioDetails**](PortfolioDetails.md)
 
 ### Authorization
 
@@ -2477,45 +2547,55 @@ propertyKeys | PropertyKeysSchema | | optional
 byTaxlots | ByTaxlotsSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#x27;p&#x27;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \"Instrument/system/Name\" or \"Holding/system/Cost\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              holdings. These must have the format {domain}/{scope}/{code}, for example \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. | 
 
-#### ByTaxlotsSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# ByTaxlotsSchema
 
 Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[bool, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, bool,  | NoneClass, BoolClass,  | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. | 
 
 ### path_params
 #### RequestPathParams
@@ -2525,96 +2605,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The holdings and version of the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_holdings.ApiResponseFor200) | The holdings and version of the specified transaction portfolio
+400 | [ApiResponseFor400](#get_holdings.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_holdings.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_holdings.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfPortfolioHolding**](VersionedResourceListOfPortfolioHolding.md) |  | 
+[**VersionedResourceListOfPortfolioHolding**](../../models/VersionedResourceListOfPortfolioHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfPortfolioHolding**](VersionedResourceListOfPortfolioHolding.md) |  | 
+[**VersionedResourceListOfPortfolioHolding**](../../models/VersionedResourceListOfPortfolioHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfPortfolioHolding**](VersionedResourceListOfPortfolioHolding.md) |  | 
+[**VersionedResourceListOfPortfolioHolding**](../../models/VersionedResourceListOfPortfolioHolding.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_holdings.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_holdings.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListOfPortfolioHolding**](VersionedResourceListOfPortfolioHolding.md)
 
 ### Authorization
 
@@ -2717,13 +2796,14 @@ Name | Type | Description  | Notes
 asAt | AsAtSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the holdings adjustment. Defaults to the return the latest              version of the holdings adjustment if not specified. | value must conform to RFC-3339 date-time
 
 ### path_params
 #### RequestPathParams
@@ -2734,104 +2814,104 @@ scope | ScopeSchema | |
 code | CodeSchema | | 
 effectiveAt | EffectiveAtSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label of the holdings adjustment.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label of the holdings adjustment. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The details of the requested holdings adjustment
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_holdings_adjustment.ApiResponseFor200) | The details of the requested holdings adjustment
+400 | [ApiResponseFor400](#get_holdings_adjustment.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_holdings_adjustment.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_holdings_adjustment.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HoldingsAdjustment**](HoldingsAdjustment.md) |  | 
+[**HoldingsAdjustment**](../../models/HoldingsAdjustment.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HoldingsAdjustment**](HoldingsAdjustment.md) |  | 
+[**HoldingsAdjustment**](../../models/HoldingsAdjustment.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**HoldingsAdjustment**](HoldingsAdjustment.md) |  | 
+[**HoldingsAdjustment**](../../models/HoldingsAdjustment.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_holdings_adjustment.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_holdings_adjustment.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**HoldingsAdjustment**](HoldingsAdjustment.md)
 
 ### Authorization
 
@@ -2946,61 +3026,73 @@ recipeIdScope | RecipeIdScopeSchema | | optional
 recipeIdCode | RecipeIdCodeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to retrieve the holdings of the transaction              portfolio. Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the holdings of the transaction portfolio. Defaults              to return the latest version of the holdings if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.              For example, to filter on the Holding Type, use \"holdingType eq 'p'\"              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              For example, to filter on the Holding Type, use \&quot;holdingType eq &#x27;p&#x27;\&quot;              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the \"Instrument\" or \"Holding\" domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \"Instrument/system/Name\" or \"Holding/system/Cost\".
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the \&quot;Instrument\&quot; or \&quot;Holding\&quot; domain to decorate onto              the holdings. These take the format {domain}/{scope}/{code} e.g. \&quot;Instrument/system/Name\&quot; or \&quot;Holding/system/Cost\&quot;. | 
 
-#### ByTaxlotsSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# ByTaxlotsSchema
 
 Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[bool, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, bool,  | NoneClass, BoolClass,  | Whether or not to expand the holdings to return the underlying tax-lots. Defaults to              False. | 
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeId | 
 
 ### path_params
 #### RequestPathParams
@@ -3010,96 +3102,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The holdings and version of the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_holdings_with_orders.ApiResponseFor200) | The holdings and version of the specified transaction portfolio
+400 | [ApiResponseFor400](#get_holdings_with_orders.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_holdings_with_orders.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_holdings_with_orders.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListWithWarningsOfPortfolioHolding**](VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
+[**VersionedResourceListWithWarningsOfPortfolioHolding**](../../models/VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListWithWarningsOfPortfolioHolding**](VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
+[**VersionedResourceListWithWarningsOfPortfolioHolding**](../../models/VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListWithWarningsOfPortfolioHolding**](VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
+[**VersionedResourceListWithWarningsOfPortfolioHolding**](../../models/VersionedResourceListWithWarningsOfPortfolioHolding.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_holdings_with_orders.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_holdings_with_orders.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListWithWarningsOfPortfolioHolding**](VersionedResourceListWithWarningsOfPortfolioHolding.md)
 
 ### Authorization
 
@@ -3212,61 +3303,68 @@ recipeIdScope | RecipeIdScopeSchema | | optional
 recipeIdCode | RecipeIdCodeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today. | 
 
-#### WindowStartSchema
+# WindowStartSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified. | 
 
-#### WindowEndSchema
+# WindowEndSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to &#x27;today&#x27; if it is not specified | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the data. Defaults to returning the latest version               of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.               For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;.               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeID
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeID | 
 
 ### path_params
 #### RequestPathParams
@@ -3276,96 +3374,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio instruments&#x27; cash flow data
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_portfolio_cash_flows.ApiResponseFor200) | The requested portfolio instruments&#x27; cash flow data
+400 | [ApiResponseFor400](#get_portfolio_cash_flows.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_portfolio_cash_flows.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_portfolio_cash_flows.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentCashFlow**](ResourceListOfInstrumentCashFlow.md) |  | 
+[**ResourceListOfInstrumentCashFlow**](../../models/ResourceListOfInstrumentCashFlow.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentCashFlow**](ResourceListOfInstrumentCashFlow.md) |  | 
+[**ResourceListOfInstrumentCashFlow**](../../models/ResourceListOfInstrumentCashFlow.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentCashFlow**](ResourceListOfInstrumentCashFlow.md) |  | 
+[**ResourceListOfInstrumentCashFlow**](../../models/ResourceListOfInstrumentCashFlow.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_portfolio_cash_flows.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_portfolio_cash_flows.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfInstrumentCashFlow**](ResourceListOfInstrumentCashFlow.md)
 
 ### Authorization
 
@@ -3481,61 +3578,68 @@ recipeIdScope | RecipeIdScopeSchema | | optional
 recipeIdCode | RecipeIdCodeSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeID
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeID | 
 
 ### path_params
 #### RequestPathParams
@@ -3545,96 +3649,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio cash-ladder
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_portfolio_cash_ladder.ApiResponseFor200) | The requested portfolio cash-ladder
+400 | [ApiResponseFor400](#get_portfolio_cash_ladder.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_portfolio_cash_ladder.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_portfolio_cash_ladder.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashLadder**](ResourceListOfPortfolioCashLadder.md) |  | 
+[**ResourceListOfPortfolioCashLadder**](../../models/ResourceListOfPortfolioCashLadder.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashLadder**](ResourceListOfPortfolioCashLadder.md) |  | 
+[**ResourceListOfPortfolioCashLadder**](../../models/ResourceListOfPortfolioCashLadder.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashLadder**](ResourceListOfPortfolioCashLadder.md) |  | 
+[**ResourceListOfPortfolioCashLadder**](../../models/ResourceListOfPortfolioCashLadder.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_portfolio_cash_ladder.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_portfolio_cash_ladder.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfPortfolioCashLadder**](ResourceListOfPortfolioCashLadder.md)
 
 ### Authorization
 
@@ -3747,53 +3850,59 @@ recipeIdScope | RecipeIdScopeSchema | | optional
 recipeIdCode | RecipeIdCodeSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no upper bound if this is not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the portfolio. Defaults to returning the latest version              of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.              For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.              For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;.              For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeID
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeID | 
 
 ### path_params
 #### RequestPathParams
@@ -3803,96 +3912,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this              uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio cash flow data
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_portfolio_cash_statement.ApiResponseFor200) | The requested portfolio cash flow data
+400 | [ApiResponseFor400](#get_portfolio_cash_statement.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_portfolio_cash_statement.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_portfolio_cash_statement.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashFlow**](ResourceListOfPortfolioCashFlow.md) |  | 
+[**ResourceListOfPortfolioCashFlow**](../../models/ResourceListOfPortfolioCashFlow.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashFlow**](ResourceListOfPortfolioCashFlow.md) |  | 
+[**ResourceListOfPortfolioCashFlow**](../../models/ResourceListOfPortfolioCashFlow.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPortfolioCashFlow**](ResourceListOfPortfolioCashFlow.md) |  | 
+[**ResourceListOfPortfolioCashFlow**](../../models/ResourceListOfPortfolioCashFlow.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_portfolio_cash_statement.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_portfolio_cash_statement.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfPortfolioCashFlow**](ResourceListOfPortfolioCashFlow.md)
 
 ### Authorization
 
@@ -4007,61 +4115,73 @@ page | PageSchema | | optional
 limit | LimitSchema | | optional
 
 
-#### FromTransactionDateSchema
+# FromTransactionDateSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no lower bound if this is not specified. | 
 
-#### ToTransactionDateSchema
+# ToTransactionDateSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve transactions.               There is no upper bound if this is not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve transactions. Defaults to returning the latest version               of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve transactions. Defaults to returning the latest version               of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression with which to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\"               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression with which to filter the result set.               For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the 'Instrument' or 'Transaction' domain to decorate onto               transactions. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name' or               'Transaction/strategy/quantsignal'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the &#x27;Instrument&#x27; or &#x27;Transaction&#x27; domain to decorate onto               transactions. These must have the format {domain}/{scope}/{code}, for example &#x27;Instrument/system/Name&#x27; or               &#x27;Transaction/strategy/quantsignal&#x27;. | 
 
-#### PageSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# PageSchema
 
 The pagination token to use to continue listing transactions from a previous call to GetTransactions.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing transactions from a previous call to GetTransactions. | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the number of returned results to this many. The current behaviour is               to return all transactions if possible, but this will change to defaulting to 1000 if not specified in the future. It is recommended               to populate this field to enable pagination. | value must be a 32 bit integer
 
 ### path_params
 #### RequestPathParams
@@ -4071,96 +4191,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies               the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested transactions from the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_transactions.ApiResponseFor200) | The requested transactions from the specified transaction portfolio
+400 | [ApiResponseFor400](#get_transactions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_transactions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_transactions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfTransaction**](VersionedResourceListOfTransaction.md) |  | 
+[**VersionedResourceListOfTransaction**](../../models/VersionedResourceListOfTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfTransaction**](VersionedResourceListOfTransaction.md) |  | 
+[**VersionedResourceListOfTransaction**](../../models/VersionedResourceListOfTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**VersionedResourceListOfTransaction**](VersionedResourceListOfTransaction.md) |  | 
+[**VersionedResourceListOfTransaction**](../../models/VersionedResourceListOfTransaction.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_transactions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_transactions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**VersionedResourceListOfTransaction**](VersionedResourceListOfTransaction.md)
 
 ### Authorization
 
@@ -4273,61 +4392,68 @@ recipeIdScope | RecipeIdScopeSchema | | optional
 recipeIdCode | RecipeIdCodeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The valuation (pricing) effective datetime or cut label (inclusive) at which to evaluate the cashflows.  This determines whether cashflows are evaluated in a historic or forward looking context and will, for certain models, affect where data is looked up.  For example, on a swap if the effectiveAt is in the middle of the window, cashflows before it will be historic and resets assumed to exist where if the effectiveAt  is before the start of the range they are forward looking and will be expectations assuming the model supports that.  There is evidently a presumption here about availability of data and that the effectiveAt is realistically on or before the real-world today. | 
 
-#### WindowStartSchema
+# WindowStartSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               There is no lower bound if this is not specified. | 
 
-#### WindowEndSchema
+# WindowEndSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to 'today' if it is not specified
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the cashflows.               The upper bound defaults to &#x27;today&#x27; if it is not specified | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the portfolio. Defaults to return the latest version               of each transaction if not specified. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.               For example, to return only transactions with a transaction type of 'Buy', specify \"type eq 'Buy'\".               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.               For example, to return only transactions with a transaction type of &#x27;Buy&#x27;, specify \&quot;type eq &#x27;Buy&#x27;\&quot;.               For more information about filtering LUSID results, see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### RecipeIdScopeSchema
+# RecipeIdScopeSchema
 
 The scope of the given recipeId
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the given recipeId | 
 
-#### RecipeIdCodeSchema
+# RecipeIdCodeSchema
 
 The code of the given recipeID
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the given recipeID | 
 
 ### path_params
 #### RequestPathParams
@@ -4337,96 +4463,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this               uniquely identifies the portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested portfolio instruments&#x27; cash flow data as a set of upsertable transactions
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_upsertable_portfolio_cash_flows.ApiResponseFor200) | The requested portfolio instruments&#x27; cash flow data as a set of upsertable transactions
+400 | [ApiResponseFor400](#get_upsertable_portfolio_cash_flows.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_upsertable_portfolio_cash_flows.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_upsertable_portfolio_cash_flows.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfTransaction**](ResourceListOfTransaction.md) |  | 
+[**ResourceListOfTransaction**](../../models/ResourceListOfTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfTransaction**](ResourceListOfTransaction.md) |  | 
+[**ResourceListOfTransaction**](../../models/ResourceListOfTransaction.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfTransaction**](ResourceListOfTransaction.md) |  | 
+[**ResourceListOfTransaction**](../../models/ResourceListOfTransaction.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_upsertable_portfolio_cash_flows.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_upsertable_portfolio_cash_flows.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfTransaction**](ResourceListOfTransaction.md)
 
 ### Authorization
 
@@ -4531,29 +4656,32 @@ toEffectiveAt | ToEffectiveAtSchema | | optional
 asAt | AsAtSchema | | optional
 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no lower bound if this is not specified. | 
 
-#### ToEffectiveAtSchema
+# ToEffectiveAtSchema
 
 The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The upper bound effective datetime or cut label (inclusive) from which to retrieve the holdings              adjustments. There is no upper bound if this is not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the holdings adjustments. Defaults to return the              latest version of each holding adjustment if not specified. | value must conform to RFC-3339 date-time
 
 ### path_params
 #### RequestPathParams
@@ -4563,96 +4691,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The record of holdings adjustments made to the specified transaction portfolio
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_holdings_adjustments.ApiResponseFor200) | The record of holdings adjustments made to the specified transaction portfolio
+400 | [ApiResponseFor400](#list_holdings_adjustments.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_holdings_adjustments.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_holdings_adjustments.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfHoldingsAdjustmentHeader**](ResourceListOfHoldingsAdjustmentHeader.md) |  | 
+[**ResourceListOfHoldingsAdjustmentHeader**](../../models/ResourceListOfHoldingsAdjustmentHeader.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfHoldingsAdjustmentHeader**](ResourceListOfHoldingsAdjustmentHeader.md) |  | 
+[**ResourceListOfHoldingsAdjustmentHeader**](../../models/ResourceListOfHoldingsAdjustmentHeader.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfHoldingsAdjustmentHeader**](ResourceListOfHoldingsAdjustmentHeader.md) |  | 
+[**ResourceListOfHoldingsAdjustmentHeader**](../../models/ResourceListOfHoldingsAdjustmentHeader.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_holdings_adjustments.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_holdings_adjustments.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfHoldingsAdjustmentHeader**](ResourceListOfHoldingsAdjustmentHeader.md)
 
 ### Authorization
 
@@ -4754,37 +4881,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The patch document.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[Operation]** | The patch document. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The patch document. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) |  | 
 
-The patch document.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[Operation]** | The patch document. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 The patch document.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[Operation]** | The patch document. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The patch document. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 The patch document.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[Operation]** | The patch document. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The patch document. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+The patch document.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The patch document. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) | [**Operation**]({{complexTypePrefix}}Operation.md) |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -4794,13 +4945,14 @@ Name | Type | Description  | Notes
 effectiveAt | EffectiveAtSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.               Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.               Note that this will affect all bitemporal entities in the request, but will not be used for any perpetual entities. | 
 
 ### path_params
 #### RequestPathParams
@@ -4810,96 +4962,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The newly patched details
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#patch_portfolio_details.ApiResponseFor200) | The newly patched details
+400 | [ApiResponseFor400](#patch_portfolio_details.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#patch_portfolio_details.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### patch_portfolio_details.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### ApiResponseFor400
+#### patch_portfolio_details.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### patch_portfolio_details.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PortfolioDetails**](PortfolioDetails.md)
 
 ### Authorization
 
@@ -5004,41 +5155,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The dictionary with the instrument identifiers to be updated on the             transaction and holdings.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **str** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | The dictionary with the instrument identifiers to be updated on the             transaction and holdings. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The dictionary with the instrument identifiers to be updated on the             transaction and holdings.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **str** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | The dictionary with the instrument identifiers to be updated on the             transaction and holdings. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The dictionary with the instrument identifiers to be updated on the             transaction and holdings.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **str** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | The dictionary with the instrument identifiers to be updated on the             transaction and holdings. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The dictionary with the instrument identifiers to be updated on the             transaction and holdings.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **str** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | The dictionary with the instrument identifiers to be updated on the             transaction and holdings. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
 
 ### query_params
 #### RequestQueryParams
@@ -5050,29 +5221,32 @@ instrumentIdentifierValue | InstrumentIdentifierValueSchema | |
 fromEffectiveAt | FromEffectiveAtSchema | | optional
 
 
-#### InstrumentIdentifierTypeSchema
+# InstrumentIdentifierTypeSchema
 
 The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
 
-#### InstrumentIdentifierValueSchema
+# InstrumentIdentifierValueSchema
 
 The value for the given instrument identifier.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The value for the given instrument identifier. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The value for the given instrument identifier. | 
 
-#### FromEffectiveAtSchema
+# FromEffectiveAtSchema
 
 The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The lower bound effective datetime or cut label (inclusive) from which to retrieve the data.              There is no lower bound if this is not specified. | 
 
 ### path_params
 #### RequestPathParams
@@ -5082,96 +5256,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The version of the transaction portfolio that contains the newly updated or inserted transactions
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#resolve_instrument.ApiResponseFor200) | The version of the transaction portfolio that contains the newly updated or inserted transactions
+400 | [ApiResponseFor400](#resolve_instrument.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#resolve_instrument.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### resolve_instrument.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### resolve_instrument.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### resolve_instrument.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md)
 
 ### Authorization
 
@@ -5277,37 +5450,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The complete set of target holdings for the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The complete set of target holdings for the transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The complete set of target holdings for the transaction portfolio. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
 
-The complete set of target holdings for the transaction portfolio.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The complete set of target holdings for the transaction portfolio. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 The complete set of target holdings for the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The complete set of target holdings for the transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The complete set of target holdings for the transaction portfolio. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 The complete set of target holdings for the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[AdjustHoldingRequest]** | The complete set of target holdings for the transaction portfolio. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The complete set of target holdings for the transaction portfolio. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+The complete set of target holdings for the transaction portfolio.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The complete set of target holdings for the transaction portfolio. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) | [**AdjustHoldingRequest**]({{complexTypePrefix}}AdjustHoldingRequest.md) |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -5318,21 +5515,28 @@ effectiveAt | EffectiveAtSchema | |
 reconciliationMethods | ReconciliationMethodsSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the holdings should be set to the provided targets.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The effective datetime or cut label at which the holdings should be set to the provided targets. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The effective datetime or cut label at which the holdings should be set to the provided targets. | 
 
-#### ReconciliationMethodsSchema
+# ReconciliationMethodsSchema
 
 Optional parameter for specifying a reconciliation method: e.g. FxForward.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Optional parameter for specifying a reconciliation method: e.g. FxForward. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### path_params
 #### RequestPathParams
@@ -5342,96 +5546,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The version of the transaction portfolio that contains the newly set holdings
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#set_holdings.ApiResponseFor200) | The version of the transaction portfolio that contains the newly set holdings
+400 | [ApiResponseFor400](#set_holdings.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#set_holdings.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### set_holdings.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AdjustHolding**](AdjustHolding.md) |  | 
+[**AdjustHolding**](../../models/AdjustHolding.md) |  | 
 
 
-#### ApiResponseFor400
+#### set_holdings.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### set_holdings.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**AdjustHolding**](AdjustHolding.md)
 
 ### Authorization
 
@@ -5543,28 +5746,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreatePortfolioDetails**](CreatePortfolioDetails.md) |  | 
+[**CreatePortfolioDetails**](../../models/CreatePortfolioDetails.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreatePortfolioDetails**](CreatePortfolioDetails.md) |  | 
+[**CreatePortfolioDetails**](../../models/CreatePortfolioDetails.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreatePortfolioDetails**](CreatePortfolioDetails.md) |  | 
+[**CreatePortfolioDetails**](../../models/CreatePortfolioDetails.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreatePortfolioDetails**](CreatePortfolioDetails.md) |  | 
+[**CreatePortfolioDetails**](../../models/CreatePortfolioDetails.md) |  | 
 
 
 ### query_params
@@ -5575,13 +5778,14 @@ Name | Type | Description  | Notes
 effectiveAt | EffectiveAtSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which the updated or inserted details should become valid.               Defaults to the current LUSID system datetime if not specified. | 
 
 ### path_params
 #### RequestPathParams
@@ -5591,96 +5795,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the               scope this uniquely identifies the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The newly updated or inserted details
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#upsert_portfolio_details.ApiResponseFor200) | The newly updated or inserted details
+400 | [ApiResponseFor400](#upsert_portfolio_details.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_portfolio_details.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### upsert_portfolio_details.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PortfolioDetails**](PortfolioDetails.md) |  | 
+[**PortfolioDetails**](../../models/PortfolioDetails.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_portfolio_details.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_portfolio_details.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PortfolioDetails**](PortfolioDetails.md)
 
 ### Authorization
 
@@ -5775,41 +5978,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The properties and their associated values to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **PerpetualProperty** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The properties and their associated values to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The properties and their associated values to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **PerpetualProperty** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The properties and their associated values to create or update. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The properties and their associated values to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **PerpetualProperty** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The properties and their associated values to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The properties and their associated values to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **PerpetualProperty** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The properties and their associated values to create or update. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | [**PerpetualProperty**]({{complexTypePrefix}}PerpetualProperty.md) | any string name can be used but the value must be the correct type | [optional] 
 
 ### path_params
 #### RequestPathParams
@@ -5820,104 +6043,104 @@ scope | ScopeSchema | |
 code | CodeSchema | | 
 transactionId | TransactionIdSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
-#### TransactionIdSchema
+# TransactionIdSchema
 
 The unique ID of the transaction to create or update properties for.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique ID of the transaction to create or update properties for. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The version of the transaction portfolio that contains the newly updated or inserted transaction property
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#upsert_transaction_properties.ApiResponseFor200) | The version of the transaction portfolio that contains the newly updated or inserted transaction property
+400 | [ApiResponseFor400](#upsert_transaction_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_transaction_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### upsert_transaction_properties.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertTransactionPropertiesResponse**](UpsertTransactionPropertiesResponse.md) |  | 
+[**UpsertTransactionPropertiesResponse**](../../models/UpsertTransactionPropertiesResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertTransactionPropertiesResponse**](UpsertTransactionPropertiesResponse.md) |  | 
+[**UpsertTransactionPropertiesResponse**](../../models/UpsertTransactionPropertiesResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertTransactionPropertiesResponse**](UpsertTransactionPropertiesResponse.md) |  | 
+[**UpsertTransactionPropertiesResponse**](../../models/UpsertTransactionPropertiesResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_transaction_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_transaction_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertTransactionPropertiesResponse**](UpsertTransactionPropertiesResponse.md)
 
 ### Authorization
 
@@ -5995,37 +6218,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 A list of transactions to be created or updated.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[TransactionRequest]** | A list of transactions to be created or updated. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of transactions to be created or updated. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) |  | 
 
-A list of transactions to be created or updated.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[TransactionRequest]** | A list of transactions to be created or updated. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 A list of transactions to be created or updated.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[TransactionRequest]** | A list of transactions to be created or updated. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of transactions to be created or updated. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 A list of transactions to be created or updated.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[TransactionRequest]** | A list of transactions to be created or updated. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of transactions to be created or updated. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+A list of transactions to be created or updated.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of transactions to be created or updated. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) | [**TransactionRequest**]({{complexTypePrefix}}TransactionRequest.md) |  | 
 
 ### path_params
 #### RequestPathParams
@@ -6035,96 +6282,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the transaction portfolio. | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the transaction portfolio. Together with the scope this uniquely identifies              the transaction portfolio. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The version of the transaction portfolio that contains the newly updated or inserted transactions
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#upsert_transactions.ApiResponseFor200) | The version of the transaction portfolio that contains the newly updated or inserted transactions
+400 | [ApiResponseFor400](#upsert_transactions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_transactions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### upsert_transactions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md) |  | 
+[**UpsertPortfolioTransactionsResponse**](../../models/UpsertPortfolioTransactionsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_transactions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_transactions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertPortfolioTransactionsResponse**](UpsertPortfolioTransactionsResponse.md)
 
 ### Authorization
 

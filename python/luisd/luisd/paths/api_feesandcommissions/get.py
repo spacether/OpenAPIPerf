@@ -7,64 +7,23 @@
 """
 
 from dataclasses import dataclass
-import re  # noqa: F401
-import sys  # noqa: F401
-import typing
+import typing_extensions
 import urllib3
-import functools  # noqa: F401
 from urllib3._collections import HTTPHeaderDict
 
 from luisd import api_client, exceptions
-import decimal  # noqa: F401
 from datetime import date, datetime  # noqa: F401
-from frozendict import frozendict  # noqa: F401
+import decimal  # noqa: F401
+import functools  # noqa: F401
+import io  # noqa: F401
+import re  # noqa: F401
+import typing  # noqa: F401
+import typing_extensions  # noqa: F401
+import uuid  # noqa: F401
 
-from luisd.schemas import (  # noqa: F401
-    AnyTypeSchema,
-    ComposedSchema,
-    DictSchema,
-    ListSchema,
-    StrSchema,
-    IntSchema,
-    Int32Schema,
-    Int64Schema,
-    Float32Schema,
-    Float64Schema,
-    NumberSchema,
-    UUIDSchema,
-    DateSchema,
-    DateTimeSchema,
-    DecimalSchema,
-    BoolSchema,
-    BinarySchema,
-    NoneSchema,
-    none_type,
-    Configuration,
-    Unset,
-    unset,
-    ComposedBase,
-    ListBase,
-    DictBase,
-    NoneBase,
-    StrBase,
-    IntBase,
-    Int32Base,
-    Int64Base,
-    Float32Base,
-    Float64Base,
-    NumberBase,
-    UUIDBase,
-    DateBase,
-    DateTimeBase,
-    BoolBase,
-    BinaryBase,
-    Schema,
-    NoneClass,
-    BoolClass,
-    _SchemaValidator,
-    _SchemaTypeChecker,
-    _SchemaEnumMaker
-)
+import frozendict  # noqa: F401
+
+from luisd import schemas  # noqa: F401
 
 from luisd.model.lusid_problem_details import LusidProblemDetails
 from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
@@ -72,20 +31,21 @@ from luisd.model.resource_list_of_fee_calculation_details import ResourceListOfF
 
 from . import path
 
-# query params
+# Query params
 
 
 class InstrumentIdentifierTypeSchema(
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
 ):
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'InstrumentIdentifierTypeSchema':
         return super().__new__(
             cls,
@@ -95,16 +55,17 @@ class InstrumentIdentifierTypeSchema(
 
 
 class InstrumentIdentifierSchema(
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
 ):
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'InstrumentIdentifierSchema':
         return super().__new__(
             cls,
@@ -114,23 +75,25 @@ class InstrumentIdentifierSchema(
 
 
 class PortfolioScopeSchema(
-    _SchemaValidator(
-        max_length=64,
-        min_length=1,
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
+):
+
+
+    class MetaOapg:
+        max_length = 64
+        min_length = 1
         regex=[{
             'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
-        }],
-    ),
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
-):
+        }]
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'PortfolioScopeSchema':
         return super().__new__(
             cls,
@@ -140,23 +103,25 @@ class PortfolioScopeSchema(
 
 
 class PortfolioCodeSchema(
-    _SchemaValidator(
-        max_length=64,
-        min_length=1,
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
+):
+
+
+    class MetaOapg:
+        max_length = 64
+        min_length = 1
         regex=[{
             'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
-        }],
-    ),
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
-):
+        }]
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'PortfolioCodeSchema':
         return super().__new__(
             cls,
@@ -166,16 +131,21 @@ class PortfolioCodeSchema(
 
 
 class AdditionalSearchKeysSchema(
-    _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
-    ListBase,
-    NoneBase,
-    Schema
+    schemas.ListBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneTupleMixin
 ):
+
+
+    class MetaOapg:
+        items = schemas.StrSchema
+
 
     def __new__(
         cls,
         *args: typing.Union[list, tuple, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AdditionalSearchKeysSchema':
         return super().__new__(
             cls,
@@ -185,41 +155,43 @@ class AdditionalSearchKeysSchema(
 
 
 class FileNameSchema(
-    _SchemaValidator(
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
+):
+
+
+    class MetaOapg:
         regex=[{
             'pattern': r'^[A-Za-z0-9_\-\.]+[A-Za-z0-9_\-\. ]*$',  # noqa: E501
-        }],
-    ),
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
-):
+        }]
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'FileNameSchema':
         return super().__new__(
             cls,
             *args,
             _configuration=_configuration,
         )
-RequestRequiredQueryParams = typing.TypedDict(
+RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
     }
 )
-RequestOptionalQueryParams = typing.TypedDict(
+RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'instrumentIdentifierType': InstrumentIdentifierTypeSchema,
-        'instrumentIdentifier': InstrumentIdentifierSchema,
-        'portfolioScope': PortfolioScopeSchema,
-        'portfolioCode': PortfolioCodeSchema,
-        'additionalSearchKeys': AdditionalSearchKeysSchema,
-        'fileName': FileNameSchema,
+        'instrumentIdentifierType': typing.Union[InstrumentIdentifierTypeSchema, None, str, ],
+        'instrumentIdentifier': typing.Union[InstrumentIdentifierSchema, None, str, ],
+        'portfolioScope': typing.Union[PortfolioScopeSchema, None, str, ],
+        'portfolioCode': typing.Union[PortfolioCodeSchema, None, str, ],
+        'additionalSearchKeys': typing.Union[AdditionalSearchKeysSchema, list, tuple, None, ],
+        'fileName': typing.Union[FileNameSchema, None, str, ],
     },
     total=False
 )
@@ -281,7 +253,7 @@ class ApiResponseFor200(api_client.ApiResponse):
         SchemaFor200ResponseBodyApplicationJson,
         SchemaFor200ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
@@ -308,7 +280,7 @@ class ApiResponseFor400(api_client.ApiResponse):
         SchemaFor400ResponseBodyApplicationJson,
         SchemaFor400ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_400 = api_client.OpenApiResponse(
@@ -331,7 +303,7 @@ class ApiResponseForDefault(api_client.ApiResponse):
     body: typing.Union[
         SchemaFor0ResponseBodyApplicationJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_default = api_client.OpenApiResponse(
@@ -354,26 +326,58 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
+    @typing.overload
+    def _get_applicable_fees_oapg(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
 
-    def _get_applicable_fees(
-        self: api_client.Api,
-        query_params: RequestQueryParams = frozendict(),
+    @typing.overload
+    def _get_applicable_fees_oapg(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def _get_applicable_fees_oapg(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def _get_applicable_fees_oapg(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+    ):
         """
         [EXPERIMENTAL] GetApplicableFees: Get the Fees and Commissions that may be applicable to a transaction.
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs(RequestQueryParams, query_params)
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
         used_path = path.value
 
         prefix_separator_iterator = None
@@ -385,8 +389,8 @@ class BaseApi(api_client.Api):
             request_query_additional_search_keys,
             request_query_file_name,
         ):
-            parameter_data = query_params.get(parameter.name, unset)
-            if parameter_data is unset:
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
                 continue
             if prefix_separator_iterator is None:
                 prefix_separator_iterator = parameter.get_prefix_separator_iterator()
@@ -431,19 +435,52 @@ class BaseApi(api_client.Api):
 class GetApplicableFees(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
     def get_applicable_fees(
-        self: BaseApi,
-        query_params: RequestQueryParams = frozendict(),
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get_applicable_fees(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def get_applicable_fees(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def get_applicable_fees(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._get_applicable_fees(
+    ):
+        return self._get_applicable_fees_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,
@@ -455,19 +492,52 @@ class GetApplicableFees(BaseApi):
 class ApiForget(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
     def get(
-        self: BaseApi,
-        query_params: RequestQueryParams = frozendict(),
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def get(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def get(
+        self,
+        query_params: RequestQueryParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._get_applicable_fees(
+    ):
+        return self._get_applicable_fees_oapg(
             query_params=query_params,
             accept_content_types=accept_content_types,
             stream=stream,

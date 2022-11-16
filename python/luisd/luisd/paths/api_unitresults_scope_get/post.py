@@ -7,64 +7,23 @@
 """
 
 from dataclasses import dataclass
-import re  # noqa: F401
-import sys  # noqa: F401
-import typing
+import typing_extensions
 import urllib3
-import functools  # noqa: F401
 from urllib3._collections import HTTPHeaderDict
 
 from luisd import api_client, exceptions
-import decimal  # noqa: F401
 from datetime import date, datetime  # noqa: F401
-from frozendict import frozendict  # noqa: F401
+import decimal  # noqa: F401
+import functools  # noqa: F401
+import io  # noqa: F401
+import re  # noqa: F401
+import typing  # noqa: F401
+import typing_extensions  # noqa: F401
+import uuid  # noqa: F401
 
-from luisd.schemas import (  # noqa: F401
-    AnyTypeSchema,
-    ComposedSchema,
-    DictSchema,
-    ListSchema,
-    StrSchema,
-    IntSchema,
-    Int32Schema,
-    Int64Schema,
-    Float32Schema,
-    Float64Schema,
-    NumberSchema,
-    UUIDSchema,
-    DateSchema,
-    DateTimeSchema,
-    DecimalSchema,
-    BoolSchema,
-    BinarySchema,
-    NoneSchema,
-    none_type,
-    Configuration,
-    Unset,
-    unset,
-    ComposedBase,
-    ListBase,
-    DictBase,
-    NoneBase,
-    StrBase,
-    IntBase,
-    Int32Base,
-    Int64Base,
-    Float32Base,
-    Float64Base,
-    NumberBase,
-    UUIDBase,
-    DateBase,
-    DateTimeBase,
-    BoolBase,
-    BinaryBase,
-    Schema,
-    NoneClass,
-    BoolClass,
-    _SchemaValidator,
-    _SchemaTypeChecker,
-    _SchemaEnumMaker
-)
+import frozendict  # noqa: F401
+
+from luisd import schemas  # noqa: F401
 
 from luisd.model.lusid_problem_details import LusidProblemDetails
 from luisd.model.structured_result_data_id import StructuredResultDataId
@@ -73,20 +32,26 @@ from luisd.model.get_structured_result_data_response import GetStructuredResultD
 
 from . import path
 
-# query params
+# Query params
 
 
 class AsAtSchema(
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    DateTimeBase,
-    NoneBase,
-    Schema
+    schemas.DateTimeBase,
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
 ):
+
+
+    class MetaOapg:
+        format = 'date-time'
+
 
     def __new__(
         cls,
-        *args: typing.Union[None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, datetime, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'AsAtSchema':
         return super().__new__(
             cls,
@@ -96,32 +61,37 @@ class AsAtSchema(
 
 
 class MaxAgeSchema(
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
 ):
+
+
+    class MetaOapg:
+        format = 'date-span'
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'MaxAgeSchema':
         return super().__new__(
             cls,
             *args,
             _configuration=_configuration,
         )
-RequestRequiredQueryParams = typing.TypedDict(
+RequestRequiredQueryParams = typing_extensions.TypedDict(
     'RequestRequiredQueryParams',
     {
     }
 )
-RequestOptionalQueryParams = typing.TypedDict(
+RequestOptionalQueryParams = typing_extensions.TypedDict(
     'RequestOptionalQueryParams',
     {
-        'asAt': AsAtSchema,
-        'maxAge': MaxAgeSchema,
+        'asAt': typing.Union[AsAtSchema, None, str, datetime, ],
+        'maxAge': typing.Union[MaxAgeSchema, None, str, ],
     },
     total=False
 )
@@ -143,27 +113,27 @@ request_query_max_age = api_client.QueryParameter(
     schema=MaxAgeSchema,
     explode=True,
 )
-# path params
+# Path params
 
 
 class ScopeSchema(
-    _SchemaValidator(
-        max_length=64,
-        min_length=1,
+    schemas.StrSchema
+):
+
+
+    class MetaOapg:
+        max_length = 64
+        min_length = 1
         regex=[{
             'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
-        }],
-    ),
-    StrSchema
-):
-    pass
-RequestRequiredPathParams = typing.TypedDict(
+        }]
+RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',
     {
-        'scope': ScopeSchema,
+        'scope': typing.Union[ScopeSchema, str, ],
     }
 )
-RequestOptionalPathParams = typing.TypedDict(
+RequestOptionalPathParams = typing_extensions.TypedDict(
     'RequestOptionalPathParams',
     {
     },
@@ -185,20 +155,28 @@ request_path_scope = api_client.PathParameter(
 
 
 class SchemaForRequestBodyApplicationJsonPatchjson(
-    DictSchema
+    schemas.DictSchema
 ):
 
-    @classmethod
-    @property
-    def _additional_properties(cls) -> typing.Type['StructuredResultDataId']:
-        return StructuredResultDataId
 
+    class MetaOapg:
+        
+        @staticmethod
+        def additional_properties() -> typing.Type['StructuredResultDataId']:
+            return StructuredResultDataId
+    
+    def __getitem__(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+    
+    def get_item_oapg(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict, ],
-        _configuration: typing.Optional[Configuration] = None,
-        **kwargs: typing.Type[Schema],
+        *args: typing.Union[dict, frozendict.frozendict, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+        **kwargs: 'StructuredResultDataId',
     ) -> 'SchemaForRequestBodyApplicationJsonPatchjson':
         return super().__new__(
             cls,
@@ -209,20 +187,28 @@ class SchemaForRequestBodyApplicationJsonPatchjson(
 
 
 class SchemaForRequestBodyApplicationJson(
-    DictSchema
+    schemas.DictSchema
 ):
 
-    @classmethod
-    @property
-    def _additional_properties(cls) -> typing.Type['StructuredResultDataId']:
-        return StructuredResultDataId
 
+    class MetaOapg:
+        
+        @staticmethod
+        def additional_properties() -> typing.Type['StructuredResultDataId']:
+            return StructuredResultDataId
+    
+    def __getitem__(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+    
+    def get_item_oapg(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict, ],
-        _configuration: typing.Optional[Configuration] = None,
-        **kwargs: typing.Type[Schema],
+        *args: typing.Union[dict, frozendict.frozendict, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+        **kwargs: 'StructuredResultDataId',
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
@@ -233,20 +219,28 @@ class SchemaForRequestBodyApplicationJson(
 
 
 class SchemaForRequestBodyTextJson(
-    DictSchema
+    schemas.DictSchema
 ):
 
-    @classmethod
-    @property
-    def _additional_properties(cls) -> typing.Type['StructuredResultDataId']:
-        return StructuredResultDataId
 
+    class MetaOapg:
+        
+        @staticmethod
+        def additional_properties() -> typing.Type['StructuredResultDataId']:
+            return StructuredResultDataId
+    
+    def __getitem__(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+    
+    def get_item_oapg(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict, ],
-        _configuration: typing.Optional[Configuration] = None,
-        **kwargs: typing.Type[Schema],
+        *args: typing.Union[dict, frozendict.frozendict, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+        **kwargs: 'StructuredResultDataId',
     ) -> 'SchemaForRequestBodyTextJson':
         return super().__new__(
             cls,
@@ -257,20 +251,28 @@ class SchemaForRequestBodyTextJson(
 
 
 class SchemaForRequestBodyApplicationJson(
-    DictSchema
+    schemas.DictSchema
 ):
 
-    @classmethod
-    @property
-    def _additional_properties(cls) -> typing.Type['StructuredResultDataId']:
-        return StructuredResultDataId
 
+    class MetaOapg:
+        
+        @staticmethod
+        def additional_properties() -> typing.Type['StructuredResultDataId']:
+            return StructuredResultDataId
+    
+    def __getitem__(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        # dict_instance[name] accessor
+        return super().__getitem__(name)
+    
+    def get_item_oapg(self, name: typing.Union[str, ]) -> 'StructuredResultDataId':
+        return super().get_item_oapg(name)
 
     def __new__(
         cls,
-        *args: typing.Union[dict, frozendict, ],
-        _configuration: typing.Optional[Configuration] = None,
-        **kwargs: typing.Type[Schema],
+        *args: typing.Union[dict, frozendict.frozendict, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
+        **kwargs: 'StructuredResultDataId',
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
@@ -309,7 +311,7 @@ class ApiResponseFor200(api_client.ApiResponse):
         SchemaFor200ResponseBodyApplicationJson,
         SchemaFor200ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_200 = api_client.OpenApiResponse(
@@ -336,7 +338,7 @@ class ApiResponseFor400(api_client.ApiResponse):
         SchemaFor400ResponseBodyApplicationJson,
         SchemaFor400ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_400 = api_client.OpenApiResponse(
@@ -359,7 +361,7 @@ class ApiResponseForDefault(api_client.ApiResponse):
     body: typing.Union[
         SchemaFor0ResponseBodyApplicationJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_default = api_client.OpenApiResponse(
@@ -382,38 +384,144 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
 
-    def _get_structured_result_data(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson],
-        query_params: RequestQueryParams = frozendict(),
-        path_params: RequestPathParams = frozendict(),
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyTextJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["text/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/*+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def _get_structured_result_data_oapg(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json-patch+json',
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+    ):
         """
         [EXPERIMENTAL] GetStructuredResultData: Get structured result data
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs(RequestQueryParams, query_params)
-        self._verify_typed_dict_inputs(RequestPathParams, path_params)
+        self._verify_typed_dict_inputs_oapg(RequestQueryParams, query_params)
+        self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
         _path_params = {}
         for parameter in (
             request_path_scope,
         ):
-            parameter_data = path_params.get(parameter.name, unset)
-            if parameter_data is unset:
+            parameter_data = path_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
                 continue
             serialized_data = parameter.serialize(parameter_data)
             _path_params.update(serialized_data)
@@ -426,8 +534,8 @@ class BaseApi(api_client.Api):
             request_query_as_at,
             request_query_max_age,
         ):
-            parameter_data = query_params.get(parameter.name, unset)
-            if parameter_data is unset:
+            parameter_data = query_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
                 continue
             if prefix_separator_iterator is None:
                 prefix_separator_iterator = parameter.get_prefix_separator_iterator()
@@ -441,7 +549,7 @@ class BaseApi(api_client.Api):
             for accept_content_type in accept_content_types:
                 _headers.add('Accept', accept_content_type)
 
-        if body is unset:
+        if body is schemas.unset:
             raise exceptions.ApiValueError(
                 'The required body parameter has an invalid value of: unset. Set a valid value instead')
         _fields = None
@@ -485,22 +593,129 @@ class BaseApi(api_client.Api):
 class GetStructuredResultData(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
     def get_structured_result_data(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson],
-        query_params: RequestQueryParams = frozendict(),
-        path_params: RequestPathParams = frozendict(),
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyTextJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["text/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/*+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def get_structured_result_data(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json-patch+json',
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._get_structured_result_data(
+    ):
+        return self._get_structured_result_data_oapg(
             body=body,
             query_params=query_params,
             path_params=path_params,
@@ -515,22 +730,129 @@ class GetStructuredResultData(BaseApi):
 class ApiForpost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson],
-        query_params: RequestQueryParams = frozendict(),
-        path_params: RequestPathParams = frozendict(),
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyTextJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["text/json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: typing_extensions.Literal["application/*+json"],
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
+        content_type: str = ...,
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor200,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def post(
+        self,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, SchemaForRequestBodyTextJson,dict, frozendict.frozendict, SchemaForRequestBodyApplicationJson,dict, frozendict.frozendict, ],
         content_type: str = 'application/json-patch+json',
+        query_params: RequestQueryParams = frozendict.frozendict(),
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor200,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._get_structured_result_data(
+    ):
+        return self._get_structured_result_data_oapg(
             body=body,
             query_params=query_params,
             path_params=path_params,

@@ -16,12 +16,12 @@ from luisd.paths.api_calendars_generic.post import CreateCalendar
 from luisd.paths.api_calendars_generic_scope_code.delete import DeleteCalendar
 from luisd.paths.api_calendars_generic_scope_code_dates_date_id.delete import DeleteDateFromCalendar
 from luisd.paths.api_calendars_schedule_scope.post import GenerateSchedule
-from luisd.paths.api_calendars_generic_scope_code_1.get import GetCalendar
-from luisd.paths.api_calendars_generic_scope_code_dates_2.get import GetDates
+from luisd.paths.api_calendars_generic_scope_code.get import GetCalendar
+from luisd.paths.api_calendars_generic_scope_code_dates.get import GetDates
 from luisd.paths.api_calendars_businessday_scope_code.get import IsBusinessDateTime
-from luisd.paths.api_calendars_generic_3.get import ListCalendars
+from luisd.paths.api_calendars_generic.get import ListCalendars
 from luisd.paths.api_calendars_generic_scope.get import ListCalendarsInScope
-from luisd.paths.api_calendars_generic_scope_code_4.post import UpdateCalendar
+from luisd.paths.api_calendars_generic_scope_code.post import UpdateCalendar
 
 
 class CalendarsApi(

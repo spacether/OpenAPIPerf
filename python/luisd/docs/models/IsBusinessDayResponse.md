@@ -2,11 +2,16 @@
 
 Whether or not a DateTimeOffset is a business DateTime
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**requestedDateTime** | **datetime** |  | 
-**isBusinessDay** | **bool** |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Whether or not a DateTimeOffset is a business DateTime | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**isBusinessDay** | bool,  | BoolClass,  |  | 
+**requestedDateTime** | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

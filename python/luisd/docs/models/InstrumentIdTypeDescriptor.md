@@ -2,12 +2,17 @@
 
 The description of an allowable instrument identifier.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**identifierType** | **str** | The name of the identifier type. | 
-**propertyKey** | **str** | The property key that corresponds to the identifier type. | 
-**isUniqueIdentifierType** | **bool** | Whether or not the identifier type is enforced to be unique. | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The description of an allowable instrument identifier. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**propertyKey** | str,  | str,  | The property key that corresponds to the identifier type. | 
+**isUniqueIdentifierType** | bool,  | BoolClass,  | Whether or not the identifier type is enforced to be unique. | 
+**identifierType** | str,  | str,  | The name of the identifier type. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

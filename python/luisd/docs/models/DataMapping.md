@@ -2,10 +2,29 @@
 
 When importing data from an external source there are essentially three levels of interaction with LUSID.  (1) The data is a raw document that LUSID does not understand. You can store and retrieve it but it does not full interact with other documents inside LUSID  (2) The data has a map from fields and paths to 'properties' in LUSID. In essence, LUSID can then treat the data as weakly typed (decimal, string) data that can be returned through queries      and where various aggregation requests will then work.  (3) The data is fully translatable into LUSID and understood, in some sense, natively. This means that it can be used for context sensitive calculations such as pricing or risk calculations.  The data map object is designed to allow data to transition from step 1 to 2 and in some cases as an alternative for step 2 to 3.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**dataDefinitions** | **[DataDefinition], none_type** | A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores. | [optional] 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | When importing data from an external source there are essentially three levels of interaction with LUSID.  (1) The data is a raw document that LUSID does not understand. You can store and retrieve it but it does not full interact with other documents inside LUSID  (2) The data has a map from fields and paths to &#x27;properties&#x27; in LUSID. In essence, LUSID can then treat the data as weakly typed (decimal, string) data that can be returned through queries      and where various aggregation requests will then work.  (3) The data is fully translatable into LUSID and understood, in some sense, natively. This means that it can be used for context sensitive calculations such as pricing or risk calculations.  The data map object is designed to allow data to transition from step 1 to 2 and in some cases as an alternative for step 2 to 3. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**[dataDefinitions](#dataDefinitions)** | list, tuple, None,  | tuple, NoneClass,  | A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores. | [optional] 
+
+# dataDefinitions
+
+A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A map from LUSID item keys to data definitions that define the names, types and degree of uniqueness of data provided to LUSID in structured data stores. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**DataDefinition**](DataDefinition.md) | [**DataDefinition**](DataDefinition.md) | [**DataDefinition**](DataDefinition.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

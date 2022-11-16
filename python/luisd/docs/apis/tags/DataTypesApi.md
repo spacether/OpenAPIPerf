@@ -115,28 +115,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateDataTypeRequest**](CreateDataTypeRequest.md) |  | 
+[**CreateDataTypeRequest**](../../models/CreateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateDataTypeRequest**](CreateDataTypeRequest.md) |  | 
+[**CreateDataTypeRequest**](../../models/CreateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateDataTypeRequest**](CreateDataTypeRequest.md) |  | 
+[**CreateDataTypeRequest**](../../models/CreateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**CreateDataTypeRequest**](CreateDataTypeRequest.md) |  | 
+[**CreateDataTypeRequest**](../../models/CreateDataTypeRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -144,75 +144,72 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#create_data_type.ApiResponseFor201) | Success
+400 | [ApiResponseFor400](#create_data_type.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#create_data_type.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### create_data_type.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### ApiResponseFor400
+#### create_data_type.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### create_data_type.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DataType**](DataType.md)
 
 ### Authorization
 
@@ -313,13 +310,14 @@ Name | Type | Description  | Notes
 asAt | AsAtSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the data type definition. Defaults to              return the latest version of the instrument definition if not specified. | value must conform to RFC-3339 date-time
 
 ### path_params
 #### RequestPathParams
@@ -329,96 +327,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the data type | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the data type | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_data_type.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#get_data_type.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_data_type.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_data_type.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_data_type.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_data_type.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DataType**](DataType.md)
 
 ### Authorization
 
@@ -525,29 +522,37 @@ filter | FilterSchema | | optional
 asAt | AsAtSchema | | optional
 
 
-#### UnitsSchema
+# UnitsSchema
 
 One or more unit identifiers for which the definition is being requested
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | One or more unit identifiers for which the definition is being requested | 
 
-#### FilterSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# FilterSchema
 
 Optional. Expression to filter the result set.               For example, to filter on the Schema, use \"schema eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set.               For example, to filter on the Schema, use \&quot;schema eq &#x27;string&#x27;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 Optional. The as at of the requested data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | Optional. The as at of the requested data type | value must conform to RFC-3339 date-time
 
 ### path_params
 #### RequestPathParams
@@ -557,96 +562,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the data type | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the data type | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_units_from_data_type.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#get_units_from_data_type.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_units_from_data_type.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_units_from_data_type.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfIUnitDefinitionDto**](ResourceListOfIUnitDefinitionDto.md) |  | 
+[**ResourceListOfIUnitDefinitionDto**](../../models/ResourceListOfIUnitDefinitionDto.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfIUnitDefinitionDto**](ResourceListOfIUnitDefinitionDto.md) |  | 
+[**ResourceListOfIUnitDefinitionDto**](../../models/ResourceListOfIUnitDefinitionDto.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfIUnitDefinitionDto**](ResourceListOfIUnitDefinitionDto.md) |  | 
+[**ResourceListOfIUnitDefinitionDto**](../../models/ResourceListOfIUnitDefinitionDto.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_units_from_data_type.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_units_from_data_type.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfIUnitDefinitionDto**](ResourceListOfIUnitDefinitionDto.md)
 
 ### Authorization
 
@@ -736,128 +740,136 @@ filter | FilterSchema | | optional
 sortBy | SortBySchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to list the data type summaries. Defaults to returning the latest version               of each summary if not specified. | value must conform to RFC-3339 date-time
 
-#### PageSchema
+# PageSchema
 
 The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing data type summaries. This  value is returned from the previous call. If a pagination token is provided, the filter, effectiveAt  and asAt fields must not have changed since the original request. Also, if set, a start value cannot be provided. | 
 
-#### StartSchema
+# StartSchema
 
 When paginating, skip this number of results.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, skip this number of results. | value must be a 32 bit integer
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, limit the results to this number. Defaults to 100 if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the results to this number. Defaults to 100 if not specified. | value must be a 32 bit integer
 
-#### FilterSchema
+# FilterSchema
 
 Optional. Expression to filter the result set.                For example, to filter on the Scope, use \"id.scope eq 'myscope'\", to filter on Schema, use \"schema eq 'string'\",               to filter on AcceptableValues use \"acceptableValues any (~ eq 'value')\"               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set.                For example, to filter on the Scope, use \&quot;id.scope eq &#x27;myscope&#x27;\&quot;, to filter on Schema, use \&quot;schema eq &#x27;string&#x27;\&quot;,               to filter on AcceptableValues use \&quot;acceptableValues any (~ eq &#x27;value&#x27;)\&quot;               Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### SortBySchema
+# SortBySchema
 
 Sort the results by these fields. Use use the '-' sign to denote descending allocation e.g. -MyFieldName.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Sort the results by these fields. Use use the &#x27;-&#x27; sign to denote descending allocation e.g. -MyFieldName. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_data_type_summaries.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#list_data_type_summaries.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_data_type_summaries.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_data_type_summaries.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfDataTypeSummary**](PagedResourceListOfDataTypeSummary.md) |  | 
+[**PagedResourceListOfDataTypeSummary**](../../models/PagedResourceListOfDataTypeSummary.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfDataTypeSummary**](PagedResourceListOfDataTypeSummary.md) |  | 
+[**PagedResourceListOfDataTypeSummary**](../../models/PagedResourceListOfDataTypeSummary.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfDataTypeSummary**](PagedResourceListOfDataTypeSummary.md) |  | 
+[**PagedResourceListOfDataTypeSummary**](../../models/PagedResourceListOfDataTypeSummary.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_data_type_summaries.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_data_type_summaries.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfDataTypeSummary**](PagedResourceListOfDataTypeSummary.md)
 
 ### Authorization
 
@@ -968,53 +980,64 @@ limit | LimitSchema | | optional
 filter | FilterSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The as at of the requested data types
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The as at of the requested data types | value must conform to RFC-3339 date-time
 
-#### IncludeSystemSchema
+# IncludeSystemSchema
 
 Whether to additionally include those data types in the \"system\" scope
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[bool, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, bool,  | NoneClass, BoolClass,  | Whether to additionally include those data types in the \&quot;system\&quot; scope | 
 
-#### SortBySchema
+# SortBySchema
 
 Optional. Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Optional. Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName | 
 
-#### StartSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# StartSchema
 
 Optional. When paginating, skip this number of results
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Optional. When paginating, skip this number of results | value must be a 32 bit integer
 
-#### LimitSchema
+# LimitSchema
 
 Optional. When paginating, limit the number of returned results to this many.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | Optional. When paginating, limit the number of returned results to this many. | value must be a 32 bit integer
 
-#### FilterSchema
+# FilterSchema
 
 Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \"displayName eq 'string'\"              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Optional. Expression to filter the result set.              For example, to filter on the Display Name, use \&quot;displayName eq &#x27;string&#x27;\&quot;              Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
 ### path_params
 #### RequestPathParams
@@ -1023,88 +1046,86 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 scope | ScopeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The requested scope of the data types
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The requested scope of the data types | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_data_types.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#list_data_types.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_data_types.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_data_types.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfDataType**](ResourceListOfDataType.md) |  | 
+[**ResourceListOfDataType**](../../models/ResourceListOfDataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfDataType**](ResourceListOfDataType.md) |  | 
+[**ResourceListOfDataType**](../../models/ResourceListOfDataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfDataType**](ResourceListOfDataType.md) |  | 
+[**ResourceListOfDataType**](../../models/ResourceListOfDataType.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_data_types.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_data_types.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfDataType**](ResourceListOfDataType.md)
 
 ### Authorization
 
@@ -1195,28 +1216,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) |  | 
+[**UpdateDataTypeRequest**](../../models/UpdateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) |  | 
+[**UpdateDataTypeRequest**](../../models/UpdateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) |  | 
+[**UpdateDataTypeRequest**](../../models/UpdateDataTypeRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateDataTypeRequest**](UpdateDataTypeRequest.md) |  | 
+[**UpdateDataTypeRequest**](../../models/UpdateDataTypeRequest.md) |  | 
 
 
 ### path_params
@@ -1227,96 +1248,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the data type | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the data type | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#update_data_type.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#update_data_type.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#update_data_type.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### update_data_type.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### ApiResponseFor400
+#### update_data_type.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### update_data_type.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DataType**](DataType.md)
 
 ### Authorization
 
@@ -1394,37 +1414,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The updated reference values
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[FieldValue]** | The updated reference values | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The updated reference values | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) |  | 
 
-The updated reference values
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[FieldValue]** | The updated reference values | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 The updated reference values
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[FieldValue]** | The updated reference values | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The updated reference values | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 The updated reference values
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[FieldValue]** | The updated reference values | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The updated reference values | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+The updated reference values
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | The updated reference values | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) | [**FieldValue**]({{complexTypePrefix}}FieldValue.md) |  | 
 
 ### path_params
 #### RequestPathParams
@@ -1434,96 +1478,95 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | 
 code | CodeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope of the data type | 
 
-#### CodeSchema
+# CodeSchema
 
 The code of the data type
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The code of the data type | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#update_reference_values.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#update_reference_values.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#update_reference_values.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### update_reference_values.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DataType**](DataType.md) |  | 
+[**DataType**](../../models/DataType.md) |  | 
 
 
-#### ApiResponseFor400
+#### update_reference_values.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### update_reference_values.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DataType**](DataType.md)
 
 ### Authorization
 

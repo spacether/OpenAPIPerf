@@ -1,11 +1,30 @@
 # luisd.model.delete_instrument_response.DeleteInstrumentResponse
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**href** | **str, none_type** | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
-**asAt** | **datetime** | The as-at datetime at which the instrument was deleted. | 
-**links** | **[Link], none_type** | Collection of links. | [optional] 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**asAt** | str, datetime,  | str,  | The as-at datetime at which the instrument was deleted. | value must conform to RFC-3339 date-time
+**href** | None, str,  | NoneClass, str,  | The specific Uniform Resource Identifier (URI) for this resource at the requested effective and asAt datetime. | [optional] 
+**[links](#links)** | list, tuple, None,  | tuple, NoneClass,  | Collection of links. | [optional] 
+
+# links
+
+Collection of links.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Collection of links. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**Link**](Link.md) | [**Link**](Link.md) | [**Link**](Link.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

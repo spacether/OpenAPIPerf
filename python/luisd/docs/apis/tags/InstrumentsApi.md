@@ -111,13 +111,14 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | optional
 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -127,96 +128,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The datetime that the instrument was deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_instrument.ApiResponseFor200) | The datetime that the instrument was deleted
+400 | [ApiResponseFor400](#delete_instrument.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_instrument.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_instrument.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentResponse**](DeleteInstrumentResponse.md) |  | 
+[**DeleteInstrumentResponse**](../../models/DeleteInstrumentResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentResponse**](DeleteInstrumentResponse.md) |  | 
+[**DeleteInstrumentResponse**](../../models/DeleteInstrumentResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentResponse**](DeleteInstrumentResponse.md) |  | 
+[**DeleteInstrumentResponse**](../../models/DeleteInstrumentResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_instrument.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_instrument.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeleteInstrumentResponse**](DeleteInstrumentResponse.md)
 
 ### Authorization
 
@@ -318,37 +318,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 A list of property keys from the 'Instruments' domain whose properties to delete.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
 
-A list of property keys from the 'Instruments' domain whose properties to delete.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 A list of property keys from the 'Instruments' domain whose properties to delete.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# SchemaForRequestBodyTextJson
 
 A list of property keys from the 'Instruments' domain whose properties to delete.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# SchemaForRequestBodyApplicationJson
+
+A list of property keys from the 'Instruments' domain whose properties to delete.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of property keys from the &#x27;Instruments&#x27; domain whose properties to delete. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
 
 ### query_params
 #### RequestQueryParams
@@ -359,21 +383,23 @@ effectiveAt | EffectiveAtSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified 'effectiveAt' datetime. If the 'effectiveAt' is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to delete time-variant properties from.              The property must exist at the specified &#x27;effectiveAt&#x27; datetime. If the &#x27;effectiveAt&#x27; is not provided or is              before the time-variant property exists then a failure is returned. Do not specify this parameter if any of              the properties to delete are perpetual. | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -383,96 +409,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The asAt datetime at which properties were deleted.
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_instrument_properties.ApiResponseFor200) | The asAt datetime at which properties were deleted.
+400 | [ApiResponseFor400](#delete_instrument_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_instrument_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_instrument_properties.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentPropertiesResponse**](DeleteInstrumentPropertiesResponse.md) |  | 
+[**DeleteInstrumentPropertiesResponse**](../../models/DeleteInstrumentPropertiesResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentPropertiesResponse**](DeleteInstrumentPropertiesResponse.md) |  | 
+[**DeleteInstrumentPropertiesResponse**](../../models/DeleteInstrumentPropertiesResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**DeleteInstrumentPropertiesResponse**](DeleteInstrumentPropertiesResponse.md) |  | 
+[**DeleteInstrumentPropertiesResponse**](../../models/DeleteInstrumentPropertiesResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_instrument_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_instrument_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**DeleteInstrumentPropertiesResponse**](DeleteInstrumentPropertiesResponse.md)
 
 ### Authorization
 
@@ -581,37 +606,46 @@ propertyKeys | PropertyKeysSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to retrieve the instrument.              Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the instrument. Defaults to              returning the latest version if not specified. | value must conform to RFC-3339 date-time
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the 'Instrument' domain to decorate onto the instrument.              These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the &#x27;Instrument&#x27; domain to decorate onto the instrument.              These must have the format {domain}/{scope}/{code}, for example &#x27;Instrument/system/Name&#x27;. | 
 
-#### ScopeSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -621,96 +655,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to use, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to use, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested instrument.
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_instrument.ApiResponseFor200) | The requested instrument.
+400 | [ApiResponseFor400](#get_instrument.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_instrument.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_instrument.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_instrument.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_instrument.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**Instrument**](Instrument.md)
 
 ### Authorization
 
@@ -772,49 +805,46 @@ This endpoint does not need any parameter.
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | A list of valid instrument identifier types.
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_instrument_identifier_types.ApiResponseFor200) | A list of valid instrument identifier types.
+default | [ApiResponseForDefault](#get_instrument_identifier_types.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_instrument_identifier_types.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
+[**ResourceListOfInstrumentIdTypeDescriptor**](../../models/ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
+[**ResourceListOfInstrumentIdTypeDescriptor**](../../models/ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
+[**ResourceListOfInstrumentIdTypeDescriptor**](../../models/ResourceListOfInstrumentIdTypeDescriptor.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_instrument_identifier_types.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfInstrumentIdTypeDescriptor**](ResourceListOfInstrumentIdTypeDescriptor.md)
 
 ### Authorization
 
@@ -919,29 +949,32 @@ asAt | AsAtSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to list the instrument&#x27;s properties.              Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to list the instrument&#x27;s properties. Defaults to returning              the latest version of each property if not specified. | value must conform to RFC-3339 date-time
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -951,96 +984,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The properties of the specified instrument
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_instrument_properties.ApiResponseFor200) | The properties of the specified instrument
+400 | [ApiResponseFor400](#get_instrument_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_instrument_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_instrument_properties.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InstrumentProperties**](InstrumentProperties.md) |  | 
+[**InstrumentProperties**](../../models/InstrumentProperties.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InstrumentProperties**](InstrumentProperties.md) |  | 
+[**InstrumentProperties**](../../models/InstrumentProperties.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**InstrumentProperties**](InstrumentProperties.md) |  | 
+[**InstrumentProperties**](../../models/InstrumentProperties.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_instrument_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_instrument_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**InstrumentProperties**](InstrumentProperties.md)
 
 ### Authorization
 
@@ -1154,61 +1186,68 @@ limit | LimitSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### PropertyKeySchema
+# PropertyKeySchema
 
 The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
 
-#### IdentifierEffectiveAtSchema
+# IdentifierEffectiveAtSchema
 
 The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime used to resolve the instrument from the identifier.              Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the instrument's property history. Defaults to              returning the current datetime if not supplied.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the instrument&#x27;s property history. Defaults to              returning the current datetime if not supplied. | value must conform to RFC-3339 date-time
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the results. For more information about filtering,              see https://support.lusid.com/knowledgebase/article/KA-01914. | 
 
-#### PageSchema
+# PageSchema
 
 The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the <i>filter</i>, <i>effectiveAt</i> and              <i>asAt</i> fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing properties; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and              &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. For more information, see              https://support.lusid.com/knowledgebase/article/KA-01915. | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, limit the results to this number.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the results to this number. | value must be a 32 bit integer
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -1218,96 +1257,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The time series of the property
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_instrument_property_time_series.ApiResponseFor200) | The time series of the property
+400 | [ApiResponseFor400](#get_instrument_property_time_series.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_instrument_property_time_series.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_instrument_property_time_series.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPropertyInterval**](ResourceListOfPropertyInterval.md) |  | 
+[**ResourceListOfPropertyInterval**](../../models/ResourceListOfPropertyInterval.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPropertyInterval**](ResourceListOfPropertyInterval.md) |  | 
+[**ResourceListOfPropertyInterval**](../../models/ResourceListOfPropertyInterval.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfPropertyInterval**](ResourceListOfPropertyInterval.md) |  | 
+[**ResourceListOfPropertyInterval**](../../models/ResourceListOfPropertyInterval.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_instrument_property_time_series.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_instrument_property_time_series.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfPropertyInterval**](ResourceListOfPropertyInterval.md)
 
 ### Authorization
 
@@ -1404,37 +1442,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 A list of one or more <i>identifierType</i> values to use to identify instruments.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
-A list of one or more <i>identifierType</i> values to use to identify instruments.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 A list of one or more <i>identifierType</i> values to use to identify instruments.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# SchemaForRequestBodyTextJson
 
 A list of one or more <i>identifierType</i> values to use to identify instruments.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[str]** | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+A list of one or more <i>identifierType</i> values to use to identify instruments.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of one or more &lt;i&gt;identifierType&lt;/i&gt; values to use to identify instruments. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -1448,120 +1510,127 @@ propertyKeys | PropertyKeysSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to use, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The unique identifier type to use, for example &#x27;Figi&#x27;. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The unique identifier type to use, for example &#x27;Figi&#x27;. | 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to retrieve the instrument definitions.               Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the instrument definitions.               Defaults to returning the latest version of each instrument definition if not specified. | value must conform to RFC-3339 date-time
 
-#### PropertyKeysSchema
+# PropertyKeysSchema
 
 A list of property keys from the 'Instrument' domain to decorate onto the instrument.               These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the &#x27;Instrument&#x27; domain to decorate onto the instrument.               These must have the format {domain}/{scope}/{code}, for example &#x27;Instrument/system/Name&#x27;. | 
 
-#### ScopeSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested instruments which could be identified along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_instruments.ApiResponseFor200) | The requested instruments which could be identified along with any failures
+400 | [ApiResponseFor400](#get_instruments.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_instruments.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_instruments.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetInstrumentsResponse**](GetInstrumentsResponse.md) |  | 
+[**GetInstrumentsResponse**](../../models/GetInstrumentsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetInstrumentsResponse**](GetInstrumentsResponse.md) |  | 
+[**GetInstrumentsResponse**](../../models/GetInstrumentsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetInstrumentsResponse**](GetInstrumentsResponse.md) |  | 
+[**GetInstrumentsResponse**](../../models/GetInstrumentsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_instruments.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_instruments.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**GetInstrumentsResponse**](GetInstrumentsResponse.md)
 
 ### Authorization
 
@@ -1670,45 +1739,50 @@ limit | LimitSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to list the instrument's properties.              Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to list the instrument&#x27;s properties.              Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to list the instrument's properties. Defaults to returning              the latest version of each property if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to list the instrument&#x27;s properties. Defaults to returning              the latest version of each property if not specified. | value must conform to RFC-3339 date-time
 
-#### PageSchema
+# PageSchema
 
 The pagination token to use to continue listing commands; this value is returned from the previous call.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing commands; this value is returned from the previous call. | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, limit the results per page to this number.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the results per page to this number. | value must be a 32 bit integer
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -1718,96 +1792,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The properties of the specified instrument
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_instrument_properties.ApiResponseFor200) | The properties of the specified instrument
+400 | [ApiResponseFor400](#list_instrument_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_instrument_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_instrument_properties.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfProperty**](ResourceListOfProperty.md) |  | 
+[**ResourceListOfProperty**](../../models/ResourceListOfProperty.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfProperty**](ResourceListOfProperty.md) |  | 
+[**ResourceListOfProperty**](../../models/ResourceListOfProperty.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfProperty**](ResourceListOfProperty.md) |  | 
+[**ResourceListOfProperty**](../../models/ResourceListOfProperty.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_instrument_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_instrument_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfProperty**](ResourceListOfProperty.md)
 
 ### Authorization
 
@@ -1905,152 +1978,168 @@ instrumentPropertyKeys | InstrumentPropertyKeysSchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to list instruments. Defaults to returning the latest               version of each instrument if not specified. | value must conform to RFC-3339 date-time
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label at which to list instruments.               Defaults to the current LUSID system datetime if not specified. | 
 
-#### PageSchema
+# PageSchema
 
 The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the <i>sortBy</i>, <i>filter</i>, <i>effectiveAt</i> and               <i>asAt</i> fields must not have changed since the original request. Also, a <i>start</i> value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The pagination token to use to continue listing instruments; this value is returned from               the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt;, &lt;i&gt;filter&lt;/i&gt;, &lt;i&gt;effectiveAt&lt;/i&gt; and               &lt;i&gt;asAt&lt;/i&gt; fields must not have changed since the original request. Also, a &lt;i&gt;start&lt;/i&gt; value cannot be               provided. For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. | 
 
-#### SortBySchema
+# SortBySchema
 
 Order results by particular fields. Use the '-' sign to denote descending order, for               example '-MyFieldName'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | Order results by particular fields. Use the &#x27;-&#x27; sign to denote descending order, for               example &#x27;-MyFieldName&#x27;. | 
 
-#### StartSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  |  | 
+
+# StartSchema
 
 When paginating, skip this number of results.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, skip this number of results. | value must be a 32 bit integer
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, limit the results to this number.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[int, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, decimal.Decimal, int,  | NoneClass, decimal.Decimal,  | When paginating, limit the results to this number. | value must be a 32 bit integer
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set. Defaults to filtering out inactive instruments               (that is, those that have been deleted). For more information about filtering results,               see https://support.lusid.com/knowledgebase/article/KA-01914. | if omitted the server will use the default value of "State eq 'Active'"
 
-#### InstrumentPropertyKeysSchema
+# InstrumentPropertyKeysSchema
 
 A list of property keys from the 'Instrument' domain to decorate onto               instruments. These must have the format {domain}/{scope}/{code}, for example 'Instrument/system/Name'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, list, tuple, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A list of property keys from the &#x27;Instrument&#x27; domain to decorate onto               instruments. These must have the format {domain}/{scope}/{code}, for example &#x27;Instrument/system/Name&#x27;. | 
 
-#### ScopeSchema
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+items | str,  | str,  | The key that uniquely identifies the property. It has the format {domain}/{scope}/{code}. | 
+
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested instruments
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_instruments.ApiResponseFor200) | The requested instruments
+400 | [ApiResponseFor400](#list_instruments.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_instruments.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_instruments.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfInstrument**](PagedResourceListOfInstrument.md) |  | 
+[**PagedResourceListOfInstrument**](../../models/PagedResourceListOfInstrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfInstrument**](PagedResourceListOfInstrument.md) |  | 
+[**PagedResourceListOfInstrument**](../../models/PagedResourceListOfInstrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfInstrument**](PagedResourceListOfInstrument.md) |  | 
+[**PagedResourceListOfInstrument**](../../models/PagedResourceListOfInstrument.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_instruments.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_instruments.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfInstrument**](PagedResourceListOfInstrument.md)
 
 ### Authorization
 
@@ -2160,28 +2249,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) |  | 
+[**UpdateInstrumentIdentifierRequest**](../../models/UpdateInstrumentIdentifierRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) |  | 
+[**UpdateInstrumentIdentifierRequest**](../../models/UpdateInstrumentIdentifierRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) |  | 
+[**UpdateInstrumentIdentifierRequest**](../../models/UpdateInstrumentIdentifierRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpdateInstrumentIdentifierRequest**](UpdateInstrumentIdentifierRequest.md) |  | 
+[**UpdateInstrumentIdentifierRequest**](../../models/UpdateInstrumentIdentifierRequest.md) |  | 
 
 
 ### query_params
@@ -2192,13 +2281,14 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | optional
 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### path_params
 #### RequestPathParams
@@ -2208,96 +2298,95 @@ Name | Type | Description  | Notes
 identifierType | IdentifierTypeSchema | | 
 identifier | IdentifierSchema | | 
 
-#### IdentifierTypeSchema
+# IdentifierTypeSchema
 
 The unique identifier type to search, for example 'Figi'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The unique identifier type to search, for example &#x27;Figi&#x27;. | 
 
-#### IdentifierSchema
+# IdentifierSchema
 
 An <i>identifierType</i> value to use to identify the instrument, for example 'BBG000BLNNV0'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | An &lt;i&gt;identifierType&lt;/i&gt; value to use to identify the instrument, for example &#x27;BBG000BLNNV0&#x27;. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The updated instrument definition with the identifier created, updated or deleted
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#update_instrument_identifier.ApiResponseFor200) | The updated instrument definition with the identifier created, updated or deleted
+400 | [ApiResponseFor400](#update_instrument_identifier.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#update_instrument_identifier.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### update_instrument_identifier.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**Instrument**](Instrument.md) |  | 
+[**Instrument**](../../models/Instrument.md) |  | 
 
 
-#### ApiResponseFor400
+#### update_instrument_identifier.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### update_instrument_identifier.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**Instrument**](Instrument.md)
 
 ### Authorization
 
@@ -2456,41 +2545,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The definitions of the instruments to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **InstrumentDefinition** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The definitions of the instruments to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The definitions of the instruments to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **InstrumentDefinition** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The definitions of the instruments to create or update. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The definitions of the instruments to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **InstrumentDefinition** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The definitions of the instruments to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The definitions of the instruments to create or update.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **InstrumentDefinition** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The definitions of the instruments to create or update. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | [**InstrumentDefinition**]({{complexTypePrefix}}InstrumentDefinition.md) | any string name can be used but the value must be the correct type | [optional] 
 
 ### query_params
 #### RequestQueryParams
@@ -2500,88 +2609,86 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | optional
 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | The successfully created or updated instruments along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#upsert_instruments.ApiResponseFor201) | The successfully created or updated instruments along with any failures
+400 | [ApiResponseFor400](#upsert_instruments.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_instruments.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### upsert_instruments.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentsResponse**](UpsertInstrumentsResponse.md) |  | 
+[**UpsertInstrumentsResponse**](../../models/UpsertInstrumentsResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentsResponse**](UpsertInstrumentsResponse.md) |  | 
+[**UpsertInstrumentsResponse**](../../models/UpsertInstrumentsResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentsResponse**](UpsertInstrumentsResponse.md) |  | 
+[**UpsertInstrumentsResponse**](../../models/UpsertInstrumentsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_instruments.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_instruments.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertInstrumentsResponse**](UpsertInstrumentsResponse.md)
 
 ### Authorization
 
@@ -2672,37 +2779,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 A list of instruments and associated instrument properties to create or update.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[UpsertInstrumentPropertyRequest]** | A list of instruments and associated instrument properties to create or update. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of instruments and associated instrument properties to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) |  | 
 
-A list of instruments and associated instrument properties to create or update.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[UpsertInstrumentPropertyRequest]** | A list of instruments and associated instrument properties to create or update. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 A list of instruments and associated instrument properties to create or update.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[UpsertInstrumentPropertyRequest]** | A list of instruments and associated instrument properties to create or update. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of instruments and associated instrument properties to create or update. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 A list of instruments and associated instrument properties to create or update.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[UpsertInstrumentPropertyRequest]** | A list of instruments and associated instrument properties to create or update. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of instruments and associated instrument properties to create or update. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+A list of instruments and associated instrument properties to create or update.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A list of instruments and associated instrument properties to create or update. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) | [**UpsertInstrumentPropertyRequest**]({{complexTypePrefix}}UpsertInstrumentPropertyRequest.md) |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -2712,88 +2843,86 @@ Name | Type | Description  | Notes
 scope | ScopeSchema | | optional
 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies. When not supplied the scope is 'default'.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. When not supplied the scope is &#x27;default&#x27;. | if omitted the server will use the default value of "default"
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-201 | ApiResponseFor201 | The asAt datetime at which the properties were created or updated.
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+201 | [ApiResponseFor201](#upsert_instruments_properties.ApiResponseFor201) | The asAt datetime at which the properties were created or updated.
+400 | [ApiResponseFor400](#upsert_instruments_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_instruments_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor201
+#### upsert_instruments_properties.ApiResponseFor201
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor201ResponseBodyTextPlain, SchemaFor201ResponseBodyApplicationJson, SchemaFor201ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor201ResponseBodyTextPlain
+# SchemaFor201ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentPropertiesResponse**](UpsertInstrumentPropertiesResponse.md) |  | 
+[**UpsertInstrumentPropertiesResponse**](../../models/UpsertInstrumentPropertiesResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyApplicationJson
+# SchemaFor201ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentPropertiesResponse**](UpsertInstrumentPropertiesResponse.md) |  | 
+[**UpsertInstrumentPropertiesResponse**](../../models/UpsertInstrumentPropertiesResponse.md) |  | 
 
 
-#### SchemaFor201ResponseBodyTextJson
+# SchemaFor201ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertInstrumentPropertiesResponse**](UpsertInstrumentPropertiesResponse.md) |  | 
+[**UpsertInstrumentPropertiesResponse**](../../models/UpsertInstrumentPropertiesResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_instruments_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_instruments_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertInstrumentPropertiesResponse**](UpsertInstrumentPropertiesResponse.md)
 
 ### Authorization
 

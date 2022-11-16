@@ -7,64 +7,23 @@
 """
 
 from dataclasses import dataclass
-import re  # noqa: F401
-import sys  # noqa: F401
-import typing
+import typing_extensions
 import urllib3
-import functools  # noqa: F401
 from urllib3._collections import HTTPHeaderDict
 
 from luisd import api_client, exceptions
-import decimal  # noqa: F401
 from datetime import date, datetime  # noqa: F401
-from frozendict import frozendict  # noqa: F401
+import decimal  # noqa: F401
+import functools  # noqa: F401
+import io  # noqa: F401
+import re  # noqa: F401
+import typing  # noqa: F401
+import typing_extensions  # noqa: F401
+import uuid  # noqa: F401
 
-from luisd.schemas import (  # noqa: F401
-    AnyTypeSchema,
-    ComposedSchema,
-    DictSchema,
-    ListSchema,
-    StrSchema,
-    IntSchema,
-    Int32Schema,
-    Int64Schema,
-    Float32Schema,
-    Float64Schema,
-    NumberSchema,
-    UUIDSchema,
-    DateSchema,
-    DateTimeSchema,
-    DecimalSchema,
-    BoolSchema,
-    BinarySchema,
-    NoneSchema,
-    none_type,
-    Configuration,
-    Unset,
-    unset,
-    ComposedBase,
-    ListBase,
-    DictBase,
-    NoneBase,
-    StrBase,
-    IntBase,
-    Int32Base,
-    Int64Base,
-    Float32Base,
-    Float64Base,
-    NumberBase,
-    UUIDBase,
-    DateBase,
-    DateTimeBase,
-    BoolBase,
-    BinaryBase,
-    Schema,
-    NoneClass,
-    BoolClass,
-    _SchemaValidator,
-    _SchemaTypeChecker,
-    _SchemaEnumMaker
-)
+import frozendict  # noqa: F401
+
+from luisd import schemas  # noqa: F401
 
 from luisd.model.lusid_problem_details import LusidProblemDetails
 from luisd.model.lusid_validation_problem_details import LusidValidationProblemDetails
@@ -73,27 +32,29 @@ from luisd.model.upsert_corporate_action_request import UpsertCorporateActionReq
 
 from . import path
 
-# path params
+# Path params
 
 
 class ScopeSchema(
-    _SchemaValidator(
-        max_length=64,
-        min_length=1,
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
+):
+
+
+    class MetaOapg:
+        max_length = 64
+        min_length = 1
         regex=[{
             'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
-        }],
-    ),
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
-):
+        }]
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'ScopeSchema':
         return super().__new__(
             cls,
@@ -103,37 +64,39 @@ class ScopeSchema(
 
 
 class CodeSchema(
-    _SchemaValidator(
-        max_length=64,
-        min_length=1,
+    schemas.StrBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneStrMixin
+):
+
+
+    class MetaOapg:
+        max_length = 64
+        min_length = 1
         regex=[{
             'pattern': r'^[a-zA-Z0-9\-_]+$',  # noqa: E501
-        }],
-    ),
-    _SchemaTypeChecker(typing.Union[NoneClass, str, ]),
-    StrBase,
-    NoneBase,
-    Schema
-):
+        }]
+
 
     def __new__(
         cls,
-        *args: typing.Union[str, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        *args: typing.Union[None, str, ],
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'CodeSchema':
         return super().__new__(
             cls,
             *args,
             _configuration=_configuration,
         )
-RequestRequiredPathParams = typing.TypedDict(
+RequestRequiredPathParams = typing_extensions.TypedDict(
     'RequestRequiredPathParams',
     {
-        'scope': ScopeSchema,
-        'code': CodeSchema,
+        'scope': typing.Union[ScopeSchema, None, str, ],
+        'code': typing.Union[CodeSchema, None, str, ],
     }
 )
-RequestOptionalPathParams = typing.TypedDict(
+RequestOptionalPathParams = typing_extensions.TypedDict(
     'RequestOptionalPathParams',
     {
     },
@@ -161,16 +124,24 @@ request_path_code = api_client.PathParameter(
 
 
 class SchemaForRequestBodyApplicationJsonPatchjson(
-    _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
-    ListBase,
-    NoneBase,
-    Schema
+    schemas.ListBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneTupleMixin
 ):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['UpsertCorporateActionRequest']:
+            return UpsertCorporateActionRequest
+
 
     def __new__(
         cls,
         *args: typing.Union[list, tuple, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'SchemaForRequestBodyApplicationJsonPatchjson':
         return super().__new__(
             cls,
@@ -180,16 +151,24 @@ class SchemaForRequestBodyApplicationJsonPatchjson(
 
 
 class SchemaForRequestBodyApplicationJson(
-    _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
-    ListBase,
-    NoneBase,
-    Schema
+    schemas.ListBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneTupleMixin
 ):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['UpsertCorporateActionRequest']:
+            return UpsertCorporateActionRequest
+
 
     def __new__(
         cls,
         *args: typing.Union[list, tuple, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
@@ -199,16 +178,24 @@ class SchemaForRequestBodyApplicationJson(
 
 
 class SchemaForRequestBodyTextJson(
-    _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
-    ListBase,
-    NoneBase,
-    Schema
+    schemas.ListBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneTupleMixin
 ):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['UpsertCorporateActionRequest']:
+            return UpsertCorporateActionRequest
+
 
     def __new__(
         cls,
         *args: typing.Union[list, tuple, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'SchemaForRequestBodyTextJson':
         return super().__new__(
             cls,
@@ -218,16 +205,24 @@ class SchemaForRequestBodyTextJson(
 
 
 class SchemaForRequestBodyApplicationJson(
-    _SchemaTypeChecker(typing.Union[tuple, NoneClass, ]),
-    ListBase,
-    NoneBase,
-    Schema
+    schemas.ListBase,
+    schemas.NoneBase,
+    schemas.Schema,
+    schemas.NoneTupleMixin
 ):
+
+
+    class MetaOapg:
+        
+        @staticmethod
+        def items() -> typing.Type['UpsertCorporateActionRequest']:
+            return UpsertCorporateActionRequest
+
 
     def __new__(
         cls,
         *args: typing.Union[list, tuple, None, ],
-        _configuration: typing.Optional[Configuration] = None,
+        _configuration: typing.Optional[schemas.Configuration] = None,
     ) -> 'SchemaForRequestBodyApplicationJson':
         return super().__new__(
             cls,
@@ -264,7 +259,7 @@ class ApiResponseFor201(api_client.ApiResponse):
         SchemaFor201ResponseBodyApplicationJson,
         SchemaFor201ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_201 = api_client.OpenApiResponse(
@@ -291,7 +286,7 @@ class ApiResponseFor400(api_client.ApiResponse):
         SchemaFor400ResponseBodyApplicationJson,
         SchemaFor400ResponseBodyTextJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_400 = api_client.OpenApiResponse(
@@ -314,7 +309,7 @@ class ApiResponseForDefault(api_client.ApiResponse):
     body: typing.Union[
         SchemaFor0ResponseBodyApplicationJson,
     ]
-    headers: Unset = unset
+    headers: schemas.Unset = schemas.unset
 
 
 _response_for_default = api_client.OpenApiResponse(
@@ -337,28 +332,127 @@ _all_accept_content_types = (
 
 
 class BaseApi(api_client.Api):
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
 
-    def _batch_upsert_corporate_actions(
-        self: api_client.Api,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson, Unset] = unset,
-        path_params: RequestPathParams = frozendict(),
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: typing_extensions.Literal["application/json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: typing_extensions.Literal["text/json"],
+        body: typing.Union[SchemaForRequestBodyTextJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: typing_extensions.Literal["application/*+json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def _batch_upsert_corporate_actions_oapg(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def _batch_upsert_corporate_actions_oapg(
+        self,
         content_type: str = 'application/json-patch+json',
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor201,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
+    ):
         """
         [BETA] BatchUpsertCorporateActions: Upsert corporate actions
         :param skip_deserialization: If true then api_response.response will be set but
             api_response.body and api_response.headers will not be deserialized into schema
             class instances
         """
-        self._verify_typed_dict_inputs(RequestPathParams, path_params)
+        self._verify_typed_dict_inputs_oapg(RequestPathParams, path_params)
         used_path = path.value
 
         _path_params = {}
@@ -366,8 +460,8 @@ class BaseApi(api_client.Api):
             request_path_scope,
             request_path_code,
         ):
-            parameter_data = path_params.get(parameter.name, unset)
-            if parameter_data is unset:
+            parameter_data = path_params.get(parameter.name, schemas.unset)
+            if parameter_data is schemas.unset:
                 continue
             serialized_data = parameter.serialize(parameter_data)
             _path_params.update(serialized_data)
@@ -383,7 +477,7 @@ class BaseApi(api_client.Api):
 
         _fields = None
         _body = None
-        if body is not unset:
+        if body is not schemas.unset:
             serialized_data = request_body_upsert_corporate_action_request.serialize(body, content_type)
             _headers.add('Content-Type', content_type)
             if 'fields' in serialized_data:
@@ -423,21 +517,121 @@ class BaseApi(api_client.Api):
 class BatchUpsertCorporateActions(BaseApi):
     # this class is used by api classes that refer to endpoints with operationId fn names
 
+    @typing.overload
     def batch_upsert_corporate_actions(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson, Unset] = unset,
-        path_params: RequestPathParams = frozendict(),
+        self,
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        content_type: typing_extensions.Literal["application/json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        content_type: typing_extensions.Literal["text/json"],
+        body: typing.Union[SchemaForRequestBodyTextJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        content_type: typing_extensions.Literal["application/*+json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def batch_upsert_corporate_actions(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def batch_upsert_corporate_actions(
+        self,
         content_type: str = 'application/json-patch+json',
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor201,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._batch_upsert_corporate_actions(
+    ):
+        return self._batch_upsert_corporate_actions_oapg(
             body=body,
             path_params=path_params,
             content_type=content_type,
@@ -451,21 +645,121 @@ class BatchUpsertCorporateActions(BaseApi):
 class ApiForpost(BaseApi):
     # this class is used by api classes that refer to endpoints by path and http method names
 
+    @typing.overload
     def post(
-        self: BaseApi,
-        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, SchemaForRequestBodyApplicationJson, SchemaForRequestBodyTextJson, SchemaForRequestBodyApplicationJson, Unset] = unset,
-        path_params: RequestPathParams = frozendict(),
+        self,
+        content_type: typing_extensions.Literal["application/json-patch+json"] = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        content_type: typing_extensions.Literal["application/json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        content_type: typing_extensions.Literal["text/json"],
+        body: typing.Union[SchemaForRequestBodyTextJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        content_type: typing_extensions.Literal["application/*+json"],
+        body: typing.Union[SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+    @typing.overload
+    def post(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: typing_extensions.Literal[False] = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+    ]: ...
+
+
+    @typing.overload
+    def post(
+        self,
+        skip_deserialization: typing_extensions.Literal[True],
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+    ) -> api_client.ApiResponseWithoutDeserialization: ...
+
+    @typing.overload
+    def post(
+        self,
+        content_type: str = ...,
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
+        accept_content_types: typing.Tuple[str] = _all_accept_content_types,
+        stream: bool = False,
+        timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
+        skip_deserialization: bool = ...,
+    ) -> typing.Union[
+        ApiResponseFor201,
+        ApiResponseForDefault,
+        api_client.ApiResponseWithoutDeserialization,
+    ]: ...
+
+    def post(
+        self,
         content_type: str = 'application/json-patch+json',
+        body: typing.Union[SchemaForRequestBodyApplicationJsonPatchjson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, SchemaForRequestBodyTextJson, list, tuple, None, SchemaForRequestBodyApplicationJson, list, tuple, None, schemas.Unset] = schemas.unset,
+        path_params: RequestPathParams = frozendict.frozendict(),
         accept_content_types: typing.Tuple[str] = _all_accept_content_types,
         stream: bool = False,
         timeout: typing.Optional[typing.Union[int, typing.Tuple]] = None,
         skip_deserialization: bool = False,
-    ) -> typing.Union[
-        ApiResponseFor201,
-        ApiResponseForDefault,
-        api_client.ApiResponseWithoutDeserialization
-    ]:
-        return self._batch_upsert_corporate_actions(
+    ):
+        return self._batch_upsert_corporate_actions_oapg(
             body=body,
             path_params=path_params,
             content_type=content_type,

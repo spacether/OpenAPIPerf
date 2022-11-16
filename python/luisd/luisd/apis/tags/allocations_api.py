@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_allocations_scope_code.delete import DeleteAllocation
-from luisd.paths.api_allocations_scope_code_1.get import GetAllocation
+from luisd.paths.api_allocations_scope_code.get import GetAllocation
 from luisd.paths.api_allocations.get import ListAllocations
-from luisd.paths.api_allocations_2.post import UpsertAllocations
+from luisd.paths.api_allocations.post import UpsertAllocations
 
 
 class AllocationsApi(

@@ -13,7 +13,7 @@
 from luisd.paths.api_customentities_entity_type_identifier_type_identifier_value.get import GetCustomEntity
 from luisd.paths.api_customentities_entity_type_identifier_type_identifier_value_relationships.get import GetCustomEntityRelationships
 from luisd.paths.api_customentities_entity_type.get import ListCustomEntities
-from luisd.paths.api_customentities_entity_type_1.post import UpsertCustomEntity
+from luisd.paths.api_customentities_entity_type.post import UpsertCustomEntity
 
 
 class CustomEntitiesApi(

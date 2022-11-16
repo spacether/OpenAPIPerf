@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_participations_scope_code.delete import DeleteParticipation
-from luisd.paths.api_participations_scope_code_1.get import GetParticipation
+from luisd.paths.api_participations_scope_code.get import GetParticipation
 from luisd.paths.api_participations.get import ListParticipations
-from luisd.paths.api_participations_2.post import UpsertParticipations
+from luisd.paths.api_participations.post import UpsertParticipations
 
 
 class ParticipationsApi(

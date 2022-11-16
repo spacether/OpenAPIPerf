@@ -87,41 +87,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The complex market data Ids to delete, each keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The complex market data Ids to delete, each keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The complex market data Ids to delete, each keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The complex market data Ids to delete, each keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The complex market data Ids to delete, each keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The complex market data Ids to delete, each keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The complex market data Ids to delete, each keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The complex market data Ids to delete, each keyed by a unique correlation id. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
 
 ### path_params
 #### RequestPathParams
@@ -130,88 +150,86 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 scope | ScopeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the complex market data to delete.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The scope of the complex market data to delete. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The scope of the complex market data to delete. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The successfully deleted ComplexMarketData along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#delete_complex_market_data.ApiResponseFor200) | The successfully deleted ComplexMarketData along with any failures
+400 | [ApiResponseFor400](#delete_complex_market_data.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#delete_complex_market_data.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### delete_complex_market_data.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnnulStructuredDataResponse**](AnnulStructuredDataResponse.md) |  | 
+[**AnnulStructuredDataResponse**](../../models/AnnulStructuredDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnnulStructuredDataResponse**](AnnulStructuredDataResponse.md) |  | 
+[**AnnulStructuredDataResponse**](../../models/AnnulStructuredDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**AnnulStructuredDataResponse**](AnnulStructuredDataResponse.md) |  | 
+[**AnnulStructuredDataResponse**](../../models/AnnulStructuredDataResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### delete_complex_market_data.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### delete_complex_market_data.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**AnnulStructuredDataResponse**](AnnulStructuredDataResponse.md)
 
 ### Authorization
 
@@ -329,41 +347,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **ComplexMarketDataId** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The time invariant set of complex data identifiers to retrieve the data for. These need to be               keyed by a unique correlation id allowing the retrieved item to be identified in the response. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | [**ComplexMarketDataId**]({{complexTypePrefix}}ComplexMarketDataId.md) | any string name can be used but the value must be the correct type | [optional] 
 
 ### query_params
 #### RequestQueryParams
@@ -375,29 +413,32 @@ asAt | AsAtSchema | | optional
 maxAge | MaxAgeSchema | | optional
 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective datetime at which to retrieve the complex market data. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime at which to retrieve the complex market data. Defaults to the current LUSID system datetime if not specified. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to retrieve the complex market data. Defaults to return the latest version if not specified. | value must conform to RFC-3339 date-time
 
-#### MaxAgeSchema
+# MaxAgeSchema
 
 The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The duration of the look back window in an ISO8601 time interval format e.g. P1Y2M3DT4H30M (1 year, 2 months, 3 days, 4 hours and 30 minutes).               This is subtracted from the provided effectiveAt datetime to generate a effective datetime window inside which a complex market data item must exist to be retrieved. | 
 
 ### path_params
 #### RequestPathParams
@@ -406,88 +447,86 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 scope | ScopeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope of the complex market data to retrieve.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The scope of the complex market data to retrieve. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The scope of the complex market data to retrieve. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The successfully retrieved complex market data along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#get_complex_market_data.ApiResponseFor200) | The successfully retrieved complex market data along with any failures
+400 | [ApiResponseFor400](#get_complex_market_data.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#get_complex_market_data.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### get_complex_market_data.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetComplexMarketDataResponse**](GetComplexMarketDataResponse.md) |  | 
+[**GetComplexMarketDataResponse**](../../models/GetComplexMarketDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetComplexMarketDataResponse**](GetComplexMarketDataResponse.md) |  | 
+[**GetComplexMarketDataResponse**](../../models/GetComplexMarketDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**GetComplexMarketDataResponse**](GetComplexMarketDataResponse.md) |  | 
+[**GetComplexMarketDataResponse**](../../models/GetComplexMarketDataResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### get_complex_market_data.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_complex_market_data.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**GetComplexMarketDataResponse**](GetComplexMarketDataResponse.md)
 
 ### Authorization
 
@@ -565,88 +604,86 @@ Name | Type | Description  | Notes
 asAt | AsAtSchema | | optional
 
 
-#### AsAtSchema
+# AsAtSchema
 
 The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The asAt datetime at which to list the ComplexMarketData. Defaults to latest if not specified. | value must conform to RFC-3339 date-time
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The requested ComplexMarketData
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#list_complex_market_data.ApiResponseFor200) | The requested ComplexMarketData
+400 | [ApiResponseFor400](#list_complex_market_data.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#list_complex_market_data.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### list_complex_market_data.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
+[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](../../models/ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
+[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](../../models/ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
+[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](../../models/ResourceListOfListComplexMarketDataWithMetaDataResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### list_complex_market_data.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### list_complex_market_data.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfListComplexMarketDataWithMetaDataResponse**](ResourceListOfListComplexMarketDataWithMetaDataResponse.md)
 
 ### Authorization
 
@@ -734,41 +771,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 The set of complex market data items to update or insert keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **UpsertComplexMarketDataRequest** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The set of complex market data items to update or insert keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The set of complex market data items to update or insert keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **UpsertComplexMarketDataRequest** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The set of complex market data items to update or insert keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyTextJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyTextJson
 
 The set of complex market data items to update or insert keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **UpsertComplexMarketDataRequest** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The set of complex market data items to update or insert keyed by a unique correlation id. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# SchemaForRequestBodyApplicationJson
 
 The set of complex market data items to update or insert keyed by a unique correlation id.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**any string name** | **UpsertComplexMarketDataRequest** | any string name can be used but the value must be the correct type | [optional]
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The set of complex market data items to update or insert keyed by a unique correlation id. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | [**UpsertComplexMarketDataRequest**]({{complexTypePrefix}}UpsertComplexMarketDataRequest.md) | any string name can be used but the value must be the correct type | [optional] 
 
 ### path_params
 #### RequestPathParams
@@ -777,88 +834,86 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 scope | ScopeSchema | | 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope to use when updating or inserting the complex market data.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The scope to use when updating or inserting the complex market data. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The scope to use when updating or inserting the complex market data. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The successfully updated or inserted ComplexMarketData along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#upsert_complex_market_data.ApiResponseFor200) | The successfully updated or inserted ComplexMarketData along with any failures
+400 | [ApiResponseFor400](#upsert_complex_market_data.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#upsert_complex_market_data.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### upsert_complex_market_data.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertStructuredDataResponse**](UpsertStructuredDataResponse.md) |  | 
+[**UpsertStructuredDataResponse**](../../models/UpsertStructuredDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertStructuredDataResponse**](UpsertStructuredDataResponse.md) |  | 
+[**UpsertStructuredDataResponse**](../../models/UpsertStructuredDataResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**UpsertStructuredDataResponse**](UpsertStructuredDataResponse.md) |  | 
+[**UpsertStructuredDataResponse**](../../models/UpsertStructuredDataResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### upsert_complex_market_data.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### upsert_complex_market_data.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**UpsertStructuredDataResponse**](UpsertStructuredDataResponse.md)
 
 ### Authorization
 

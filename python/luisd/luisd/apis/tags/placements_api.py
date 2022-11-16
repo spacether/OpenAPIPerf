@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_placements_scope_code.delete import DeletePlacement
-from luisd.paths.api_placements_scope_code_1.get import GetPlacement
+from luisd.paths.api_placements_scope_code.get import GetPlacement
 from luisd.paths.api_placements.get import ListPlacements
-from luisd.paths.api_placements_2.post import UpsertPlacements
+from luisd.paths.api_placements.post import UpsertPlacements
 
 
 class PlacementsApi(

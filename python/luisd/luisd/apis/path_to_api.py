@@ -1,4 +1,4 @@
-import typing
+import typing_extensions
 
 from luisd.paths import PathValues
 from luisd.apis.paths.api_aggregation_valuation import ApiAggregationValuation
@@ -203,7 +203,7 @@ from luisd.apis.paths.api_unitresults_scope import ApiUnitresultsScope
 from luisd.apis.paths.api_unitresults_scope_delete import ApiUnitresultsScopeDelete
 from luisd.apis.paths.api_unitresults_scope_get import ApiUnitresultsScopeGet
 
-PathToApi = typing.TypedDict(
+PathToApi = typing_extensions.TypedDict(
     'PathToApi',
     {
         PathValues.API_AGGREGATION_VALUATION: ApiAggregationValuation,

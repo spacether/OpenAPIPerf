@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_orders_scope_code.delete import DeleteOrder
-from luisd.paths.api_orders_scope_code_1.get import GetOrder
+from luisd.paths.api_orders_scope_code.get import GetOrder
 from luisd.paths.api_orders.get import ListOrders
-from luisd.paths.api_orders_2.post import UpsertOrders
+from luisd.paths.api_orders.post import UpsertOrders
 
 
 class OrdersApi(

@@ -2,14 +2,19 @@
 
 This request specifies a new Cut Label Definition
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** |  | 
-**displayName** | **str** |  | 
-**description** | **str, none_type** |  | [optional] 
-**cutLocalTime** | [**CutLocalTime**](CutLocalTime.md) |  | 
-**timeZone** | **str** |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | This request specifies a new Cut Label Definition | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**code** | str,  | str,  |  | 
+**displayName** | str,  | str,  |  | 
+**timeZone** | str,  | str,  |  | 
+**cutLocalTime** | [**CutLocalTime**](CutLocalTime.md) | [**CutLocalTime**](CutLocalTime.md) |  | 
+**description** | None, str,  | NoneClass, str,  |  | [optional] 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

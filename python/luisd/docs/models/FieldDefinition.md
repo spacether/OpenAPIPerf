@@ -1,11 +1,16 @@
 # luisd.model.field_definition.FieldDefinition
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**key** | **str** |  | 
-**isRequired** | **bool** |  | 
-**isUnique** | **bool** |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**isRequired** | bool,  | BoolClass,  |  | 
+**isUnique** | bool,  | BoolClass,  |  | 
+**key** | str,  | str,  |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

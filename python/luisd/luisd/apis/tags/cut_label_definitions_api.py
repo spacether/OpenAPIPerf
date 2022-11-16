@@ -12,9 +12,9 @@
 
 from luisd.paths.api_systemconfiguration_cutlabels.post import CreateCutLabelDefinition
 from luisd.paths.api_systemconfiguration_cutlabels_code.delete import DeleteCutLabelDefinition
-from luisd.paths.api_systemconfiguration_cutlabels_code_1.get import GetCutLabelDefinition
-from luisd.paths.api_systemconfiguration_cutlabels_2.get import ListCutLabelDefinitions
-from luisd.paths.api_systemconfiguration_cutlabels_code_3.put import UpdateCutLabelDefinition
+from luisd.paths.api_systemconfiguration_cutlabels_code.get import GetCutLabelDefinition
+from luisd.paths.api_systemconfiguration_cutlabels.get import ListCutLabelDefinitions
+from luisd.paths.api_systemconfiguration_cutlabels_code.put import UpdateCutLabelDefinition
 
 
 class CutLabelDefinitionsApi(

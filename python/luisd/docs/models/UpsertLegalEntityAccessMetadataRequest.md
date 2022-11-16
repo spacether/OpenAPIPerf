@@ -1,9 +1,28 @@
 # luisd.model.upsert_legal_entity_access_metadata_request.UpsertLegalEntityAccessMetadataRequest
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**metadata** | **[AccessMetadataValue], none_type** | The access control metadata to assign to a Legal Entity that matches the identifier | [optional] 
+dict, frozendict.frozendict,  | frozendict.frozendict,  |  | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**[metadata](#metadata)** | list, tuple, None,  | tuple, NoneClass,  | The access control metadata to assign to a Legal Entity that matches the identifier | [optional] 
+
+# metadata
+
+The access control metadata to assign to a Legal Entity that matches the identifier
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | The access control metadata to assign to a Legal Entity that matches the identifier | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**AccessMetadataValue**](AccessMetadataValue.md) | [**AccessMetadataValue**](AccessMetadataValue.md) | [**AccessMetadataValue**](AccessMetadataValue.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

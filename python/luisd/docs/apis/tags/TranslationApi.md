@@ -76,28 +76,28 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsRequest**](TranslateInstrumentDefinitionsRequest.md) |  | 
+[**TranslateInstrumentDefinitionsRequest**](../../models/TranslateInstrumentDefinitionsRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsRequest**](TranslateInstrumentDefinitionsRequest.md) |  | 
+[**TranslateInstrumentDefinitionsRequest**](../../models/TranslateInstrumentDefinitionsRequest.md) |  | 
 
 
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsRequest**](TranslateInstrumentDefinitionsRequest.md) |  | 
+[**TranslateInstrumentDefinitionsRequest**](../../models/TranslateInstrumentDefinitionsRequest.md) |  | 
 
 
-#### SchemaForRequestBodyApplicationJson
+# SchemaForRequestBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsRequest**](TranslateInstrumentDefinitionsRequest.md) |  | 
+[**TranslateInstrumentDefinitionsRequest**](../../models/TranslateInstrumentDefinitionsRequest.md) |  | 
 
 
 ### Return Types, Responses
@@ -105,75 +105,72 @@ Type | Description  | Notes
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The successfully translated instruments along with any failures
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#translate_instrument_definitions.ApiResponseFor200) | The successfully translated instruments along with any failures
+400 | [ApiResponseFor400](#translate_instrument_definitions.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#translate_instrument_definitions.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### translate_instrument_definitions.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsResponse**](TranslateInstrumentDefinitionsResponse.md) |  | 
+[**TranslateInstrumentDefinitionsResponse**](../../models/TranslateInstrumentDefinitionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsResponse**](TranslateInstrumentDefinitionsResponse.md) |  | 
+[**TranslateInstrumentDefinitionsResponse**](../../models/TranslateInstrumentDefinitionsResponse.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**TranslateInstrumentDefinitionsResponse**](TranslateInstrumentDefinitionsResponse.md) |  | 
+[**TranslateInstrumentDefinitionsResponse**](../../models/TranslateInstrumentDefinitionsResponse.md) |  | 
 
 
-#### ApiResponseFor400
+#### translate_instrument_definitions.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### translate_instrument_definitions.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**TranslateInstrumentDefinitionsResponse**](TranslateInstrumentDefinitionsResponse.md)
 
 ### Authorization
 

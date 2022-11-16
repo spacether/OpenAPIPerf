@@ -13,7 +13,7 @@
 from luisd.paths.api_referenceportfolios_scope.post import CreateReferencePortfolio
 from luisd.paths.api_referenceportfolios_scope_code_constituents.get import GetReferencePortfolioConstituents
 from luisd.paths.api_referenceportfolios_scope_code_constituentsadjustments.get import ListConstituentsAdjustments
-from luisd.paths.api_referenceportfolios_scope_code_constituents_1.post import UpsertReferencePortfolioConstituents
+from luisd.paths.api_referenceportfolios_scope_code_constituents.post import UpsertReferencePortfolioConstituents
 
 
 class ReferencePortfolioApi(

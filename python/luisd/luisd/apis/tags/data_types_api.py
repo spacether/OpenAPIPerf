@@ -13,9 +13,9 @@
 from luisd.paths.api_datatypes.post import CreateDataType
 from luisd.paths.api_datatypes_scope_code.get import GetDataType
 from luisd.paths.api_datatypes_scope_code_units.get import GetUnitsFromDataType
-from luisd.paths.api_datatypes_1.get import ListDataTypeSummaries
+from luisd.paths.api_datatypes.get import ListDataTypeSummaries
 from luisd.paths.api_datatypes_scope.get import ListDataTypes
-from luisd.paths.api_datatypes_scope_code_2.put import UpdateDataType
+from luisd.paths.api_datatypes_scope_code.put import UpdateDataType
 from luisd.paths.api_datatypes_scope_code_referencedatavalues.put import UpdateReferenceValues
 
 

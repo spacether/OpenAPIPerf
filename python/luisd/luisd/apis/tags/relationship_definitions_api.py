@@ -12,8 +12,8 @@
 
 from luisd.paths.api_relationshipdefinitions.post import CreateRelationshipDefinition
 from luisd.paths.api_relationshipdefinitions_scope_code.get import GetRelationshipDefinition
-from luisd.paths.api_relationshipdefinitions_1.get import ListRelationshipDefinitions
-from luisd.paths.api_relationshipdefinitions_scope_code_2.put import UpdateRelationshipDefinition
+from luisd.paths.api_relationshipdefinitions.get import ListRelationshipDefinitions
+from luisd.paths.api_relationshipdefinitions_scope_code.put import UpdateRelationshipDefinition
 
 
 class RelationshipDefinitionsApi(

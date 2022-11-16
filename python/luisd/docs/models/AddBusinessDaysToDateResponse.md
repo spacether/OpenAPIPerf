@@ -2,10 +2,15 @@
 
 The date that is the requested number of business days after the given start date
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**value** | **datetime** |  | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The date that is the requested number of business days after the given start date | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**value** | str, datetime,  | str,  |  | value must conform to RFC-3339 date-time
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

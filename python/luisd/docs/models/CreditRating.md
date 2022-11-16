@@ -2,11 +2,16 @@
 
 Object describing a credit rating,  which assesses the stability and credit worthiness of a legal entity  and hence its likelihood of defaulting on its outstanding obligations (typically debt).
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**ratingSource** | **str** | The provider of the credit rating, which will typically be an agency such as Moody&#x27;s or Standard and Poor. | 
-**rating** | **str** | The credit rating provided by the rating source. This would expected to be consistent with the rating scheme of that agency/source. | 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | Object describing a credit rating,  which assesses the stability and credit worthiness of a legal entity  and hence its likelihood of defaulting on its outstanding obligations (typically debt). | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**rating** | str,  | str,  | The credit rating provided by the rating source. This would expected to be consistent with the rating scheme of that agency/source. | 
+**ratingSource** | str,  | str,  | The provider of the credit rating, which will typically be an agency such as Moody&#x27;s or Standard and Poor. | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

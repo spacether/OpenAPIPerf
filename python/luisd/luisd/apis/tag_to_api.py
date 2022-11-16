@@ -1,4 +1,4 @@
-import typing
+import typing_extensions
 
 from luisd.apis.tags import TagValues
 from luisd.apis.tags.aggregation_api import AggregationApi
@@ -48,7 +48,7 @@ from luisd.apis.tags.system_configuration_api import SystemConfigurationApi
 from luisd.apis.tags.transaction_portfolios_api import TransactionPortfoliosApi
 from luisd.apis.tags.translation_api import TranslationApi
 
-TagToApi = typing.TypedDict(
+TagToApi = typing_extensions.TypedDict(
     'TagToApi',
     {
         TagValues.AGGREGATION: AggregationApi,

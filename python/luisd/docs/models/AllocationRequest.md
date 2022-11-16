@@ -2,25 +2,72 @@
 
 A request to create or update an Allocation.
 
-#### Properties
-Name | Type | Description | Notes
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**properties** | **{str: (PerpetualProperty,)}, none_type** | Client-defined properties associated with this allocation. | [optional] 
-**instrumentIdentifiers** | **{str: (str,)}** | The instrument allocated. | 
-**quantity** | **int** | The quantity of given instrument allocated. | 
-**portfolioId** | [**ResourceId**](ResourceId.md) |  | 
-**allocatedOrderId** | [**ResourceId**](ResourceId.md) |  | 
-**id** | [**ResourceId**](ResourceId.md) |  | 
-**placementIds** | **[ResourceId], none_type** | A placement - also known as an order placed in the market - associated with this allocation. | [optional] 
-**state** | **str, none_type** | The state of this allocation. | [optional] 
-**side** | **str, none_type** | The side of this allocation (examples: Buy, Sell, ...). | [optional] 
-**type** | **str, none_type** | The type of order associated with this allocation (examples: Limit, Market, ...). | [optional] 
-**settlementDate** | **datetime** | The settlement date for this allocation. | [optional] 
-**date** | **datetime** | The date of this allocation. | [optional] 
-**price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
-**settlementCurrency** | **str, none_type** | The settlement currency of this allocation. | [optional] 
-**settlementCurrencyFxRate** | **int, float** | The settlement currency to allocation currency FX rate. | [optional] 
-**counterparty** | **str, none_type** | The counterparty for this allocation. | [optional] 
+dict, frozendict.frozendict,  | frozendict.frozendict,  | A request to create or update an Allocation. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**allocatedOrderId** | [**ResourceId**](ResourceId.md) | [**ResourceId**](ResourceId.md) |  | 
+**portfolioId** | [**ResourceId**](ResourceId.md) | [**ResourceId**](ResourceId.md) |  | 
+**quantity** | decimal.Decimal, int,  | decimal.Decimal,  | The quantity of given instrument allocated. | value must be a 32 bit integer
+**[instrumentIdentifiers](#instrumentIdentifiers)** | dict, frozendict.frozendict,  | frozendict.frozendict,  | The instrument allocated. | 
+**id** | [**ResourceId**](ResourceId.md) | [**ResourceId**](ResourceId.md) |  | 
+**[properties](#properties)** | dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | Client-defined properties associated with this allocation. | [optional] 
+**[placementIds](#placementIds)** | list, tuple, None,  | tuple, NoneClass,  | A placement - also known as an order placed in the market - associated with this allocation. | [optional] 
+**state** | None, str,  | NoneClass, str,  | The state of this allocation. | [optional] 
+**side** | None, str,  | NoneClass, str,  | The side of this allocation (examples: Buy, Sell, ...). | [optional] 
+**type** | None, str,  | NoneClass, str,  | The type of order associated with this allocation (examples: Limit, Market, ...). | [optional] 
+**settlementDate** | str, datetime,  | str,  | The settlement date for this allocation. | [optional] value must conform to RFC-3339 date-time
+**date** | str, datetime,  | str,  | The date of this allocation. | [optional] value must conform to RFC-3339 date-time
+**price** | [**CurrencyAndAmount**](CurrencyAndAmount.md) | [**CurrencyAndAmount**](CurrencyAndAmount.md) |  | [optional] 
+**settlementCurrency** | None, str,  | NoneClass, str,  | The settlement currency of this allocation. | [optional] 
+**settlementCurrencyFxRate** | decimal.Decimal, int, float,  | decimal.Decimal,  | The settlement currency to allocation currency FX rate. | [optional] value must be a 64 bit float
+**counterparty** | None, str,  | NoneClass, str,  | The counterparty for this allocation. | [optional] 
+
+# instrumentIdentifiers
+
+The instrument allocated.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict,  | frozendict.frozendict,  | The instrument allocated. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | str,  | str,  | any string name can be used but the value must be the correct type | [optional] 
+
+# properties
+
+Client-defined properties associated with this allocation.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+dict, frozendict.frozendict, None,  | frozendict.frozendict, NoneClass,  | Client-defined properties associated with this allocation. | 
+
+### Dictionary Keys
+Key | Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | ------------- | -------------
+**any_string_name** | [**PerpetualProperty**](PerpetualProperty.md) | [**PerpetualProperty**](PerpetualProperty.md) | any string name can be used but the value must be the correct type | [optional] 
+
+# placementIds
+
+A placement - also known as an order placed in the market - associated with this allocation.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple, None,  | tuple, NoneClass,  | A placement - also known as an order placed in the market - associated with this allocation. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**ResourceId**](ResourceId.md) | [**ResourceId**](ResourceId.md) | [**ResourceId**](ResourceId.md) |  | 
 
 [[Back to Model list]](../../README.md#documentation-for-models) [[Back to API list]](../../README.md#documentation-for-api-endpoints) [[Back to README]](../../README.md)
 

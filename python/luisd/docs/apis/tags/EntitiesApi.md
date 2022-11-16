@@ -95,104 +95,104 @@ effectiveAt | EffectiveAtSchema | |
 asAt | AsAtSchema | | optional
 
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The scope | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The scope | 
 
-#### EffectiveAtSchema
+# EffectiveAtSchema
 
 The effective date of the origin.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**str** | The effective date of the origin. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+str,  | str,  | The effective date of the origin. | 
 
-#### AsAtSchema
+# AsAtSchema
 
 The as-at date of the origin.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str, datetime,  | NoneClass, str,  | The as-at date of the origin. | value must conform to RFC-3339 date-time
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-400 | ApiResponseFor400 | The details of the input related failure
-200 | ApiResponseFor200 | A list of portfolio changes in the requested scope relative to the specified time.
-default | ApiResponseForDefault | Error response
+400 | [ApiResponseFor400](#get_portfolio_changes.ApiResponseFor400) | The details of the input related failure
+200 | [ApiResponseFor200](#get_portfolio_changes.ApiResponseFor200) | A list of portfolio changes in the requested scope relative to the specified time.
+default | [ApiResponseForDefault](#get_portfolio_changes.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor400
+#### get_portfolio_changes.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseFor200
+#### get_portfolio_changes.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfChange**](ResourceListOfChange.md) |  | 
+[**ResourceListOfChange**](../../models/ResourceListOfChange.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfChange**](ResourceListOfChange.md) |  | 
+[**ResourceListOfChange**](../../models/ResourceListOfChange.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**ResourceListOfChange**](ResourceListOfChange.md) |  | 
+[**ResourceListOfChange**](../../models/ResourceListOfChange.md) |  | 
 
 
-#### ApiResponseForDefault
+#### get_portfolio_changes.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**ResourceListOfChange**](ResourceListOfChange.md)
 
 ### Authorization
 

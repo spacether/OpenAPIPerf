@@ -15,10 +15,10 @@ from luisd.paths.api_quotes_scope_delete.post import DeleteQuotes
 from luisd.paths.api_quotes_scope_get.post import GetQuotes
 from luisd.paths.api_metadata_quotes_rules.get import GetQuotesAccessMetadataRule
 from luisd.paths.api_quotes_scope_deprecated.get import ListQuotes
-from luisd.paths.api_metadata_quotes_rules_scope_1.get import ListQuotesAccessMetadataRules
+from luisd.paths.api_metadata_quotes_rules_scope.get import ListQuotesAccessMetadataRules
 from luisd.paths.api_quotes_scope.get import ListQuotesForScope
-from luisd.paths.api_metadata_quotes_rules_scope_2.post import UpsertQuoteAccessMetadataRule
-from luisd.paths.api_quotes_scope_3.post import UpsertQuotes
+from luisd.paths.api_metadata_quotes_rules_scope.post import UpsertQuoteAccessMetadataRule
+from luisd.paths.api_quotes_scope.post import UpsertQuotes
 
 
 class QuotesApi(

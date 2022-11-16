@@ -95,37 +95,61 @@ skip_deserialization | bool | default is False | when True, headers and body wil
 
 ### body
 
-#### SchemaForRequestBodyApplicationJsonPatchjson
+# SchemaForRequestBodyApplicationJsonPatchjson
 
 A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentSearchProperty]** | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) |  | 
 
-A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
-
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentSearchProperty]** | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
-
-#### SchemaForRequestBodyTextJson
+# SchemaForRequestBodyApplicationJson
 
 A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentSearchProperty]** | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
 
-#### SchemaForRequestBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) |  | 
+
+# SchemaForRequestBodyTextJson
 
 A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentSearchProperty]** | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) |  | 
+
+# SchemaForRequestBodyApplicationJson
+
+A collection of instrument properties to search for. LUSID will return instruments for any matched              properties.
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  | A collection of instrument properties to search for. LUSID will return instruments for any matched              properties. | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) | [**InstrumentSearchProperty**]({{complexTypePrefix}}InstrumentSearchProperty.md) |  | 
 
 ### query_params
 #### RequestQueryParams
@@ -137,104 +161,122 @@ masteredOnly | MasteredOnlySchema | | optional
 scope | ScopeSchema | | optional
 
 
-#### MasteredEffectiveAtSchema
+# MasteredEffectiveAtSchema
 
 The effective datetime or cut label to use when searching mastered instruments. This parameter has no effect on instruments that  have not been mastered within LUSID. Defaults to the current LUSID system datetime if not specified.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The effective datetime or cut label to use when searching mastered instruments. This parameter has no effect on instruments that  have not been mastered within LUSID. Defaults to the current LUSID system datetime if not specified. | 
 
-#### MasteredOnlySchema
+# MasteredOnlySchema
 
 If set to true, only search over instruments that have been mastered within LUSID. Defaults to false.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**bool** | If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. | defaults to False
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+bool,  | BoolClass,  | If set to true, only search over instruments that have been mastered within LUSID. Defaults to false. | if omitted the server will use the default value of False
 
-#### ScopeSchema
+# ScopeSchema
 
 The scope in which the instrument lies.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | The scope in which the instrument lies. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | The instruments found by the search
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#instruments_search.ApiResponseFor200) | The instruments found by the search
+400 | [ApiResponseFor400](#instruments_search.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#instruments_search.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### instruments_search.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentMatch]** |  | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
 
-#### SchemaFor200ResponseBodyApplicationJson
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) |  | 
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentMatch]** |  | 
+# SchemaFor200ResponseBodyApplicationJson
 
-#### SchemaFor200ResponseBodyTextJson
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**[InstrumentMatch]** |  | 
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) |  | 
 
-#### ApiResponseFor400
+# SchemaFor200ResponseBodyTextJson
+
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+list, tuple,  | tuple,  |  | 
+
+### Tuple Items
+Class Name | Input Type | Accessed Type | Description | Notes
+------------- | ------------- | ------------- | ------------- | -------------
+[**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) | [**InstrumentMatch**]({{complexTypePrefix}}InstrumentMatch.md) |  | 
+
+#### instruments_search.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### instruments_search.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**[InstrumentMatch]**](InstrumentMatch.md)
 
 ### Authorization
 
@@ -320,120 +362,122 @@ limit | LimitSchema | | optional
 page | PageSchema | | optional
 
 
-#### SearchSchema
+# SearchSchema
 
 A parameter used for searching any portfolio group field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | A parameter used for searching any portfolio group field. Wildcards(*) are supported at the end of words (e.g. &#x27;Port*&#x27;). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.   For example, to filter on the Scope, use \"id.scope eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.   For example, to filter on the Scope, use \&quot;id.scope eq &#x27;string&#x27;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### SortBySchema
+# SortBySchema
 
 Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, only return this number of records
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**int** | When paginating, only return this number of records | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  | When paginating, only return this number of records | value must be a 32 bit integer
 
-#### PageSchema
+# PageSchema
 
 Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#search_portfolio_groups.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#search_portfolio_groups.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#search_portfolio_groups.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### search_portfolio_groups.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioGroupSearchResult**](PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioGroupSearchResult**](../../models/PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioGroupSearchResult**](PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioGroupSearchResult**](../../models/PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioGroupSearchResult**](PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioGroupSearchResult**](../../models/PagedResourceListOfPortfolioGroupSearchResult.md) |  | 
 
 
-#### ApiResponseFor400
+#### search_portfolio_groups.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### search_portfolio_groups.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfPortfolioGroupSearchResult**](PagedResourceListOfPortfolioGroupSearchResult.md)
 
 ### Authorization
 
@@ -519,120 +563,122 @@ limit | LimitSchema | | optional
 page | PageSchema | | optional
 
 
-#### SearchSchema
+# SearchSchema
 
 A parameter used for searching any portfolio field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | A parameter used for searching any portfolio field. Wildcards(*) are supported at the end of words (e.g. &#x27;Port*&#x27;). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.   For example, to filter on the portfolio Type, use \"type eq 'Transaction'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.   For example, to filter on the portfolio Type, use \&quot;type eq &#x27;Transaction&#x27;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### SortBySchema
+# SortBySchema
 
 Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, only return this number of records
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**int** | When paginating, only return this number of records | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  | When paginating, only return this number of records | value must be a 32 bit integer
 
-#### PageSchema
+# PageSchema
 
 Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#search_portfolios.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#search_portfolios.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#search_portfolios.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### search_portfolios.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioSearchResult**](PagedResourceListOfPortfolioSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioSearchResult**](../../models/PagedResourceListOfPortfolioSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioSearchResult**](PagedResourceListOfPortfolioSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioSearchResult**](../../models/PagedResourceListOfPortfolioSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPortfolioSearchResult**](PagedResourceListOfPortfolioSearchResult.md) |  | 
+[**PagedResourceListOfPortfolioSearchResult**](../../models/PagedResourceListOfPortfolioSearchResult.md) |  | 
 
 
-#### ApiResponseFor400
+#### search_portfolios.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### search_portfolios.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfPortfolioSearchResult**](PagedResourceListOfPortfolioSearchResult.md)
 
 ### Authorization
 
@@ -718,120 +764,122 @@ limit | LimitSchema | | optional
 page | PageSchema | | optional
 
 
-#### SearchSchema
+# SearchSchema
 
 A parameter used for searching any field. Wildcards(*) are supported at the end of words (e.g. 'Port*'). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | A parameter used for searching any field. Wildcards(*) are supported at the end of words (e.g. &#x27;Port*&#x27;). Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### FilterSchema
+# FilterSchema
 
 Expression to filter the result set.   For example, to filter on the Value Type, use \"valueType eq 'string'\"  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Expression to filter the result set.   For example, to filter on the Value Type, use \&quot;valueType eq &#x27;string&#x27;\&quot;  Read more about filtering results from LUSID here https://support.lusid.com/filtering-results-from-lusid. | 
 
-#### SortBySchema
+# SortBySchema
 
 Order the results by these fields. Use use the '-' sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Order the results by these fields. Use use the &#x27;-&#x27; sign to denote descending order e.g. -MyFieldName. Multiple fields can be denoted by a comma e.g. -MyFieldName,AnotherFieldName,-AFurtherFieldName | 
 
-#### LimitSchema
+# LimitSchema
 
 When paginating, only return this number of records
 
-Type | Description | Notes
-------------- | ------------- | -------------
-**int** | When paginating, only return this number of records | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+decimal.Decimal, int,  | decimal.Decimal,  | When paginating, only return this number of records | value must be a 32 bit integer
 
-#### PageSchema
+# PageSchema
 
 Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied.
 
-Type | Description | Notes
-------------- | ------------- | -------------
-typing.Union[str, None, ] | | 
+## Model Type Info
+Input Type | Accessed Type | Description | Notes
+------------ | ------------- | ------------- | -------------
+None, str,  | NoneClass, str,  | Encoded page string returned from a previous search result that will retrieve the next page of data. When this field is supplied, filter, sortBy and search fields should not be supplied. | 
 
 ### Return Types, Responses
 
 Code | Class | Description
 ------------- | ------------- | -------------
 n/a | api_client.ApiResponseWithoutDeserialization | When skip_deserialization is True this response is returned
-200 | ApiResponseFor200 | Success
-400 | ApiResponseFor400 | The details of the input related failure
-default | ApiResponseForDefault | Error response
+200 | [ApiResponseFor200](#search_properties.ApiResponseFor200) | Success
+400 | [ApiResponseFor400](#search_properties.ApiResponseFor400) | The details of the input related failure
+default | [ApiResponseForDefault](#search_properties.ApiResponseForDefault) | Error response
 
-#### ApiResponseFor200
+#### search_properties.ApiResponseFor200
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor200ResponseBodyTextPlain, SchemaFor200ResponseBodyApplicationJson, SchemaFor200ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor200ResponseBodyTextPlain
+# SchemaFor200ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPropertyDefinitionSearchResult**](PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
+[**PagedResourceListOfPropertyDefinitionSearchResult**](../../models/PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyApplicationJson
+# SchemaFor200ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPropertyDefinitionSearchResult**](PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
+[**PagedResourceListOfPropertyDefinitionSearchResult**](../../models/PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
 
 
-#### SchemaFor200ResponseBodyTextJson
+# SchemaFor200ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**PagedResourceListOfPropertyDefinitionSearchResult**](PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
+[**PagedResourceListOfPropertyDefinitionSearchResult**](../../models/PagedResourceListOfPropertyDefinitionSearchResult.md) |  | 
 
 
-#### ApiResponseFor400
+#### search_properties.ApiResponseFor400
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor400ResponseBodyTextPlain, SchemaFor400ResponseBodyApplicationJson, SchemaFor400ResponseBodyTextJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor400ResponseBodyTextPlain
+# SchemaFor400ResponseBodyTextPlain
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyApplicationJson
+# SchemaFor400ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### SchemaFor400ResponseBodyTextJson
+# SchemaFor400ResponseBodyTextJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidValidationProblemDetails**](LusidValidationProblemDetails.md) |  | 
+[**LusidValidationProblemDetails**](../../models/LusidValidationProblemDetails.md) |  | 
 
 
-#### ApiResponseForDefault
+#### search_properties.ApiResponseForDefault
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
 response | urllib3.HTTPResponse | Raw response |
 body | typing.Union[SchemaFor0ResponseBodyApplicationJson, ] |  |
 headers | Unset | headers were not defined |
 
-#### SchemaFor0ResponseBodyApplicationJson
+# SchemaFor0ResponseBodyApplicationJson
 Type | Description  | Notes
 ------------- | ------------- | -------------
-[**LusidProblemDetails**](LusidProblemDetails.md) |  | 
+[**LusidProblemDetails**](../../models/LusidProblemDetails.md) |  | 
 
-
-
-[**PagedResourceListOfPropertyDefinitionSearchResult**](PagedResourceListOfPropertyDefinitionSearchResult.md)
 
 ### Authorization
 

@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_recipes_scope_code.delete import DeleteConfigurationRecipe
-from luisd.paths.api_recipes_scope_code_1.get import GetConfigurationRecipe
+from luisd.paths.api_recipes_scope_code.get import GetConfigurationRecipe
 from luisd.paths.api_recipes.get import ListConfigurationRecipes
-from luisd.paths.api_recipes_2.post import UpsertConfigurationRecipe
+from luisd.paths.api_recipes.post import UpsertConfigurationRecipe
 
 
 class ConfigurationRecipeApi(

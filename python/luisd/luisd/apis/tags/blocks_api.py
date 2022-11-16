@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_blocks_scope_code.delete import DeleteBlock
-from luisd.paths.api_blocks_scope_code_1.get import GetBlock
+from luisd.paths.api_blocks_scope_code.get import GetBlock
 from luisd.paths.api_blocks.get import ListBlocks
-from luisd.paths.api_blocks_2.post import UpsertBlocks
+from luisd.paths.api_blocks.post import UpsertBlocks
 
 
 class BlocksApi(

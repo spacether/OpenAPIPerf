@@ -11,9 +11,9 @@
 """
 
 from luisd.paths.api_executions_scope_code.delete import DeleteExecution
-from luisd.paths.api_executions_scope_code_1.get import GetExecution
+from luisd.paths.api_executions_scope_code.get import GetExecution
 from luisd.paths.api_executions.get import ListExecutions
-from luisd.paths.api_executions_2.post import UpsertExecutions
+from luisd.paths.api_executions.post import UpsertExecutions
 
 
 class ExecutionsApi(
